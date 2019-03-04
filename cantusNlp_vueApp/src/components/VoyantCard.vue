@@ -16,8 +16,9 @@
         </li>
       </ul>
     </div>
+    <!--<iframe class="card-img-top" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>-->
     <div class="card-body">
-      <iframe src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>
+      <iframe class="card-img" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
@@ -56,6 +57,9 @@
   .card {
     min-height: 400px;
     min-width: 600px;
+    /*max-width: 800px;*/
+    margin: .5em;
+    padding: .5em;
     /*border: none;*/
   }
 
@@ -63,8 +67,8 @@
     margin:-18px;
     padding: 0;
     width: 100%;
-    height: 600px;
     border: none;
+    min-height: 400px;
   }
 
 

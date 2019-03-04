@@ -1,5 +1,5 @@
 <template>
-  <div class="card-columns">
+  <div class="card-deck">
     <nlp-app-voyant-card :corpora="corpora"></nlp-app-voyant-card>
   </div>
 </template>
