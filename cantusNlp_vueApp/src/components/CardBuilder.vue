@@ -41,10 +41,6 @@
     color:white;
   }
 
-  .fa-plus-square {
-    color:white;
-  }
-
   hr {
     color: white;
     border: .05em white solid;
