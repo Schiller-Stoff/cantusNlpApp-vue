@@ -7,9 +7,11 @@
             <option>Hier LO auswählen</option>
           </select>
         </div>
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="inputPassword2" class="sr-only">Password</label>
-          <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+        <div class="form-group mb-2">
+          <label for="LO_view_select" class="sr-only">Email</label>
+          <select id="LO_view_select" class="form-control form-control">
+            <option>Ansicht wählen</option>
+          </select>
         </div>
         <button type="submit" class="btn btn-primary mb-2">LO hinzufügen</button>
       </form>
@@ -27,6 +29,10 @@
   .container {
     margin-top: 1%;
     margin-left:7.5%;
+  }
+
+  .form-group {
+    margin-right: 1.5em;
   }
 
 </style>
