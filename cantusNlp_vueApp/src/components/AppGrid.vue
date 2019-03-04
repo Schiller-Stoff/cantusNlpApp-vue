@@ -2,15 +2,21 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col col-1"></div>
-      <div class="col col-8"></div>
+      <div class="col col-8">
+        <nlp-app-card-grid></nlp-app-card-grid>
+      </div>
       <div class="col col-2"></div>
     </div>
   </div>
 </template>
 
 <script>
+    import CardGrid from "./CardGrid.vue";
     export default {
-        name: "AppGrid"
+      name: "AppGrid",
+      components: {
+        nlpAppCardGrid: CardGrid
+      }
     }
 </script>
 
