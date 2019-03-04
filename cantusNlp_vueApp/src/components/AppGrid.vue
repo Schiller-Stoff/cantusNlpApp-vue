@@ -45,6 +45,7 @@
     background-color: darkblue;
     /*max-height: 600px;*/
     max-width: 100px;
+    min-height: 400px;
   }
 
   .col-2 {
@@ -53,7 +54,7 @@
 
   .col-11 {
     background-color: white;
-    min-height: 1000px;
+    /*min-height: 500px;*/
   }
 
 
