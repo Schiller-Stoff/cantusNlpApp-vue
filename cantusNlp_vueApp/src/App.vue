@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'app',
   data () {
@@ -13,6 +14,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style lang="scss">
