@@ -50,7 +50,7 @@
           iframeVoyantUrl: this.linkedCorpus.voy_corpus,
           currentView: "Corpus Ansicht",
           isShown: true,
-          currentVoyantTool:"",
+          currentVoyantTool:"", //reassigned in mounted hook
           activeTab:"wordCloud"
         }
       },
