@@ -1,9 +1,9 @@
 <template>
-  <div class="card text-center">
+  <div class="card text-center" v-if="isShown">
     <div class="card-header">
       <!--<h5>LO Name</h5>-->
       <!--<hr>-->
-      <button class="btn btn-link float-right">Close</button>
+      <button class="btn btn-link float-right" @click="removeCard">Close</button>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
           <a class="nav-link active" href="#">WordCloud</a>
@@ -22,8 +22,7 @@
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
-      <a href="#" class="btn btn-primary" @click.prevent="toggleLemmaCorpusView">Toggle Lemma/Corpus</a>
-      <button class="btn btn-secondary">Remove Card</button>
+      <a href="#" class="btn btn-primary" @click.prevent="toggleLemmaCorpusView">Toggle Lemma/Corpus - View</a>
       <!--<button>Lemma</button>-->
       <hr>
       <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
@@ -48,7 +47,8 @@
       data(){
         return {
           iframeVoyantUrl: this.linkedCorpus.voy_corpus,
-          currentView: "Corpus Ansicht"
+          currentView: "Corpus Ansicht",
+          isShown: true
         }
       },
       methods: {
@@ -60,8 +60,9 @@
             this.currentView = "Corpus Ansicht";
             this.iframeVoyantUrl = this.linkedCorpus.voy_corpus;
           }
-
-          //return this.iframeVoyantUrl = (this.iframeVoyantUrl === this.linkedCorpus.voy_corpus) ? this.linkedCorpus.voy_lemma : this.linkedCorpus.voy_corpus;
+        },
+        removeCard(){
+          this.isShown=false;
         }
       }
     }
