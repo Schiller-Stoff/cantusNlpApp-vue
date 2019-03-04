@@ -49,6 +49,7 @@
     color: white;
     border: .05em white solid;
     border-radius: 10em;
+    width: 3em;
   }
 
   .fa-atlas:before{
