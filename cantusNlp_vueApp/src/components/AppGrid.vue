@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col col-1"></div>
-      <div class="col col-8">
+      <div class="col col-10">
         <nlp-app-card-grid></nlp-app-card-grid>
       </div>
-      <div class="col col-2"></div>
+      <!--<div class="col col-2"></div>-->
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@
 <style scoped>
 
   div.row {
-    padding: 10em;
+    padding: 8em;
   }
 
   div.col {
@@ -44,7 +44,7 @@
     background-color: grey;
   }
 
-  .col-8 {
+  .col-10 {
     background-color: white;
     min-height: 1000px;
   }
