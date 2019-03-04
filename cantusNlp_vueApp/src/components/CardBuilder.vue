@@ -51,4 +51,8 @@
     border-radius: 10em;
   }
 
+  .fa-atlas:before{
+    cursor: pointer;
+  }
+
 </style>
