@@ -18,11 +18,11 @@
     </div>
     <!--<iframe class="card-img-top" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>-->
     <div class="card-body">
-      <iframe class="card-img" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>
+      <iframe class="card-img" :src=iframeVoyantUrl></iframe>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
-      <a href="#" class="btn btn-primary">Toggle Lemma/Corpus</a>
+      <a href="#" class="btn btn-primary" @click.prevent="toggleLemmaCorpusView">Toggle Lemma/Corpus</a>
       <button class="btn btn-secondary">Remove Card</button>
       <!--<button>Lemma</button>-->
       <hr>
@@ -45,6 +45,16 @@
     export default {
       name: "VoyantCard",
       props: ['corpora','linkedCorpus'],
+      data(){
+        return {
+          iframeVoyantUrl: this.linkedCorpus.voy_corpus
+        }
+      },
+      methods: {
+        toggleLemmaCorpusView(){
+          return this.iframeVoyantUrl = (this.iframeVoyantUrl === this.linkedCorpus.voy_corpus) ? this.linkedCorpus.voy_lemma : this.linkedCorpus.voy_corpus;
+        }
+      }
     }
 </script>
 
