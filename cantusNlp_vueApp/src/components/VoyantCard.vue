@@ -26,7 +26,6 @@
       <!--<button>Lemma</button>-->
       <hr>
       <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
-      <button @click.prevent="changeVoyantTool('Reader'),detectCurrentVoyantTool ">This is a test</button>
     </div>
   </div>
 
