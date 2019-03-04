@@ -6,13 +6,13 @@
       <button class="btn btn-link float-right" @click="removeCard">Close</button>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link active" href="#" @click.prevent="changeVoyantTool('Cirrus')">WordCloud</a>
+          <a class="nav-link" :class="(currentVoyantTool==='Cirrus') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Cirrus');">WordCloud</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" @click.prevent="changeVoyantTool('Reader')">Reader</a>
+          <a class="nav-link" :class="(currentVoyantTool==='Reader') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Reader');">Reader</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" @click.prevent="changeVoyantTool('Summary')">Summary</a>
+          <a class="nav-link" :class="(currentVoyantTool==='Summary') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Summary')">Summary</a>
         </li>
       </ul>
     </div>
@@ -50,7 +50,8 @@
           iframeVoyantUrl: this.linkedCorpus.voy_corpus,
           currentView: "Corpus Ansicht",
           isShown: true,
-          currentVoyantTool:""
+          currentVoyantTool:"",
+          activeTab:"wordCloud"
         }
       },
       methods: {
@@ -68,10 +69,8 @@
         },
         changeVoyantTool(toolToSet){
           let curTool = this.detectCurrentVoyantTool();
-          console.log(curTool);
           this.iframeVoyantUrl = this.iframeVoyantUrl.replace(curTool,toolToSet);
           this.currentVoyantTool = toolToSet;
-          console.log(this.iframeVoyantUrl);
         },
         detectCurrentVoyantTool(){
           let regxString = this.iframeVoyantUrl.match("tool/.+/").toString();
