@@ -1,6 +1,8 @@
 <template>
   <div class="card-deck">
-    <nlp-app-voyant-card :corpora="corpora" v-for="card in cardsToCreate"></nlp-app-voyant-card>
+    <nlp-app-voyant-card :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus">
+      <h5>{{corpus.name}}</h5>
+    </nlp-app-voyant-card>
   </div>
 </template>
 
@@ -15,14 +17,12 @@
     props: ["corpora"],
     data(){
       return {
-        cardsToCreate: [
-
-        ]
+        cardsToCreate: []
       }
     },
     created(){
-      EventBus.$on('cardCreate',() => {
-        this.cardsToCreate.push(this.corpora[1]);
+      EventBus.$on('cardCreate',(lo_to_create) => {
+        this.cardsToCreate.push(lo_to_create);
       });
     }
   }
