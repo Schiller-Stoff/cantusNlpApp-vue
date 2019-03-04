@@ -37,6 +37,7 @@
 
   div.col {
     margin:0;
+    min-height: 100vh;
   }
 
   div.container-fluid {
