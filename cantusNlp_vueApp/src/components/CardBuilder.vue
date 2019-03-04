@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <i class="fas fa-atlas fa-2x"></i>
+      <i class="fas fa-atlas fa-2x" @click="createLOCard"></i>
     </div>
     <hr>
     <div>
@@ -16,8 +16,15 @@
 </template>
 
 <script>
+    import {EventBus} from "./../main";
     export default {
-        name: "CardBuilder"
+      name: "CardBuilder",
+      methods: {
+        createLOCard(){
+          console.log("Click!");
+          EventBus.$emit('cardCreate');
+        }
+      }
     }
 </script>
 
