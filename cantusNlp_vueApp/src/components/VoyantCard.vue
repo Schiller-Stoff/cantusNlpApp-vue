@@ -26,7 +26,7 @@
       <button class="btn btn-secondary">Remove Card</button>
       <!--<button>Lemma</button>-->
       <hr>
-      <h5>{{ linkedCorpus.name }}</h5>
+      <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
     </div>
   </div>
 
@@ -47,12 +47,21 @@
       props: ['corpora','linkedCorpus'],
       data(){
         return {
-          iframeVoyantUrl: this.linkedCorpus.voy_corpus
+          iframeVoyantUrl: this.linkedCorpus.voy_corpus,
+          currentView: "Corpus Ansicht"
         }
       },
       methods: {
         toggleLemmaCorpusView(){
-          return this.iframeVoyantUrl = (this.iframeVoyantUrl === this.linkedCorpus.voy_corpus) ? this.linkedCorpus.voy_lemma : this.linkedCorpus.voy_corpus;
+          if(this.iframeVoyantUrl === this.linkedCorpus.voy_corpus){
+            this.currentView="Lemma Ansicht";
+            this.iframeVoyantUrl = this.linkedCorpus.voy_lemma;
+          } else {
+            this.currentView = "Corpus Ansicht";
+            this.iframeVoyantUrl = this.linkedCorpus.voy_corpus;
+          }
+
+          //return this.iframeVoyantUrl = (this.iframeVoyantUrl === this.linkedCorpus.voy_corpus) ? this.linkedCorpus.voy_lemma : this.linkedCorpus.voy_corpus;
         }
       }
     }
