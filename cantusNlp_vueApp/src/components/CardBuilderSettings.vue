@@ -4,7 +4,7 @@
         <div class="form-group mb-2">
           <label for="LO_select" class="sr-only">Email</label>
           <select id="LO_select" class="form-control form-control">
-            <option>Hier LO auswählen</option>
+            <option v-for="corpus in corpora">{{ corpus.name }}</option>
           </select>
         </div>
         <div class="form-group mb-2">
@@ -20,7 +20,8 @@
 
 <script>
     export default {
-        name: "CardBuilderSettings"
+      name: "CardBuilderSettings",
+      props: ["corpora"]
     }
 </script>
 
