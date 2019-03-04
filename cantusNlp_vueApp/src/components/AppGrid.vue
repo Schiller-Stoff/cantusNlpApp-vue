@@ -4,7 +4,7 @@
       <div class="col col-1 text-center">
         <nlp-app-card-builder></nlp-app-card-builder>
       </div>
-      <div class="col col-10">
+      <div class="col col-11">
         <nlp-app-card-grid :corpora="corpora"></nlp-app-card-grid>
       </div>
       <!--<div class="col col-2"></div>-->
@@ -28,7 +28,7 @@
 <style scoped>
 
   div.row {
-    padding: 8em;
+    padding: 1em;
   }
 
   div.col {
@@ -51,7 +51,7 @@
     background-color: grey;
   }
 
-  .col-10 {
+  .col-11 {
     background-color: white;
     min-height: 1000px;
   }
