@@ -1,9 +1,9 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col col-2"></div>
-      <div class="col col-8"></div>
       <div class="col col-1"></div>
+      <div class="col col-8"></div>
+      <div class="col col-2"></div>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@
 
   div.col {
     margin: .5em;
-    border-radius: 1em;
+    border-radius: .5em;
   }
 
   div.container-fluid {
@@ -31,11 +31,11 @@
   }
 
   .col-1 {
-    background-color: white;
+    background-color: darkblue;
   }
 
   .col-2 {
-    background-color: darkblue;
+    background-color: grey;
   }
 
   .col-8 {
