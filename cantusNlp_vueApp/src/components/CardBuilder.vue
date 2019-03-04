@@ -1,0 +1,47 @@
+<template>
+  <div>
+    <div>
+      <i class="fas fa-atlas fa-2x"></i>
+    </div>
+    <hr>
+    <div>
+      <i class="fas fa-adjust fa-2x"></i>
+      <i class="fab fa-creative-commons-share fa-2x"></i>
+    </div>
+    <hr>
+    <div>
+      <i class="fab fa-adn fa-2x"></i>
+    </div>
+  </div>
+</template>
+
+<script>
+    export default {
+        name: "CardBuilder"
+    }
+</script>
+
+<style scoped>
+
+  div {
+    margin-top: 2em;
+  }
+
+  i {
+    display: block;
+    margin-top: .5em;
+    margin-left: auto;
+    color:white;
+  }
+
+  .fa-plus-square {
+    color:white;
+  }
+
+  hr {
+    color: white;
+    border: .05em white solid;
+    border-radius: 10em;
+  }
+
+</style>
