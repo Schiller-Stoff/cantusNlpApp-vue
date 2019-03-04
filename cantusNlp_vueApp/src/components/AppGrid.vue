@@ -1,11 +1,15 @@
 <template>
   <div class="container-fluid">
+    <div class="row"></div>
     <div class="row">
-      <div class="col col-1 text-center">
+      <div class="col col-md-1 text-center">
         <nlp-app-card-builder></nlp-app-card-builder>
       </div>
-      <div class="col col-11">
+      <div class="col col-md-10">
         <nlp-app-card-grid :corpora="corpora"></nlp-app-card-grid>
+      </div>
+      <div class="col col-md-1 text-center">
+        <!--<nlp-app-card-builder></nlp-app-card-builder>-->
       </div>
       <!--<div class="col col-2"></div>-->
     </div>
@@ -27,36 +31,30 @@
 
 <style scoped>
 
-  div.row {
-    padding: 1em;
-  }
-
   div.col {
-    margin: .5em;
-    border-radius: .5em;
+    margin:0;
   }
 
   div.container-fluid {
     background-color: #eeeeee;
     min-height: 1000px;
+    padding-top: 5em;
+    padding-right: 0;
+    margin-right: 0;
   }
 
-  .col-1 {
+  .col-md-1 {
     background-color: darkblue;
-    /*max-height: 600px;*/
-    max-width: 100px;
     min-height: 400px;
   }
 
-  .col-2 {
-    background-color: grey;
-  }
-
-  .col-11 {
+  .col-md-10 {
     background-color: white;
-    /*min-height: 500px;*/
   }
 
-
+  .container-fluid .row:first-child {
+    min-height: 80px;
+    background-color: darkblue;
+  }
 
 </style>
