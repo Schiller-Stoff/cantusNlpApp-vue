@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nlp-app-grid></nlp-app-grid>
+    <nlp-app-grid :corpora="corpora"></nlp-app-grid>
   </div>
 </template>
 

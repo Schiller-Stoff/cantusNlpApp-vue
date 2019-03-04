@@ -1,6 +1,6 @@
 <template>
   <div class="card-columns">
-    <nlp-app-voyant-card></nlp-app-voyant-card>
+    <nlp-app-voyant-card :corpora="corpora"></nlp-app-voyant-card>
   </div>
 </template>
 
@@ -10,7 +10,8 @@
     name: "CardGrid",
     components: {
       nlpAppVoyantCard: VoyantCard
-    }
+    },
+    props: ["corpora"]
   }
 </script>
 

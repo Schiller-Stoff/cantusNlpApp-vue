@@ -25,7 +25,7 @@
       <button class="btn btn-secondary">Remove Card</button>
       <!--<button>Lemma</button>-->
       <hr>
-      <h5>LO Regensburg</h5>
+      <h5>{{ corpora[1].name }}</h5>
     </div>
   </div>
 
@@ -42,7 +42,8 @@
 
 <script>
     export default {
-        name: "VoyantCard"
+      name: "VoyantCard",
+      props: ['corpora']
     }
 </script>
 
