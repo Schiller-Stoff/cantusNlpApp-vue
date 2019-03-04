@@ -6,13 +6,13 @@
       <button class="btn btn-link float-right" @click="removeCard">Close</button>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link active" href="#">WordCloud</a>
+          <a class="nav-link active" href="#" @click.prevent="changeVoyantTool('Cirrus')">WordCloud</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Table</a>
+          <a class="nav-link" href="#" @click.prevent="changeVoyantTool('Reader')">Reader</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Overview</a>
+          <a class="nav-link" href="#" @click.prevent="changeVoyantTool('Summary')">Summary</a>
         </li>
       </ul>
     </div>
@@ -26,6 +26,7 @@
       <!--<button>Lemma</button>-->
       <hr>
       <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
+      <button @click.prevent="changeVoyantTool('Reader'),detectCurrentVoyantTool ">This is a test</button>
     </div>
   </div>
 
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+    import {EventBus} from "../main";
     export default {
       name: "VoyantCard",
       props: ['corpora','linkedCorpus'],
@@ -48,7 +50,8 @@
         return {
           iframeVoyantUrl: this.linkedCorpus.voy_corpus,
           currentView: "Corpus Ansicht",
-          isShown: true
+          isShown: true,
+          currentVoyantTool:""
         }
       },
       methods: {
@@ -63,7 +66,29 @@
         },
         removeCard(){
           this.isShown=false;
+        },
+        changeVoyantTool(toolToSet){
+          let curTool = this.detectCurrentVoyantTool();
+          console.log(curTool);
+          this.iframeVoyantUrl = this.iframeVoyantUrl.replace(curTool,toolToSet);
+          this.currentVoyantTool = toolToSet;
+          console.log(this.iframeVoyantUrl);
+        },
+        detectCurrentVoyantTool(){
+          let regxString = this.iframeVoyantUrl.match("tool/.+/").toString();
+          let onlyToolName= regxString.replace("tool/", "").replace("/","");
+          //console.log(onlyToolName);
+          return onlyToolName;
         }
+      },
+      created(){
+
+        EventBus.$on("voyantToolChange",(tool)=>{
+
+        });
+      },
+      mounted(){
+        this.currentVoyantTool = this.detectCurrentVoyantTool();
       }
     }
 </script>
