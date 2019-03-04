@@ -1,6 +1,8 @@
 <template>
   <div class="container-fluid">
-    <div class="row"></div>
+    <div class="row">
+      <nlp-app-card-builder-settings></nlp-app-card-builder-settings>
+    </div>
     <div class="row">
       <div class="col col-md-1 text-center">
         <nlp-app-card-builder></nlp-app-card-builder>
@@ -18,12 +20,14 @@
 
 <script>
     import CardGrid from "./CardGrid.vue";
-    import CardBuilder from "./CardBuilder"
+    import CardBuilder from "./CardBuilder";
+    import CardBuilderSettings from "./CardBuilderSettings";
     export default {
       name: "AppGrid",
       components: {
         nlpAppCardGrid: CardGrid,
-        nlpAppCardBuilder: CardBuilder
+        nlpAppCardBuilder: CardBuilder,
+        nlpAppCardBuilderSettings: CardBuilderSettings
       },
       props: ['corpora']
     }
