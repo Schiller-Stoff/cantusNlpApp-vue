@@ -85,9 +85,8 @@
         }
       },
       created(){
-
-        EventBus.$on("voyantToolChange",(tool)=>{
-
+        EventBus.$on("deleteAll",()=>{
+          this.removeCard();
         });
       },
       mounted(){

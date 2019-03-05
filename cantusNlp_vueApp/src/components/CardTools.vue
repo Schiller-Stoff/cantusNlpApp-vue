@@ -11,7 +11,7 @@
     <hr>
     <div>
       <i class="fab fa-adn fa-2x"></i>
-      <i class="fas fa-broom fa-2x"></i>
+      <i class="fas fa-broom fa-2x" @click="deleteAllCards"></i>
     </div>
   </div>
 </template>
@@ -22,8 +22,10 @@
       name: "CardBuilder",
       methods: {
         createLOCard(){
-          console.log("Click!");
           EventBus.$emit('cardCreate');
+        },
+        deleteAllCards(){
+          EventBus.$emit("deleteAll");
         }
       }
     }
@@ -50,6 +52,10 @@
   }
 
   .fa-atlas:before{
+    cursor: pointer;
+  }
+
+  .fa-broom:hover {
     cursor: pointer;
   }
 
