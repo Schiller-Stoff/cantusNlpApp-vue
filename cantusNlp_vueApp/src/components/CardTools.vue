@@ -1,20 +1,27 @@
 <template>
   <div>
     <div>
-      <i class="fas fa-cloud-meatball fa-2x"></i>
+      <div data-balloon="Wortwolke" data-balloon-pos="up"><i class="fas fa-cloud-meatball fa-2x"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
     <hr>
     <div>
-      <i class="fas fa-adjust fa-2x"></i>
+      <div data-balloon="Korpusansicht" data-balloon-pos="up"><i class="fas fa-adjust fa-2x"></i></div>
     </div>
     <div>
-      <i class="fab fa-creative-commons-share fa-2x"></i>
+      <div>
+        <div data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-creative-commons-share fa-2x"></i></div>
+      </div>
     </div>
     <hr>
     <div>
-      <i class="fab fa-adn fa-2x"></i>
-      <i class="fas fa-broom fa-2x" @click="deleteAllCards"></i>
+      <div>
+        <div data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn fa-2x"></i></div>
+      </div>
+      <div>
+        <div data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom fa-2x" @click="deleteAllCards"></i></div>
+      </div>
+
     </div>
   </div>
 </template>
