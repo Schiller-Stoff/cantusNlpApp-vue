@@ -20,7 +20,7 @@
 
 <script>
     import CardGrid from "./CardGrid.vue";
-    import CardBuilder from "./CardBuilder";
+    import CardBuilder from "./CardTools";
     import CardBuilderSettings from "./CardBuilderSettings";
     export default {
       name: "AppGrid",
