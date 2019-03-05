@@ -55,7 +55,7 @@
     margin-bottom: .5em;
     color: lightgrey;
     border-bottom: .15em solid #eeeeee;
-    border-bottom-right-radius: .75em;
+    border-bottom-right-radius: .15em;
     max-width: 17em;
     margin-left: 0em;
   }
@@ -63,7 +63,7 @@
   h3 {
     margin-top: 1.5em;
     color: lightgrey;
-    border-bottom-right-radius: 1em;
+    border-bottom-right-radius: .15em;
     border-bottom: .2em solid #eeeeee;
     max-width: 25em;
   }
