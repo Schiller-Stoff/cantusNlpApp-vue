@@ -58,10 +58,14 @@
         toggleLemmaCorpusView(){
           if(this.currentView === "Korpus Ansicht"){
             this.currentView="Lemma Ansicht";
-            this.iframeVoyantUrl = this.linkedCorpus.voy_lemma;
+            let replace = "tool/" + this.currentVoyantTool + "/";
+            let newUrl = this.linkedCorpus.voy_lemma.replace(/tool\/.+\//, replace);
+            this.iframeVoyantUrl = newUrl;
           } else {
             this.currentView = "Korpus Ansicht";
-            this.iframeVoyantUrl = this.linkedCorpus.voy_corpus;
+            let replace = "tool/" + this.currentVoyantTool + "/"
+            let newUrl = this.linkedCorpus.voy_corpus.replace(/tool\/.+\//, replace).toString();
+            this.iframeVoyantUrl = newUrl;
           }
         },
         removeCard(){
