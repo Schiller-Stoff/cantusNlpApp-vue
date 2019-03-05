@@ -43,7 +43,6 @@
   div.container-fluid {
     background-color: #eeeeee;
     min-height: 1000px;
-    padding-top: 5em;
     padding-right: 0;
     margin-right: 0;
   }
