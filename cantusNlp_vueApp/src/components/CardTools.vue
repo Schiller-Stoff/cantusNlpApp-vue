@@ -7,6 +7,8 @@
     <hr>
     <div>
       <i class="fas fa-adjust fa-2x"></i>
+    </div>
+    <div>
       <i class="fab fa-creative-commons-share fa-2x"></i>
     </div>
     <hr>
