@@ -70,9 +70,6 @@
     margin-top: 4em;
     padding: 1em;
     margin-left: 8em;
-    /*border: .1em solid lightgrey;*/
-    /*border-radius: 1em;*/
-    /*box-shadow: .1em .5em 1em .01em grey;*/
     max-width: 62%;
   }
 
@@ -84,7 +81,5 @@
     max-width: 62%;
     text-align: justify;
   }
-
-
 
 </style>
