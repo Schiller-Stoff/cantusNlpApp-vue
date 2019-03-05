@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <i class="fas fa-atlas fa-2x" @click="createLOCard"></i>
+      <i class="fas fa-cloud-meatball fa-2x"></i>
+      <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
     <hr>
     <div>
