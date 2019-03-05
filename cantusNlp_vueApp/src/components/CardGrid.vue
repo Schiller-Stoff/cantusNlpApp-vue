@@ -2,7 +2,7 @@
   <div class="card-deck">
     <nlp-app-voyant-card :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
     <div class="container" v-if="cardsToCreate.length===0">
-      <h1 class="container" >Wilkommen zur Cantus-Voyant App</h1>
+      <h1 class="container" >Cantus-Voyant App</h1>
       <p>
         Das Cantus Voyant tool dient dazu den Vergleich verschiedener Ansichten zu erleichtern.
         Die Ansichten selbst stammen aus den VoyantTools und können mit Hilfe einfacer Werkzeuge
@@ -56,7 +56,8 @@
     color: lightgrey;
     border-bottom: .15em solid #eeeeee;
     border-bottom-right-radius: .75em;
-    max-width: 50em;
+    max-width: 17em;
+    margin-left: 0em;
   }
 
   h3 {
@@ -64,12 +65,13 @@
     color: lightgrey;
     border-bottom-right-radius: 1em;
     border-bottom: .2em solid #eeeeee;
+    max-width: 25em;
   }
 
   div.container {
     margin-top: 4em;
     padding: 1em;
-    margin-left: 8em;
+    margin-left: 3em;
     max-width: 62%;
   }
 
