@@ -48,7 +48,7 @@
       data(){
         return {
           iframeVoyantUrl: this.linkedCorpus.voy_corpus,
-          currentView: "Corpus Ansicht",
+          currentView: "Korpus Ansicht",
           isShown: true,
           currentVoyantTool:"", //reassigned in mounted hook
           activeTab:"wordCloud"
@@ -56,11 +56,11 @@
       },
       methods: {
         toggleLemmaCorpusView(){
-          if(this.iframeVoyantUrl === this.linkedCorpus.voy_corpus){
+          if(this.currentView === "Korpus Ansicht"){
             this.currentView="Lemma Ansicht";
             this.iframeVoyantUrl = this.linkedCorpus.voy_lemma;
           } else {
-            this.currentView = "Corpus Ansicht";
+            this.currentView = "Korpus Ansicht";
             this.iframeVoyantUrl = this.linkedCorpus.voy_corpus;
           }
         },
@@ -72,8 +72,9 @@
           this.iframeVoyantUrl = this.iframeVoyantUrl.replace(curTool,toolToSet);
           this.currentVoyantTool = toolToSet;
         },
-        detectCurrentVoyantTool(){
-          let regxString = this.iframeVoyantUrl.match("tool/.+/").toString();
+        detectCurrentVoyantTool(url=null){
+          url = (url===null) ? this.iframeVoyantUrl : url;
+          let regxString = url.match("tool/.+/").toString();
           let onlyToolName= regxString.replace("tool/", "").replace("/","");
           //console.log(onlyToolName);
           return onlyToolName;
