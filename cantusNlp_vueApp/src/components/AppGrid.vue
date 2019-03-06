@@ -130,7 +130,7 @@
   }
 
   .col-md-10 {
-    /*background: linear-gradient(to right, #ffffff 48%,#dddddd 50%,#050303 50%,#050303 50%,#757575 50%,#ffffff 52%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+    background: linear-gradient(to right, #ffffff 48%,#dddddd 50%,#050303 50%,#050303 50%,#757575 50%,#ffffff 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     border-radius: 1.5em;
   }
 
