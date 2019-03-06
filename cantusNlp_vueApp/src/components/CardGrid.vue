@@ -53,8 +53,8 @@
 
   h1 {
     margin-bottom: .5em;
-    color: lightgrey;
-    border-bottom: .15em solid #eeeeee;
+    color: #3D3D99;
+    border-bottom: .15em solid #FF9D40;
     border-bottom-right-radius: .15em;
     max-width: 17em;
     margin-left: 0em;
@@ -62,9 +62,9 @@
 
   h3 {
     margin-top: 1.5em;
-    color: lightgrey;
+    color: #3D3D99;
     border-bottom-right-radius: .15em;
-    border-bottom: .2em solid #eeeeee;
+    border-bottom: .2em solid #FF9D40;
     max-width: 25em;
   }
 
