@@ -95,8 +95,9 @@
             },
             {
               target: '#v-step-10004',  // We're using document.querySelector() under the hood
-              content: `In der mittleren Ansicht werden schlussendlich Karten mit den einzelnen Voyant-Ansichten auf die LO
-                        eingeblendet. <strong>Viel Spaß!</strong>`,
+              content: `In der <strong>mittleren Ansicht</strong> werden schlussendlich Karten mit den einzelnen Voyant-Ansichten auf die LO
+                        eingeblendet. <strong>Benutzen Sie die Info-Knöpfe um weitere Information</strong> zu den Werkzeugen
+                         in der jeweiligen Leiste zu bekommen.`,
               params: {
                 placement: 'bottom'
               }
