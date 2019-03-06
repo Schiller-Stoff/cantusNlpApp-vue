@@ -14,7 +14,11 @@
           <!--</select>-->
         <!--</div>-->
         <button type="button" class="btn btn-primary mb-2" @click.prevent="createCard(selectedLO)">LO hinzufügen</button>
+        <div id="cardBuilder_tourButton">
+          <div data-balloon="Erkläre Werkzeuge" data-balloon-pos="right"><i class="fas fa-info-circle fa-2x"></i></div>
+        </div>
       </form>
+
     </div>
 </template>
 
@@ -43,6 +47,11 @@
 </script>
 
 <style scoped>
+
+  #cardBuilder_tourButton {
+    color: lightgrey;
+    margin-left: 2em;
+  }
 
   .container {
     margin-top: 1%;
