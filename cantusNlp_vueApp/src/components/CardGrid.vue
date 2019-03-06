@@ -1,28 +1,60 @@
 <template>
   <div class="card-deck">
     <nlp-app-voyant-card :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
-    <div class="container" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
-      <h1 id="v-step-10000" class="container" >Cantus-Voyant App</h1>
-      <p>
-        Das Cantus Voyant tool dient dazu den Vergleich verschiedener Ansichten zu erleichtern.
-        Die Ansichten selbst stammen aus den VoyantTools und können mit Hilfe einfacer Werkzeuge
-        auf dieser Seite miteinander verglichen werden.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      </p>
-      <h3>Eine Kurze Anleitung</h3>
-      <ul>
-        <li>Via Click auf das dropdown links oben kann eine Voyant Karte in diese Ansicht eingefügt werden. </li>
-        <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
-        <li>Zur Rechten: Werkzeuge und Beschreibungen zur Erklräung der einzelnen Ansichten der Voyant Tools</li>
-      </ul>
-      <h3>Kontakt und Hilfe</h3>
+    <div class="container text-center row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
+
+      <div class="col-md-6">
+        <h1 id="v-step-10000" class="container" >Cantus-Voyant App</h1>
+        <hr>
+        <p>
+          Das Cantus Voyant tool dient dazu den Vergleich verschiedener Ansichten zu erleichtern.
+          Die Ansichten selbst stammen aus den VoyantTools und können mit Hilfe einfacer Werkzeuge
+          auf dieser Seite miteinander verglichen werden.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+        <hr>
+        <h3>Eine Kurze Anleitung</h3>
+        <ul>
+          <li>Via Click auf das dropdown links oben kann eine Voyant Karte in diese Ansicht eingefügt werden. </li>
+          <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
+          <li>Zur Rechten: Werkzeuge und Beschreibungen zur Erklräung der einzelnen Ansichten der Voyant Tools</li>
+        </ul>
+        <hr>
+      </div>
+      <div class="col-md-6">
+        <h3>Wie wurden die Daten gewonnen?</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+        <ul>
+          <li>Python</li>
+          <li>Classical Language Toolkit = Cltk</li>
+        </ul>
+        <hr>
+        <h3>Kontakt und Hilfe</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+        <hr>
+      </div>
+
     </div>
     </div>
 </template>
@@ -52,27 +84,29 @@
 <style scoped lang="scss">
 
   #cardGrid_defaultContent {
-    margin-top: 4em;
-    padding: 1em;
-    margin-left: 3em;
-    max-width: 62%;
+    margin: 6em auto 0;
+    padding: 2.5em;
+    border: .1em solid lightgrey;
+    min-height: 100vh;
+    background: linear-gradient(to right, #ffffff 48%,#dddddd 50%,#050303 50%,#050303 50%,#757575 50%,#ffffff 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     h1 {
-      margin-bottom: .5em;
       color: #3D3D99;
-      border-bottom: .15em solid #FF9D40;
-      border-bottom-right-radius: .15em;
-      max-width: 17em;
-      margin-left: 0em;
     }
     h3 {
-      margin-top: 1.5em;
       color: #3D3D99;
-      border-bottom-right-radius: .15em;
-      border-bottom: .2em solid #FF9D40;
-      max-width: 25em;
+    }
+    hr {
+      color:black;
+      background-color: black;
+      margin-bottom: 1em;
+    }
+    ul {
+      background-color: #3D3D99;
+      padding: 1.5em;
+      border-radius: 1em;
+      color: lightgrey;
     }
     p, li {
-      max-width: 62%;
       text-align: justify;
     }
   }
