@@ -1,7 +1,7 @@
 <template>
   <div class="card-deck">
     <nlp-app-voyant-card :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
-    <div class="container" v-if="cardsToCreate.length===0">
+    <div class="container" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
       <h1 id="v-step-10000" class="container" >Cantus-Voyant App</h1>
       <p>
         Das Cantus Voyant tool dient dazu den Vergleich verschiedener Ansichten zu erleichtern.
@@ -49,39 +49,33 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
-  h1 {
-    margin-bottom: .5em;
-    color: #3D3D99;
-    border-bottom: .15em solid #FF9D40;
-    border-bottom-right-radius: .15em;
-    max-width: 17em;
-    margin-left: 0em;
-  }
-
-  h3 {
-    margin-top: 1.5em;
-    color: #3D3D99;
-    border-bottom-right-radius: .15em;
-    border-bottom: .2em solid #FF9D40;
-    max-width: 25em;
-  }
-
-  div.container {
+  #cardGrid_defaultContent {
     margin-top: 4em;
     padding: 1em;
     margin-left: 3em;
     max-width: 62%;
+    h1 {
+      margin-bottom: .5em;
+      color: #3D3D99;
+      border-bottom: .15em solid #FF9D40;
+      border-bottom-right-radius: .15em;
+      max-width: 17em;
+      margin-left: 0em;
+    }
+    h3 {
+      margin-top: 1.5em;
+      color: #3D3D99;
+      border-bottom-right-radius: .15em;
+      border-bottom: .2em solid #FF9D40;
+      max-width: 25em;
+    }
+    p, li {
+      max-width: 62%;
+      text-align: justify;
+    }
   }
 
-  .container li {
-    color: grey;
-  }
-
-  .container p,li {
-    max-width: 62%;
-    text-align: justify;
-  }
 
 </style>
