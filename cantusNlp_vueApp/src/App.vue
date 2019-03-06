@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <nlp-app-grid :corpora="corpora"></nlp-app-grid>
+    <notifications classes="my-notes" group="foo" :position="'bottom right'"> </notifications>
   </div>
 </template>
 
@@ -26,6 +27,37 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
+<!--not scoped here!-->
+<style lang="scss">
+
+  /*Global Style for the notification*/
+  .my-notes {
+    // Style of the notification itself
+    /*background-color: red !important;*/
+    /*border-radius: 10em;*/
+    padding: 1em;
+    margin: .5em 2em;
+    font-size: 1em;
+    color: #ffffff;
+    background: #3D3D99;
+    border-radius: .5em;
+    text-align: center;
+
+    .notification-title {
+      // Style for title line
+    }
+
+    .notification-content {
+      // Style for content
+    }
+
+    &.my-type {
+      /*
+      Style for specific type of notification, will be applied when you
+      call notification with "type" parameter:
+      this.$notify({ type: 'my-type', message: 'Foo' })
+      */
+    }
+  }
 
 </style>

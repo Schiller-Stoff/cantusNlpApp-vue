@@ -1,29 +1,29 @@
 <template>
   <div id="v-step-10002">
     <div>
-      <div @click="startVoyantTour" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle fa-2x"></i></div>
+      <div @click="startVoyantTour();notify('Intro links')" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle fa-2x"></i></div>
     </div>
     <hr>
     <div>
-      <div id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus')"><i class="fas fa-cloud-meatball fa-2x"></i></div>
+      <div id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus')"><i class="fas fa-cloud-meatball fa-2x"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
 
     <div>
-      <div id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader')"><i class="fas fa-adjust fa-2x"></i></div>
+      <div id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader');notify('Korpusmodus')"><i class="fas fa-adjust fa-2x"></i></div>
     </div>
     <div>
       <div>
-        <div id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary')"><i class="fab fa-creative-commons-share fa-2x"></i></div>
+        <div id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus')"><i class="fab fa-creative-commons-share fa-2x"></i></div>
       </div>
     </div>
     <hr>
     <div>
       <div>
-        <div id="v-step-3" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn fa-2x"></i></div>
+        <div @click="notify('Title','hi there!')" id="v-step-3" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn fa-2x"></i></div>
       </div>
       <div>
-        <div id="v-step-4" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom fa-2x" @click="deleteAllCards"></i></div>
+        <div id="v-step-4" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom fa-2x" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
       </div>
 
     </div>
@@ -111,6 +111,13 @@
         },
         startVoyantTour(){
           this.$tours['myTour'].start();
+        },
+        notify(title, msg){
+          this.$notify({
+            group: 'foo',
+            title: title,
+            text: msg
+          });
         }
       }
     }
@@ -144,6 +151,7 @@
     cursor: pointer;
   }
 
+  /*Styling for the vue tours*/
   .v-step {
     z-index: 9999;
     background-color: #FF9D40;    /*https://color.adobe.com/de/create/color-wheel/?base=2&rule=Compound&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0,0,0.5450980392156862,0.24,0.24000000000008187,0.6,0,0.526315789473756,1,1,0.6145833333331439,0.25,0.8,0.32499999999987267,0.07999999999999999&swatchOrder=0,1,2,3,4*/
