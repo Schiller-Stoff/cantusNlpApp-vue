@@ -5,15 +5,16 @@
     </div>
     <hr>
     <div>
-      <div @click="notify('Ansichten vergrößert')" data-balloon="Ansichten vergrößern" data-balloon-pos="up"><i class="fas fa-th-large fa-2x"></i></div>
+      <div @click="notify('Ansichten vergrößert');resizeAllCards('100%', '75em')" data-balloon="Ansichten vergrößern" data-balloon-pos="up"><i class="fas fa-th-large fa-2x"></i></div>
     </div>
     <div>
-      <div @click="notify('Ansichten verkleinert')" data-balloon="Ansichten verkleinern" data-balloon-pos="up"><i class="fas fa-th fa-2x"></i></div>
+      <div @click="notify('Ansichten verkleinert'); resizeAllCards('400px', '600px')" data-balloon="Ansichten verkleinern" data-balloon-pos="up"><i class="fas fa-th fa-2x"></i></div>
     </div>
   </div>
 </template>
 
 <script>
+  import {EventBus} from "../main";
   export default {
     name: "CardView",
     methods:{
@@ -23,6 +24,13 @@
           title: title,
           text: msg
         });
+      },
+      resizeAllCards(minWidth, minHeight){
+        let cssSizeObj= {
+          "min-width": minWidth,
+          "min-height": minHeight
+        }
+        EventBus.$emit('resizeCards',cssSizeObj);
       }
     }
   }
