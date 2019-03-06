@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div data-balloon="Wortwolke" data-balloon-pos="up"><i class="fas fa-cloud-meatball fa-2x"></i></div>
+      <div data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus')"><i class="fas fa-cloud-meatball fa-2x"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
     <hr>
@@ -31,8 +31,8 @@
     export default {
       name: "CardBuilder",
       methods: {
-        createLOCard(){
-          EventBus.$emit('cardCreate');
+        changeAllCardsView(view_str){
+          EventBus.$emit('allViewChange',view_str);
         },
         deleteAllCards(){
           EventBus.$emit("deleteAll");
