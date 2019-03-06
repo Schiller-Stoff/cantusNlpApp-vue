@@ -13,8 +13,8 @@
             <!--<option>Was wäre hier sinnvoll`?</option>-->
           <!--</select>-->
         <!--</div>-->
-        <button id="v-step-101" type="button" class="btn btn-primary mb-2" @click.prevent="createCard(selectedLO)">LO hinzufügen</button>
-        <div id="cardBuilder_tourButton" @click="startVueTour">
+        <button id="v-step-101" type="button" class="btn btn-primary mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>
+        <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
           <div data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle fa-2x"></i></div>
         </div>
       </form>
@@ -85,9 +85,15 @@
       },
       startVueTour(){
         this.$tours['topTour'].start();
+      },
+      notify(title,msg){
+        this.$notify({
+          group: 'foo',
+          title: title,
+          text: msg
+        });
       }
     }
-
   }
 </script>
 
