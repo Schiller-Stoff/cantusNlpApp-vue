@@ -1,9 +1,10 @@
 <template>
-  <div class="card text-center" v-if="isShown">
+  <div class="card text-center" v-if="isShown" :style="cardSize">
     <div class="card-header">
       <!--<h5>LO Name</h5>-->
       <!--<hr>-->
       <button class="btn btn-link float-right" @click="removeCard">Close</button>
+      <button class="btn btn-link float-right" @click.prevent="resizeCard('400px', '600px')">Klein</button>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
           <a class="nav-link" :class="(currentVoyantTool==='Cirrus') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Cirrus');">WordCloud</a>
@@ -22,7 +23,9 @@
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
-      <a href="#" class="btn btn-primary" @click.prevent="toggleLemmaCorpusView">Toggle Lemma/Corpus - View</a>
+      <a href="#" class="btn btn-light" @click.prevent="toggleLemmaCorpusView">Lemma/Corpus</a>
+      <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '75em')">Größer</a>
+      <a href="#" class="btn btn-light" @click.prevent="resizeCard('400px', '600px')">Kleiner</a>
       <!--<button>Lemma</button>-->
       <hr>
       <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
@@ -51,6 +54,10 @@
           currentView: "Korpus Ansicht",
           isShown: true,
           currentVoyantTool:"", //reassigned in mounted hook
+          cardSize: {
+            "min-height": "600px",
+            "min-width": "400px"
+          }
         }
       },
       methods: {
@@ -81,6 +88,12 @@
           let onlyToolName= regxString.replace("tool/", "").replace("/","");
           //console.log(onlyToolName);
           return onlyToolName;
+        },
+        resizeCard(width, height = null){
+          this.cardSize = {
+            "min-width": width,
+            "min-height": (height!==null) ? height : this.cardSize["min-height"]
+          }
         }
       },
       created(){
@@ -117,8 +130,8 @@
   }
 
   .card {
-    min-height: 400px;
-    min-width: 600px;
+    /*min-height: 400px;*/
+    /*min-width: 600px;*/
     /*max-width: 800px;*/
     margin: .5em;
     padding: .5em;
@@ -129,8 +142,9 @@
     margin:-18px;
     padding: 0;
     width: 100%;
+    height: 75%;
     border: none;
-    min-height: 400px;
+    /*min-height: 400px;*/
   }
 
 
