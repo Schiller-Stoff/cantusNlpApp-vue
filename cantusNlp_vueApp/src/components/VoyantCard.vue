@@ -93,6 +93,14 @@
           if(view==="cirrus"){
             this.changeVoyantTool("Cirrus");
           }
+
+          if(view==="reader"){
+            this.changeVoyantTool("Reader");
+          }
+
+          if(view==="summary"){
+            this.changeVoyantTool("Summary");
+          }
         });
 
       },

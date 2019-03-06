@@ -6,11 +6,11 @@
     </div>
     <hr>
     <div>
-      <div data-balloon="Korpusansicht" data-balloon-pos="up"><i class="fas fa-adjust fa-2x"></i></div>
+      <div data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader')"><i class="fas fa-adjust fa-2x"></i></div>
     </div>
     <div>
       <div>
-        <div data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-creative-commons-share fa-2x"></i></div>
+        <div data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary')"><i class="fab fa-creative-commons-share fa-2x"></i></div>
       </div>
     </div>
     <hr>
