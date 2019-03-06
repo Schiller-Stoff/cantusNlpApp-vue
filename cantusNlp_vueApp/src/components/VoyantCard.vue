@@ -51,7 +51,6 @@
           currentView: "Korpus Ansicht",
           isShown: true,
           currentVoyantTool:"", //reassigned in mounted hook
-          activeTab:"wordCloud"
         }
       },
       methods: {
@@ -88,6 +87,14 @@
         EventBus.$on("deleteAll",()=>{
           this.removeCard();
         });
+
+        EventBus.$on("allViewChange",(view)=>{
+          view = view.toLowerCase();
+          if(view==="cirrus"){
+            this.changeVoyantTool("Cirrus");
+          }
+        });
+
       },
       mounted(){
         this.currentVoyantTool = this.detectCurrentVoyantTool();
