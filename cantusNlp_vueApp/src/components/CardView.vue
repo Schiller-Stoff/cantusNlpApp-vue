@@ -32,24 +32,26 @@
 
   #cardView_container {
     margin-top: 35vh;
+    i {
+      display: block;
+      margin-top: .5em;
+      margin-left: auto;
+      color:white;
+    }
+    hr {
+      color: white;
+      border: .05em white solid;
+      border-radius: 10em;
+      width: 3em;
+    }
   }
 
   div {
     margin-top: 2em;
   }
 
-  i {
-    display: block;
-    margin-top: .5em;
-    margin-left: auto;
-    color:white;
-  }
 
-  hr {
-    color: white;
-    border: .05em white solid;
-    border-radius: 10em;
-    width: 3em;
-  }
+
+
 
 </style>
