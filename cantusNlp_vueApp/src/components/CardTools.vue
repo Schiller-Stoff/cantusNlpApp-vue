@@ -1,10 +1,14 @@
 <template>
   <div>
     <div>
+      <div @click="startVoyantTour" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle fa-2x"></i></div>
+    </div>
+    <hr>
+    <div>
       <div id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus')"><i class="fas fa-cloud-meatball fa-2x"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
-    <hr>
+
     <div>
       <div id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader')"><i class="fas fa-adjust fa-2x"></i></div>
     </div>
@@ -42,7 +46,7 @@
               <div slot="actions">
                 <hr>
                 <button @click="tour.previousStep" class="btn">Zurück</button>
-                <button @click="tour.nextStep" class="btn">Weiter</button>
+                <button v-if="index<steps.length-1" @click="tour.nextStep" class="btn">Weiter</button>
                 <button @click="tour.stop" class="btn">Beenden</button>
               </div>
             </template>
@@ -83,7 +87,7 @@
             },
             {
               target: '#v-step-3',  // We're using document.querySelector() under the hood
-              content: `Discover <strong>Vue Tour</strong>!`,
+              content: `Dummy <strong>Cantus Voyant</strong>!`,
               params: {
                 placement: 'right'
               }
@@ -104,10 +108,10 @@
         },
         deleteAllCards(){
           EventBus.$emit("deleteAll");
+        },
+        startVoyantTour(){
+          this.$tours['myTour'].start();
         }
-      },
-      mounted: function () {
-        this.$tours['myTour'].start()
       }
     }
 </script>
