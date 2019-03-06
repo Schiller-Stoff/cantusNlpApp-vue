@@ -1,28 +1,55 @@
 <template>
   <div>
     <div>
-      <div data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus')"><i class="fas fa-cloud-meatball fa-2x"></i></div>
+      <div id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus')"><i class="fas fa-cloud-meatball fa-2x"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
     <hr>
     <div>
-      <div data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader')"><i class="fas fa-adjust fa-2x"></i></div>
+      <div id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader')"><i class="fas fa-adjust fa-2x"></i></div>
     </div>
     <div>
       <div>
-        <div data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary')"><i class="fab fa-creative-commons-share fa-2x"></i></div>
+        <div id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary')"><i class="fab fa-creative-commons-share fa-2x"></i></div>
       </div>
     </div>
     <hr>
     <div>
       <div>
-        <div data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn fa-2x"></i></div>
+        <div id="v-step-3" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn fa-2x"></i></div>
       </div>
       <div>
-        <div data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom fa-2x" @click="deleteAllCards"></i></div>
+        <div id="v-step-4" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom fa-2x" @click="deleteAllCards"></i></div>
       </div>
 
     </div>
+    <v-tour name="myTour" :steps="steps">
+      <template slot-scope="tour">
+        <transition name="fade">
+          <v-step
+            v-if="tour.currentStep === index"
+            v-for="(step, index) of tour.steps"
+            :key="index"
+            :step="step"
+            :previous-step="tour.previousStep"
+            :next-step="tour.nextStep"
+            :stop="tour.stop"
+            :is-first="tour.isFirst"
+            :is-last="tour.isLast"
+            :labels="tour.labels"
+          >
+            <template>
+              <div slot="actions">
+                <hr>
+                <button @click="tour.previousStep" class="btn">Zurück</button>
+                <button @click="tour.nextStep" class="btn">Weiter</button>
+                <button @click="tour.stop" class="btn">Beenden</button>
+              </div>
+            </template>
+          </v-step>
+        </transition>
+      </template>
+    </v-tour>
   </div>
 </template>
 
@@ -30,6 +57,47 @@
     import {EventBus} from "./../main";
     export default {
       name: "CardBuilder",
+      data(){
+        return {
+          steps: [
+            {
+              target: '#v-step-0',  // We're using document.querySelector() under the hood
+              content: `Mit dem <strong>Wortwolken</strong> Werkzeug können alle Voyant Ansichten auf dieselbe Ansicht geschalten werden.`,
+              params: {
+                placement: 'right'
+              }
+            },
+            {
+              target: '#v-step-1',  // We're using document.querySelector() under the hood
+              content: `Selbiges funktioniert auch für die  <strong>Korpusansicht</strong> .`,
+              params: {
+                placement: 'right'
+              }
+            },
+            {
+              target: '#v-step-2',  // We're using document.querySelector() under the hood
+              content: `...und für die <strong>Zusammenfassung</strong>`,
+              params: {
+                placement: 'right'
+              }
+            },
+            {
+              target: '#v-step-3',  // We're using document.querySelector() under the hood
+              content: `Discover <strong>Vue Tour</strong>!`,
+              params: {
+                placement: 'right'
+              }
+            },
+            {
+              target: '#v-step-4',  // We're using document.querySelector() under the hood
+              content: `Hiermit können alle Karten <strong>gelöscht</strong> werden.`,
+              params: {
+                placement: 'right'
+              }
+            }
+          ]
+        }
+      },
       methods: {
         changeAllCardsView(view_str){
           EventBus.$emit('allViewChange',view_str);
@@ -37,6 +105,9 @@
         deleteAllCards(){
           EventBus.$emit("deleteAll");
         }
+      },
+      mounted: function () {
+        this.$tours['myTour'].start()
       }
     }
 </script>
@@ -68,5 +139,27 @@
   .fa-broom:hover {
     cursor: pointer;
   }
+
+  .v-step {
+    z-index: 9999;
+    background-color: #FF9D40;    /*https://color.adobe.com/de/create/color-wheel/?base=2&rule=Compound&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0,0,0.5450980392156862,0.24,0.24000000000008187,0.6,0,0.526315789473756,1,1,0.6145833333331439,0.25,0.8,0.32499999999987267,0.07999999999999999&swatchOrder=0,1,2,3,4*/
+    color: black;
+    min-width: 30em;
+  }
+
+  .v-step button:hover {
+    /*background-color: white;*/
+    border: .1em dashed #3D3D99;
+  }
+
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
+
 
 </style>
