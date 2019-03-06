@@ -11,7 +11,7 @@
         <nlp-app-card-grid :corpora="corpora"></nlp-app-card-grid>
       </div>
       <div class="col col-md-1 text-center" id="v-step-10003">
-        <!--<nlp-app-card-builder></nlp-app-card-builder>-->
+        <nlp-app-card-view></nlp-app-card-view>
       </div>
       <!--<div class="col col-2"></div>-->
     </div>
@@ -50,12 +50,14 @@
     import CardGrid from "./CardGrid.vue";
     import CardBuilder from "./CardTools";
     import CardBuilderSettings from "./CardBuilderSettings";
+    import CardView from "./CardView";
     export default {
       name: "AppGrid",
       components: {
         nlpAppCardGrid: CardGrid,
         nlpAppCardBuilder: CardBuilder,
-        nlpAppCardBuilderSettings: CardBuilderSettings
+        nlpAppCardBuilderSettings: CardBuilderSettings,
+        nlpAppCardView: CardView
       },
       props: ['corpora'],
       data(){
