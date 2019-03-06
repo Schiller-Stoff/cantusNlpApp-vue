@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="v-step-10002">
     <div>
       <div @click="startVoyantTour" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle fa-2x"></i></div>
     </div>

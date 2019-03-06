@@ -7,14 +7,42 @@
       <div class="col col-md-1 text-center">
         <nlp-app-card-builder></nlp-app-card-builder>
       </div>
-      <div class="col col-md-10">
+      <div class="col col-md-10" id="v-step-10004">
         <nlp-app-card-grid :corpora="corpora"></nlp-app-card-grid>
       </div>
-      <div class="col col-md-1 text-center">
+      <div class="col col-md-1 text-center" id="v-step-10003">
         <!--<nlp-app-card-builder></nlp-app-card-builder>-->
       </div>
       <!--<div class="col col-2"></div>-->
     </div>
+
+    <v-tour name="mainTour" :steps="steps">
+      <template slot-scope="tour">
+        <transition name="fade">
+          <v-step
+            v-if="tour.currentStep === index"
+            v-for="(step, index) of tour.steps"
+            :key="index"
+            :step="step"
+            :previous-step="tour.previousStep"
+            :next-step="tour.nextStep"
+            :stop="tour.stop"
+            :is-first="tour.isFirst"
+            :is-last="tour.isLast"
+            :labels="tour.labels"
+          >
+            <template>
+              <div slot="actions">
+                <hr>
+                <button @click="tour.previousStep" class="btn">Zurück</button>
+                <button @click="tour.nextStep" class="btn">Weiter</button>
+                <button @click="tour.stop" class="btn">Beenden</button>
+              </div>
+            </template>
+          </v-step>
+        </transition>
+      </template>
+    </v-tour>
   </div>
 </template>
 
@@ -29,7 +57,56 @@
         nlpAppCardBuilder: CardBuilder,
         nlpAppCardBuilderSettings: CardBuilderSettings
       },
-      props: ['corpora']
+      props: ['corpora'],
+      data(){
+        return {
+          steps: [
+            {
+              target: '#v-step-10000',  // We're using document.querySelector() under the hood
+              content: `Herzlich wilkommen zur <strong>Cantus Voyant App</strong>!<hr> <p>Sie können
+                        diese Einführung jederzeit beenden oder durch click auf "weiter" weiter verfolgen</p>`,
+              params: {
+                placement: 'bottom'
+              }
+            },
+            {
+              target: '#v-step-10001',  // We're using document.querySelector() under the hood
+              content: `Werkzeuge der oberen <strong>Leiste</strong> dienen zur Auswahl und dem Hinzufügen
+                        von Voyant-Ansichten für gewünschte Libri Ordinari...`,
+              params: {
+                placement: 'bottom'
+              }
+            },
+            {
+              target: '#v-step-10002',  // We're using document.querySelector() under the hood
+              content: `...während es sich auf der linken Seite um Werkzeuge zur<strong> Modifkiation aller Voyant
+              Karten</strong> zugleich handelt.`,
+              params: {
+                placement: 'right'
+              }
+            },
+            {
+              target: '#v-step-10003',  // We're using document.querySelector() under the hood
+              content: `Rechts finden sich weitere Informationen zu den <strong>Legenden und Bezeichnungen</strong> der
+                        diversen Ansichten.`,
+              params: {
+                placement: 'left'
+              }
+            },
+            {
+              target: '#v-step-10004',  // We're using document.querySelector() under the hood
+              content: `In der mittleren Ansicht werden schlussendlich Karten mit den einzelnen Voyant-Ansichten auf die LO
+                        eingeblendet. <strong>Viel Spaß!</strong>`,
+              params: {
+                placement: 'bottom'
+              }
+            }
+          ]
+        }
+      },
+      mounted(){
+        this.$tours['mainTour'].start();
+      }
     }
 </script>
 
@@ -60,6 +137,33 @@
   .container-fluid .row:first-child {
     min-height: 80px;
     background-color: darkblue;
+  }
+
+  /*Styling for vue tours*/
+
+  .v-step {
+    z-index: 9999;
+    text-align: justify;
+    background-color: white;    /*https://color.adobe.com/de/create/color-wheel/?base=2&rule=Compound&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0,0,0.5450980392156862,0.24,0.24000000000008187,0.6,0,0.526315789473756,1,1,0.6145833333331439,0.25,0.8,0.32499999999987267,0.07999999999999999&swatchOrder=0,1,2,3,4*/
+    color: black;
+    /*min-width: 30em;*/
+  }
+
+  .v-step button:hover {
+    /*background-color: white;*/
+    border: .1em dashed #3D3D99;
+  }
+
+  .v-step button {
+    color:black;
+  }
+
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 
 </style>
