@@ -5,16 +5,16 @@
     </div>
     <hr>
     <div>
-      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus')"><i class="fas fa-cloud-meatball fa-2x"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus');markActive($event,'left');"><i class="fas fa-cloud-meatball fa-2x"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
 
     <div>
-      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader');notify('Korpusmodus')"><i class="fas fa-adjust fa-2x"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader');notify('Korpusmodus'); markActive($event,'left');"><i class="fas fa-adjust fa-2x"></i></div>
     </div>
     <div>
       <div>
-        <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus')"><i class="fab fa-creative-commons-share fa-2x"></i></div>
+        <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'left');"><i class="fab fa-creative-commons-share fa-2x"></i></div>
       </div>
     </div>
     <hr>
@@ -59,10 +59,12 @@
 
 <script>
     import {EventBus} from "./../main";
-    import {vueNotifyMixin} from "../mixins/vueNotifyMixin";
+    import {vueNotifyMixin} from "../mixins/vueNotifyMixin"
+    import {iconMethodsMixin} from "../mixins/iconMethodsMixin";
+
     export default {
       name: "CardBuilder",
-      mixins: [vueNotifyMixin],
+      mixins: [vueNotifyMixin, iconMethodsMixin],
       data(){
         return {
           steps: [
