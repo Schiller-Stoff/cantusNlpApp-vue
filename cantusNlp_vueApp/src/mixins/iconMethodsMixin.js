@@ -3,7 +3,7 @@
 export const iconMethodsMixin = {
   data(){
     return {
-      curActive: {activeElem:undefined,defaultCss:undefined}
+      curActive: {activeElem:undefined,defaultCss:undefined}  //used in marActive method
     }
   },
   methods: {
@@ -35,6 +35,8 @@ export const iconMethodsMixin = {
         if(this.curActive.activeElem!==undefined){
           this.curActive.activeElem.style = this.curActive.defaultCss;
         }
+
+        //use data property to "remember" currently active elem
         this.curActive = {activeElem: targetElem, defaultCss:curCss};
       }
     }
