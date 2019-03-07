@@ -35,8 +35,6 @@ export default {
   /*Global Style for the notification*/
   .my-notes {
     // Style of the notification itself
-    /*background-color: red !important;*/
-    /*border-radius: 10em;*/
     padding: 1em;
     margin: .5em 2em;
     font-size: 1em;
@@ -44,17 +42,9 @@ export default {
     background: $secondaryColor;
     border-radius: .5em;
     text-align: center;
-
-    .notification-title {
-      // Style for title line
-    }
-
-    .notification-content {
-      // Style for content
-    }
-
-    &.my-type {
-      /*
+    .notification-title { /* Style for title line */ }
+    .notification-content { /* Style for content */ }
+      &.my-type {/*
       Style for specific type of notification, will be applied when you
       call notification with "type" parameter:
       this.$notify({ type: 'my-type', message: 'Foo' })
