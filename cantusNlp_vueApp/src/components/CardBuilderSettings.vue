@@ -15,7 +15,7 @@
         <!--</div>-->
         <button id="v-step-101" type="button" class="btn btn-primary mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>
         <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
-          <div data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle fa-2x"></i></div>
+          <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle fa-2x"></i></div>
         </div>
       </form>
       <v-tour name="topTour" :steps="steps">
@@ -99,20 +99,18 @@
 
 <style scoped lang="scss">
 
+  /*Styling of container + buttons*/
+  .container {
+    margin-top: 1%;
+    margin-left: 7.5%;
+    .form-group {margin-right: 1.5em;}
+    .cantusNlp_iconHolder{margin-top: 0;/*redone assignment from global app scss*/}
+  }
+
   #cardBuilder_tourButton {
     color: lightgrey;
     margin-left: 2em;
   }
-
-  .container {
-    margin-top: 1%;
-    margin-left:7.5%;
-  }
-
-  .form-group {
-    margin-right: 1.5em;
-  }
-
 
   /*Styling for vue tours*/
   .v-step {

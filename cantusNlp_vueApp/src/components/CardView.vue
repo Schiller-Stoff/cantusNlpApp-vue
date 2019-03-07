@@ -1,14 +1,14 @@
 <template>
   <div id="cardView_container">
     <div>
-      <div @click="notify('Intro Ansichtsleiste')" data-balloon="Intro Ansichtsleiste" data-balloon-pos="up"><i class="fas fa-info-circle fa-2x"></i></div>
+      <div @click="notify('Intro Ansichtsleiste')" class="cantusNlp_iconHolder" data-balloon="Intro Ansichtsleiste" data-balloon-pos="up"><i class="fas fa-info-circle fa-2x"></i></div>
     </div>
     <hr>
     <div>
-      <div @click="notify('Ansichten vergrößert');resizeAllCards('100%', '75em')" data-balloon="Ansichten vergrößern" data-balloon-pos="up"><i class="fas fa-th-large fa-2x"></i></div>
+      <div @click="notify('Ansichten vergrößert');resizeAllCards('100%', '75em')" class="cantusNlp_iconHolder" data-balloon="Ansichten vergrößern" data-balloon-pos="up"><i class="fas fa-th-large fa-2x"></i></div>
     </div>
     <div>
-      <div @click="notify('Ansichten verkleinert'); resizeAllCards('400px', '600px')" data-balloon="Ansichten verkleinern" data-balloon-pos="up"><i class="fas fa-th fa-2x"></i></div>
+      <div @click="notify('Ansichten verkleinert'); resizeAllCards('400px', '600px')" class="cantusNlp_iconHolder" data-balloon="Ansichten verkleinern" data-balloon-pos="up"><i class="fas fa-th fa-2x"></i></div>
     </div>
   </div>
 </template>
@@ -40,12 +40,6 @@
 
   #cardView_container {
     margin-top: 35vh;
-    i {
-      display: block;
-      margin-top: .5em;
-      margin-left: auto;
-      color:white;
-    }
     hr {
       color: white;
       border: .05em white solid;
