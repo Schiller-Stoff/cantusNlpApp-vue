@@ -59,8 +59,10 @@
 
 <script>
     import {EventBus} from "./../main";
+    import {vueNotifyMixin} from "../mixins/vueNotifyMixin";
     export default {
       name: "CardBuilder",
+      mixins: [vueNotifyMixin],
       data(){
         return {
           steps: [
@@ -111,13 +113,6 @@
         },
         startVoyantTour(){
           this.$tours['myTour'].start();
-        },
-        notify(title, msg){
-          this.$notify({
-            group: 'foo',
-            title: title,
-            text: msg
-          });
         }
       }
     }
