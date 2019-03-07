@@ -29,6 +29,8 @@ export default {
 
 <!--not scoped here!-->
 <style lang="scss">
+// importing scss global variables first
+@import "scss/globalVariables";
 
   /*Global Style for the notification*/
   .my-notes {
@@ -38,8 +40,8 @@ export default {
     padding: 1em;
     margin: .5em 2em;
     font-size: 1em;
-    color: #ffffff;
-    background: #3D3D99;
+    color: $blankColor;
+    background: $secondaryColor;
     border-radius: .5em;
     text-align: center;
 
@@ -68,7 +70,7 @@ export default {
       color:white;
       display: block;
       &:hover{
-        color:#FF9D40;
+        color:$fourthColor;
       }
     }
   }
