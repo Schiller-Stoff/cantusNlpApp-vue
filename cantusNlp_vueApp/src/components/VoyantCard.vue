@@ -125,30 +125,18 @@
     }
 </script>
 
-<style scoped>
-
-  h5 {
-
-  }
+<style scoped lang="scss">
+  @import "../scss/globalVariables.scss";
 
   .card {
-    /*min-height: 400px;*/
-    /*min-width: 600px;*/
-    /*max-width: 800px;*/
     margin: .5em;
     padding: .5em;
-    /*border: none;*/
+    iframe {
+      margin:-18px;
+      padding: 0;
+      width: 100%;
+      height: 75%;
+      border: none;
+    }
   }
-
-  iframe {
-    margin:-18px;
-    padding: 0;
-    width: 100%;
-    height: 75%;
-    border: none;
-    /*min-height: 400px;*/
-  }
-
-
-
 </style>
