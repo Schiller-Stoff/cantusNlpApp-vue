@@ -37,23 +37,16 @@
 </script>
 
 <style scoped lang="scss">
+@import "../scss/globalVariables";
 
   #cardView_container {
     margin-top: 35vh;
     hr {
-      color: white;
-      border: .05em white solid;
+      color: $blankColor;
+      border: .05em $blankColor solid;
       border-radius: 10em;
       width: 3em;
     }
   }
-
-  div {
-    margin-top: 2em;
-  }
-
-
-
-
 
 </style>
