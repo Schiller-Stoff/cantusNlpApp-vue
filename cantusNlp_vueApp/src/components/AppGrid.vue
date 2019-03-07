@@ -116,34 +116,18 @@
 <style scoped lang="scss">
   @import "../scss/globalVariables";
 
-  div.col {
-    margin:0;
-    min-height: 100vh;
-  }
-
   div.container-fluid {
     background-color: $blankColor;
     min-height: 1000px;
     padding-right: 0;
     margin-right: 0;
-  }
-
-  .col-md-1 {
-    background-color: $primaryColor;
-    min-height: 400px;
-  }
-
-  .col-md-10 {
-    border-radius: 1.5em;
-  }
-
-  .container-fluid .row:first-child {
-    min-height: 80px;
-    background-color: $primaryColor;
+    div.col { margin:0; min-height: 100vh;}
+    .col-md-1 {background-color: $primaryColor;min-height: 400px;}
+    .col-md-10 {border-radius: 1.5em;}
+    .row:first-child{min-height: 80px;background-color: $primaryColor;}
   }
 
   /*Styling for vue tours*/
-
   .v-step {
     z-index: 9999;
     text-align: justify;
