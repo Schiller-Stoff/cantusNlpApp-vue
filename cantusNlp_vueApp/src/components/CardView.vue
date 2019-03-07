@@ -15,16 +15,11 @@
 
 <script>
   import {EventBus} from "../main";
+  import {vueNotifyMixin} from "../mixins/vueNotifyMixin";
   export default {
     name: "CardView",
+    mixins: [vueNotifyMixin],
     methods:{
-      notify(title,msg){
-        this.$notify({
-          group: 'foo',
-          title: title,
-          text: msg
-        });
-      },
       resizeAllCards(minWidth, minHeight){
         let cssSizeObj= {
           "min-width": minWidth,
