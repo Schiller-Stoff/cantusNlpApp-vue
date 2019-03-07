@@ -50,9 +50,11 @@
 
 <script>
   import {EventBus} from "../main";
+  import {vueNotifyMixin} from "../mixins/vueNotifyMixin";
   export default {
     name: "CardBuilderSettings",
     props: ["corpora"],
+    mixins: [vueNotifyMixin],
     data(){
       return {
         selectedLO:"LO auswählen",
@@ -85,13 +87,6 @@
       },
       startVueTour(){
         this.$tours['topTour'].start();
-      },
-      notify(title,msg){
-        this.$notify({
-          group: 'foo',
-          title: title,
-          text: msg
-        });
       }
     }
   }
