@@ -4,13 +4,13 @@
       <nlp-app-card-builder-settings :corpora="corpora"></nlp-app-card-builder-settings>
     </div>
     <div class="row">
-      <div class="col-md-1 text-center">
+      <div class="col-sm-1 text-center">
         <nlp-app-card-builder></nlp-app-card-builder>
       </div>
-      <div class="col-md-10" id="v-step-10004">
+      <div class="col-sm-10" id="v-step-10004">
         <nlp-app-card-grid :corpora="corpora"></nlp-app-card-grid>
       </div>
-      <div class="col-md-1 text-center" id="v-step-10003">
+      <div class="col-sm-1 text-center" id="v-step-10003">
         <nlp-app-card-view></nlp-app-card-view>
       </div>
       <!--<div class="col col-2"></div>-->
@@ -122,8 +122,8 @@
     padding-right: 0;
     margin-right: 0;
     div.col { margin:0; min-height: 100vh;}
-    .col-md-1 {background-color: $primaryColor;min-height: 400px;}
-    .col-md-10 {border-radius: 1.5em;}
+    .col-sm-1 {background-color: $primaryColor;min-height: 400px;}
+    .col-sm-10 {border-radius: 1.5em;}
     .row:first-child{min-height: 80px;background-color: $primaryColor;}
   }
 
