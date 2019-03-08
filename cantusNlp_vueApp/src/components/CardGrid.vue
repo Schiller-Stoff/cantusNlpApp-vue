@@ -101,6 +101,7 @@
     p, li {text-align: justify;}
   }
 
+  /*normalization for the root container*/
   .card-deck {
     min-height: 100vh;
     width: 100%;
