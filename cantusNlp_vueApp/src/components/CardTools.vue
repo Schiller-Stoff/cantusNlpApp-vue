@@ -1,5 +1,5 @@
 <template>
-  <div id="v-step-10002">
+  <div id="v-step-10002" class="cardTools_componentRoot">
     <div class="cantusNlp_iconContainer">
       <div class="cantusNlp_iconHolder" @click="startVoyantTour();notify('Intro links')" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle"></i></div>
     </div>
@@ -125,6 +125,10 @@
     border: .05em $blankColor solid;
     border-radius: 10em;
     width: 50%; @include sm {width: 3em}
+  }
+
+  .cardTools_componentRoot {
+    margin-top: 1em; @include sm {margin-top: initial}
   }
 
   /*Styling for icons*/
