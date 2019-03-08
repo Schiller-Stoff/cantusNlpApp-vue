@@ -122,8 +122,8 @@
     padding-right: 0;
     margin-right: 0;
     div.col { margin:0; min-height: 100vh;}
-    .col-sm-1 {background-color: $primaryColor;min-height: 400px;}
-    .col-sm-10 {border-radius: 1.5em;}
+    .col-sm-1 {background-color: $primaryColor;min-height: 400px; padding: 0;}
+    .col-sm-10 {border-radius: 1.5em; padding: 0}
     .row:first-child{min-height: 80px;background-color: $primaryColor;}
   }
 
