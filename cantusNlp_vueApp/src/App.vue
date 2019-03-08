@@ -64,5 +64,17 @@ export default {
     }
   }
 
+  /*From here normalization*/
+  .container-fluid {
+    margin: 0;
+    padding: 0;
+    @include sm{margin: initial; padding: initial}
+  }
+
+  .row {
+    margin: 0; padding: 0;
+    @include sm{margin: initial; padding: initial}
+  }
+
 
 </style>
