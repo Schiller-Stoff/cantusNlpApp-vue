@@ -97,15 +97,26 @@
 
   /*Styling of container + buttons*/
   .container {
-    margin-top: 1%;
-    margin-left: 7.5%;
-    .form-group {margin-right: 1.5em;}
-    .cantusNlp_iconHolder{margin-top: 0;/*redone assignment from global app scss*/}
+    padding: 0;
+    margin: 2em 0 0 0; @include sm {margin: 8em; margin-top: 8em;};
+    text-align: center; @include sm {text-align: initial}
+    border-bottom: .25em solid $blankColor; @include sm {border-bottom: initial}
+    .form-inline {
+      display: block; @include sm { display: flex;}
+      max-width: 60%; @include sm {max-width: initial}
+      margin: 0 auto 2em; @include sm {margin: initial}
+      padding: 1em 3em 2em; @include sm {padding: initial}
+      border-radius: .5em; @include sm {border-radius: initial}
+      border: .1em dashed $blankColor; @include sm {border: initial}
+      div, button {
+        margin-top: 1.5em; @include sm {margin-top: initial}
+      }
+    }
+
   }
 
   #cardBuilder_tourButton {
     color: lightgrey;
-    margin-left: 2em;
   }
 
   /*Styling for vue tours*/
