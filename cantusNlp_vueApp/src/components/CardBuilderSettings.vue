@@ -13,7 +13,7 @@
             <!--<option>Was wäre hier sinnvoll`?</option>-->
           <!--</select>-->
         <!--</div>-->
-        <button id="v-step-101" type="button" class="btn btn-primary mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>
+        <button id="v-step-101" type="button" class="btn mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>
         <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
           <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle"></i></div>
         </div>
@@ -113,6 +113,7 @@
         margin-top: 1.5em;
         @include sm {margin-top: initial;margin-left: 1em;}
       }
+      .btn {background-color: $fourthColor}
     }
 
   }
