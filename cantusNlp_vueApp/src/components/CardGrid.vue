@@ -89,8 +89,8 @@
     padding: 2.5em;
     border: .1em solid lightgrey;
     min-height: 100vh;
-    /*background-color: white;*/
-    background: linear-gradient(to right, #ffffff 48%,#dddddd 50%,#050303 50%,#050303 50%,#757575 50%,#ffffff 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background-color: white;
+    /*background: linear-gradient(to right, #ffffff 48%,#dddddd 50%,#050303 50%,#050303 50%,#757575 50%,#ffffff 52%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
     h1 {color: $secondaryColor}
     h3 {color: $secondaryColor}
     hr {color:black;background-color: black;margin-bottom: 1em;}
