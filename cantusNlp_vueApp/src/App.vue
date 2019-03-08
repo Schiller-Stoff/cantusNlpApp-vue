@@ -55,10 +55,8 @@ export default {
   /*Global Style for icons*/
   .cantusNlp_iconHolder {
     cursor: pointer;
-    margin-top: 2em;
     i {
       color:white;
-      display: block;
       font-size:1.5em;
       &:hover{
         color:$fourthColor;
