@@ -59,6 +59,7 @@ export default {
     i {
       color:white;
       display: block;
+      font-size:1.5em;
       &:hover{
         color:$fourthColor;
       }

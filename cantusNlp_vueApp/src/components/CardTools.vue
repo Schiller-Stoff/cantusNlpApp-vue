@@ -1,29 +1,29 @@
 <template>
   <div id="v-step-10002">
     <div>
-      <div class="cantusNlp_iconHolder" @click="startVoyantTour();notify('Intro links')" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle fa-2x"></i></div>
+      <div class="cantusNlp_iconHolder" @click="startVoyantTour();notify('Intro links')" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle"></i></div>
     </div>
     <hr>
     <div>
-      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus');markActive($event,'left');"><i class="fas fa-cloud-meatball fa-2x"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus');markActive($event,'left');"><i class="fas fa-cloud-meatball"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
 
     <div>
-      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader');notify('Korpusmodus'); markActive($event,'left');"><i class="fas fa-adjust fa-2x"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader');notify('Korpusmodus'); markActive($event,'left');"><i class="fas fa-adjust"></i></div>
     </div>
     <div>
       <div>
-        <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'left');"><i class="fab fa-creative-commons-share fa-2x"></i></div>
+        <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'left');"><i class="fab fa-creative-commons-share"></i></div>
       </div>
     </div>
     <hr>
     <div>
       <div>
-        <div @click="notify('Title','hi there!')" id="v-step-3" class="cantusNlp_iconHolder" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn fa-2x"></i></div>
+        <div @click="notify('Title','hi there!')" id="v-step-3" class="cantusNlp_iconHolder" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn"></i></div>
       </div>
       <div>
-        <div class="cantusNlp_iconHolder" id="v-step-4" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom fa-2x" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
+        <div class="cantusNlp_iconHolder" id="v-step-4" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
       </div>
 
     </div>

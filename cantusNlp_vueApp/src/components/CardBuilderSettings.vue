@@ -15,7 +15,7 @@
         <!--</div>-->
         <button id="v-step-101" type="button" class="btn btn-primary mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>
         <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
-          <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle fa-2x"></i></div>
+          <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle"></i></div>
         </div>
       </form>
       <v-tour name="topTour" :steps="steps">
