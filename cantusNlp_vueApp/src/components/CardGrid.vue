@@ -3,7 +3,7 @@
     <nlp-app-voyant-card :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
     <div class="container text-center row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
 
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <h1 id="v-step-10000" class="container" >Cantus-Voyant App</h1>
         <hr>
         <p>
@@ -28,7 +28,7 @@
         </ul>
         <hr>
       </div>
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <h3>Wie wurden die Daten gewonnen?</h3>
         <p>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
@@ -85,8 +85,8 @@
   @import "../scss/globalVariables";
 
   #cardGrid_defaultContent {
-    margin: 6em auto 0;
-    padding: 2.5em;
+    padding: 0;
+    @include sm {margin: 6em auto 0;padding: 2.5em;}
     border: .1em solid lightgrey;
     min-height: 100vh;
     background-color: white;
