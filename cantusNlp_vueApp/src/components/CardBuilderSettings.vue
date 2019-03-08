@@ -98,18 +98,20 @@
   /*Styling of container + buttons*/
   .container {
     padding: 0;
-    margin: 2em 0 0 0; @include sm {margin: 8em; margin-top: 8em;};
+    margin: 2em 0 0 0;
+    @include sm {margin-left: 10%;};
     text-align: center; @include sm {text-align: initial}
     border-bottom: .25em solid $blankColor; @include sm {border-bottom: initial}
     .form-inline {
       display: block; @include sm { display: flex;}
       max-width: 60%; @include sm {max-width: initial}
       margin: 0 auto 2em; @include sm {margin: initial}
-      padding: 1em 3em 2em; @include sm {padding: initial}
+      padding: 1em 3em 2em; @include sm {padding: initial; padding-bottom: .75em}
       border-radius: .5em; @include sm {border-radius: initial}
       border: .1em dashed $blankColor; @include sm {border: initial}
       div, button {
-        margin-top: 1.5em; @include sm {margin-top: initial}
+        margin-top: 1.5em;
+        @include sm {margin-top: initial;margin-left: 1em;}
       }
     }
 
