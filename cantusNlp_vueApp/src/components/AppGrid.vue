@@ -4,13 +4,13 @@
       <nlp-app-card-builder-settings :corpora="corpora"></nlp-app-card-builder-settings>
     </div>
     <div class="row">
-      <div class="col col-md-1 text-center">
+      <div class="col-md-1 text-center">
         <nlp-app-card-builder></nlp-app-card-builder>
       </div>
-      <div class="col col-md-10" id="v-step-10004">
+      <div class="col-md-10" id="v-step-10004">
         <nlp-app-card-grid :corpora="corpora"></nlp-app-card-grid>
       </div>
-      <div class="col col-md-1 text-center" id="v-step-10003">
+      <div class="col-md-1 text-center" id="v-step-10003">
         <nlp-app-card-view></nlp-app-card-view>
       </div>
       <!--<div class="col col-2"></div>-->
