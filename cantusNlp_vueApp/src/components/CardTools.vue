@@ -128,14 +128,11 @@
   }
 
   /*Styling for icons*/
-  .cantusNlp_iconContainer{
+  .cantusNlp_iconContainer {
     display: inline-block;
-  }
-
-  .cantusNlp_iconHolder {
-    padding: .5em 1em; @include sm {padding: .5em}
-    i {
-      font-size: 2em; @include sm {font-size: 1.5em}
+    .cantusNlp_iconHolder {
+      padding: .5em 1em; @include sm {padding: .5em}
+      i {font-size: 2em;@include sm {font-size: 1.5em}}
     }
   }
 
