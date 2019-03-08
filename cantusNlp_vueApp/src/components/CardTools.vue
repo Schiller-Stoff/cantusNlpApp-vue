@@ -1,28 +1,25 @@
 <template>
   <div id="v-step-10002">
-    <div>
+    <div class="cantusNlp_iconContainer">
       <div class="cantusNlp_iconHolder" @click="startVoyantTour();notify('Intro links')" data-balloon="Erkläre Werkzeuge" data-balloon-pos="up"><i class="fas fa-info-circle"></i></div>
     </div>
     <hr>
-    <div>
+    <div class="cantusNlp_iconContainer">
       <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus');markActive($event,'left');"><i class="fas fa-cloud-meatball"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
-
-    <div>
+    <div class="cantusNlp_iconContainer">
       <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader');notify('Korpusmodus'); markActive($event,'left');"><i class="fas fa-adjust"></i></div>
     </div>
-    <div>
-      <div>
-        <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'left');"><i class="fab fa-creative-commons-share"></i></div>
-      </div>
+    <div class="cantusNlp_iconContainer">
+      <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'left');"><i class="fab fa-creative-commons-share"></i></div>
     </div>
     <hr>
     <div>
-      <div>
+      <div class="cantusNlp_iconContainer">
         <div @click="notify('Title','hi there!')" id="v-step-3" class="cantusNlp_iconHolder" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn"></i></div>
       </div>
-      <div>
+      <div class="cantusNlp_iconContainer">
         <div class="cantusNlp_iconHolder" id="v-step-4" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
       </div>
 
@@ -127,7 +124,19 @@
     color: $blankColor;
     border: .05em $blankColor solid;
     border-radius: 10em;
-    width: 3em;
+    width: 50%; @include sm {width: 3em}
+  }
+
+  /*Styling for icons*/
+  .cantusNlp_iconContainer{
+    display: inline-block;
+  }
+
+  .cantusNlp_iconHolder {
+    padding: .5em 1em; @include sm {padding: .5em}
+    i {
+      font-size: 2em; @include sm {font-size: 1.5em}
+    }
   }
 
   /*Styling for the vue tours*/
