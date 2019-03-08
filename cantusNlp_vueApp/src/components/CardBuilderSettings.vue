@@ -119,6 +119,10 @@
     color: lightgrey;
   }
 
+  .cantusNlp_iconHolder i {
+    font-size: 2em; @include sm {font-size: 1.5em}
+  }
+
   /*Styling for vue tours*/
   .v-step {
     z-index: 9999;
