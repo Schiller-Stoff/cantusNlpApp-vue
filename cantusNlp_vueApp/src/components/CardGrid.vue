@@ -85,12 +85,10 @@
   @import "../scss/globalVariables";
 
   #cardGrid_defaultContent {
-    padding: 0;
-    @include sm {margin: 6em auto 0;padding: 2.5em;}
-    border: .1em solid lightgrey;
-    min-height: 100vh;
-    background-color: white;
-    /*background: linear-gradient(to right, #ffffff 48%,#dddddd 50%,#050303 50%,#050303 50%,#757575 50%,#ffffff 52%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+    @include sm {padding: 2.5em; margin: 2em auto 0}
+    @include lg {margin: 4em auto 0}
+    border: .1em solid $secondaryColor;
+    background-color: $blankColor;
     h1 {color: $secondaryColor}
     h3 {color: $secondaryColor}
     hr {color:black;background-color: black;margin-bottom: 1em;}
@@ -101,6 +99,13 @@
       color: lightgrey;
     }
     p, li {text-align: justify;}
+  }
+
+  .card-deck {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
 
