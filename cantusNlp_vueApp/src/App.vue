@@ -33,7 +33,7 @@ export default {
 @import "scss/globalVariables";
 
   /*Global Style for the notification*/
-  #app .my-notes {
+  .my-notes {
     // Style of the notification itself
     padding: 1em;
     margin: .5em 2em;
@@ -53,7 +53,7 @@ export default {
   }
 
   /*Global Style for icons*/
-  #app .cantusNlp_iconHolder {
+  .cantusNlp_iconHolder {
     cursor: pointer;
     i {
       color:white;
@@ -65,13 +65,13 @@ export default {
   }
 
   /*From here normalization*/
-  #app .container-fluid {
+  .container-fluid {
     margin: 0;
     padding: 0;
     @include sm{margin: initial; padding: initial}
   }
 
-  #app .row {
+  .row {
     margin: 0; padding: 0;
     @include sm{margin: initial; padding: initial}
   }
