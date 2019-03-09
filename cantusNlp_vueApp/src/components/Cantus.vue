@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <button @click="getNext10Pages()" class="btn btn-success">Next</button>
+  <div class="row">
     <!--<div id="nlpCantus_container" v-html="curHtml"></div>-->
+    <div v-html="cantusHead"></div>
+    <div class="col-md-8">
+      <button @click="getNext10Pages()" class="btn btn-success">Next</button>
+      <div id="nlpCantus_container" v-html="curHtml"></div>
+    </div>
+    <div class="col-md-2">
 
-    <div id="nlpCantus_container" v-html="curHtml"></div>
+    </div>
 
 
   </div>
@@ -14,9 +19,13 @@
     name: "Cantus",
     data(){
       return {
+        cantusResponse:"",
+        cantusHead:"",
         curHtml: "",
+
         cantusArray:"",
-        curArrayPages:0
+        cantusTail:"",
+        curArrayPages:1
       }
     },
     methods: {
@@ -24,16 +33,31 @@
         // GET /someUrl
         this.$http.get('https://gams.uni-graz.at/o:cantus.salzburg/sdef:TEI/get?mode=view:edition&locale=de').then(response => {
           // get body data
-          //this.curHtml = response.body;
+          this.cantusResponse = response.body;
 
           let testArray = response.body.split('<h3')
-          console.log(testArray);
-          this.cantusArray = testArray
-          this.curArrayPages = 0
+          for(let i=0;i<testArray.length;i++){
+            if(i!==0)testArray[i] ='<h3' + testArray[i];  //readd removed h3 from split
+          }
 
+          // assigning variables
+          let cantusHead = testArray[0];
+
+
+          // assign data variables with according to cantus content
+          this.cantusArray = testArray;
+          this.cantusTail=testArray[testArray.length-1];
+
+          cantusHead = this.clearCantusHead(cantusHead);
+
+          // assigning to data ...> render it in dom
+          this.cantusHead = cantusHead;
+          console.log(this.cantusHead)
 
         }, response => {
           // error callback
+
+
         });
       },
       getNext10Pages(){
@@ -46,6 +70,22 @@
         }
 
         this.curHtml = aggr_str;
+      },
+      clearCantusHead(cantusHeadStr){
+
+        //let reg = /<nav(.?|\/n)+<\/nav>/g;
+        //reg = RegExp.escape(reg);
+
+        let reg = /<nav(.?|\/n)+/;
+
+        cantusHeadStr = cantusHeadStr.match(reg);
+        console.log(cantusHeadStr);
+        return cantusHeadStr;
+
+        //cantusHeadStr = cantusHeadStr.replace("<nav class=\"navbar navbar-default navbar-static-top\" role=\"navigation\" id=\"nav\">", "");
+        //cantusHeadStr= cantusHeadStr.replace("</nav>","");
+
+        //return cantusHeadStr;
       }
     },
     created(){
@@ -61,6 +101,9 @@
     text-align: left;
   }
 
+  div {
+    text-align: left;
+  }
 
 
 </style>
