@@ -1,8 +1,13 @@
 <template>
   <div class="card-deck">
     <nlp-app-voyant-card :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
+
+    <!--Experimental LO Reader Modus-->
+    <button @click="showOrigCantus = !showOrigCantus" v-if="cardsToCreate.length===0" class="btn btn-primary">LO Vorschau</button>
+
     <div class="container text-center row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
 
+      <nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>
       <div class="col-sm-6">
         <h1 id="v-step-10000" class="container" >Cantus-Voyant App</h1>
         <hr>
@@ -61,16 +66,19 @@
 
 <script>
   import VoyantCard from "./VoyantCard.vue";
+  import Cantus from "./Cantus";
   import {EventBus} from "./../main";
   export default {
     name: "CardGrid",
     components: {
-      nlpAppVoyantCard: VoyantCard
+      nlpAppVoyantCard: VoyantCard,
+      nlpAppCantus: Cantus
     },
     props: ["corpora"],
     data(){
       return {
-        cardsToCreate: []
+        cardsToCreate: [],
+        showOrigCantus: false
       }
     },
     created(){
@@ -109,5 +117,6 @@
     padding: 0;
   }
 
+  .btn {border-radius: 0;}
 
 </style>
