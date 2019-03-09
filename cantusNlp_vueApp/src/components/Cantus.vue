@@ -53,7 +53,7 @@
 
           // assigning to data ...> render it in dom
           this.cantusHead = cantusHead;
-          //console.log(this.cantusHead)
+
 
         }, response => {
           // error callback
