@@ -48,11 +48,12 @@
           this.cantusArray = testArray;
           this.cantusTail=testArray[testArray.length-1];
 
+
           cantusHead = this.clearCantusHead(cantusHead);
 
           // assigning to data ...> render it in dom
           this.cantusHead = cantusHead;
-          console.log(this.cantusHead)
+          //console.log(this.cantusHead)
 
         }, response => {
           // error callback
@@ -73,19 +74,12 @@
       },
       clearCantusHead(cantusHeadStr){
 
-        //let reg = /<nav(.?|\/n)+<\/nav>/g;
-        //reg = RegExp.escape(reg);
+        let indStart = cantusHeadStr.search("<header");
+        let indEnd = cantusHeadStr.search("<\/header>");
+        let header = cantusHeadStr.substring(indStart, indEnd);
 
-        let reg = /<nav(.?|\/n)+/;
+        return header;
 
-        cantusHeadStr = cantusHeadStr.match(reg);
-        console.log(cantusHeadStr);
-        return cantusHeadStr;
-
-        //cantusHeadStr = cantusHeadStr.replace("<nav class=\"navbar navbar-default navbar-static-top\" role=\"navigation\" id=\"nav\">", "");
-        //cantusHeadStr= cantusHeadStr.replace("</nav>","");
-
-        //return cantusHeadStr;
       }
     },
     created(){
