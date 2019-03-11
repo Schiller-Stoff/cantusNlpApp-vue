@@ -1,5 +1,5 @@
 <template>
-  <div id="VoyantCard_container" class="card text-center" v-if="isShown" :style="cardSize">
+  <div id="VoyantCard_container" class="card text-center" v-if="isShown">
     <div class="card-header">
       <!--<h5>LO Name</h5>-->
       <!--<hr>-->
@@ -135,11 +135,12 @@
   .card {
     margin: .5em;
     padding: .5em;
+    min-width: 400px;
     iframe {
       margin:-18px;
       padding: 0;
       width: 100%;
-      height: 75%;
+      min-height: 400px;
       border: none;
     }
   }

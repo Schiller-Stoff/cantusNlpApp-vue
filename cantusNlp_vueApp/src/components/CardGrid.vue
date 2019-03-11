@@ -1,11 +1,13 @@
 <template>
-  <div class="card-deck">
+  <div class="container-fluid">
     <transition-group name="cardAnim"
                       @before-enter="beforeEnter"
                       @enter="enter"
                       @leave="leave"
                       tag="div"
                       mode="out-in"
+                      class="card-deck"
+                      v-if="cardsToCreate.length>0"
     >
 
       <nlp-app-voyant-card :key="corpus.name" :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
