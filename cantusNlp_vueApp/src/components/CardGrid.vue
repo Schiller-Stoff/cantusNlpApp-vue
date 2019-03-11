@@ -121,7 +121,7 @@
         let incTop = el.style.top;
 
         const interval = setInterval(()=>{
-          inc_opacity += 0.02;
+          inc_opacity -= 0.02;
           if(incTop<0)incTop -= 20;
           el.style.opacity = inc_opacity;
           el.style.top = incTop + "px";
