@@ -1,7 +1,15 @@
 <template>
   <div class="card-deck">
-    <nlp-app-voyant-card :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
+    <transition-group name="cardAnim"
+                      @before-enter="beforeEnter"
+                      @enter="enter"
+                      @leave="leave"
 
+                      tag="div"
+                      :css="false"
+    >
+      <nlp-app-voyant-card :key="corpus.name" :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
+    </transition-group>
     <!--Experimental LO Reader Modus-->
     <button @click="showOrigCantus = !showOrigCantus" v-if="cardsToCreate.length===0" class="btn btn-primary">LO Vorschau</button>
 
@@ -79,6 +87,50 @@
       return {
         cardsToCreate: [],
         showOrigCantus: false
+      }
+    },
+    methods: {
+      beforeEnter(el){
+        el.style.opacity = 0;
+        el.style.top = el.style.top -200;
+      },
+      enter(el, done){
+        this.fadeSlideIn(el,done)
+      },
+      leave(el, done){          //TODO hängt glaube ich mit einer anderen schlampigkeit zusammen! ...> componenten müssen echt entfernt werden!
+        this.fadeSlideOut(el,done)
+      },
+      fadeSlideIn(el, done){
+        let inc_opacity = 0;
+        let incTop = -200;
+
+        const interval = setInterval(()=>{
+          inc_opacity += 0.02;
+          if(incTop<0)incTop += 20;
+          el.style.opacity = inc_opacity;
+          el.style.top = incTop + "px";
+          console.log(el.style.opacity);
+          if(inc_opacity >= 1){
+            clearInterval(interval);
+            done();
+          }
+        },10);
+      },
+      fadeSlideOut(el,done){
+        let inc_opacity = 1;
+        let incTop = el.style.top;
+
+        const interval = setInterval(()=>{
+          inc_opacity += 0.02;
+          if(incTop<0)incTop -= 20;
+          el.style.opacity = inc_opacity;
+          el.style.top = incTop + "px";
+          console.log(el.style.opacity);
+          if(inc_opacity <= 0){
+            clearInterval(interval);
+            done();
+          }
+        },10);
       }
     },
     created(){
