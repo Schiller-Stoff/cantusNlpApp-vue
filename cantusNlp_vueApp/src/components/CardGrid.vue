@@ -98,7 +98,7 @@
       enter(el, done){
         this.fadeSlideIn(el,done)
       },
-      leave(el, done){          //TODO hängt glaube ich mit einer anderen schlampigkeit zusammen! ...> componenten müssen echt entfernt werden!
+      leave(el, done){
         this.fadeSlideOut(el,done)
       },
       fadeSlideIn(el, done){
@@ -122,8 +122,8 @@
         let incTop = el.style.top;
 
         const interval = setInterval(()=>{
-          inc_opacity -= 0.02;
-          if(incTop<0)incTop -= 20;
+          inc_opacity -= 0.05;
+          incTop -= 20; // TODO top movement is not working
           el.style.opacity = inc_opacity;
           el.style.top = incTop + "px";
           console.log(el.style.opacity);
