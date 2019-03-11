@@ -4,11 +4,12 @@
                       @before-enter="beforeEnter"
                       @enter="enter"
                       @leave="leave"
-
                       tag="div"
-                      :css="false"
+                      mode="out-in"
     >
+
       <nlp-app-voyant-card :key="corpus.name" :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
+
     </transition-group>
     <!--Experimental LO Reader Modus-->
     <button @click="showOrigCantus = !showOrigCantus" v-if="cardsToCreate.length===0" class="btn btn-primary">LO Vorschau</button>
@@ -131,11 +132,20 @@
             done();
           }
         },10);
+      },
+      removeCard(cardToRemove){
+        console.log(cardToRemove)
+        let indexPos = this.cardsToCreate.indexOf(cardToRemove);
+        this.cardsToCreate.splice(indexPos,1);
       }
     },
     created(){
       EventBus.$on('cardCreate',(lo_to_create) => {
         this.cardsToCreate.push(lo_to_create);
+      });
+
+      EventBus.$on('removeCard',(cardToRemove)=>{
+        this.removeCard(cardToRemove);
       });
     }
   }

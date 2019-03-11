@@ -75,7 +75,7 @@
           }
         },
         removeCard(){
-          this.isShown=false;
+          EventBus.$emit('removeCard', this.linkedCorpus)
         },
         changeVoyantTool(toolToSet){
           let curTool = this.detectCurrentVoyantTool();
