@@ -181,4 +181,12 @@
 
   .btn {border-radius: 0;}
 
+  .cardAnim-move {
+    transition: all 1s;
+  }
+
+  .cardAnim-leave-active {
+    position: absolute; /*needed to let anim work at removal of <li> via click*/
+  }
+
 </style>
