@@ -16,6 +16,41 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       corpora: [
+        // link to all: https://voyant-tools.org/?corpus=1fdf2aa57c4e75e442c7876addab74f3
+
+        // {name:"Brixen", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Emmeram_emm1", voy_corpus:"",voy_lemma:""},
+        // {name:"Emmeram_emm3", voy_corpus:"",voy_lemma:""},
+        // {name:"Emmeram_emm", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Freising", voy_corpus:"",voy_lemma:""},
+        // {name:"Hirsau", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Klosterneuburg_knb2", voy_corpus:"",voy_lemma:""},
+        // {name:"Klosterneuburg_knb3", voy_corpus:"",voy_lemma:""},
+        // {name:"Klosterneuburg_knb4", voy_corpus:"",voy_lemma:""},
+        // {name:"Klosterneuburg", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Moosburg", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Passau", voy_corpus:"",voy_lemma:""},
+        // {name:"Passau_knb", voy_corpus:"",voy_lemma:""},
+        // {name:"Passau_sp", voy_corpus:"",voy_lemma:""},
+        // {name:"Passau_sve", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Regensburg", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Salzburg", voy_corpus:"",voy_lemma:""},
+        // {name:"Salzburg_ra", voy_corpus:"",voy_lemma:""},
+        // {name:"Salzburg_sal", voy_corpus:"",voy_lemma:""},
+        // {name:"Salzburg_vo", voy_corpus:"",voy_lemma:""},
+        //
+        // {name:"Seckau1_se1", voy_corpus:"",voy_lemma:""},
+        // {name:"Seckau3", voy_corpus:"",voy_lemma:""},
+
+
+
         {name:"Salzburg.sal", voy_corpus:"https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare", voy_lemma:"https://voyant-tools.org/tool/Cirrus/?corpus=austen"},
         {name:"Salzburg.pac",voy_corpus:"https://voyant-tools.org/tool/Cirrus/?corpus=austen", voy_lemma:"https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare"},
         {name:"Regensburg", voy_corpus:"https://voyant-tools.org/tool/Cirrus/?corpus=austen", voy_lemma:"https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare"},
