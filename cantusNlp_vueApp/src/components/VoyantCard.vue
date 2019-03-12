@@ -64,13 +64,14 @@
         toggleLemmaCorpusView(){
           if(this.currentView === "Korpus Ansicht"){
             this.currentView="Lemma Ansicht";
-            let replace = "tool/" + this.currentVoyantTool + "/";
-            let newUrl = this.linkedCorpus.voy_lemma.replace(/tool\/.+\//, replace);
+            let replace = "view=" + this.currentVoyantTool;
+            let newUrl = this.linkedCorpus.voy_lemma.replace(/view=.+/, replace).toString();
             this.iframeVoyantUrl = newUrl;
+            console.log(this.iframeVoyantUrl);
           } else {
             this.currentView = "Korpus Ansicht";
-            let replace = "tool/" + this.currentVoyantTool + "/"
-            let newUrl = this.linkedCorpus.voy_corpus.replace(/tool\/.+\//, replace).toString();
+            let replace = "view=" + this.currentVoyantTool;
+            let newUrl = this.linkedCorpus.voy_corpus.replace(/view=.+/, replace).toString();
             this.iframeVoyantUrl = newUrl;
           }
         },
@@ -84,9 +85,9 @@
         },
         detectCurrentVoyantTool(url=null){
           url = (url===null) ? this.iframeVoyantUrl : url;
-          let regxString = url.match("tool/.+/").toString();
-          let onlyToolName= regxString.replace("tool/", "").replace("/","");
-          //console.log(onlyToolName);
+          let regxString = url.match("view=.+").toString();
+          let onlyToolName= regxString.replace("view=", "")
+          console.log(onlyToolName);
           return onlyToolName;
         },
         resizeCard(width, height = null){
