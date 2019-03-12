@@ -5,7 +5,7 @@
                       @enter="enter"
                       @leave="leave"
                       tag="div"
-                      mode="out-in"
+                      mode="in-out"
                       class="card-deck"
                       v-if="cardsToCreate.length>0"
     >
