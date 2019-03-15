@@ -18,6 +18,10 @@ export default {
       corpora: [
         // link to all: https://voyant-tools.org/?corpus=1fdf2aa57c4e75e442c7876addab74f3
 
+        //sending data via glossa: http://glossa.uni-graz.at/gamsdev/stoffse/cantus/nlp/lemmat.zip                  DAS FUNKTIONIERT!
+
+        //https://voyant-tools.org/?corpus=3a1ea35768d36f35699a0897cf6ff00f
+
         {name:"Brixen", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
         {name:"Emmeram_emm1", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
