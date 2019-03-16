@@ -21,6 +21,8 @@ export default {
         // created lemma corpus with link above:
           // - https://voyant-tools.org/?corpus=9892f4e834838ee56e8bb78b73fc0ca7&input=http://glossa.uni-graz.at/gamsdev/stoffse/cantus/nlp/lemmat.zip
 
+        {name:"completeCorpus", voy_corpus:"https://voyant-tools.org/?corpus=da222bf9053920eed2f53645744aa29a&input=http://glossa.uni-graz.at/gamsdev/stoffse/cantus/nlp/lo_corpora.zip", voy_lemma:"https://voyant-tools.org/?corpus=9892f4e834838ee56e8bb78b73fc0ca7&input=http://glossa.uni-graz.at/gamsdev/stoffse/cantus/nlp/lemmat.zip"},
+
         {name:"Brixen", voy_corpus:"https://voyant-tools.org/?corpus=1ff13aa0798dadb9e92973f7105efdce&input=https://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=6071fa8642a90eb6de107da8fd01ea54&input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
         {name:"Emmeram_emm1", voy_corpus:"https://voyant-tools.org/?corpus=642a97bf3093e9b01eaa770d66a08735&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=e2ae6692a36fb300d8fdab044d7f6063&input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
