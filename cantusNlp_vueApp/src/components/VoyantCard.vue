@@ -1,5 +1,5 @@
 <template>
-  <div id="VoyantCard_container" class="card text-center" v-if="isShown">
+  <div id="VoyantCard_container" class="card text-center" v-if="isShown" :style="cardSize">
     <div class="card-header">
       <!--<h5>LO Name</h5>-->
       <!--<hr>-->
@@ -24,7 +24,7 @@
       <br>
       <br>
       <a href="#" class="btn btn-light" @click.prevent="toggleLemmaCorpusView">Lemma/Corpus</a>
-      <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '75em')">Größer</a>
+      <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '100vh')">Größer</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('400px', '600px')">Kleiner</a>
       <!--<button>Lemma</button>-->
       <hr>
@@ -45,7 +45,7 @@
           isShown: true,
           currentVoyantTool:"", //reassigned in mounted hook
           cardSize: {
-            "min-height": "600px",
+            "height": "600px",
             "min-width": "400px"
           }
         }
@@ -81,10 +81,12 @@
           return onlyToolName;
         },
         resizeCard(width, height = null){
+          console.log("resize!")
           this.cardSize = {
-            "min-width": width,
-            "min-height": (height!==null) ? height : this.cardSize["min-height"]
+            "min-width": width + " !important",
+            "height": (height!==null) ? (height + " !important") : this.cardSize["height"]
           }
+          console.log(this.cardSize);
         }
       },
       created(){
@@ -106,7 +108,7 @@
         });
 
         EventBus.$on("resizeCards", (cssSizeObj)=>{
-          this.cardSize = cssSizeObj;
+          this.resizeCard(cssSizeObj["min-width"], cssSizeObj["height"]);
         });
 
       },
@@ -133,6 +135,7 @@
       padding: 0;
       width: 100%;
       min-height: 400px !important;
+      height: 80% !important;
       border: none;
     }
   }
