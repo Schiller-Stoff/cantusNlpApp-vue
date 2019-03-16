@@ -15,8 +15,8 @@
     </transition-group>
     <!--Experimental LO Reader Modus-->
     <button @click="showOrigCantus = !showOrigCantus" v-if="cardsToCreate.length===0" class="btn btn-primary">LO Vorschau</button>
-
-    <div class="container text-center row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
+    <div class="container">
+      <div class="row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
 
       <nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>
       <div class="col-sm-6">
@@ -71,6 +71,7 @@
         <hr>
       </div>
 
+    </div>
     </div>
     </div>
 </template>
