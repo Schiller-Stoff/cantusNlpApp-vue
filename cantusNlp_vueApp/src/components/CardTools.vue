@@ -14,6 +14,15 @@
     <div class="cantusNlp_iconContainer">
       <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'top');"><i class="fab fa-creative-commons-share"></i></div>
     </div>
+    <div class="cantusNlp_iconContainer">
+      <div class="cantusNlp_iconHolder" data-balloon="Lemma-Modus" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-stream"></i></div>
+    </div>
+    <div class="cantusNlp_iconContainer">
+      <div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-tablet"></i></div>
+    </div>
+    <div class="cantusNlp_iconContainer">
+      <div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="far fa-file-excel"></i></div>
+    </div>
     <hr>
     <div>
       <div class="cantusNlp_iconContainer">
