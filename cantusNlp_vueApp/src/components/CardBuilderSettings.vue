@@ -96,7 +96,7 @@
   @import "../scss/globalVariables";
 
   /*Styling of container + buttons*/
-  .container {
+  #v-step-10001 {
     padding: 0;
     margin: 2em 0 0 0;
     @include sm {margin-left: 10%;};
@@ -122,12 +122,12 @@
     color: lightgrey;
   }
 
-  .cantusNlp_iconHolder i {
+  #v-step-10001 .cantusNlp_iconHolder i {
     font-size: 2em; @include sm {font-size: 1.5em}
   }
 
   /*Styling for vue tours*/
-  .v-step {
+  #v-step-10001 .v-step {
     z-index: 9999;
     background-color: $secondaryColor;    /*https://color.adobe.com/de/create/color-wheel/?base=2&rule=Compound&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0,0,0.5450980392156862,0.24,0.24000000000008187,0.6,0,0.526315789473756,1,1,0.6145833333331439,0.25,0.8,0.32499999999987267,0.07999999999999999&swatchOrder=0,1,2,3,4*/
     color: lightgrey;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div id="vue_appGrid" class="container-fluid">
     <div class="row">
       <nlp-app-card-builder-settings :corpora="corpora"></nlp-app-card-builder-settings>
     </div>
@@ -116,7 +116,7 @@
 <style scoped lang="scss">
   @import "../scss/globalVariables";
 
-  div.container-fluid {
+  #vue_appGrid {
     background-color: $blankColor;
     min-height: 1000px;
     padding-right: 0;
@@ -128,7 +128,7 @@
   }
 
   /*Styling for vue tours*/
-  .v-step {
+  #vue_appGrid .v-step {
     z-index: 9999;
     text-align: justify;
     background-color: $blankColor;    /*https://color.adobe.com/de/create/color-wheel/?base=2&rule=Compound&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0,0,0.5450980392156862,0.24,0.24000000000008187,0.6,0,0.526315789473756,1,1,0.6145833333331439,0.25,0.8,0.32499999999987267,0.07999999999999999&swatchOrder=0,1,2,3,4*/
@@ -136,12 +136,12 @@
     /*min-width: 30em;*/
   }
 
-  .v-step button:hover {
+  #vue_appGrid .v-step button:hover {
     /*background-color: white;*/
     border: .1em dashed $secondaryColor;
   }
 
-  .v-step button {
+  #vue_appGrid .v-step button {
     color:black;
   }
 

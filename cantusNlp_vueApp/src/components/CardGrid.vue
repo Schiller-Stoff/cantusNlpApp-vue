@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div id="vue_cardGrid" class="container-fluid">
     <transition-group name="cardAnim"
                       @before-enter="beforeEnter"
                       @enter="enter"
@@ -174,20 +174,20 @@
   }
 
   /*normalization for the root container*/
-  .card-deck {
+  #vue_cardGrid .card-deck {
     min-height: 100vh;
     width: 100%;
     margin: 0;
     padding: 0;
   }
 
-  .btn {border-radius: 0;}
+  #vue_cardGrid .btn {border-radius: 0;}
 
-  .cardAnim-move {
+  #vue_cardGrid .cardAnim-move {
     transition: all 1s;
   }
 
-  .cardAnim-leave-active {
+  #vue_cardGrid .cardAnim-leave-active {
     position: absolute; /*needed to let anim work at removal of <li> via click*/
   }
 

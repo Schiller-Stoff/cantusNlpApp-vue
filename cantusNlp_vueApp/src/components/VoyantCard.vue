@@ -129,11 +129,11 @@
 <style scoped lang="scss">
   @import "../scss/globalVariables.scss";
 
-  #VoyantCard_container{
+  #VoyantCard_container {
     display: inline-block;
   }
 
-  .card {
+  #VoyantCard_container {
     margin: .5em;
     padding: .5em;
     min-width: 400px;
@@ -142,6 +142,7 @@
       padding: 0;
       width: 100%;
       min-height: 400px;
+      /*min-width: 400px;*/
       border: none;
     }
   }

@@ -120,19 +120,19 @@
 <style scoped lang="scss">
 @import "../scss/globalVariables.scss";
 
-  hr {
+  #v-step-10002 hr {
     color: $blankColor;
     border: .05em $blankColor solid;
     border-radius: 10em;
     width: 50%; @include sm {width: 3em}
   }
 
-  .cardTools_componentRoot {
+  #v-step-10002 .cardTools_componentRoot {
     margin-top: 1em; @include sm {margin-top: initial}
   }
 
   /*Styling for icons*/
-  .cantusNlp_iconContainer {
+  #v-step-10002 .cantusNlp_iconContainer {
     display: inline-block;
     .cantusNlp_iconHolder {
       padding: .5em 1em; @include sm {padding: .5em}
@@ -141,7 +141,7 @@
   }
 
   /*Styling for the vue tours*/
-  .v-step {
+  #v-step-10002 .v-step {
     z-index: 9999;
     background-color: $secondaryColor;    /*https://color.adobe.com/de/create/color-wheel/?base=2&rule=Compound&selected=3&name=Mein%20Color-Thema&mode=rgb&rgbvalues=0,0,0.5450980392156862,0.24,0.24000000000008187,0.6,0,0.526315789473756,1,1,0.6145833333331439,0.25,0.8,0.32499999999987267,0.07999999999999999&swatchOrder=0,1,2,3,4*/
     color: lightgrey;
