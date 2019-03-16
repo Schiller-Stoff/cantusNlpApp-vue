@@ -136,12 +136,12 @@
   #VoyantCard_container {
     margin: .5em;
     padding: .5em;
-    min-width: 400px;
+    min-width: 400px !important;
     iframe {
       margin:-18px;
       padding: 0;
       width: 100%;
-      min-height: 400px;
+      min-height: 400px !important;
       /*min-width: 400px;*/
       border: none;
     }

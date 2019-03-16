@@ -99,19 +99,19 @@
   #v-step-10001 {
     padding: 0;
     margin: 2em 0 0 0;
-    @include sm {margin-left: 10%;};
-    text-align: center; @include sm {text-align: initial}
-    border-bottom: .25em solid $blankColor; @include sm {border-bottom: initial}
+    @include sm {margin-left: 10% !important}
+    text-align: center; @include sm {text-align: initial !important;}
+    border-bottom: .25em solid $blankColor; @include sm {border-bottom: initial !important;}
     .form-inline {
-      display: block; @include sm { display: flex;}
-      max-width: 60%; @include sm {max-width: initial}
-      margin: 0 auto 2em; @include sm {margin: initial}
-      padding: 1em 3em 2em; @include sm {padding: initial; padding-bottom: .75em}
-      border-radius: .5em; @include sm {border-radius: initial}
+      display: block; @include sm { display: flex !important;}
+      max-width: 60%; @include sm {max-width: initial !important;}
+      margin: 0 auto 2em; @include sm {margin: initial !important;}
+      padding: 1em 3em 2em; @include sm {padding: initial !important; padding-bottom: .75em !important;}
+      border-radius: .5em; @include sm {border-radius: initial !important;}
       border: .1em dashed $blankColor; @include sm {border: initial}
       div, button {
         margin-top: 1.5em;
-        @include sm {margin-top: initial;margin-left: 1em;}
+        @include sm {margin-top: initial !important; margin-left: 1em !important;}
       }
       .btn {background-color: $fourthColor}
     }
@@ -123,7 +123,7 @@
   }
 
   #v-step-10001 .cantusNlp_iconHolder i {
-    font-size: 2em; @include sm {font-size: 1.5em}
+    font-size: 2em; @include sm {font-size: 1.5em !important;}
   }
 
   /*Styling for vue tours*/

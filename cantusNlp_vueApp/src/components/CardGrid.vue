@@ -158,8 +158,8 @@
   @import "../scss/globalVariables";
 
   #cardGrid_defaultContent {
-    @include sm {padding: 2.5em; margin: 2em auto 0}
-    @include lg {margin: 4em auto 0}
+    @include sm {padding: 2.5em; margin: 2em auto 0 !important;}
+    @include lg {margin: 4em auto 0 !important;}
     /*border: .1em solid $secondaryColor;*/
     background-color: $blankColor;
     h1 {color: $secondaryColor}
