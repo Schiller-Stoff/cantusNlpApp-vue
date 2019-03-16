@@ -10,6 +10,10 @@
     <div>
       <div @click="notify('Ansichten verkleinert'); resizeAllCards('400px', '600px');markActive($event,'right')" id="v-step-1001" class="cantusNlp_iconHolder" data-balloon="Ansichten verkleinern" data-balloon-pos="up"><i class="fas fa-th"></i></div>
     </div>
+    <hr>
+    <div>
+      <div @click="notify('Ansichten verkleinert');" id="v-step-1002" class="cantusNlp_iconHolder" data-balloon="Gesamtkorpus" data-balloon-pos="up"><i class="fab fa-adn"></i></div>
+    </div>
     <v-tour name="cardViewTour" :steps="steps">
       <template slot-scope="tour">
         <transition name="fade">
@@ -63,6 +67,13 @@
             params: {
               placement: 'left'
             }
+          },
+          {
+            target: '#v-step-1002',  // We're using document.querySelector() under the hood
+            content: `An dieser Stelle kann zur <strong>Gesamt-Korpus Ansicht in den Voyant Tools gewechselt</strong> werden.`,
+            params: {
+              placement: 'left'
+            }
           }
         ]
       }
@@ -93,6 +104,7 @@
       border-radius: 10em;
       width: 3em;
     }
+    .fa-adn {transform: rotate(180deg)}
   }
 
   /*Styling for the vue tours*/
