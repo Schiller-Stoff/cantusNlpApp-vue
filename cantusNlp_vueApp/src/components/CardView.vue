@@ -106,13 +106,14 @@
 
   #cardView_container {
     margin-top: 2em; @include lg {margin-top: 35vh}
+    margin-bottom: 2em; @include lg {margin-bottom: 0}
     hr {
       color: $blankColor;
       border: .05em $blankColor solid;
-      border-radius: 10em;
       width: 3em;
     }
     .fa-adn {transform: rotate(180deg)}
+    .cantusNlp_iconHolder {margin-top: 1em}
   }
 
   /*Styling for the vue tours*/
