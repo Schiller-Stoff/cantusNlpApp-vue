@@ -5,7 +5,7 @@
     </div>
     <hr>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus');markActive($event,'top');"><i class="fas fa-cloud-meatball"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus');markActive($event,'top');"><i class="fas fa-cloud"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
     <div class="cantusNlp_iconContainer">
