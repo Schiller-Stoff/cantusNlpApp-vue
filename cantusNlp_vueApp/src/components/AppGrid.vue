@@ -118,6 +118,7 @@
 
   #vue_appGrid {
     background-color: $blankColor;
+    border-bottom: 0; @include md {border-bottom: 5em solid $primaryColor};
     padding-right: 0;
     margin-right: 0;
     .col-sm-1 {background-color: $primaryColor; min-height: 28vh; @include md {min-height: 100vh}; padding: 0; margin: 0}
