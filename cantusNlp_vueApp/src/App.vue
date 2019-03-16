@@ -16,15 +16,13 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       corpora: [
-        // link to all: https://voyant-tools.org/?corpus=1fdf2aa57c4e75e442c7876addab74f3
 
-        //sending data via glossa: http://glossa.uni-graz.at/gamsdev/stoffse/cantus/nlp/lemmat.zip                  DAS FUNKTIONIERT!
+        //sending data via glossa: http://glossa.uni-graz.at/gamsdev/stoffse/cantus/nlp/lemmat.zip                  // For the creation of an aggregated corpus
+        // created lemma corpus with link above:
+          // - https://voyant-tools.org/?corpus=9892f4e834838ee56e8bb78b73fc0ca7&input=http://glossa.uni-graz.at/gamsdev/stoffse/cantus/nlp/lemmat.zip
 
-        //https://voyant-tools.org/?corpus=3a1ea35768d36f35699a0897cf6ff00f
-
-        {name:"Brixen", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
-
-        {name:"Emmeram_emm1", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
+        {name:"Brixen", voy_corpus:"https://voyant-tools.org/?corpus=1ff13aa0798dadb9e92973f7105efdce&input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=6071fa8642a90eb6de107da8fd01ea54&input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
+        {name:"Emmeram_emm1", voy_corpus:"https://voyant-tools.org/?corpus=642a97bf3093e9b01eaa770d66a08735&input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=e2ae6692a36fb300d8fdab044d7f6063&input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
         // {name:"Emmeram_emm3", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
         // {name:"Emmeram_emm", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
