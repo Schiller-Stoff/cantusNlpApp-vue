@@ -160,6 +160,8 @@
   #cardGrid_defaultContent {
     @include sm {padding: 2.5em; margin: 2em auto 0 !important;}
     @include lg {margin: 4em auto 0 !important;}
+    font-family:"Open Sans", Arial, Helvetica, sans-serif;
+    line-height: 1.5;
     /*border: .1em solid $secondaryColor;*/
     background-color: $blankColor;
     h1 {color: $secondaryColor}
