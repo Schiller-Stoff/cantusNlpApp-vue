@@ -105,7 +105,7 @@
 @import "../scss/globalVariables";
 
   #cardView_container {
-    margin-top: 35vh;
+    margin-top: 2em; @include lg {margin-top: 35vh}
     hr {
       color: $blankColor;
       border: .05em $blankColor solid;
