@@ -12,8 +12,11 @@
     </div>
     <hr>
     <div>
-      <div @click="notify('Ansichten verkleinert');" id="v-step-1002" class="cantusNlp_iconHolder" data-balloon="Gesamtkorpus" data-balloon-pos="up"><i class="fab fa-adn"></i></div>
+      <div @click="notify('Springe zu Gesamtkorpus...'); openInNewTab(corpora[0].voy_corpus)" id="v-step-1002" class="cantusNlp_iconHolder" data-balloon="Originaler Gesamtkorpus" data-balloon-pos="up"><i class="fab fa-adn"></i></div>
     </div>
+    <div>
+      <div @click="notify('Springe zu lemmatisierten Gesamtkorpus...'); openInNewTab(corpora[0].voy_lemma)" id="v-step-1003" class="cantusNlp_iconHolder" data-balloon="Lemmatisierter Gesamtkorpus" data-balloon-pos="up"><i class="fab fa-adn"></i></div>
+  </div>
     <v-tour name="cardViewTour" :steps="steps">
       <template slot-scope="tour">
         <transition name="fade">
@@ -50,6 +53,7 @@
   import {iconMethodsMixin} from "../mixins/iconMethodsMixin";
   export default {
     name: "CardView",
+    props: ["corpora"],
     mixins: [vueNotifyMixin, iconMethodsMixin],
     data(){
       return {
@@ -88,6 +92,10 @@
       },
       startVueTour(){
         this.$tours['cardViewTour'].start();
+      },
+      openInNewTab(url){
+        let win = window.open(url,'_blank');
+        win.focus();
       }
     }
   }
