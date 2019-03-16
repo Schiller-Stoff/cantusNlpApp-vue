@@ -121,7 +121,7 @@
     border-bottom: 0; @include md {border-bottom: 5em solid $primaryColor};
     padding-right: 0;
     margin-right: 0;
-    .col-lg-1 {background-color: $primaryColor; min-height: 28vh; @include md {min-height: 100vh}; padding: 0; margin: 0}
+    .col-lg-1 {background-color: $primaryColor; min-height: 28vh; @include lg {min-height: 100vh}; padding: 0; margin: 0}
     .col-lg-10 {border-radius: 1.5em; padding: 0; margin: 0}
     .row:first-child{min-height: 80px;background-color: $primaryColor;}
   }
