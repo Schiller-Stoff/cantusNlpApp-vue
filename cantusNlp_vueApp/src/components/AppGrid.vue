@@ -7,7 +7,7 @@
       <div class="col-sm-1 text-center">
         <nlp-app-card-builder></nlp-app-card-builder>
       </div>
-      <div class="col-sm-10" id="v-step-10004">
+      <div class="col-sm-10">
         <nlp-app-card-grid :corpora="corpora"></nlp-app-card-grid>
       </div>
       <div class="col-sm-1 text-center" id="v-step-10003">

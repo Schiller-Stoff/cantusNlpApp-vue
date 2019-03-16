@@ -21,7 +21,7 @@
         <!--<nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>-->
       <div class="col-lg-6">
         <h1 id="v-step-10000">Willkommen zur Cantus-Voyant App</h1>
-        <hr>
+        <hr id="v-step-10004">
         <p>
           Das Cantus Voyant tool dient dazu den Vergleich verschiedener Ansichten zu erleichtern.
           Die Ansichten selbst stammen aus den VoyantTools und können mit Hilfe einfacer Werkzeuge
