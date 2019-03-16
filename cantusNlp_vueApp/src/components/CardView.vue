@@ -78,6 +78,13 @@
             params: {
               placement: 'left'
             }
+          },
+          {
+            target: '#v-step-1003',  // We're using document.querySelector() under the hood
+            content: `...und hier selbiges für die <strong>Lemmata-Korpus Ansicht</strong>.`,
+            params: {
+              placement: 'left'
+            }
           }
         ]
       }
