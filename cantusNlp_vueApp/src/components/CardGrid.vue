@@ -19,7 +19,7 @@
       <div class="row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
         <!--Experimental LO Reader Modus-->
         <!--<nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>-->
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <h1 id="v-step-10000">Cantus-Voyant App</h1>
         <hr>
         <p>
@@ -44,7 +44,7 @@
         </ul>
         <hr>
       </div>
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <h3>Wie wurden die Daten gewonnen?</h3>
         <p>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
