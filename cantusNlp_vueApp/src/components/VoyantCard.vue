@@ -31,16 +31,6 @@
       <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
     </div>
   </div>
-
-
-    <!--<blockquote class="blockquote mb-0">-->
-      <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>-->
-      <!--<footer class="blockquote-footer">-->
-        <!--<small>-->
-          <!--Someone famous in <cite title="Source Title">Source Title</cite>-->
-        <!--</small>-->
-      <!--</footer>-->
-    <!--</blockquote>-->
 </template>
 
 <script>
