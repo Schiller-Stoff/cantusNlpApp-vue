@@ -5,7 +5,7 @@
     </div>
     <hr>
     <div>
-      <div @click="notify('Ansichten vergrößert');resizeAllCards('100%', '75em');markActive($event,'right')" id="v-step-1000" class="cantusNlp_iconHolder" data-balloon="Ansichten vergrößern" data-balloon-pos="up"><i class="fas fa-th-large"></i></div>
+      <div @click="notify('Ansichten vergrößert');resizeAllCards('100%', '100vh');markActive($event,'right')" id="v-step-1000" class="cantusNlp_iconHolder" data-balloon="Ansichten vergrößern" data-balloon-pos="up"><i class="fas fa-th-large"></i></div>
     </div>
     <div>
       <div @click="notify('Ansichten verkleinert'); resizeAllCards('400px', '600px');markActive($event,'right')" id="v-step-1001" class="cantusNlp_iconHolder" data-balloon="Ansichten verkleinern" data-balloon-pos="up"><i class="fas fa-th"></i></div>
@@ -93,7 +93,7 @@
       resizeAllCards(minWidth, minHeight){
         let cssSizeObj= {
           "min-width": minWidth,
-          "min-height": minHeight
+          "height": minHeight
         }
         EventBus.$emit('resizeCards',cssSizeObj);
       },
