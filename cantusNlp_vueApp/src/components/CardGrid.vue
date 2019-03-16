@@ -14,11 +14,11 @@
 
     </transition-group>
     <!--Experimental LO Reader Modus-->
-    <button @click="showOrigCantus = !showOrigCantus" v-if="cardsToCreate.length===0" class="btn btn-primary">LO Vorschau</button>
+    <!--<button @click="showOrigCantus = !showOrigCantus" v-if="cardsToCreate.length===0" class="btn btn-primary">LO Vorschau</button>-->
     <div class="container">
       <div class="row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
-
-      <nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>
+        <!--Experimental LO Reader Modus-->
+        <!--<nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>-->
       <div class="col-sm-6">
         <h1 id="v-step-10000">Cantus-Voyant App</h1>
         <hr>
