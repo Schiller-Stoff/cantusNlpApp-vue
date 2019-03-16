@@ -137,12 +137,12 @@
     margin: .5em;
     padding: .5em;
     min-width: 400px !important;
+    .card-body {margin-top: 1em}
     iframe {
       margin:-18px;
       padding: 0;
       width: 100%;
       min-height: 400px !important;
-      /*min-width: 400px;*/
       border: none;
     }
   }
