@@ -20,7 +20,7 @@
         <!--Experimental LO Reader Modus-->
         <!--<nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>-->
       <div class="col-lg-6">
-        <h1 id="v-step-10000">Cantus-Voyant App</h1>
+        <h1 id="v-step-10000">Willkommen zur Cantus-Voyant App</h1>
         <hr>
         <p>
           Das Cantus Voyant tool dient dazu den Vergleich verschiedener Ansichten zu erleichtern.
