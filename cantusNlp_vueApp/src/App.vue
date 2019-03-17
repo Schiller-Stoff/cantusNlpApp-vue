@@ -27,9 +27,8 @@ export default {
 
         {name:"Emmeram_emm1", voy_corpus:"https://voyant-tools.org/?corpus=642a97bf3093e9b01eaa770d66a08735&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=e2ae6692a36fb300d8fdab044d7f6063&input=http://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm1/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
         {name:"Emmeram_emm", voy_corpus:"https://voyant-tools.org/?corpus=3955048faae992b6a59cf4ee814533ce&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=f6cf2718da2864525998ad6ea14936bd&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
-
-
-        // {name:"Emmeram_emm3", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
+        //was ist mit emmeram2?!
+        {name:"Emmeram_emm3", voy_corpus:"https://voyant-tools.org/?corpus=120297dd7590a2b5f6258b8857adfe88&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm3/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=84c28312fa7277270ca33d1f06dccd49&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm3/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
 
         // {name:"Freising", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
