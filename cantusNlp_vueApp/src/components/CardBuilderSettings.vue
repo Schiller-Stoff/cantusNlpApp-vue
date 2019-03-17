@@ -13,7 +13,8 @@
             <!--<option>Was wäre hier sinnvoll`?</option>-->
           <!--</select>-->
         <!--</div>-->
-        <button id="v-step-101" type="button" class="btn mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>
+        <!--<button id="v-step-101" type="button" class="btn mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>-->
+        <progress-button @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')" id="v-step-101" name="duration" class="btn mb-2" :duration="loBtnClickBlockDuration">LO hinzufügen</progress-button>
         <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
           <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle"></i></div>
         </div>
@@ -49,15 +50,24 @@
 </template>
 
 <script>
+  //global for this component, used to delay load of another voyant card for 1sek
+  let loBtnClickBlocker = false;
+
   import {EventBus} from "../main";
   import {vueNotifyMixin} from "../mixins/vueNotifyMixin";
+  import ProgressButton from 'vue-progress-button'
+
   export default {
     name: "CardBuilderSettings",
     props: ["corpora"],
     mixins: [vueNotifyMixin],
+    components: {
+      'progress-button': ProgressButton
+    },
     data(){
       return {
         selectedLO:"LO auswählen",
+        loBtnClickBlockDuration: 1000,
         steps: [
           {
             target: '#v-step-100',  // We're using document.querySelector() under the hood
@@ -78,9 +88,11 @@
     },
     methods: {
       createCard(LO){
+        if(loBtnClickBlocker)return;
         for (let corpus of this.corpora) {
           if(corpus.name===LO){
-            console.log("adding now " + LO)
+            loBtnClickBlocker = true;
+            setTimeout(()=>{loBtnClickBlocker=false},this.loBtnClickBlockDuration)
             return EventBus.$emit('cardCreate',corpus);
           }
         }
