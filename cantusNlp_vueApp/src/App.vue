@@ -96,7 +96,7 @@ export default {
     .cantusNlp_iconHolder {
       cursor: pointer;
       i {
-        color:white;
+        color:$iconColor;
         font-size:1.5em;
         &:hover{
           color:$fourthColor;
