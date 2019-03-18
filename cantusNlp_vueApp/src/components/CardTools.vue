@@ -142,7 +142,7 @@
 
   /*Styling for icons*/
   #v-step-10002 .cantusNlp_iconContainer {
-    display: inline-block;
+    /*display: inline-block;*/
     .cantusNlp_iconHolder {
       padding: .5em 1em; @include sm {padding: .5em !important;}
       i {font-size: 2em;@include sm {font-size: 1.5em !important;}}
