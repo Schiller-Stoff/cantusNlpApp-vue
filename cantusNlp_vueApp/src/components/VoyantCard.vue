@@ -35,6 +35,11 @@
     </div>
     <div class="card-body" v-else>
       <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
+      <ul class="list-group">
+        <li class="list-group-item">Prozentsatz nich aufgefunener Wörter: {{ nlpResults.lemmasNotKnown }}</li>
+        <li class="list-group-item">Entfernte Wörter: {{ nlpResults.deletedTokens }}</li>
+        <li class="list-group-item">Unbekannte Wörter: {{ nlpResults.wordsNotKnown }}</li>
+      </ul>
       <hr>
       <p></p>
       <hr>
@@ -59,7 +64,8 @@
           cardSize: {
             "height": "600px",
             "min-width": "400px"
-          }
+          },
+          nlpResults: {deletedTokens:"",lemmasNotKnown:"",wordsNotKnown:""}
         }
       },
       methods: {
@@ -96,14 +102,15 @@
           return onlyToolName;
         },
         retrieveNlpData(){
-          let url = 'https://jsonplaceholder.typicode.com/posts';
+          let url = 'http://glossa.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/NLP_RESULTS/content';
           this.$http.get(url)
             .then(response=>{
             return response.json();
           },error=>{
             console.log("Unable to reach " + url)
           }).then(json =>{
-            console.log(json[0].title)
+            this.nlpResults = json;
+
           });
         },
         resizeCard(width, height = null){
