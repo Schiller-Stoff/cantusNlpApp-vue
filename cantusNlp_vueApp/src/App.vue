@@ -39,6 +39,14 @@ export default {
          {name:"Moosburg", voy_corpus:"https://voyant-tools.org/?corpus=3f4291833c2881d9979e7e037e1572e1&input=https://gams.uni-graz.at/archive/objects/o:cantus.moosburg/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=cc0fbe76d62d2b03deb4468e7bff800b&input=https://gams.uni-graz.at/archive/objects/o:cantus.moosburg/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
 
+         {name:"Passau", voy_corpus:"https://voyant-tools.org/?corpus=5c34ab5c3e2b39cf2cc2a1e4c9fde7a2&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=193fd3bc42098c938fc3c6f0d3ed47c3&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
+
+
+        // {name:"Passau_knb", voy_corpus:"",voy_lemma:""},
+        // {name:"Passau_sp", voy_corpus:"",voy_lemma:""},
+        // {name:"Passau_sve", voy_corpus:"",voy_lemma:""},
+
+
         // {name:"Klosterneuburg_knb2", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
         // {name:"Klosterneuburg_knb3", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
         // {name:"Klosterneuburg_knb4", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
@@ -46,10 +54,7 @@ export default {
         //
 
 
-        // {name:"Passau", voy_corpus:"",voy_lemma:""},
-        // {name:"Passau_knb", voy_corpus:"",voy_lemma:""},
-        // {name:"Passau_sp", voy_corpus:"",voy_lemma:""},
-        // {name:"Passau_sve", voy_corpus:"",voy_lemma:""},
+
         //
         // {name:"Regensburg", voy_corpus:"",voy_lemma:""},
         //
