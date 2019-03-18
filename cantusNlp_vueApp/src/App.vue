@@ -42,6 +42,8 @@ export default {
          {name:"Passau_sp", voy_corpus:"https://voyant-tools.org/?corpus=bbfa77ef776c60675c400465b3ee673c&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sp/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=02345f59e456cc49a98a9ef721b6e429&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sp/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
          {name:"Passau_sve", voy_corpus:"https://voyant-tools.org/?corpus=3e08cd69fc449c31f897d4292b176130&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sve/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=bf3c4e9f28b863ee3e3a4583163808ad&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sve/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
+         {name:"Regensburg", voy_corpus:"https://voyant-tools.org/?corpus=fa325d63d66c53bbba370b71c71013e6&input=https://gams.uni-graz.at/archive/objects/o:cantus.regensburg/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=21c134a50dcc39e730eaf0d1712a55cc&input=https://gams.uni-graz.at/archive/objects/o:cantus.regensburg/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
+
 
         // {name:"Klosterneuburg_knb2", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
         // {name:"Klosterneuburg_knb3", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
@@ -50,9 +52,6 @@ export default {
         //
 
 
-
-        //
-        // {name:"Regensburg", voy_corpus:"",voy_lemma:""},
         //
         // {name:"Salzburg", voy_corpus:"",voy_lemma:""},
         // {name:"Salzburg_ra", voy_corpus:"",voy_lemma:""},
