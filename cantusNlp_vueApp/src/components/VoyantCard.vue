@@ -163,6 +163,7 @@
     padding: .5em;
     min-width: 400px !important;
     .card-body {margin-top: 1em}
+    h5 {font-weight: 900; color: $secondaryColor}
     iframe {
       margin:-18px;
       padding: 0;
