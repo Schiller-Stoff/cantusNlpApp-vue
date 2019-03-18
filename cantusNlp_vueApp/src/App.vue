@@ -31,7 +31,7 @@ export default {
         {name:"Emmeram_emm3", voy_corpus:"https://voyant-tools.org/?corpus=120297dd7590a2b5f6258b8857adfe88&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm3/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=84c28312fa7277270ca33d1f06dccd49&input=https://gams.uni-graz.at/archive/objects/o:cantus.emmeram.emm3/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
 
-        // {name:"Freising", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
+         {name:"Freising", voy_corpus:"https://voyant-tools.org/?corpus=18ac768c0b97a5c1a1d75cf94c1b1482&input=https://gams.uni-graz.at/archive/objects/o:cantus.freising/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=b16ac7f6ff3261fb2c00a1baa1339ded&input=https://gams.uni-graz.at/archive/objects/o:cantus.freising/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
 
         // {name:"Hirsau", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
