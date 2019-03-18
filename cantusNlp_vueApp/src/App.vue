@@ -52,6 +52,10 @@ export default {
         {name:"Salzburg_sal", voy_corpus:"https://voyant-tools.org/?corpus=6b21c784c93f88dbf35dc02d90202a64&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=7652ed1360aa4ba552c45f32ce975588&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
         {name:"Salzburg_vo", voy_corpus:"https://voyant-tools.org/?corpus=1287cb250374443d5810a9e08ff8db78&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.vo/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=bcfe9eaa06deb92c314133f9c005b5f1&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.vo/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
+        {name:"Seckau1_se1", voy_corpus:"https://voyant-tools.org/?corpus=1287cb250374443d5810a9e08ff8db78&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.vo/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=bcfe9eaa06deb92c314133f9c005b5f1&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.vo/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
+
+        {name:"Seckau3", voy_corpus:"",voy_lemma:""},
+
 
         // {name:"Klosterneuburg_knb2", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
         // {name:"Klosterneuburg_knb3", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
@@ -62,8 +66,7 @@ export default {
 
 
         //
-        // {name:"Seckau1_se1", voy_corpus:"",voy_lemma:""},
-        // {name:"Seckau3", voy_corpus:"",voy_lemma:""},
+
 
 
 
