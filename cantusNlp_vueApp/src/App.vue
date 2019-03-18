@@ -45,6 +45,15 @@ export default {
          {name:"Regensburg", voy_corpus:"https://voyant-tools.org/?corpus=fa325d63d66c53bbba370b71c71013e6&input=https://gams.uni-graz.at/archive/objects/o:cantus.regensburg/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=21c134a50dcc39e730eaf0d1712a55cc&input=https://gams.uni-graz.at/archive/objects/o:cantus.regensburg/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
 
+         {name:"Salzburg", voy_corpus:"https://voyant-tools.org/?corpus=2da464ef8ff441361960674e1929ddda&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=13a18cf889f1c6c68072e8b512a251ba&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
+
+
+
+        // {name:"Salzburg_ra", voy_corpus:"",voy_lemma:""},
+        // {name:"Salzburg_sal", voy_corpus:"",voy_lemma:""},
+        // {name:"Salzburg_vo", voy_corpus:"",voy_lemma:""},
+
+
         // {name:"Klosterneuburg_knb2", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
         // {name:"Klosterneuburg_knb3", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
         // {name:"Klosterneuburg_knb4", voy_corpus:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/TEI_SOURCE/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?input=http://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/TEI_SOURCE/content&view=Cirrus"},
@@ -52,11 +61,7 @@ export default {
         //
 
 
-        //
-        // {name:"Salzburg", voy_corpus:"",voy_lemma:""},
-        // {name:"Salzburg_ra", voy_corpus:"",voy_lemma:""},
-        // {name:"Salzburg_sal", voy_corpus:"",voy_lemma:""},
-        // {name:"Salzburg_vo", voy_corpus:"",voy_lemma:""},
+
         //
         // {name:"Seckau1_se1", voy_corpus:"",voy_lemma:""},
         // {name:"Seckau3", voy_corpus:"",voy_lemma:""},
