@@ -43,7 +43,7 @@ export default {
 
          {name:"Passau_knb", voy_corpus:"https://voyant-tools.org/?corpus=30212f907cd263eac28d07535195c433&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.knb/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=f4371588282c87bbf80cbc2ae7df8196&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.knb/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
-        // {name:"Passau_sp", voy_corpus:"",voy_lemma:""},
+         {name:"Passau_sp", voy_corpus:"https://voyant-tools.org/?corpus=bbfa77ef776c60675c400465b3ee673c&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sp/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=02345f59e456cc49a98a9ef721b6e429&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sp/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
         // {name:"Passau_sve", voy_corpus:"",voy_lemma:""},
 
 
