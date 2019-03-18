@@ -15,10 +15,13 @@
         <li class="nav-item">
           <a class="nav-link" :class="(currentVoyantTool==='Summary') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Summary')">Summary</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" :class="(resultDataDisplayed) ? 'active' : '' " href="#" @click.prevent="(resultDataDisplayed = !resultDataDisplayed); retrieveNlpData()">Forschungsdaten</a>
+        </li>
       </ul>
     </div>
     <!--<iframe class="card-img-top" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>-->
-    <div class="card-body">
+    <div class="card-body" v-if="!resultDataDisplayed">
       <iframe class="card-img" :src=iframeVoyantUrl></iframe>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
@@ -30,7 +33,15 @@
       <hr>
       <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
     </div>
+    <div class="card-body" v-else>
+      <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
+      <hr>
+      <p></p>
+      <hr>
+      <h5>{{ linkedCorpus.name }}</h5>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -43,6 +54,7 @@
           iframeVoyantUrl: this.linkedCorpus.voy_corpus,
           currentView: "Korpus Ansicht",
           isShown: true,
+          resultDataDisplayed:false,
           currentVoyantTool:"", //reassigned in mounted hook
           cardSize: {
             "height": "600px",
@@ -69,6 +81,9 @@
           EventBus.$emit('removeCard', this.linkedCorpus)
         },
         changeVoyantTool(toolToSet){
+          //first make sure that opional data tab is hidden
+          this.resultDataDisplayed = false;
+
           let curTool = this.detectCurrentVoyantTool();
           this.iframeVoyantUrl = this.iframeVoyantUrl.replace(curTool,toolToSet);
           this.currentVoyantTool = toolToSet;
@@ -79,6 +94,17 @@
           let onlyToolName= regxString.replace("view=", "")
           console.log(onlyToolName);
           return onlyToolName;
+        },
+        retrieveNlpData(){
+          let url = 'https://jsonplaceholder.typicode.com/posts';
+          this.$http.get(url)
+            .then(response=>{
+            return response.json();
+          },error=>{
+            console.log("Unable to reach " + url)
+          }).then(json =>{
+            console.log(json[0].title)
+          });
         },
         resizeCard(width, height = null){
           console.log("resize!")
