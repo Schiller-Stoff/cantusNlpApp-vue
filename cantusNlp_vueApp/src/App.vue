@@ -49,7 +49,7 @@ export default {
         {name:"Salzburg_ra", voy_corpus:"https://voyant-tools.org/?corpus=5b1dcbf7f179857de5d373c206d18612&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.ra/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=0c43982c40ecfed4cd5e59df544ffe61&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.ra/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
 
-        // {name:"Salzburg_sal", voy_corpus:"",voy_lemma:""},
+        {name:"Salzburg_sal", voy_corpus:"https://voyant-tools.org/?corpus=6b21c784c93f88dbf35dc02d90202a64&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=7652ed1360aa4ba552c45f32ce975588&input=https://gams.uni-graz.at/archive/objects/o:cantus.salzburg.sal/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
         // {name:"Salzburg_vo", voy_corpus:"",voy_lemma:""},
 
 
