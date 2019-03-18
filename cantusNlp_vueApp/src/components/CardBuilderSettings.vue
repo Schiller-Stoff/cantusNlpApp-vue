@@ -111,19 +111,19 @@
   #v-step-10001 {
     padding: 0;
     margin: 2em 0 0 0;
-    @include sm {margin-left: 10% !important}
-    text-align: center; @include sm {text-align: initial !important;}
-    border-bottom: .25em solid $blankColor; @include sm {border-bottom: initial !important;}
+    @include lg {margin-left: 10% !important}
+    text-align: center; @include lg {text-align: initial !important;}
+    border-bottom: .25em solid $blankColor; @include lg {border-bottom: initial !important;}
     .form-inline {
-      display: block; @include sm { display: flex !important;}
-      max-width: 60%; @include sm {max-width: initial !important;}
-      margin: 0 auto 2em; @include sm {margin: initial !important;}
-      padding: 1em 3em 2em; @include sm {padding: initial !important; padding-bottom: .75em !important;}
-      border-radius: .5em; @include sm {border-radius: initial !important;}
-      border: .1em dashed $blankColor; @include sm {border: initial}
+      display: block; @include lg { display: flex !important;}
+      max-width: 60%; @include lg {max-width: initial !important;}
+      margin: 0 auto 2em; @include lg {margin: initial !important;}
+      padding: 1em 3em 2em; @include lg {padding: initial !important; padding-bottom: .75em !important;}
+      border-radius: .5em; @include lg {border-radius: initial !important;}
+      border: .1em solid $iconColor; @include lg {border: initial}
       div, button {
         margin-top: 1.5em;
-        @include sm {margin-top: initial !important; margin-left: 1em !important;}
+        @include lg {margin-top: initial !important; margin-left: 1em !important;}
       }
       .btn {background-color: $fourthColor}
     }
