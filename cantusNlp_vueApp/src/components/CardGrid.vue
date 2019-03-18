@@ -164,14 +164,14 @@
     line-height: 1.5;
     /*border: .1em solid $secondaryColor;*/
     background-color: $blankColor;
-    h1 {color: $secondaryColor}
-    h3 {color: $secondaryColor}
+    h1 {color: $tertiaryColor}
+    h3 {color: $tertiaryColor}
     hr {color:black;background-color: black;margin-bottom: 1em;}
     ul {
-      background-color: $secondaryColor;
+      background-color: $fourthColor;
       padding: 1.5em;
       border-radius: 1em;
-      color: lightgrey;
+      color: black;
     }
     p, li {text-align: justify;}
   }
