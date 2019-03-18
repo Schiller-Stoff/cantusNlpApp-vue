@@ -35,16 +35,11 @@ export default {
 
          {name:"Hirsau", voy_corpus:"https://voyant-tools.org/?corpus=f83e7eae8c6afccafa3e51ffea86604a&input=https://gams.uni-graz.at/archive/objects/o:cantus.hirsau/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=4bbdc8d88d49d574cfdeda092ba3ce18&input=https://gams.uni-graz.at/archive/objects/o:cantus.hirsau/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
-
          {name:"Moosburg", voy_corpus:"https://voyant-tools.org/?corpus=3f4291833c2881d9979e7e037e1572e1&input=https://gams.uni-graz.at/archive/objects/o:cantus.moosburg/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=cc0fbe76d62d2b03deb4468e7bff800b&input=https://gams.uni-graz.at/archive/objects/o:cantus.moosburg/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
-
          {name:"Passau", voy_corpus:"https://voyant-tools.org/?corpus=5c34ab5c3e2b39cf2cc2a1e4c9fde7a2&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=193fd3bc42098c938fc3c6f0d3ed47c3&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
-
          {name:"Passau_knb", voy_corpus:"https://voyant-tools.org/?corpus=30212f907cd263eac28d07535195c433&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.knb/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=f4371588282c87bbf80cbc2ae7df8196&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.knb/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
-
          {name:"Passau_sp", voy_corpus:"https://voyant-tools.org/?corpus=bbfa77ef776c60675c400465b3ee673c&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sp/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=02345f59e456cc49a98a9ef721b6e429&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sp/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
-
          {name:"Passau_sve", voy_corpus:"https://voyant-tools.org/?corpus=3e08cd69fc449c31f897d4292b176130&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sve/datastreams/CORPUS_PLAIN/content&view=Cirrus",voy_lemma:"https://voyant-tools.org/?corpus=bf3c4e9f28b863ee3e3a4583163808ad&input=https://gams.uni-graz.at/archive/objects/o:cantus.passau.sve/datastreams/CORPUS_LEMMAT/content&view=Cirrus"},
 
 
