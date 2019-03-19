@@ -15,12 +15,13 @@
         <!--</div>-->
         <!--<button id="v-step-101" type="button" class="btn mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>-->
         <progress-button @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')" id="v-step-101" name="duration" class="btn mb-2" :duration="loBtnClickBlockDuration">LO hinzufügen</progress-button>
+        <div @click="notify('Maximiert/Minimiert'); maximizeApp()">
+          <div id="v-step-102" class="cantusNlp_iconHolder" data-balloon="Maximieren" data-balloon-pos="right"><i class="far fa-window-maximize"></i></div>
+        </div>
         <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
           <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle"></i></div>
         </div>
-        <div @click="notify('Maximieren'); maximizeApp()">
-          <div class="cantusNlp_iconHolder" data-balloon="Maximieren" data-balloon-pos="right"><i class="far fa-window-maximize"></i></div>
-        </div>
+
       </form>
       <v-tour name="topTour" :steps="steps">
         <template slot-scope="tour">
@@ -82,6 +83,13 @@
           {
             target: '#v-step-101',  // We're using document.querySelector() under the hood
             content: `... via click hier zur <strong>Voyant Ansicht</strong> hinzugefügt.`,
+            params: {
+              placement: 'bottom'
+            }
+          },
+          {
+            target: '#v-step-102',  // We're using document.querySelector() under the hood
+            content: `An dieser Stelle kann das Tool <strong>vergrößert</strong>  werden.`,
             params: {
               placement: 'bottom'
             }
