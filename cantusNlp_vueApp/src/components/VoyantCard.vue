@@ -1,5 +1,5 @@
 <template>
-  <div id="VoyantCard_container" class="card text-center" v-if="isShown" :style="cardSize">
+  <div class="card text-center VoyantCard_container" v-if="isShown" :style="cardSize">
     <div class="card-header">
       <!--<h5>LO Name</h5>-->
       <!--<hr>-->
@@ -154,11 +154,11 @@
 <style scoped lang="scss">
   @import "../scss/globalVariables.scss";
 
-  #VoyantCard_container {
+  .VoyantCard_container {
     display: inline-block;
   }
 
-  #VoyantCard_container {
+  .VoyantCard_container {
     margin: .05em !important;
     padding: .05em !important;
     min-width: 400px !important;
