@@ -159,8 +159,8 @@
   }
 
   #VoyantCard_container {
-    margin: .5em;
-    padding: .5em;
+    margin: .25em !important;
+    padding: .25em !important;
     min-width: 400px !important;
     .card-body {margin: 0;}
     h5 {font-weight: 900; color: $secondaryColor}
