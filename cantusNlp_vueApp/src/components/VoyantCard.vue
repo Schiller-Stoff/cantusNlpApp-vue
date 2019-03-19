@@ -35,15 +35,9 @@
     </div>
     <div class="card-body" v-else>
       <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
-      <ul class="list-group">
-        <li class="list-group-item">Prozentsatz nich aufgefunener Wörter: {{ nlpResults.lemmasNotKnown }}</li>
-        <li class="list-group-item">Entfernte Wörter: {{ nlpResults.deletedTokens }}</li>
-        <li class="list-group-item">Unbekannte Wörter: {{ nlpResults.wordsNotKnown }}</li>
-      </ul>
       <hr>
-      <p></p>
-      <hr>
-      <h5>{{ linkedCorpus.name }}</h5>
+      <p>Prozentsatz nich aufgefundener Wörter: {{ nlpResults.lemmasNotKnown }}%</p>
+      <button class="btn btn-secondary">Forschungsdaten</button>
     </div>
   </div>
 
