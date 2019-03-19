@@ -57,7 +57,7 @@
       data(){
         return {
           iframeVoyantUrl: this.linkedCorpus.voy_corpus,
-          currentView: "Korpus Ansicht",
+          currentView: "Originaltext",
           isShown: true,
           resultDataDisplayed:false,
           currentVoyantTool:"", //reassigned in mounted hook
@@ -70,14 +70,14 @@
       },
       methods: {
         toggleLemmaCorpusView(){
-          if(this.currentView === "Korpus Ansicht"){
-            this.currentView="Lemma Ansicht";
+          if(this.currentView === "Originaltext"){
+            this.currentView="Lemmatisierter Text";
             let replace = "view=" + this.currentVoyantTool;
             let newUrl = this.linkedCorpus.voy_lemma.replace(/view=.+/, replace).toString();
             this.iframeVoyantUrl = newUrl;
             console.log(this.iframeVoyantUrl);
           } else {
-            this.currentView = "Korpus Ansicht";
+            this.currentView = "Originaltext";
             let replace = "view=" + this.currentVoyantTool;
             let newUrl = this.linkedCorpus.voy_corpus.replace(/view=.+/, replace).toString();
             this.iframeVoyantUrl = newUrl;
