@@ -162,7 +162,7 @@
     margin: .5em;
     padding: .5em;
     min-width: 400px !important;
-    .card-body {margin-top: 1em}
+    .card-body {margin: 0;}
     h5 {font-weight: 900; color: $secondaryColor}
     iframe {
       margin:-18px;
