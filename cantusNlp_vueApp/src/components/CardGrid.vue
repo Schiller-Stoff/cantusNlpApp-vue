@@ -182,7 +182,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: $iconColor;
+    background-color: $primaryColor;
   }
 
   #vue_cardGrid .btn {border-radius: 0;}
