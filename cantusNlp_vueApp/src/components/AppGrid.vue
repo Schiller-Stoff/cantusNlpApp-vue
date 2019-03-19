@@ -1,5 +1,5 @@
 <template>
-  <div id="vue_appGrid" class="container-fluid">
+  <div id="vue_appGrid" class="container-fluid" :style="maximizedStyle">
     <div class="row">
       <nlp-app-card-builder-settings :corpora="corpora"></nlp-app-card-builder-settings>
     </div>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+    import {EventBus} from './../main'
     import CardGrid from "./CardGrid.vue";
     import CardBuilder from "./CardTools";
     import CardBuilderSettings from "./CardBuilderSettings";
@@ -62,6 +63,7 @@
       props: ['corpora'],
       data(){
         return {
+          maximizedStyle: undefined,
           steps: [
             {
               target: '#v-step-10000',  // We're using document.querySelector() under the hood
@@ -109,6 +111,16 @@
       },
       mounted(){
         this.$tours['mainTour'].start();
+      },
+      created(){
+        EventBus.$on("toggleFullscreen",()=>{
+          if(this.maximizedStyle){
+            this.maximizedStyle = undefined
+          } else {
+            this.maximizedStyle = {position:'fixed', height:'120vh', width: '100vw', left:0, top:0, overflow:'scroll'}
+          }
+
+        });
       }
     }
 </script>

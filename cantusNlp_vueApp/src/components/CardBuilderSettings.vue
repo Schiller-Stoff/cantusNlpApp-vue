@@ -18,6 +18,9 @@
         <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
           <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle"></i></div>
         </div>
+        <div @click="notify('Maximieren'); maximizeApp()">
+          <div class="cantusNlp_iconHolder" data-balloon="Maximieren" data-balloon-pos="right"><i class="far fa-window-maximize"></i></div>
+        </div>
       </form>
       <v-tour name="topTour" :steps="steps">
         <template slot-scope="tour">
@@ -99,6 +102,9 @@
       },
       startVueTour(){
         this.$tours['topTour'].start();
+      },
+      maximizeApp(){
+        EventBus.$emit('toggleFullscreen');
       }
     }
   }
