@@ -26,12 +26,12 @@
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
+      <h5 class=".d-inline">{{ linkedCorpus.name }} - {{ currentView }}</h5>
       <a href="#" class="btn btn-light" @click.prevent="toggleLemmaCorpusView">Lemma/Corpus</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '100vh')">Größer</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('400px', '600px')">Kleiner</a>
       <!--<button>Lemma</button>-->
-      <hr>
-      <h5>{{ linkedCorpus.name }} - {{ currentView }}</h5>
+
     </div>
     <div class="card-body" v-else>
       <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
