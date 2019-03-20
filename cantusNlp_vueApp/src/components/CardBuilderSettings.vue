@@ -71,7 +71,7 @@
     data(){
       return {
         selectedLO:"LO auswählen",
-        loBtnClickBlockDuration: 1000,
+        loBtnClickBlockDuration: 2000,
         steps: [
           {
             target: '#v-step-100',  // We're using document.querySelector() under the hood
