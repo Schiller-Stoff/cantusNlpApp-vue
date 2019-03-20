@@ -62,6 +62,16 @@ export default {
 
         ]
     }
+  },
+  created(){
+    try {
+      if(vueCardUiConfig){
+        console.warn("--- Found configuration file --- \n Hardcoded data from js will be ignored now.")
+        this.corpora = vueCardUiConfig.corpora;
+      }
+    } catch (e) {
+      console.warn("No configuration file 'vueCardUiConfig' found. Applying data from inside the javascript");
+    }
   }
 }
 
