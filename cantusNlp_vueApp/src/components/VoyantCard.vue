@@ -16,7 +16,7 @@
           <a class="nav-link" :class="(currentVoyantTool==='Summary') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Summary')">Summary</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" :class="(resultDataDisplayed) ? 'active' : '' " href="#" @click.prevent="(resultDataDisplayed = !resultDataDisplayed); retrieveNlpData()">Forschungsdaten</a>
+          <a class="nav-link" :class="(resultDataDisplayed) ? 'active' : '' " :href="linkedCorpus.nlpResults">JSON-Data</a>
         </li>
       </ul>
     </div>
@@ -36,8 +36,7 @@
     <div class="card-body" v-else>
       <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
       <hr>
-      <p>Prozentsatz nich aufgefundener Wörter: {{ nlpResults.lemmasNotKnown }}%</p>
-      <a class="btn btn-secondary" :href="linkedCorpus.nlpResults">Forschungsdaten</a>
+      <a class="btn btn-secondary" :href="linkedCorpus.nlpResults">Forschungsdaten als JSON</a>
     </div>
   </div>
 
