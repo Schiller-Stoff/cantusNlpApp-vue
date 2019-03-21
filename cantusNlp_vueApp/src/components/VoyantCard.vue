@@ -37,7 +37,7 @@
       <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
       <hr>
       <p>Prozentsatz nich aufgefundener Wörter: {{ nlpResults.lemmasNotKnown }}%</p>
-      <button class="btn btn-secondary">Forschungsdaten</button>
+      <a class="btn btn-secondary" :href="linkedCorpus.nlpResults">Forschungsdaten</a>
     </div>
   </div>
 
