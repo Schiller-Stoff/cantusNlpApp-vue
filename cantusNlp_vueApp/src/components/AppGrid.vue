@@ -65,47 +65,7 @@
         return {
           maximizedStyle: undefined,
           steps: [
-            {
-              target: '#v-step-10000',  // We're using document.querySelector() under the hood
-              content: `Herzlich wilkommen zur <strong>Cantus Voyant App</strong>!<hr> <p>Sie können
-                        diese Einführung jederzeit beenden oder durch click auf "weiter" weiter verfolgen</p>`,
-              params: {
-                placement: 'bottom'
-              }
-            },
-            {
-              target: '#v-step-10001',  // We're using document.querySelector() under the hood
-              content: `Werkzeuge der oberen <strong>Leiste</strong> dienen zur Auswahl und dem Hinzufügen
-                        von Voyant-Ansichten für gewünschte Libri Ordinari...`,
-              params: {
-                placement: 'bottom'
-              }
-            },
-            {
-              target: '#v-step-10002',  // We're using document.querySelector() under the hood
-              content: `...während es sich auf der linken Seite um Werkzeuge zur<strong> Modifkiation aller Voyant
-              Karten</strong> zugleich handelt.`,
-              params: {
-                placement: 'right'
-              }
-            },
-            {
-              target: '#v-step-10003',  // We're using document.querySelector() under the hood
-              content: `Rechts finden sich weitere Informationen zu den <strong>Legenden und Bezeichnungen</strong> der
-                        diversen Ansichten.`,
-              params: {
-                placement: 'left'
-              }
-            },
-            {
-              target: '#v-step-10004',  // We're using document.querySelector() under the hood
-              content: `In der <strong>mittleren Ansicht</strong> werden schlussendlich Karten mit den einzelnen Voyant-Ansichten auf die LO
-                        eingeblendet. <strong>Benutzen Sie die Info-Knöpfe um weitere Information</strong> zu den Werkzeugen
-                         in der jeweiligen Leiste zu bekommen.`,
-              params: {
-                placement: 'bottom'
-              }
-            }
+
           ]
         }
       },
