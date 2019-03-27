@@ -30,12 +30,12 @@
           Im Felde links neben dem "LO-hinzufügen" Knopf befindet sich ein Auswahlmenü mit dem eine Voyant-Vorschau an Ort und Stelle hinzugefügt werden kann. Einzelne Info-Knöpfe
           an den drei Seiten des Containers geben weitere Auskünfte über die Verwendung des Vorschauwerkzeuges.
         </p>
-        <hr>
         <h3>NLP / Korpusanalyse</h3>
+        <hr>
         <p>Hier finden Sie eine Darstellung der NLP-Analyse über alle Libri Ordinarii hinweg, einerseits als Orginaltext und andererseits in lemmatisierter Form. Lemmatisierung, Tokenisierung etc. wurden mit Hilfe des "Classical
           Language Toolkits" in Python realisiert.</p>
-        <hr>
         <h3>Der Lemmatisierte Text</h3>
+        <hr>
         <p>
           Der Text wurde mit Hilfe der Python Bibliothek "Classical Language Toolkit" tokenisiert, lemmatisiert, wie auch
           Stopwörter entfernt. Die dabei enstandenen Analysedaten können den einzelnen Voyant-Vorschau-Karten unter dem
@@ -48,8 +48,8 @@
 
       </div>
       <div class="col-lg-6">
-
         <h3>Eine Kurze Anleitung</h3>
+        <hr>
         <ul>
           <li>Via Click auf das Navigationsmenü links oben kann eine "Voyant Karte" eingefügt werden. </li>
           <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
