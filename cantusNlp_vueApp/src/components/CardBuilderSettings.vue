@@ -76,6 +76,8 @@
           {
             target: '#v-step-100',  // We're using document.querySelector() under the hood
             content: `Im <strong>LO-Werkzeug</strong>werden anzuzeigende LOs ausgewählt und dann...`,
+            offset:document.documentElement.scrollTop-150,
+            duration:100,
             params: {
               placement: 'bottom'
             }
@@ -83,6 +85,8 @@
           {
             target: '#v-step-101',  // We're using document.querySelector() under the hood
             content: `... via click hier zur <strong>Voyant Ansicht</strong> hinzugefügt.`,
+            offset:document.documentElement.scrollTop-150,
+            duration:100,
             params: {
               placement: 'bottom'
             }
@@ -90,6 +94,8 @@
           {
             target: '#v-step-102',  // We're using document.querySelector() under the hood
             content: `An dieser Stelle kann das Tool <strong>vergrößert</strong>  werden.`,
+            offset:document.documentElement.scrollTop-150,
+            duration:100,
             params: {
               placement: 'bottom'
             }

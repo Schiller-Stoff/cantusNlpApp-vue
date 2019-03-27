@@ -77,6 +77,8 @@
             {
               target: '#v-step-0',  // We're using document.querySelector() under the hood
               content: `Mit dem <strong>Wortwolken</strong> Werkzeug können alle Voyant Ansichten auf dieselbe Ansicht geschalten werden.`,
+              offset:document.documentElement.scrollTop-150,
+              duration:100,
               params: {
                 placement: 'right'
               }
@@ -84,6 +86,8 @@
             {
               target: '#v-step-1',  // We're using document.querySelector() under the hood
               content: `Selbiges funktioniert auch für die  <strong>Korpusansicht</strong> .`,
+              offset:document.documentElement.scrollTop-150,
+              duration:100,
               params: {
                 placement: 'right'
               }
@@ -91,6 +95,8 @@
             {
               target: '#v-step-2',  // We're using document.querySelector() under the hood
               content: `...und für die <strong>Zusammenfassung</strong>`,
+              offset:document.documentElement.scrollTop-150,
+              duration:100,
               params: {
                 placement: 'right'
               }
@@ -98,6 +104,8 @@
             {
               target: '#v-step-3',  // We're using document.querySelector() under the hood
               content: `Dummy <strong>Cantus Voyant</strong>!`,
+              offset:document.documentElement.scrollTop-150,
+              duration:100,
               params: {
                 placement: 'right'
               }
@@ -105,6 +113,8 @@
             {
               target: '#v-step-4',  // We're using document.querySelector() under the hood
               content: `Hiermit können alle Karten <strong>gelöscht</strong> werden.`,
+              offset:document.documentElement.scrollTop-150,
+              duration:100,
               params: {
                 placement: 'right'
               }

@@ -61,6 +61,8 @@
           {
             target: '#v-step-1000',  // We're using document.querySelector() under the hood
             content: `Im <strong>Ansicht-Vergrößerungswerkzeug</strong>werden alle Karten auf eine größere Ansicht geschalten...`,
+            offset:document.documentElement.scrollTop-150,
+            duration:100,
             params: {
               placement: 'left'
             }
@@ -68,6 +70,8 @@
           {
             target: '#v-step-1001',  // We're using document.querySelector() under the hood
             content: `... und via click hier wieder <strong>verkleinert</strong>.`,
+            offset:document.documentElement.scrollTop-150,
+            duration:100,
             params: {
               placement: 'left'
             }
@@ -75,6 +79,8 @@
           {
             target: '#v-step-1002',  // We're using document.querySelector() under the hood
             content: `An dieser Stelle kann zur <strong>Gesamt-Korpus Ansicht in den Voyant Tools gewechselt</strong> werden.`,
+            offset:document.documentElement.scrollTop-150,
+            duration:100,
             params: {
               placement: 'left'
             }
@@ -82,6 +88,8 @@
           {
             target: '#v-step-1003',  // We're using document.querySelector() under the hood
             content: `...und hier selbiges für die <strong>Lemmata-Korpus Ansicht</strong>.`,
+            offset:document.documentElement.scrollTop-150,
+            duration:100,
             params: {
               placement: 'left'
             }
