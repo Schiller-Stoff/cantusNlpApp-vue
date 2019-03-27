@@ -27,7 +27,7 @@
       <br>
       <br>
       <h5 class=".d-inline">{{ linkedCorpus.name }} - {{ currentView }}</h5>
-      <a href="#" class="btn btn-light" @click.prevent="toggleLemmaCorpusView">Lemma/Corpus</a>
+      <a href="#" class="btn btn-light" @click.prevent="toggleLemmaCorpusView">Lemmatisierter Text/Originaltext</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '100vh')">Größer</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('400px', '600px')">Kleiner</a>
       <!--<button>Lemma</button>-->
