@@ -20,55 +20,32 @@
         <!--Experimental LO Reader Modus-->
         <!--<nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>-->
       <div class="col-lg-6">
-        <h1 id="v-step-10000">Willkommen zur Cantus-Voyant App</h1>
+        <h1 id="v-step-10000">Cantus Voyant Vorschau-Werkzeug</h1>
         <hr id="v-step-10004">
         <p>
-          Das Cantus Voyant tool dient dazu den Vergleich verschiedener Ansichten zu erleichtern.
-          Die Ansichten selbst stammen aus den VoyantTools und können mit Hilfe einfacer Werkzeuge
-          auf dieser Seite miteinander verglichen werden.
+          Das Cantus Vorschau-Voyant Werkzeug dient dazu eine schnelle Vorschau verschiedener Voyant Ansichten zu ermöglichen.
+          Alle Ansichten stammen direkt von den Voyant-Tools.
         </p>
+        <hr>
+        <h3>Der Lemmatisierte Text</h3>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          Der Text wurde mit Hilfe der Python Bibliothek "Classical Language Toolkit" tokenisiert, lemmatisiert, wie auch
+          Stopwörter entfernt. Die dabei enstandenen Analysedaten können den einzelnen Voyant-Vorschau-Karten unter dem
+          Menüpunkt "JSON-Daten" entnommen werden. Über das JSON-Format können so entfernte Wörter, der Prozentsatz unbekannter Wörter
+          (für den CLTK-Lemmatisierer) und alle unbekannten Wörter abgefragt werden.
+          Selbiger lemmatisierter Text steht ebenso allen einzelnen Libri Ordinarii zu Verfügung und kann einzeln
+          über die "Lesetext" - Ansicht angesteuert werden.
         </p>
         <hr>
         <h3>Eine Kurze Anleitung</h3>
         <ul>
-          <li>Via Click auf das dropdown links oben kann eine Voyant Karte in diese Ansicht eingefügt werden. </li>
+          <li>Via Click auf das Navigationsmenü links oben kann eine "Voyant Karte" eingefügt werden. </li>
           <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
-          <li>Zur Rechten: Werkzeuge und Beschreibungen zur Erklräung der einzelnen Ansichten der Voyant Tools</li>
+          <li>Zur Rechten: Veränderung der Größe der einzelnen Karten, sowie links zum originalen und lemmatisierten
+          Korpus.</li>
         </ul>
-        <hr>
       </div>
       <div class="col-lg-6">
-        <h3>Wie wurden die Daten gewonnen?</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-        <ul>
-          <li>Python</li>
-          <li>Classical Language Toolkit = Cltk</li>
-        </ul>
-        <hr>
-        <h3>Kontakt und Hilfe</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-          ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-          dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-        <hr>
       </div>
 
     </div>
