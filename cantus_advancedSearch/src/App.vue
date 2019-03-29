@@ -1,6 +1,5 @@
 <template>
   <div id="vue_app">
-    <button class="btn btn-secondary">is this styled now?</button>
     <app-main-grid></app-main-grid>
   </div>
 </template>
