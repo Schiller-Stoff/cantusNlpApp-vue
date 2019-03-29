@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import {EventBus} from "../main";
   import SearchBar from './search/SearchBar'
     export default {
       name: "MainGrid",
@@ -23,6 +24,7 @@
       },
       methods: {
         moveWidth(){
+          EventBus.$emit('searchBarEnlarge');
 
           this.$refs.first.classList.add('transition')
           this.$refs.second.classList.add('transition')
@@ -34,6 +36,8 @@
           this.$refs.second.classList.add('col-md-4')
         },
         restoreWidth(){
+          EventBus.$emit('searchBarMinified')
+
           this.$refs.first.classList.add('transition')
           this.$refs.second.classList.add('transition')
 
