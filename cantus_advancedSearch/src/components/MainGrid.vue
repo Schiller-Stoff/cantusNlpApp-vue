@@ -69,7 +69,7 @@
 }
 
 #second {
-  background-color: $primaryColor;
+  background-color: $blankColor;
 }
 
 .transition {
