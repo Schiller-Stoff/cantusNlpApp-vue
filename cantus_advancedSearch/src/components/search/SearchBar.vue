@@ -10,15 +10,12 @@
     <h3 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h3>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
 
-    <div>
-      <div><i class="fas fa-volleyball-ball"></i></div>
-    </div>
     <hr>
 
 
-    <h5>Responsorien</h5>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+    <h5 :class="fadeInAtEvent">Responsorien</h5>
+    <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+    <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
     <form class="inline" :class="fadeInAtEvent">
       <label for="inlineFormCustomSelectPref"></label>
       <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
@@ -39,7 +36,7 @@ export default {
   name: "Search",
   data(){
     return {
-      fadeInAtEvent: 'invisible'
+      fadeInAtEvent: 'd-none'
     }
   },
   created(){
