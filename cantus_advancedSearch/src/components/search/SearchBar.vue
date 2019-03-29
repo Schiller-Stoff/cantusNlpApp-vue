@@ -1,13 +1,26 @@
 <template>
   <div class="container-fluid">
+
     <div>
       <div><i class="fas fa-volleyball-ball"></i></div>
-      <p>Feste</p>
+    </div>
+
+    <hr>
+
+    <h3 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h3>
+    <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+
+    <div>
+      <div><i class="fas fa-volleyball-ball"></i></div>
     </div>
     <hr>
 
-    <form class="inline">
-      <label for="inlineFormCustomSelectPref">Resp</label>
+
+    <h5>Responsorien</h5>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+    <form class="inline" :class="fadeInAtEvent">
+      <label for="inlineFormCustomSelectPref"></label>
       <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
         <option selected>Choose...</option>
         <option value="1">One</option>
@@ -20,16 +33,35 @@
 </template>
 
 <script>
+import {EventBus} from "../../main";
+
 export default {
-  name: "Search"
+  name: "Search",
+  data(){
+    return {
+      fadeInAtEvent: 'invisible'
+    }
+  },
+  created(){
+    let self = this;
+    EventBus.$on('searchBarEnlarge',_=>{
+      self.fadeInAtEvent = 'animated once fadeIn'
+    })
+
+    EventBus.$on('searchBarMinified',_=>{
+      self.fadeInAtEvent = 'invisible'
+    })
+
+  }
 }
 </script>
 
 <style scoped lang="scss">
 @import "../../scss/globalVariables/globalVariables";
 
-  .container-fluid {
-    margin-top: 5em;
+  h3 {
+    color: $primaryColor;
+    margin-top: 2em;
   }
 
   i {
