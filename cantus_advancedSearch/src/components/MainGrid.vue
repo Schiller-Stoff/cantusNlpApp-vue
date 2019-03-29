@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" :style="width1" ref="first"></div>
-      <div class="col-md-10" id="second" :style="width2" ref="second"></div>
+      <div class="col-md-2" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first"></div>
+      <div class="col-md-10" id="second" ref="second"></div>
     </div>
   </div>
 </template>
@@ -12,47 +12,33 @@
       name: "MainGrid",
       data(){
         return {
-          width1:'width:15%',
-          width2:'width:85%'
+
         }
       },
       methods: {
         moveWidth(){
-          this.$refs.first.classList = []
-          this.$refs.second.classList = []
 
-          let firstWidth = parseInt(this.$refs.first.style.width.replace('%',''));
-          let secondWidth = 100 - firstWidth;
-          let changeVal = 5;
+          this.$refs.first.classList.add('transition')
+          this.$refs.second.classList.add('transition')
 
-          let interval = setInterval(_=>{
-            if(secondWidth===50) return clearInterval(interval);
-            firstWidth += changeVal;
-            secondWidth -= changeVal;
+          this.$refs.first.classList.remove('col-md-2')
+          this.$refs.second.classList.remove('col-md-10')
 
-            this.width1 = 'width:' + firstWidth + '%'
-            this.width2 = 'width:' + secondWidth + '%'
-          },20);
+          this.$refs.first.classList.add('col-md-8')
+          this.$refs.second.classList.add('col-md-3')
         },
         restoreWidth(){
+          this.$refs.first.classList.remove('col-md-8')
+          this.$refs.second.classList.remove('col-md-3')
 
+          this.$refs.first.classList.add('col-md-2')
+          this.$refs.second.classList.add('col-md-10')
 
-          let firstWidth = parseInt(this.$refs.first.style.width.replace('%',''));
-          let secondWidth = 100 - firstWidth;
-          let changeVal = -5;
+          setTimeout(_=>{
+            this.$refs.first.classList.remove('transition')
+            this.$refs.second.classList.remove('transition')
+          },500)
 
-          let interval = setInterval(_=>{
-            if(secondWidth===85){
-              this.$refs.first.classList = ['col-md-2']
-              this.$refs.second.classList = ['col-md-10']
-              return clearInterval(interval);
-            }
-            firstWidth += changeVal;
-            secondWidth -= changeVal;
-
-            this.width1 = 'width:' + firstWidth + '%'
-            this.width2 = 'width:' + secondWidth + '%'
-          },20);
         }
       }
     }
@@ -75,16 +61,17 @@
 
 #first {
   background-color: lightgreen;
-  width: 10%;
-  height: 100%;
-  display: inline-block;
+  /*transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);*/
 }
 
 #second {
   background-color: lightblue;
-  width: 90%;
-  height: 100%;
-  float:right;
+  /*transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);*/
 }
+
+.transition {
+  transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 
 </style>
