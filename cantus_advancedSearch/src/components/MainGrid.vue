@@ -1,15 +1,21 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-1" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first"></div>
+      <div class="col-md-1" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first">
+        <app-search-bar></app-search-bar>
+      </div>
       <div class="col-md-11" id="second" ref="second"></div>
     </div>
   </div>
 </template>
 
 <script>
+  import SearchBar from './search/SearchBar'
     export default {
       name: "MainGrid",
+      components: {
+        appSearchBar: SearchBar
+      },
       data(){
         return {
 
@@ -54,7 +60,7 @@
 }
 
 #first {
-  background-color: $tertiaryColor;
+  background-color: $secondaryColor;
 
 }
 
