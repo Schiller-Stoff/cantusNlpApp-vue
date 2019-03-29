@@ -6,13 +6,13 @@
     </div>
 
     <hr>
-
-    <h3 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h3>
+    <br>
+    <h4 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h4>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
 
-    <hr>
+    <hr class="coloredHr" :class="fadeInAtEvent">
 
-
+    <br>
     <h5 :class="fadeInAtEvent">Responsorien</h5>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
@@ -24,7 +24,12 @@
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
+      <hr class="coloredHr" :class="fadeInAtEvent">
+      <br>
+      <button class="btn btn-secondary">Suche Starten</button>
     </form>
+
+
 
   </div>
 </template>
@@ -56,7 +61,7 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/globalVariables/globalVariables";
 
-  h3 {
+  h4 {
     color: $primaryColor;
     margin-top: 2em;
   }
@@ -72,7 +77,12 @@ export default {
   }
 
   hr {
-    background-color: $primaryColor
+    background-color: $primaryColor;
+  }
+
+  .coloredHr {
+    background-color: $fourthColor;
+    padding-bottom: .25em;
   }
 
   label {
