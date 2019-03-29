@@ -1,12 +1,16 @@
 <template>
-  <div id="app">
-
+  <div id="vue_app">
+    <app-main-grid></app-main-grid>
   </div>
 </template>
 
 <script>
+import MainGrid from './components/MainGrid';
 export default {
   name: 'app',
+  components: {
+    appMainGrid: MainGrid
+  },
   data () {
     return {
 
