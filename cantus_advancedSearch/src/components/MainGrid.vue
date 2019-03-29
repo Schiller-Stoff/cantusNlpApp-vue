@@ -4,7 +4,7 @@
       <div class="col-md-1 btn btn-primary">
         Erweiterte Suche
       </div>
-      <div class="col-md-10"></div>
+      <div class="col-md-11"></div>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@
   height: 50vh;
 }
 
-.col-md-10 {
+.col-md-11 {
   background-color: lightgreen;
 }
 
