@@ -1,11 +1,18 @@
 <template>
-  <h3>Results here</h3>
+  <div>
+    <h3>Results here</h3>
+    <app-pie-chart></app-pie-chart>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Result.vue"
+  import PieChart from './PieChart'
+  export default {
+    name: "Result.vue",
+    components: {
+      appPieChart: PieChart
     }
+  }
 </script>
 
 <style scoped>
