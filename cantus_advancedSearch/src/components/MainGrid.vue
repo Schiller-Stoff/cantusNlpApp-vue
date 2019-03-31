@@ -4,7 +4,9 @@
       <div class="col-md-1" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first">
         <app-search-bar></app-search-bar>
       </div>
-      <div class="col-md-11" id="second" ref="second"></div>
+      <div class="col-md-11" id="second" ref="second">
+        <app-result></app-result>
+      </div>
     </div>
   </div>
 </template>
@@ -12,10 +14,12 @@
 <script>
   import {EventBus} from "../main";
   import SearchBar from './search/SearchBar'
+  import Result from './result/Result'
     export default {
       name: "MainGrid",
       components: {
-        appSearchBar: SearchBar
+        appSearchBar: SearchBar,
+        appResult: Result
       },
       data(){
         return {
@@ -33,7 +37,7 @@
           this.$refs.second.classList.remove('col-md-11')
 
           this.$refs.first.classList.add('col-md-7')
-          this.$refs.second.classList.add('col-md-4')
+          this.$refs.second.classList.add('col-md-5')
         },
         restoreWidth(){
           EventBus.$emit('searchBarMinified')
@@ -42,7 +46,7 @@
           this.$refs.second.classList.add('transition')
 
           this.$refs.first.classList.remove('col-md-7')
-          this.$refs.second.classList.remove('col-md-4')
+          this.$refs.second.classList.remove('col-md-5')
 
           this.$refs.first.classList.add('col-md-1')
           this.$refs.second.classList.add('col-md-11')
