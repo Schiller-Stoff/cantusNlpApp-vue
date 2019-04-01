@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Results here</h3>
+    <h3>Vorschau</h3>
     <app-pie-chart></app-pie-chart>
   </div>
 </template>
