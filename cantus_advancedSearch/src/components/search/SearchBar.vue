@@ -18,7 +18,7 @@
     <hr class="coloredHr" :class="fadeInAtEvent">
 
     <br>
-    <h5 :class="fadeInAtEvent">Responsorien</h5>
+    <h5 :class="fadeInAtEvent">Genre</h5>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
 
@@ -36,16 +36,15 @@
 
     <div class="input-group mb-3" :class="fadeInAtEvent">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect02">Responsorien</label>
+        <label class="input-group-text" for="inputGroupSelect02">Genre</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect02">
-        <option selected>Bitte wählen...</option>
-        <option value="1">RP</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+      <select v-model="chosenGenre" class="custom-select" id="inputGroupSelect02">
+        <option value="RP">RP</option>
+        <option value="AB">AB</option>
+        <option value="AE">AE</option>
       </select>
     </div>
-    <button @click.prevent="searchResp('RP')" class="btn btn-secondary" :class="fadeInAtEvent">Zeige Ergebnisse</button>
+    <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Zeige Ergebnisse</button>
   </div>
 </template>
 
@@ -56,6 +55,7 @@ export default {
   name: "Search",
   data(){
     return {
+      chosenGenre:'RP',
       fadeInAtEvent: 'd-none'
     }
   },
