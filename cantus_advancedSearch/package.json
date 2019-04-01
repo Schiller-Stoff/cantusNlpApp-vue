@@ -14,7 +14,8 @@
     "bootstrap-vue": "^2.0.0-rc.16",
     "chart.js": "^2.8.0",
     "vue": "^2.6.10",
-    "vue-chartjs": "^3.4.2"
+    "vue-chartjs": "^3.4.2",
+    "vue-resource": "^1.5.1"
   },
   "browserslist": [
     "> 1%",
