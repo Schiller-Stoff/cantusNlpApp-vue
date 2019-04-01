@@ -1,26 +1,29 @@
 <template>
   <div>
-    <h3>Vorschau</h3>
-    <app-pie-chart :prevData="searchResult"></app-pie-chart>
+    <h3>Ergebnisse</h3>
+    <hr>
+    <app-result-preview v-if="showPreview" :prevData="searchResult"></app-result-preview>
   </div>
 </template>
 
 <script>
   import {EventBus} from "../../main";
-  import PieChart from './PieChart'
+  import ResultPreview from './ResultPreview'
   export default {
     name: "Result.vue",
     data(){
       return {
-        searchResult:[]
+        searchResult:[],
+        showPreview:false
       }
     },
     components: {
-      appPieChart: PieChart
+      appResultPreview: ResultPreview
     },
     created(){
       EventBus.$on('resultReceived',data=>{
         this.searchResult = data
+        this.showPreview = true
       });
     }
   }
