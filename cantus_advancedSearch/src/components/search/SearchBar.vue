@@ -3,7 +3,9 @@
 
     <div>
       <div class="searchBar_iconHolder"><i class="fas fa-home"></i></div>
-      <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="far fa-window-maximize"></i></div>
+      <div class="searchBar_iconHolder" :class="fadeInAtEvent">
+        <i @click="toggleFullScreen" class="far fa-window-maximize"></i>
+      </div>
       <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-lock"></i></div>
       <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-unlock"></i></div>
     </div>
@@ -64,7 +66,9 @@ export default {
         //console.log(response.body.length)
         EventBus.$emit('resultReceived', response.body)
       });
-
+    },
+    toggleFullScreen(){
+      EventBus.$emit('toggleFullScreen');
     }
   },
   created(){
