@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h3>Ergebnisse</h3>
-    <hr>
     <app-result-preview v-if="showPreview" :prevData="searchResult"></app-result-preview>
   </div>
 </template>

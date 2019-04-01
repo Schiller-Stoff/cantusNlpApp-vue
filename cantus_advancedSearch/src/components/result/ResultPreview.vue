@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h3>Vorschau</h3>
-    <app-pie-chart :labels="undefined" :datasets="undefined"></app-pie-chart>
+    <app-pie-chart v-if="prevData" :labels="refactoredData.labels" :datasets="refactoredData.data"></app-pie-chart>
   </div>
 </template>
 
@@ -12,10 +11,28 @@
     props: ['prevData'],
     components: {
       appPieChart: PieChart
+    },
+    data(){
+      return {
+        refactoredData: {
+          labels: ['RP','Rest'],
+          data: [
+            {
+              label: 'GitHub Commits',
+              backgroundColor: ['#FF9D40','#0047bb'],
+              data: [this.prevData.length, 500]
+            }
+          ]
+        }
+      }
     }
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+  div {
+    margin-top:3em;
+  }
 
 </style>
