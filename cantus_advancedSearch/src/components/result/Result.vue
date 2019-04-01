@@ -13,7 +13,7 @@
     name: "Result.vue",
     data(){
       return {
-        searchResult:[],
+        searchResult:undefined,
         showPreview:false
       }
     },
