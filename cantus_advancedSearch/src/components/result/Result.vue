@@ -20,7 +20,6 @@
     },
     created(){
       EventBus.$on('resultReceived',data=>{
-        console.log(data)
         this.searchResult = data
       });
     }
