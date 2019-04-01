@@ -6,11 +6,23 @@
 </template>
 
 <script>
+  import {EventBus} from "../../main";
   import PieChart from './PieChart'
   export default {
     name: "Result.vue",
+    data(){
+      return {
+        searchResult:[]
+      }
+    },
     components: {
       appPieChart: PieChart
+    },
+    created(){
+      EventBus.$on('resultReceived',data=>{
+        console.log(data)
+        this.searchResult = data
+      });
     }
   }
 </script>
