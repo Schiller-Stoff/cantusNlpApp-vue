@@ -43,7 +43,7 @@
         <option value="3">Three</option>
       </select>
     </div>
-    <button class="btn btn-secondary" :class="fadeInAtEvent">Zeige Ergebnisse</button>
+    <button @click.prevent="searchResp('RP')" class="btn btn-secondary" :class="fadeInAtEvent">Zeige Ergebnisse</button>
   </div>
 </template>
 
@@ -55,6 +55,16 @@ export default {
   data(){
     return {
       fadeInAtEvent: 'd-none'
+    }
+  },
+  methods: {
+    searchResp(respShortcut){
+      let searchUrl = `http://glossa.uni-graz.at/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${respShortcut}`
+      this.$http.get(searchUrl).then(response => {
+        console.log(response.body.length)
+        EventBus.$emit('resultReceived')
+      });
+
     }
   },
   created(){
