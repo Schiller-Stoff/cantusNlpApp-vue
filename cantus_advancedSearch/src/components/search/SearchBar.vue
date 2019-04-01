@@ -2,7 +2,10 @@
   <div class="container-fluid">
 
     <div>
-      <div><i class="fas fa-volleyball-ball"></i></div>
+      <div class="searchBar_iconHolder"><i class="fas fa-home"></i></div>
+      <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="far fa-window-maximize"></i></div>
+      <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-lock"></i></div>
+      <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-unlock"></i></div>
     </div>
 
     <hr>
@@ -61,7 +64,7 @@ export default {
     })
 
     EventBus.$on('searchBarMinified',_=>{
-      self.fadeInAtEvent = 'invisible'
+      self.fadeInAtEvent = 'd-none'
     })
 
   }
@@ -76,10 +79,15 @@ export default {
     margin-top: 2em;
   }
 
+  .searchBar_iconHolder {
+    display: inline-block;
+  }
+
   i {
     color: white;
     font-size: 1.5em;
     margin-top: 1em;
+    margin-right: .75em;
   }
 
   p {
