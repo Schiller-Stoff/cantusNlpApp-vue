@@ -16,21 +16,31 @@
     <h5 :class="fadeInAtEvent">Responsorien</h5>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-    <form class="inline" :class="fadeInAtEvent">
-      <label for="inlineFormCustomSelectPref"></label>
-      <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
+
+    <div class="input-group mb-3" :class="fadeInAtEvent">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">LO</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01">
+        <option selected>Bitte wählen...</option>
+        <option value="1">Passau</option>
+        <option value="2">Salzburg</option>
+        <option value="3">Regensburg</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3" :class="fadeInAtEvent">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect02">Responsorien</label>
+      </div>
+      <select class="custom-select" id="inputGroupSelect02">
+        <option selected>Bitte wählen...</option>
+        <option value="1">RP</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
-      <hr class="coloredHr" :class="fadeInAtEvent">
-      <br>
-      <button class="btn btn-secondary">Suche Starten</button>
-    </form>
-
-
-
+    </div>
+    <button class="btn btn-secondary" :class="fadeInAtEvent">Suche Starten</button>
   </div>
 </template>
 
