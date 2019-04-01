@@ -6,6 +6,7 @@
 
 <script>
 import MainGrid from './components/MainGrid';
+import {EventBus} from "./main";
 export default {
   name: 'app',
   components: {
@@ -13,8 +14,13 @@ export default {
   },
   data () {
     return {
-
+      searchResult: []
     }
+  },
+  created(){
+    EventBus.$on('resultReceived',data=>{
+      this.searchResult = data
+    });
   }
 }
 </script>

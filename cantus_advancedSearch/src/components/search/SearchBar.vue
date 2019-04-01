@@ -59,10 +59,10 @@ export default {
   },
   methods: {
     searchResp(respShortcut){
-      let searchUrl = `http://glossa.uni-graz.at/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${respShortcut}`
+      let searchUrl = `https://glossa.uni-graz.at/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${respShortcut}`
       this.$http.get(searchUrl).then(response => {
-        console.log(response.body.length)
-        EventBus.$emit('resultReceived')
+        //console.log(response.body.length)
+        EventBus.$emit('resultReceived', response.body)
       });
 
     }
