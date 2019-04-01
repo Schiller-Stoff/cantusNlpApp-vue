@@ -3,9 +3,10 @@
 </template>
 
 <script>
-    export default {
-        name: "ResultPreview"
-    }
+  export default {
+    name: "ResultPreview",
+    props: ['prevData']
+  }
 </script>
 
 <style scoped>

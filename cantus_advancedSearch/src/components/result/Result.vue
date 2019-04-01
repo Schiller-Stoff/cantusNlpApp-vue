@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Vorschau</h3>
-    <app-pie-chart></app-pie-chart>
+    <app-pie-chart :prevData="searchResult"></app-pie-chart>
   </div>
 </template>
 
