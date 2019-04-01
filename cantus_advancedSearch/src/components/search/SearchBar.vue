@@ -43,7 +43,7 @@
         <option value="3">Three</option>
       </select>
     </div>
-    <button class="btn btn-secondary" :class="fadeInAtEvent">Suche Starten</button>
+    <button class="btn btn-secondary" :class="fadeInAtEvent">Zeige Ergebnisse</button>
   </div>
 </template>
 
