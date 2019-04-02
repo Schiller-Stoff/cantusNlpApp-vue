@@ -19,15 +19,18 @@
       name: "MainGrid",
       components: {
         appSearchBar: SearchBar,
-        appResult: Result
+        appResult: Result,
       },
       data(){
         return {
-
+          searchBarEnlarged: false
         }
       },
       methods: {
         moveWidth(){
+          if(this.searchBarEnlarged)return;
+
+          this.searchBarEnlarged = true
           EventBus.$emit('searchBarEnlarge');
 
           this.$refs.first.classList.add('transition')
@@ -40,7 +43,9 @@
           this.$refs.second.classList.add('col-md-5')
         },
         restoreWidth(){
+          if(!this.searchBarEnlarged)return
           EventBus.$emit('searchBarMinified')
+          this.searchBarEnlarged = false
 
           this.$refs.first.classList.add('transition')
           this.$refs.second.classList.add('transition')
