@@ -38,13 +38,14 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect02">Genre</label>
       </div>
-      <select v-model="chosenGenre" class="custom-select" id="inputGroupSelect02">
+      <select @change="searchResp(chosenGenre)" v-model="chosenGenre" class="custom-select" id="inputGroupSelect02">
+        <option selected value="default">Bitte wählen...</option>
         <option value="RP">RP</option>
         <option value="AB">AB</option>
         <option value="AE">AE</option>
       </select>
     </div>
-    <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Zeige Ergebnisse</button>
+    <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Button atm nutzlos</button>
   </div>
 </template>
 
@@ -55,12 +56,13 @@ export default {
   name: "Search",
   data(){
     return {
-      chosenGenre:'RP',
+      chosenGenre:'default',
       fadeInAtEvent: 'd-none'
     }
   },
   methods: {
     searchResp(respShortcut){
+      if(respShortcut==='default')return;
       let searchUrl = `https://glossa.uni-graz.at/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${respShortcut}`
       this.$http.get(searchUrl).then(response => {
         //console.log(response.body.length)
