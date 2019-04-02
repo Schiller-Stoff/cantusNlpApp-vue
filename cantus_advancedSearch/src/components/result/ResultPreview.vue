@@ -1,13 +1,11 @@
 <template>
   <div>
     <app-pie-chart v-if="prevData" :labels="refactoredData.labels" :datasets="refactoredData.data"></app-pie-chart>
-    <button @click="showData">Inspect</button>
   </div>
 </template>
 
 <script>
   import PieChart from './PieChart'
-  import {EventBus} from "../../main";
 
   export default {
     name: "ResultPreview",
@@ -28,11 +26,6 @@
           ]
         }
       }
-    },
-    methods: {
-      showData(){
-        EventBus.$emit('updateHere')
-      }
     }
   }
 </script>
@@ -41,6 +34,7 @@
 
   div {
     margin-top:3em;
+    max-width: 30em;
   }
 
 </style>
