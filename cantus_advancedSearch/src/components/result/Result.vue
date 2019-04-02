@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="in-out">
-      <app-result-preview v-if="showPreview" :prevData="searchResult" style="animation-duration: .25s"></app-result-preview>
+      <app-result-preview v-if="showPreview" :prevData="searchResult" style="animation-duration:.5s; transition: all 1s"></app-result-preview>
     </transition>
   </div>
 </template>
@@ -30,6 +30,13 @@
         this.showPreview = false;
       })
 
+      EventBus.$on('searchBarEnlarge', _=> {
+        if(!this.searchResult)return;
+        setTimeout(_=>{
+          if(this.showPreview)this.showPreview = false;
+          this.showPreview = true;
+        },500)
+      })
 
 
     }
