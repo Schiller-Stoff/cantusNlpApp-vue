@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  let curTimer;
   import {EventBus} from "../../main";
   import ResultPreview from './ResultPreview'
   export default {
@@ -28,11 +29,14 @@
 
       EventBus.$on('searchBarMinified', _=> {
         this.showPreview = false;
+
+        //clears delayed blend in via setTimeout
+        clearTimeout(curTimer)
       })
 
       EventBus.$on('searchBarEnlarge', _=> {
         if(!this.searchResult)return;
-        setTimeout(_=>{
+        curTimer = setTimeout(_=>{
           if(this.showPreview)this.showPreview = false;
           this.showPreview = true;
         },500)
