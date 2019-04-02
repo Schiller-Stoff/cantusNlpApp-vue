@@ -56,14 +56,17 @@ export default {
   name: "Search",
   data(){
     return {
+      fadeInAtEvent: 'd-none',
       server:'glossa.uni-graz.at',
       chosenGenre:'default',
-      fadeInAtEvent: 'd-none'
+      chosenLO:'',  //atm not in use
+      curQueryObject:'resp.test'  //atm no functionality
+
     }
   },
   computed: {
     blazeGraphQuery(){
-      return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
+      return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
     }
   },
   methods: {
