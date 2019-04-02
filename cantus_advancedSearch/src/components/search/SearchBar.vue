@@ -104,6 +104,10 @@ export default {
 
   .searchBar_iconHolder {
     display: inline-block;
+    &:hover {
+      cursor: pointer;
+      i {color: $fourthColor}
+      }
   }
 
   i {
