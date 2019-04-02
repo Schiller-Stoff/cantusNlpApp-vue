@@ -1,5 +1,8 @@
 <template>
   <div>
+    <h4>Analyse</h4>
+    <hr>
+    <h5>Lorem Ipsum</h5>
     <app-pie-chart v-if="prevData" :labels="refactoredData.labels" :datasets="refactoredData.data"></app-pie-chart>
   </div>
 </template>
