@@ -56,16 +56,20 @@ export default {
   name: "Search",
   data(){
     return {
+      server:'glossa.uni-graz.at',
       chosenGenre:'default',
       fadeInAtEvent: 'd-none'
+    }
+  },
+  computed: {
+    blazeGraphQuery(){
+      return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
     }
   },
   methods: {
     searchResp(respShortcut){
       if(respShortcut==='default')return;
-      let searchUrl = `https://glossa.uni-graz.at/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${respShortcut}`
-      this.$http.get(searchUrl).then(response => {
-        //console.log(response.body.length)
+      this.$http.get(this.blazeGraphQuery).then(response => {
         EventBus.$emit('resultReceived', response.body)
       });
     },
