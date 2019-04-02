@@ -1,6 +1,8 @@
 <template>
   <div>
-    <app-result-preview v-if="showPreview" :prevData="searchResult"></app-result-preview>
+    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="in-out">
+      <app-result-preview v-if="showPreview" :prevData="searchResult" style="animation-duration: .25s"></app-result-preview>
+    </transition>
   </div>
 </template>
 
@@ -23,6 +25,13 @@
         this.searchResult = data
         this.showPreview = true
       });
+
+      EventBus.$on('searchBarMinified', _=> {
+        this.showPreview = false;
+      })
+
+
+
     }
   }
 </script>
