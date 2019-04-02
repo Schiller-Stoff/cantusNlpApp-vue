@@ -1,20 +1,23 @@
 <template>
   <div>
     <app-pie-chart v-if="prevData" :labels="refactoredData.labels" :datasets="refactoredData.data"></app-pie-chart>
+    <button @click="showData">Inspect</button>
   </div>
 </template>
 
 <script>
   import PieChart from './PieChart'
+  import {EventBus} from "../../main";
+
   export default {
     name: "ResultPreview",
     props: ['prevData'],
     components: {
       appPieChart: PieChart
     },
-    data(){
-      return {
-        refactoredData: {
+    computed: {
+      refactoredData(){
+        return {
           labels: ['RP','Rest'],
           data: [
             {
@@ -24,6 +27,11 @@
             }
           ]
         }
+      }
+    },
+    methods: {
+      showData(){
+        EventBus.$emit('updateHere')
       }
     }
   }
