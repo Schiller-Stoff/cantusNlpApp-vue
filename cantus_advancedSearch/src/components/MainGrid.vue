@@ -23,12 +23,13 @@
       },
       data(){
         return {
+          interfaceLocked:false,
           searchBarEnlarged: false
         }
       },
       methods: {
         moveWidth(){
-          if(this.searchBarEnlarged)return;
+          if(this.searchBarEnlarged||this.interfaceLocked)return;
 
           this.searchBarEnlarged = true
           EventBus.$emit('searchBarEnlarge');
@@ -43,7 +44,7 @@
           this.$refs.second.classList.add('col-md-5')
         },
         restoreWidth(){
-          if(!this.searchBarEnlarged)return
+          if(!this.searchBarEnlarged || this.interfaceLocked)return
           EventBus.$emit('searchBarMinified')
           this.searchBarEnlarged = false
 
@@ -62,6 +63,15 @@
           },500)
 
         }
+      },
+      created(){
+        EventBus.$on('interfaceLocked',_=>{
+          this.interfaceLocked = true
+        })
+
+        EventBus.$on('interfaceOpened',_=>{
+          this.interfaceLocked = false
+        })
       }
     }
 </script>

@@ -6,8 +6,8 @@
       <div class="searchBar_iconHolder" :class="fadeInAtEvent">
         <i @click="toggleFullScreen" class="far fa-window-maximize"></i>
       </div>
-      <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-lock"></i></div>
-      <div class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-unlock"></i></div>
+      <div @click="toggleInterfaceLock(true)" class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-lock"></i></div>
+      <div @click="toggleInterfaceLock(false)" class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-unlock"></i></div>
     </div>
 
     <hr>
@@ -56,6 +56,7 @@ export default {
   name: "Search",
   data(){
     return {
+      interfaceLocked: false,
       fadeInAtEvent: 'd-none',
       server:'glossa.uni-graz.at',
       chosenGenre:'default',
@@ -78,6 +79,15 @@ export default {
     },
     toggleFullScreen(){
       EventBus.$emit('toggleFullScreen');
+    },
+    toggleInterfaceLock(lock_boolean){
+      if(lock_boolean){
+        EventBus.$emit('interfaceLocked')
+      } else {
+        EventBus.$emit('interfaceOpened')
+      }
+
+      return this.interfaceLocked = lock_boolean
     }
   },
   created(){
