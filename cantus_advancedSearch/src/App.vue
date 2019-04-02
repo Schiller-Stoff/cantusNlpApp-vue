@@ -36,7 +36,6 @@ export default {
 
 <style lang="scss" scoped>
   #vue_app /deep/ {
-    @import './../node_modules/bootstrap/scss/bootstrap';
-    @import './../node_modules/bootstrap-vue/src/index.scss';
+    @import "~bootstrap/dist/css/bootstrap.min";
   }
 </style>
