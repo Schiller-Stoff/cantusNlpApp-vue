@@ -73,7 +73,7 @@
 }
 
 #first {
-  background-color: $secondaryColor;
+  background-color: $tertiaryColor;
 
 }
 
