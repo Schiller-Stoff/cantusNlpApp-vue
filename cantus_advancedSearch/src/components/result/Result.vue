@@ -2,7 +2,7 @@
   <div>
     <transition-group enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
       <app-result-preview v-if="showPreview" :prevData="searchResult" style="animation-duration:.5s; transition: all 1s" :key="1"></app-result-preview>
-      <app-result-table v-else :key="2"></app-result-table>
+      <app-result-table v-else :key="2" style="animation-duration:.5s; transition: all 1s"></app-result-table>
     </transition-group>
   </div>
 </template>
