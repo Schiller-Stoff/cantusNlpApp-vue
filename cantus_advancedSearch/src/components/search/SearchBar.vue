@@ -36,9 +36,21 @@
 
     <div class="input-group mb-3" :class="fadeInAtEvent">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect02">Genre</label>
+        <label class="input-group-text" for="inputGroupSelect02">Zeitraum</label>
       </div>
-      <select @change="searchResp(chosenGenre)" v-model="chosenGenre" class="custom-select" id="inputGroupSelect02">
+      <select class="custom-select" id="inputGroupSelect02">
+        <option selected>Bitte wählen...</option>
+        <option value="1">Ostern</option>
+        <option value="2">Weihnachten</option>
+        <option value="3">Pfingsten</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3" :class="fadeInAtEvent">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect03">Genre</label>
+      </div>
+      <select @change="searchResp(chosenGenre)" v-model="chosenGenre" class="custom-select" id="inputGroupSelect03">
         <option selected value="default">Bitte wählen...</option>
         <option value="RP">RP</option>
         <option value="AB">AB</option>
