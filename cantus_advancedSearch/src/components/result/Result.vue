@@ -1,13 +1,15 @@
 <template>
   <div>
-    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="in-out">
-      <app-result-preview v-if="showPreview" :prevData="searchResult" style="animation-duration:.5s; transition: all 1s"></app-result-preview>
-    </transition>
+    <transition-group enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
+      <app-result-preview v-if="showPreview" :prevData="searchResult" style="animation-duration:.5s; transition: all 1s" :key="1"></app-result-preview>
+      <app-result-table v-else :key="2"></app-result-table>
+    </transition-group>
   </div>
 </template>
 
 <script>
   let curTimer;
+  import ResultTable from '../result/ResultTable'
   import {EventBus} from "../../main";
   import ResultPreview from './ResultPreview'
   export default {
@@ -19,7 +21,8 @@
       }
     },
     components: {
-      appResultPreview: ResultPreview
+      appResultPreview: ResultPreview,
+      appResultTable: ResultTable
     },
     created(){
       EventBus.$on('resultReceived',data=>{
