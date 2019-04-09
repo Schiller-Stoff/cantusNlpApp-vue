@@ -1,6 +1,6 @@
 <template>
     <div id="people" class="container-fluid">
-      <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
+      <v-client-table :data="refinedTableData" :columns="columns" :options="options"></v-client-table>
     </div>
 </template>
 
@@ -29,7 +29,17 @@
           // see the options API
         }
       }
-    }
+    },
+    computed: {
+      refinedTableData(){
+        console.log(this.tableData)
+        let refined = []
+        for (let dataPoint of this.tableData){
+          refined.push({officeLabel:dataPoint.officelabel, res:dataPoint.res})
+        }
+        return refined;
+      }
+    },
 
   }
 </script>
