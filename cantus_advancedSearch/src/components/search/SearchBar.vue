@@ -84,7 +84,7 @@ export default {
   data(){
     return {
       interfaceLocked: false,
-      fadeInAtEvent: 'd-none',
+      fadeInAtEvent: 'hidden',
       server:'glossa.uni-graz.at',
       chosenGenre:'RP',
       chosenLO:'Passau',  //atm not in use
@@ -127,7 +127,7 @@ export default {
     })
 
     EventBus.$on('searchBarMinified',_=>{
-      self.fadeInAtEvent = 'd-none'
+      self.fadeInAtEvent = 'hidden'
     })
 
   }
