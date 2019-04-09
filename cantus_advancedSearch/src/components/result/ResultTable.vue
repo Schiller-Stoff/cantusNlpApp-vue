@@ -1,5 +1,5 @@
 <template>
-    <div id="people" class="container-fluid">
+    <div class="container-fluid">
       <v-client-table :data="refinedTableData" :columns="columns" :options="options"></v-client-table>
     </div>
 </template>
