@@ -1,6 +1,8 @@
 <template>
   <div class="container-fluid">
 
+    <p>{{blazeGraphQuery}}</p>
+
     <div>
       <div class="searchBar_iconHolder"><i class="fas fa-home"></i></div>
       <div class="searchBar_iconHolder" :class="fadeInAtEvent">
@@ -26,11 +28,11 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">LO</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect01">
+      <select v-model="chosenLO" class="custom-select" id="inputGroupSelect01">
         <option selected>Bitte wählen...</option>
-        <option value="1">Passau</option>
-        <option value="2">Salzburg</option>
-        <option value="3">Regensburg</option>
+        <option value="Passau">Passau</option>
+        <option value="Salzburg">Salzburg</option>
+        <option value="Regensburg">Regensburg</option>
       </select>
     </div>
 
@@ -38,11 +40,12 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect02">Zeitraum</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect02">
+      <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
         <option selected>Bitte wählen...</option>
-        <option value="1">Ostern</option>
-        <option value="2">Weihnachten</option>
-        <option value="3">Pfingsten</option>
+        <option value="resp.test">resp.test</option>
+        <option value="query_object01">Ostern</option>
+        <option value="query_object02">Weihnachten</option>
+        <option value="query_object03">Pfingsten</option>
       </select>
     </div>
 
@@ -71,15 +74,18 @@ export default {
       interfaceLocked: false,
       fadeInAtEvent: 'd-none',
       server:'glossa.uni-graz.at',
-      chosenGenre:'default',
-      chosenLO:'',  //atm not in use
-      curQueryObject:'resp.test'  //atm no functionality
+      chosenGenre:'RP',
+      chosenLO:'Passau',  //atm not in use
+      curQueryObject:'resp.test'  //for the times
 
     }
   },
   computed: {
     blazeGraphQuery(){
-      return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
+
+      return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenLO}%3B%242%7C${this.chosenGenre}`
+
+      //return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
     }
   },
   methods: {
