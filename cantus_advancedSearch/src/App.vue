@@ -1,5 +1,5 @@
 <template>
-  <div id="vue_app" :style="maximizedStyle">
+  <div id="vue_app" :style="maximizedStyle" :class="animClass">
     <app-main-grid></app-main-grid>
   </div>
 </template>
@@ -15,7 +15,8 @@ export default {
   data () {
     return {
       searchResult: [],
-      maximizedStyle: undefined
+      maximizedStyle: undefined,
+      animClass:""
     }
   },
   created(){
@@ -25,8 +26,10 @@ export default {
 
     EventBus.$on('toggleFullScreen',_=>{
       if(this.maximizedStyle){
+        this.animClass = ""
         this.maximizedStyle = undefined
       } else {
+        this.animClass = "animated fadeIn once";
         this.maximizedStyle = {position:'fixed', height:'120vh', width: '100vw', left:0, top:0, overflow:'scroll',zIndex:'2000'}
       }
     });
@@ -39,4 +42,5 @@ export default {
     //old deep import of bootstrap 4 -> not used any longer
     //@import "~bootstrap/dist/css/bootstrap.min";
   }
+
 </style>
