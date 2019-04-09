@@ -1,8 +1,21 @@
 <template>
   <div>
     <transition-group mode="out-in">
-      <app-result-preview v-if="showPreview && searchResult" :prevData="searchResult" :key="1" mode="out-in"></app-result-preview>
-      <app-result-table v-if="!showPreview && searchResult" :key="2" :tableData="searchResult"></app-result-table>
+      <app-result-default
+        :key="0"
+        v-if="!searchResult">
+      </app-result-default>
+      <app-result-preview
+        v-if="showPreview && searchResult"
+        :prevData="searchResult"
+        :key="1"
+        mode="out-in">
+      </app-result-preview>
+      <app-result-table
+        v-if="!showPreview && searchResult"
+        :key="2"
+        :tableData="searchResult">
+      </app-result-table>
     </transition-group>
   </div>
 </template>
@@ -12,6 +25,7 @@
   import ResultTable from '../result/ResultTable'
   import {EventBus} from "../../main";
   import ResultPreview from './ResultPreview'
+  import ResultDefault from './ResultDefault'
   export default {
     name: "Result.vue",
     data(){
@@ -22,7 +36,8 @@
     },
     components: {
       appResultPreview: ResultPreview,
-      appResultTable: ResultTable
+      appResultTable: ResultTable,
+      appResultDefault:ResultDefault
     },
     created(){
       EventBus.$on('resultReceived',data=>{
