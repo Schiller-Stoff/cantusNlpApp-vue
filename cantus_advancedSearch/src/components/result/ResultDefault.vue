@@ -8,16 +8,21 @@
       <p>Bewegen Sie die Maus über die blaue Leiste Links um eine Suche zu starten.</p>
     </div>
 
-    <div v-if="showFullContent">
-      <div class="ResultDefault_iconHolder">
-        <i class="fas fa-arrow-circle-left"></i>
-        <p>Bewegen Sie die Maus über die blaue Leiste Links um eine Suche zu starten.</p>
+    <transition enter-active-class="animated bounceIn">
+      <div v-if="showFullContent">
+        <hr>
+        <div class="ResultDefault_iconHolder">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>Wählen Sie ein Genre um .... lorem ipsum lalafas adsd dk asdd  lmsaf</p>
+        </div>
+        <div class="ResultDefault_iconHolder">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>Bewegen Sie die Maus über die blaue Leiste Links um eine Suche zu starten.</p>
+        </div>
+        <hr>
       </div>
-      <div class="ResultDefault_iconHolder">
-        <i class="fas fa-arrow-circle-left"></i>
-        <p>Bewegen Sie die Maus über die blaue Leiste Links um eine Suche zu starten.</p>
-      </div>
-    </div>
+    </transition>
+
   </div>
 </template>
 
