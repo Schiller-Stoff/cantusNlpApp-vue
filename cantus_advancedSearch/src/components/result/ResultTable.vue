@@ -32,7 +32,7 @@
     },
     computed: {
       refinedTableData(){
-        console.log(this.tableData)
+        //TODO computed runs everytime when component created instead of re-ajaxed
         let refined = []
         for (let dataPoint of this.tableData){
           refined.push({officeLabel:dataPoint.officelabel, res:dataPoint.res})
