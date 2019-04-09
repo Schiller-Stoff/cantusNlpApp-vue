@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
 
-    <p>{{blazeGraphQuery}}</p>
+
 
     <div>
       <div class="searchBar_iconHolder"><i class="fas fa-home"></i></div>
@@ -73,6 +73,7 @@
       </select>
     </div>
     <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Button atm nutzlos</button>
+    <p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>
   </div>
 </template>
 
