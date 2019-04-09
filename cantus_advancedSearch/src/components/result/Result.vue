@@ -2,7 +2,7 @@
   <div>
     <transition-group mode="out-in">
       <app-result-preview v-if="showPreview" :prevData="searchResult" :key="1" mode="out-in"></app-result-preview>
-      <app-result-table v-else :key="2" ></app-result-table>
+      <app-result-table v-else :key="2" :tableData="searchResult"></app-result-table>
     </transition-group>
   </div>
 </template>
