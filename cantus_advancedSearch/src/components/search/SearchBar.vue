@@ -95,9 +95,9 @@ export default {
   computed: {
     blazeGraphQuery(){
 
-      return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenLO}%3B%242%7C${this.chosenGenre}`
+      //return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenLO}%3B%242%7C${this.chosenGenre}`
 
-      //return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
+      return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
     }
   },
   methods: {
