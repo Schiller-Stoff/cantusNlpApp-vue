@@ -43,9 +43,21 @@
       <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
         <option selected>Bitte wählen...</option>
         <option value="resp.test">resp.test</option>
-        <option value="query_object01">Ostern</option>
-        <option value="query_object02">Weihnachten</option>
-        <option value="query_object03">Pfingsten</option>
+        <option value="queryWeihnachten">Weihnachten</option>
+        <option value="queryVorfastenzeit">Vorfastenzeit</option>
+        <option value="queryFastenzeit">Fastenzeit</option>
+
+        <option value="queryTriduumSacrum">Triduum Sacrum</option>
+        <option value="queryNachOstern">Nachostern</option>
+        <option value="queryPfingsten">Pfingsten</option>
+
+        <option value="querySonntageNachPfingsten">Sonntage nach Pfingsten</option>
+        <option value="queryCommuneSanctorum">Commune Sanctorum</option>
+        <option value="queryAdventSonntage">Adventsonntage</option>
+
+        <option value="queryAdventQuatember">Adventquatember</option>
+        <option value="queryZeitImKirchenjahr">Zeit im Kirchenjahr</option>
+
       </select>
     </div>
 
