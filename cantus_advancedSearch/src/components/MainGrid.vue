@@ -84,11 +84,13 @@
 
 #first {
   background-color: $tertiaryColor;
+  height: 100%;
 
 }
 
 #second {
   background-color: $blankColor;
+  height: 100%;
 }
 
 .transition {
