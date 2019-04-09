@@ -8,7 +8,7 @@
       <p>Bewegen Sie die Maus über die blaue Leiste Links um eine Suche zu starten.</p>
     </div>
 
-    <transition enter-active-class="animated bounceIn">
+    <transition enter-active-class="animated fadeIn">
       <div v-if="showFullContent">
         <hr>
         <div class="ResultDefault_iconHolder">
