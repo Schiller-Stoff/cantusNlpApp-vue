@@ -7,16 +7,24 @@
 <script>
   export default {
     name: "ResultTable",
+    props: {
+      tableData: {
+        required: true,
+        type: Array,
+        default(){
+          return [
+            { officeLabel: 1, res: "John"},
+            { officeLabel: 2, res: "Jane"},
+            { officeLabel: 3, res: "Susan"},
+            { officeLabel: 4, res: "Chris"},
+            { officeLabel: 5, res: "Dan"}
+          ]
+        }
+      }
+    },
     data(){
       return {
-        columns: ['id', 'name', 'age'],
-        tableData: [
-          { id: 1, name: "John", age: "20" },
-          { id: 2, name: "Jane", age: "24" },
-          { id: 3, name: "Susan", age: "16" },
-          { id: 4, name: "Chris", age: "55" },
-          { id: 5, name: "Dan", age: "40" }
-        ],
+        columns: ['officeLabel', 'res'],
         options: {
           // see the options API
         }
