@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition-group mode="out-in">
+
       <app-result-default
         :key="0"
         v-if="!searchResult">
@@ -8,15 +8,14 @@
       <app-result-preview
         v-if="showPreview && searchResult"
         :prevData="searchResult"
-        :key="1"
-        mode="out-in">
+        :key="1">
       </app-result-preview>
       <app-result-table
         v-if="!showPreview && searchResult"
         :key="2"
         :tableData="searchResult">
       </app-result-table>
-    </transition-group>
+
   </div>
 </template>
 
