@@ -1,10 +1,12 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid" :class="delayedDisplay">
       <v-client-table :data="refinedTableData" :columns="columns" :options="options"></v-client-table>
     </div>
 </template>
 
 <script>
+  import {EventBus} from "../../main";
+
   export default {
     name: "ResultTable",
     props: {
@@ -24,6 +26,7 @@
     },
     data(){
       return {
+        delayedDisplay:'hidden',
         columns: ['officeLabel', 'res'],
         options: {
           // see the options API
@@ -40,6 +43,15 @@
         return refined;
       }
     },
+    created(){
+      setTimeout(_=>{
+        this.delayedDisplay = 'animated fadeIn once faster'
+      },200);
+
+      EventBus.$on('searchBarEnlarge',_=>{
+        this.delayedDisplay = 'hidden'
+      });
+    }
 
   }
 </script>
