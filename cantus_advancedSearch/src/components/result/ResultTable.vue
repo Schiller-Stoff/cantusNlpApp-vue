@@ -1,8 +1,6 @@
 <template>
-    <div>
-      <div id="people" class="container-fluid">
-        <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
-      </div>
+    <div id="people" class="container-fluid">
+      <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
     </div>
 </template>
 
