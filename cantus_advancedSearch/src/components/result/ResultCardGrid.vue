@@ -1,11 +1,19 @@
 <template>
 
+  <div class="card-columns">
+    <app-result-card></app-result-card>
+  </div>
+
 </template>
 
 <script>
-    export default {
-        name: "ResultCardGrid"
+  import ResultCard from './ResultCard'
+  export default {
+    name: "ResultCardGrid",
+    components: {
+      appResultCard: ResultCard
     }
+  }
 </script>
 
 <style scoped>
