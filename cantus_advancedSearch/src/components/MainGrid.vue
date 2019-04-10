@@ -78,9 +78,6 @@
 
 <style scoped lang="scss">
 @import '../scss/globalVariables/globalVariables.scss';
-.row {
-  /*min-height: 100vh;*/
-}
 
 #first {
   background-color: $tertiaryColor;
