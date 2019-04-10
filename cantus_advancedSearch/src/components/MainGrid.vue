@@ -79,18 +79,18 @@
 <style scoped lang="scss">
 @import '../scss/globalVariables/globalVariables.scss';
 .row {
-  height: 100vh;
+  /*min-height: 100vh;*/
 }
 
 #first {
   background-color: $tertiaryColor;
-  height: 100%;
+  min-height: 100vh;
 
 }
 
 #second {
   background-color: $blankColor;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .transition {
