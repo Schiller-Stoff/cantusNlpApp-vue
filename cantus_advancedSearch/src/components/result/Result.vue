@@ -15,6 +15,9 @@
         :key="2"
         :tableData="searchResult">
       </app-result-table>
+      <app-result-card v-for="points in [1,2,4,5]">
+
+      </app-result-card>
 
   </div>
 </template>
@@ -25,6 +28,7 @@
   import {EventBus} from "../../main";
   import ResultPreview from './ResultPreview'
   import ResultDefault from './ResultDefault'
+  import ResultCard from './ResultCard'
   export default {
     name: "Result.vue",
     data(){
@@ -36,7 +40,8 @@
     components: {
       appResultPreview: ResultPreview,
       appResultTable: ResultTable,
-      appResultDefault:ResultDefault
+      appResultDefault:ResultDefault,
+      appResultCard: ResultCard
     },
     created(){
       EventBus.$on('resultReceived',data=>{
