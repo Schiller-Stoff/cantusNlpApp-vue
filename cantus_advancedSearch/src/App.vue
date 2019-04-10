@@ -40,7 +40,10 @@ export default {
 <style lang="scss" scoped>
   #vue_app /deep/ {
     //old deep import of bootstrap 4 -> not used any longer
-    //@import "~bootstrap/dist/css/bootstrap.min";
+    @import "~bootstrap/scss/functions";
+    @import "~bootstrap/scss/variables";
+    @import "~bootstrap/scss/mixins";
+    @import "~bootstrap/scss/card";
   }
 
 </style>
