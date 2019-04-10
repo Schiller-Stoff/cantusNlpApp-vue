@@ -15,9 +15,8 @@
         :key="2"
         :tableData="searchResult">
       </app-result-table>
-      <app-result-card v-for="points in [1,2,4,5]">
 
-      </app-result-card>
+      <!--<app-result-card v-for="points in [1,2,4,5]"></app-result-card>-->
 
   </div>
 </template>
