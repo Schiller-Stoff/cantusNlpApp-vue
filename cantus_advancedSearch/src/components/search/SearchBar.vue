@@ -107,6 +107,11 @@ export default {
       if(respShortcut==='default')return;
       this.$http.get(this.blazeGraphQuery).then(response => {
         EventBus.$emit('resultReceived', response.body)
+        EventBus.$emit('newSearch',{
+          chosenLo: this.chosenLo,
+          chosenTimeSpan: this.curQueryObject,
+          chosenGenre: this.chosenGenre
+        });
       });
     },
     toggleFullScreen(){

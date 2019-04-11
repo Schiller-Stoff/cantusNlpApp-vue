@@ -1,8 +1,8 @@
 <template>
     <div class="container-fluid" :class="delayedDisplay">
-      <h2>LO XYZ</h2>
-      <p>Zeitraum: XYZ</p>
-      <p>Genre: XYZ</p>
+      <h2>LO {{lo}}</h2>
+      <p>Zeitraum: {{ searchParamsObj.chosenTimeSpan }}</p>
+      <p>Genre: {{ searchParamsObj.chosenGenre }}</p>
       <hr>
       <br>
       <br>
@@ -33,10 +33,17 @@
     data(){
       return {
         delayedDisplay:'hidden',
+        searchParamsObj: {
+          chosenLo: '-',
+          chosenTimeSpan: '-',
+          chosenGenre: '-'
+        },
         columns: ['officeLabel', 'res'],
         options: {
           // see the options API
-        }
+        },
+
+        lo: ''
       }
     },
     computed: {
@@ -50,6 +57,7 @@
       }
     },
     created(){
+      let self = this;
       setTimeout(_=>{
         this.delayedDisplay = 'animated fadeIn once faster'
       },200);
@@ -57,6 +65,17 @@
       EventBus.$on('searchBarEnlarge',_=>{
         this.delayedDisplay = 'hidden'
       });
+
+      EventBus.$on('newSearch',searchParams =>{
+        console.log(searchParams);
+        console.log(searchParams.chosenLo);
+
+        self.searchParamsObj = searchParams
+
+
+        this.lo = searchParams.chosenLo;
+        console.log(this.lo);
+      })
     }
 
   }
