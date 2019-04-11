@@ -80,7 +80,7 @@
 @import '../scss/globalVariables/globalVariables.scss';
 
 #first {
-  background-color: $tertiaryColor;
+  background-color: $primaryColor;
   min-height: 100vh;
 
 }
