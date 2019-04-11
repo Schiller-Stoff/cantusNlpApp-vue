@@ -80,7 +80,7 @@
 
 <script>
 import {EventBus} from "../../main";
-
+let timer;
 export default {
   name: "Search",
   data(){
@@ -125,10 +125,14 @@ export default {
   created(){
     let self = this;
     EventBus.$on('searchBarEnlarge',_=>{
-      self.fadeInAtEvent = 'animated once fadeIn'
+      timer = setTimeout(_=>{
+        self.fadeInAtEvent = 'animated once fadeIn'
+      },100)
+
     })
 
     EventBus.$on('searchBarMinified',_=>{
+      clearTimeout(timer)
       self.fadeInAtEvent = 'hidden'
     })
 
@@ -168,7 +172,10 @@ export default {
     color: $secondaryColor;
   }
 
-  hr {border-color: $secondaryColor;margin-bottom: 0}
+  hr {
+    border-color: $secondaryColor;
+    margin-bottom: 0;
+  }
 
   .coloredHr {
     background-color: $secondaryColor;
