@@ -1,5 +1,11 @@
 <template>
     <div class="container-fluid" :class="delayedDisplay">
+      <h2>LO XYZ</h2>
+      <p>Zeitraum: XYZ</p>
+      <p>Genre: XYZ</p>
+      <hr>
+      <br>
+      <br>
       <v-client-table :data="refinedTableData" :columns="columns" :options="options"></v-client-table>
     </div>
 </template>
@@ -57,5 +63,9 @@
 </script>
 
 <style scoped>
+
+  .container-fluid {
+    /*margin-top: 5vh;*/
+  }
 
 </style>
