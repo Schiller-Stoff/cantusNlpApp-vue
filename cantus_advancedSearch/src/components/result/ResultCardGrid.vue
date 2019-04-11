@@ -4,7 +4,7 @@
     <h3>Vorangegangene Suchen</h3>
     <hr>
     <div class="card-columns">
-      <app-result-card v-for="search in searchHistory"></app-result-card>
+      <app-result-card v-for="search in searchHistory" :search-result="search"></app-result-card>
     </div>
   </div>
 </template>
