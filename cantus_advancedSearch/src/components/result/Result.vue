@@ -7,6 +7,7 @@
       </app-result-default>
       <app-result-preview
         v-if="showPreview && searchResult"
+        :searchParams="searchParams"
         :prevData="searchResult"
         :key="1">
       </app-result-preview>
