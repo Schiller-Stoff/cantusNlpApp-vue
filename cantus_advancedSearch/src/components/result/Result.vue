@@ -16,7 +16,7 @@
         :tableData="searchResult">
       </app-result-table>
 
-      <app-result-card-grid></app-result-card-grid>
+      <!--<app-result-card-grid></app-result-card-grid>-->
 
   </div>
 </template>
