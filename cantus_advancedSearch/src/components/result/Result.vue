@@ -18,7 +18,12 @@
         :searchParams="searchParams">
       </app-result-table>
 
-      <!--<app-result-card-grid></app-result-card-grid>-->
+      <app-result-card-grid
+        :key="3"
+        :search-history="searchHistory"
+        v-if="!showPreview && searchResult"
+      >
+      </app-result-card-grid>
 
   </div>
 </template>
@@ -34,6 +39,7 @@
     name: "Result.vue",
     data(){
       return {
+        searchHistory: [],
         searchResult:undefined,
         searchParams:undefined,
         showPreview:false
@@ -47,6 +53,7 @@
     },
     created(){
       EventBus.$on('resultReceived',data=>{
+        this.searchHistory.push(data)
         this.searchResult = data.body;
         this.searchParams = data.searchParams;
         this.showPreview = true

@@ -1,9 +1,12 @@
 <template>
-
-  <div class="card-columns">
-    <app-result-card></app-result-card>
+  <div class="container-fluid">
+    <br>
+    <h3>Vorangegangene Suchen</h3>
+    <hr>
+    <div class="card-columns">
+      <app-result-card v-for="search in searchHistory"></app-result-card>
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -12,6 +15,12 @@
     name: "ResultCardGrid",
     components: {
       appResultCard: ResultCard
+    },
+    props: {
+      searchHistory: {
+        required:true,
+        type:Array
+      }
     }
   }
 </script>
