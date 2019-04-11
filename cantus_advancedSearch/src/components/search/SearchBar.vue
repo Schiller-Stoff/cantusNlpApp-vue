@@ -189,7 +189,7 @@ export default {
   }
 
   label {
-    color: $primaryColor;
+    color: $secondaryColor;
   }
 
   input {
