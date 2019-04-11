@@ -56,6 +56,11 @@
 
 <style scoped lang="scss">
 
+  h2 {
+    margin-top: .5em;
+    font-style: normal;
+  }
+
   .ResultDefault_iconHolder {
     i {
       color: #0047bb;
