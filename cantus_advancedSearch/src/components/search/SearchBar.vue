@@ -104,14 +104,15 @@ export default {
   },
   methods: {
     searchResp(respShortcut){
+      let self = this;
       if(respShortcut==='default')return;
       this.$http.get(this.blazeGraphQuery).then(response => {
-        EventBus.$emit('resultReceived', response.body)
-        EventBus.$emit('newSearch',{
-          chosenLo: this.chosenLo,
-          chosenTimeSpan: this.curQueryObject,
-          chosenGenre: this.chosenGenre
-        });
+        response.searchParams = {
+          chosenGenre:self.chosenGenre,
+          chosenLO: self.chosenLO,
+          chosenTimeFrame: self.curQueryObject
+        }
+        EventBus.$emit('resultReceived', response)
       });
     },
     toggleFullScreen(){
