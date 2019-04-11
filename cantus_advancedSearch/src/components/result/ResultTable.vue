@@ -1,8 +1,8 @@
 <template>
     <div class="container-fluid" :class="delayedDisplay">
-      <h2>LO {{lo}}</h2>
-      <p>Zeitraum: {{ searchParamsObj.chosenTimeSpan }}</p>
-      <p>Genre: {{ searchParamsObj.chosenGenre }}</p>
+      <h2>LO {{searchParams.chosenLO}}</h2>
+      <p>Zeitraum: {{ searchParams.chosenTimeFrame }}</p>
+      <p>Genre: {{ searchParams.chosenGenre}}</p>
       <hr>
       <br>
       <br>
@@ -28,16 +28,27 @@
             { officeLabel: 5, res: "Dan"}
           ]
         }
+      },
+      searchParams:{
+        type:Object,
+        required:true,
+        validator(value){
+          let demandedKeys = ['chosenLO','chosenGenre','chosenTimeFrame']
+          for (let key of demandedKeys){
+            try {
+              if(value[key]===undefined)throw new Error();
+            } catch (e) {
+              console.error('Key not found in buildData prop for BuildBlock.vue. Demanded key: ' + key);
+              return false;
+            }
+          }
+          return true;
+        }
       }
     },
     data(){
       return {
         delayedDisplay:'hidden',
-        searchParamsObj: {
-          chosenLo: '-',
-          chosenTimeSpan: '-',
-          chosenGenre: '-'
-        },
         columns: ['officeLabel', 'res'],
         options: {
           // see the options API
