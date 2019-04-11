@@ -13,7 +13,8 @@
       <app-result-table
         v-if="!showPreview && searchResult"
         :key="2"
-        :tableData="searchResult">
+        :tableData="searchResult"
+        :searchParams="searchParams">
       </app-result-table>
 
       <!--<app-result-card-grid></app-result-card-grid>-->
@@ -33,6 +34,7 @@
     data(){
       return {
         searchResult:undefined,
+        searchParams:undefined,
         showPreview:false
       }
     },
@@ -44,7 +46,8 @@
     },
     created(){
       EventBus.$on('resultReceived',data=>{
-        this.searchResult = data
+        this.searchResult = data.body;
+        this.searchParams = data.searchParams;
         this.showPreview = true
       });
 
