@@ -138,9 +138,14 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/globalVariables/globalVariables";
 
+  .container-fluid {
+    border: .1em solid $secondaryColor;
+  }
+
   h4 {
-    color: $primaryColor;
+    color: $secondaryColor;
     margin-top: 2em;
+    font-style: normal;
   }
 
   .searchBar_iconHolder {
@@ -152,22 +157,20 @@ export default {
   }
 
   i {
-    color: white;
+    color: $secondaryColor;
     font-size: 1.5em;
     margin-top: 1em;
     margin-right: .75em;
   }
 
   p {
-    color: $primaryColor;
+    color: $secondaryColor;
   }
 
-  hr {
-    background-color: $primaryColor;
-  }
+  hr {border-color: $secondaryColor;}
 
   .coloredHr {
-    background-color: $fourthColor;
+    background-color: $secondaryColor;
     padding-bottom: .25em;
   }
 
