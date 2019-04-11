@@ -31,9 +31,11 @@
       </div>
       <select v-model="chosenLO" class="custom-select" id="inputGroupSelect01">
         <option selected>Bitte wählen...</option>
-        <option value="Passau">Passau</option>
-        <option value="Salzburg">Salzburg</option>
-        <option value="Regensburg">Regensburg</option>
+        <option value="passau.ur">Passau Ur</option>
+        <option value="passau.sp">Passau SP</option>
+
+        <option value="salzburg.ur">Salzburg Ur</option>
+        <option value="klosterneuburg.ur">Kosterneuburg Ur</option>
       </select>
     </div>
 
@@ -44,20 +46,21 @@
       <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
         <option selected>Bitte wählen...</option>
         <option value="resp.test">resp.test</option>
-        <option value="queryWeihnachten">Weihnachten</option>
-        <option value="queryVorfastenzeit">Vorfastenzeit</option>
-        <option value="queryFastenzeit">Fastenzeit</option>
+        <option value="weihnachten">Weihnachten</option>
 
-        <option value="queryTriduumSacrum">Triduum Sacrum</option>
-        <option value="queryNachOstern">Nachostern</option>
-        <option value="queryPfingsten">Pfingsten</option>
+        <!--<option value="adventsonntage">Adventsonntage</option>-->
+        <!--<option value="nachostern">Nachostern</option>-->
 
-        <option value="querySonntageNachPfingsten">Sonntage nach Pfingsten</option>
-        <option value="queryCommuneSanctorum">Commune Sanctorum</option>
-        <option value="queryAdventSonntage">Adventsonntage</option>
+        <!--<option value="queryTriduumSacrum">Triduum Sacrum</option>-->
+        <!--<option value="queryNachOstern">Nachostern</option>-->
+        <!--<option value="queryPfingsten">Pfingsten</option>-->
 
-        <option value="queryAdventQuatember">Adventquatember</option>
-        <option value="queryZeitImKirchenjahr">Zeit im Kirchenjahr</option>
+        <!--<option value="querySonntageNachPfingsten">Sonntage nach Pfingsten</option>-->
+        <!--<option value="queryCommuneSanctorum">Commune Sanctorum</option>-->
+        <!--<option value="queryAdventSonntage">Adventsonntage</option>-->
+
+        <!--<option value="queryAdventQuatember">Adventquatember</option>-->
+        <!--<option value="queryZeitImKirchenjahr">Zeit im Kirchenjahr</option>-->
 
       </select>
     </div>
@@ -89,17 +92,17 @@ export default {
       fadeInAtEvent: 'hidden',
       server:'glossa.uni-graz.at',
       chosenGenre:'RP',
-      chosenLO:'Passau',  //atm not in use
-      curQueryObject:'resp.test'  //for the times
+      chosenLO:'passau.ur',  //atm not in use
+      curQueryObject:'weihnachten'  //for the times
 
     }
   },
   computed: {
     blazeGraphQuery(){
 
-      //return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenLO}%3B%242%7C${this.chosenGenre}`
+      return `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
 
-      return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
+      //return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
     }
   },
   methods: {
