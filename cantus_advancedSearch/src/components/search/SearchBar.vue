@@ -13,6 +13,7 @@
     </div>
 
     <hr>
+    <i class="fas fa-search" :class="fadeInAtEvent === 'hidden' ? '' : 'hidden'"></i>
     <br>
     <h4 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h4>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
@@ -167,7 +168,7 @@ export default {
     color: $secondaryColor;
   }
 
-  hr {border-color: $secondaryColor;}
+  hr {border-color: $secondaryColor;margin-bottom: 0}
 
   .coloredHr {
     background-color: $secondaryColor;
