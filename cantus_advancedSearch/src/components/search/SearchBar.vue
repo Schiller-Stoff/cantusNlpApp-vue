@@ -31,6 +31,7 @@
       </div>
       <select v-model="chosenLO" class="custom-select" id="inputGroupSelect01">
         <option selected>Bitte wählen...</option>
+        <option value="passau">PASSAU RESP.TEST</option>
         <option value="passau.ur">Passau Ur</option>
         <option value="passau.sp">Passau SP</option>
 
@@ -45,7 +46,6 @@
       </div>
       <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
         <option selected>Bitte wählen...</option>
-        <option value="resp.test">resp.test</option>
         <option value="weihnachten">Weihnachten</option>
 
         <!--<option value="adventsonntage">Adventsonntage</option>-->
@@ -76,7 +76,7 @@
         <option value="AE">AE</option>
       </select>
     </div>
-    <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Button atm nutzlos</button>
+    <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
     <p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>
   </div>
 </template>
@@ -99,6 +99,8 @@ export default {
   },
   computed: {
     blazeGraphQuery(){
+
+      if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
       return `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
 
