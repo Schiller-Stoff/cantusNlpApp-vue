@@ -34,6 +34,7 @@
         <option value="passau">PASSAU RESP.TEST</option>
         <option value="passau.ur">Passau Ur</option>
         <option value="passau.sp">Passau SP</option>
+        <option value="FAIL_QUERY">MALFORMED_QUERY</option>
 
         <option value="salzburg.ur">Salzburg Ur</option>
         <option value="klosterneuburg.ur">Kosterneuburg Ur</option>
@@ -99,6 +100,8 @@ export default {
   },
   computed: {
     blazeGraphQuery(){
+
+      if(this.chosenLO==='FAIL_QUERY')return '9$$ß34'
 
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
