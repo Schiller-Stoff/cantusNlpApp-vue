@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import PieChart from './PieChart'
+  import PieChart from './charts/PieChart'
 
   export default {
     name: "ResultPreview",
