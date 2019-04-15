@@ -32,7 +32,8 @@
     </app-result-load-handler>
 
     <app-result-bar-chart
-      v-if="!showPreview && searchResult && !waitingForSearchResult"
+      v-if="searchHistory && searchResult && vizDataResults[0]"
+      :viz-data-results="vizDataResults"
     >
 
     </app-result-bar-chart>
@@ -84,13 +85,13 @@
         clearTimeout(searchTimer)
         this.waitingForSearchResult = false;
 
-        //operations to register past searches
-        this.searchHistory.push(data)
-        if(this.vizData)this.vizDataResults.push(this.vizData)
-
         this.searchResult = data.body;
         this.searchParams = data.searchParams;
         this.showPreview = true
+
+        //operations to register past searches
+        this.searchHistory.push(data)
+        if(this.vizData)this.vizDataResults.push(this.vizData)
       });
 
       EventBus.$on('searchStarted', _ => {
