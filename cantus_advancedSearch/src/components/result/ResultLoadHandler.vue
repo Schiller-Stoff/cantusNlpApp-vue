@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid text-center align-middle">
+  <div class="container-fluid text-center">
     <i class="fas fa-circle-notch fa-spin"></i>
   </div>
 </template>
