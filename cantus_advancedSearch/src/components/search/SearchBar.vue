@@ -111,6 +111,7 @@ export default {
     searchResp(respShortcut){
       let self = this;
       if(respShortcut==='default')return;
+      EventBus.$emit('searchStarted')
       this.$http.get(this.blazeGraphQuery).then(response => {
         response.searchParams = {
           chosenGenre:self.chosenGenre,
@@ -118,6 +119,8 @@ export default {
           chosenTimeFrame: self.curQueryObject
         }
         EventBus.$emit('resultReceived', response)
+      },err => {
+        EventBus.$emit('searchFailed',err)
       });
     },
     toggleFullScreen(){

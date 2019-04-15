@@ -66,6 +66,19 @@
         this.searchResult = data.body;
         this.searchParams = data.searchParams;
         this.showPreview = true
+
+        this.waitingForSearchResult = false;
+      });
+
+      EventBus.$on('searchStarted',_=>{
+        this.waitingForSearchResult = true
+      })
+
+      EventBus.$on('searchFailed',err=>{
+        this.waitingForSearchResult = false;
+
+        //TODO add error display in component
+
       });
 
       EventBus.$on('searchBarMinified', _=> {
