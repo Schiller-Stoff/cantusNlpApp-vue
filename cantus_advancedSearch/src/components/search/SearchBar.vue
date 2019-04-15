@@ -88,6 +88,7 @@
 <script>
 import {EventBus} from "../../main";
 let timer;
+let searchTimer;
 export default {
   name: "Search",
   data(){
@@ -121,13 +122,26 @@ export default {
       let self = this;
       if(respShortcut==='default')return;
       EventBus.$emit('searchStarted')
-      this.$http.get(this.blazeGraphQuery).then(response => {
+
+      //if in 10 secs no response fail
+      searchTimer = setTimeout(_=>{
+        EventBus.$emit('searchFailed');
+        this.runningRequest.abort()
+      },10000)
+
+      this.$http.get(this.blazeGraphQuery, {
+        //vue resource specific: using above to cancel current request
+        before(request){
+          this.runningRequest = request
+        }
+      }).then(response => {
         response.searchParams = {
           chosenGenre:self.chosenGenre,
           chosenLO: self.chosenLO,
           chosenTimeFrame: self.curQueryObject
         }
         EventBus.$emit('resultReceived', response)
+        clearTimeout(searchTimer)
       },err => {
         EventBus.$emit('searchFailed',err)
       });
