@@ -36,6 +36,7 @@
 
 <script>
   let curTimer;
+  let searchTimer;
   import ResultTable from '../result/ResultTable'
   import {EventBus} from "../../main";
   import ResultPreview from './ResultPreview'
@@ -63,17 +64,25 @@
     },
     created(){
       EventBus.$on('resultReceived',data=>{
+        // if result received clear searchTimer
+        clearTimeout(searchTimer)
+        this.waitingForSearchResult = false;
+
         this.searchHistory.push(data)
         this.searchResult = data.body;
         this.searchParams = data.searchParams;
         this.showPreview = true
-
-        this.waitingForSearchResult = false;
       });
 
       EventBus.$on('searchStarted',_=>{
         this.loadFailed = false;
         this.waitingForSearchResult = true
+
+        //timer will be cleared insight resultReceived event above.
+        let self = this
+        searchTimer = setTimeout(_=>{
+          self.loadFailed = true;
+        },10000);
       })
 
       EventBus.$on('searchFailed',err=>{
