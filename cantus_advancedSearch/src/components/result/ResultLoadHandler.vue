@@ -10,9 +10,8 @@
 </script>
 
 <style scoped lang="scss">
-
-  i {
-    font-size: 3em;
+  .container-fluid {
+    margin-top: 40vh;
+    i {font-size: 3em;}
   }
-
 </style>
