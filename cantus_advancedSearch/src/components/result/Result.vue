@@ -1,6 +1,5 @@
 <template>
-  <div>
-
+  <div class="container-fluid">
       <app-result-default
         :key="0"
         v-if="!searchResult && !waitingForSearchResult">
@@ -26,7 +25,7 @@
       </app-result-card-grid>
 
       <app-result-load-handler
-        v-if="!showPreview && !searchResult && waitingForSearchResult"
+        v-if="waitingForSearchResult"
         :key="4"
       >
       </app-result-load-handler>
