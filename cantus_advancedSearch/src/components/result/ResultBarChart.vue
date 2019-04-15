@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <app-bar-chart></app-bar-chart>
+    <app-bar-chart :labels="refactoredData.labels" :datasets="refactoredData.data"></app-bar-chart>
   </div>
 
 </template>
@@ -24,6 +24,26 @@
           return true
         }
       },
+    },
+    computed: {
+      refactoredData() {
+        let labels = [];
+        let data = [];
+        for (let point of this.vizDataResults){
+          labels.push(point.searchParams.chosenLO + " - " + point.searchParams.chosenGenre)
+          data.push(point.lengthCount)
+        }
+        return {
+          labels: labels,
+          data: [
+            {
+              label: 'Feste',
+              backgroundColor: ['#FF9D40','#0047bb'],
+              data: data
+            }
+          ]
+        }
+      }
     },
     components: {
       appBarChart: BarChart
