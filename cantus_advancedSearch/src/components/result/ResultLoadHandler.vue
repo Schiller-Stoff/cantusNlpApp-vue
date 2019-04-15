@@ -22,7 +22,10 @@
 <style scoped lang="scss">
   @import "../../scss/globalVariables/globalVariables";
   .container-fluid {
-    margin-top: 40vh;
+    margin-top: 10vh;
+    @include lg {
+      margin-top: 40vh;
+    }
     i {
       font-size: 3em;
     }
