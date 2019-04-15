@@ -27,6 +27,7 @@
       <app-result-load-handler
         v-if="waitingForSearchResult"
         :key="4"
+        :loadFailed="loadFailed"
       >
       </app-result-load-handler>
 
@@ -49,7 +50,8 @@
         searchResult:undefined,
         searchParams:undefined,
         showPreview:false,
-        waitingForSearchResult: false
+        waitingForSearchResult: false,
+        loadFailed: false
       }
     },
     components: {
@@ -70,12 +72,12 @@
       });
 
       EventBus.$on('searchStarted',_=>{
+        this.loadFailed = false;
         this.waitingForSearchResult = true
       })
 
       EventBus.$on('searchFailed',err=>{
-        this.waitingForSearchResult = false;
-
+        this.loadFailed = true;
         //TODO add error display in component
 
       });
