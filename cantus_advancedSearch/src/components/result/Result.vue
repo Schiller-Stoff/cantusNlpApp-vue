@@ -56,11 +56,18 @@
     data() {
       return {
         searchHistory: [],
+        vizDataResults:[],
         searchResult: undefined,
         searchParams: undefined,
         showPreview: false,
         waitingForSearchResult: false,
         loadFailed: false
+      }
+    },
+    computed: {
+      vizData() {
+        if(!this.searchResult)return
+        return {searchParams:this.searchParams, lengthCount: this.searchResult.length};
       }
     },
     components: {
@@ -77,7 +84,10 @@
         clearTimeout(searchTimer)
         this.waitingForSearchResult = false;
 
+        //operations to register past searches
         this.searchHistory.push(data)
+        if(this.vizData)this.vizDataResults.push(this.vizData)
+
         this.searchResult = data.body;
         this.searchParams = data.searchParams;
         this.showPreview = true
