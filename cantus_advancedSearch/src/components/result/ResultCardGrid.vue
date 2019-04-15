@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" :class="delayedDisplay">
     <br>
     <h3>Vorangegangene Suchen</h3>
     <hr>
