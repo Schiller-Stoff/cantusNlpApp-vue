@@ -81,13 +81,19 @@
 
 #first {
   background-color: $primaryColor;
-  min-height: 100vh;
+  min-height: 10vh;
+  @include lg {
+    min-height: 100vh;
+  }
 
 }
 
 #second {
   background-color: $blankColor;
-  min-height: 100vh;
+  min-height: 20vh;
+  @include lg {
+    min-height: 100vh;
+  }
 }
 
 .transition {
