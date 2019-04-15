@@ -3,16 +3,16 @@
 
       <app-result-default
         :key="0"
-        v-if="!searchResult">
+        v-if="!searchResult && !waitingForSearchResult">
       </app-result-default>
       <app-result-preview
-        v-if="showPreview && searchResult"
+        v-if="showPreview && searchResult && !waitingForSearchResult"
         :searchParams="searchParams"
         :prevData="searchResult"
         :key="1">
       </app-result-preview>
       <app-result-table
-        v-if="!showPreview && searchResult"
+        v-if="!showPreview && searchResult && !waitingForSearchResult"
         :key="2"
         :tableData="searchResult"
         :searchParams="searchParams">
@@ -21,9 +21,15 @@
       <app-result-card-grid
         :key="3"
         :search-history="searchHistory"
-        v-if="!showPreview && searchResult"
+        v-if="!showPreview && searchResult && !waitingForSearchResult"
       >
       </app-result-card-grid>
+
+      <app-result-load-handler
+        v-if="!showPreview && !searchResult && waitingForSearchResult"
+        :key="4"
+      >
+      </app-result-load-handler>
 
   </div>
 </template>
@@ -35,6 +41,7 @@
   import ResultPreview from './ResultPreview'
   import ResultDefault from './ResultDefault'
   import ResultCardGrid from './ResultCardGrid'
+  import ResultLoadHandler from './ResultLoadHandler'
   export default {
     name: "Result.vue",
     data(){
@@ -42,14 +49,16 @@
         searchHistory: [],
         searchResult:undefined,
         searchParams:undefined,
-        showPreview:false
+        showPreview:false,
+        waitingForSearchResult: false
       }
     },
     components: {
       appResultPreview: ResultPreview,
       appResultTable: ResultTable,
       appResultDefault:ResultDefault,
-      appResultCardGrid:ResultCardGrid
+      appResultCardGrid:ResultCardGrid,
+      appResultLoadHandler: ResultLoadHandler
     },
     created(){
       EventBus.$on('resultReceived',data=>{
