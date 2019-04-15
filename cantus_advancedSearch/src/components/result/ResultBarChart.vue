@@ -15,11 +15,11 @@
       vizDataResults: {
         type: Array,
         required: true,
-        validator(val){
+        validator(val) {
           let firstEntry = val[0]
-          let requiredKeys = ['searchParams','lengthCount']
-          for(let key of requiredKeys){
-            if(!firstEntry.hasOwnProperty(key))return false;
+          let requiredKeys = ['searchParams', 'lengthCount']
+          for (let key of requiredKeys) {
+            if (!firstEntry.hasOwnProperty(key)) return false;
           }
           return true
         }
