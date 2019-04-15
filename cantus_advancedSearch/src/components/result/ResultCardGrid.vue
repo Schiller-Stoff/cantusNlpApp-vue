@@ -21,6 +21,16 @@
         required:true,
         type:Array
       }
+    },
+    data() {
+      return {
+        delayedDisplay:'hidden'
+      }
+    },
+    created(){
+      setTimeout(_=>{
+        this.delayedDisplay = 'animated fadeIn once faster'
+      },200);
     }
   }
 </script>
