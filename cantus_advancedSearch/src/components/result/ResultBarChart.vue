@@ -8,6 +8,7 @@
 
 <script>
   import BarChart from './charts/BarChart'
+
   export default {
     name: "ResultBarChart",
     components: {
