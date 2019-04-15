@@ -35,6 +35,9 @@
         <option value="passau.ur">Passau Ur</option>
         <option value="passau.sp">Passau SP</option>
         <option value="FAIL_QUERY">MALFORMED_QUERY</option>
+        <option value="/api/users?delay=5">DELAYED_RESPONSE_5sek</option>
+        <option value="/api/users?delay=12">DELAYED_RESPONSE_12sek_error_displayed</option>
+
 
         <option value="salzburg.ur">Salzburg Ur</option>
         <option value="klosterneuburg.ur">Kosterneuburg Ur</option>
@@ -102,6 +105,9 @@ export default {
     blazeGraphQuery(){
 
       if(this.chosenLO==='FAIL_QUERY')return '9$$ß34'
+
+      if(this.chosenLO==='/api/users?delay=5')return 'https://reqres.in/api/users?delay=5'
+      if(this.chosenLO==='/api/users?delay=12')return 'https://reqres.in/api/users?delay=12'
 
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
