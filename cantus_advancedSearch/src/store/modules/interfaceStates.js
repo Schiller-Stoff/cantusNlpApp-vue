@@ -5,7 +5,13 @@ const state = {
 }
 
 const mutations = {
+  'interfaceStates_enlargeSearchBar'(state){
+    state.searchBarEnlarged = true;
+  },
 
+  'interfaceStates_minifySearchBar'(state){
+    state.searchBarEnlarged = false;
+  }
 }
 
 const actions = {
