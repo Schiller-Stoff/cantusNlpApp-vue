@@ -16,8 +16,8 @@ const mutations = {
 
   'search_setSearchParams'(state,payload){
     let requiredKeys = ['chosenGenre','chosenLO','chosenTimeFrame']
-    for (let keys in requiredKeys){
-      if(!payload.hasOwnProperty(keys))console.error(`InvalidSearchInput: Could not find required key ${key} in given searchParams object. ${payload}`);
+    for (let key of requiredKeys){
+      if(!payload.hasOwnProperty(key))console.error(`InvalidSearchInput: Could not find required key ${key} in given searchParams object. ${payload}`);
     }
     state.searchParams = payload
   }
