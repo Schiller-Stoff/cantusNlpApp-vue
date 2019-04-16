@@ -32,7 +32,7 @@
     </app-result-load-handler>
 
     <app-result-bar-chart
-      v-if="searchHistory && searchResult && vizDataResults[0]"
+      v-if="searchHistory && searchResult && vizDataResults[0] && showPreview"
       :viz-data-results="vizDataResults"
     >
 
