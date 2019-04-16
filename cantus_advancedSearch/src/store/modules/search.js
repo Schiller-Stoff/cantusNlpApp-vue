@@ -7,7 +7,10 @@ const state = {
     chosenLO:'',
     chosenTimeFrame:''
   },
-  searchResult:''
+  searchResult:undefined,
+  ongoingSearch: false,
+  searchTimer:undefined,
+  searchFailed:false
 }
 
 const mutations = {
@@ -23,6 +26,22 @@ const mutations = {
   },
   'search_setSearchResult'(state,payload){
     state.searchResult = payload
+  },
+  'search_markOngoingSearch'(state, payload = !state.ongoingSearch){
+    if(payload!==(true || false)) console.error(`InvalidState: ongoingSearch must be a Boolean but got: ${payload}`)
+    state.searchFailed = false
+    state.ongoingSearch = payload
+
+    if(state.searchTimer)clearTimeout(state.searchTimer)
+    if(payload===true){
+      state.searchTimer = setTimeout(_=>{
+        state.ongoingSearch = false
+        state.searchFailed = true
+      },10000)
+    }
+  },
+  'search_toggleSearchFailed'(state){
+    state.searchFailed = !state.searchFailed
   }
 }
 
@@ -35,6 +54,12 @@ const actions = {
   },
   'search_setSearchResultAction'({commit},payload){
     commit('search_setSearchResult',payload)
+  },
+  'search_markOngoingSearchAction'({commit},payload){
+    commit('search_markOngoingSearch',payload)
+  },
+  'search_toggleSearchFailedAction'({commit}){
+    commit('search_toggleSearchFailed')
   }
 }
 
@@ -47,6 +72,12 @@ const getters = {
   },
   'search_getSearchResult'(state){
     return state.searchResult
+  },
+  'search_getOngoingSearch'(state){
+    return state.ongoingSearch
+  },
+  'search_getSearchFailed'(state){
+    return state.searchFailed
   }
 }
 
