@@ -1,13 +1,14 @@
 <template>
 
   <div>
-    <app-bar-chart :labels="refactoredData.labels" :datasets="refactoredData.data"></app-bar-chart>
+    <app-bar-chart :labels="refactoredData.labels" :datasets="refactoredData.data" :class="delayedDisplay"></app-bar-chart>
   </div>
 
 </template>
 
 <script>
   import BarChart from './charts/BarChart'
+  import {mapGetters} from 'vuex'
 
   export default {
     name: "ResultBarChart",
@@ -25,7 +26,15 @@
         }
       },
     },
+    data() {
+      return {
+        delayedDisplay: 'hidden'
+      }
+    },
     computed: {
+      ...mapGetters({
+        searchBarEnlarged:'interfaceStates_currentSearchBarState'
+      }),
       refactoredData() {
         let labels = [];
         let data = [];
@@ -50,6 +59,11 @@
     components: {
       appBarChart: BarChart
     },
+    watch: {
+      searchBarEnlarged(newValue, oldValue) {
+        this.delayedDisplay = 'hidden'
+      }
+    },
     methods: {
       randomColor() {
         let letters = '0123456789ABCDEF';
@@ -60,6 +74,11 @@
         return color;
       }
     },
+    created(){
+      setTimeout(_=>{
+        this.delayedDisplay = 'animated fadeIn once faster'
+      },200);
+    }
   }
 </script>
 
