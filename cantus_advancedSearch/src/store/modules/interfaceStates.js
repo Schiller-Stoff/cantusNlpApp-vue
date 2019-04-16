@@ -25,6 +25,9 @@ const actions = {
 
 
 const getters = {
+  interfaceStates_currentSearchBarState(state){
+    return state.searchBarEnlarged
+  }
 
 }
 
