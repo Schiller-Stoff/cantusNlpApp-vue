@@ -1,7 +1,7 @@
 
 
 const state = {
-  interfaceEnlarged:false
+  searchBarEnlarged:false
 }
 
 const mutations = {
