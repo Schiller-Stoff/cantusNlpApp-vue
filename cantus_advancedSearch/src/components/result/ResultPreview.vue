@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <h4>Anzahl der Feste</h4>
     <hr>
 
@@ -61,7 +61,7 @@
 
 <style scoped lang="scss">
 
-  div {
+  .container-fluid {
     //margin-top:3em;
     max-width: 30em;
   }
