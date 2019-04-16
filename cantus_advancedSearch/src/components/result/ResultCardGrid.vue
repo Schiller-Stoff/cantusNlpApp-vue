@@ -11,6 +11,7 @@
 
 <script>
   import ResultCard from './ResultCard'
+  import {mapGetters} from 'vuex'
   export default {
     name: "ResultCardGrid",
     components: {
@@ -25,6 +26,16 @@
     data() {
       return {
         delayedDisplay:'hidden'
+      }
+    },
+    computed: {
+      ...mapGetters({
+        searchBarEnlarged: 'interfaceStates_currentSearchBarState'
+      })
+    },
+    watch: {
+      searchBarEnlarged(newValue, oldValue) {
+        this.delayedDisplay = 'hidden'
       }
     },
     created(){
