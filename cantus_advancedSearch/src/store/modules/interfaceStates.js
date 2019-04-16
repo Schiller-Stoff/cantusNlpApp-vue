@@ -2,7 +2,7 @@
 
 const state = {
   searchBarEnlarged:false,
-  searchBarLocked:false //todo implement mutations etc. (maybe best to check if locked in mutations?)
+  searchBarLocked:false
 }
 
 const mutations = {
