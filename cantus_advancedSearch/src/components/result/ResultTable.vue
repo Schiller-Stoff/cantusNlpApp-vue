@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   import {EventBus} from "../../main";
 
   export default {
@@ -58,6 +59,10 @@
       }
     },
     computed: {
+      ...mapGetters({
+        searchBarEnlarged:'interfaceStates_currentSearchBarState'
+      }),
+
       refinedTableData(){
         //TODO computed runs everytime when component created instead of re-ajaxed
         let refined = []
@@ -67,28 +72,21 @@
         return refined;
       }
     },
+    watch: {
+      searchBarEnlarged(newValue, oldValue) {
+        this.delayedDisplay = 'hidden'
+      }
+    },
     created(){
       let self = this;
       setTimeout(_=>{
         this.delayedDisplay = 'animated fadeIn once faster'
       },200);
-
-      EventBus.$on('searchBarEnlarge',_=>{
-        this.delayedDisplay = 'hidden'
-      });
-
       EventBus.$on('newSearch',searchParams =>{
-        console.log(searchParams);
-        console.log(searchParams.chosenLo);
-
         self.searchParamsObj = searchParams
-
-
         this.lo = searchParams.chosenLo;
-        console.log(this.lo);
       })
     }
-
   }
 </script>
 
