@@ -109,8 +109,8 @@ export default {
       interfaceLocked: 'interfaceStates_currentSearchLockState'
     }),
 
-    blazeGraphQuery(){
-
+    blazeGraphQuery(val){
+      if(val===undefined)return;
       if(this.chosenLO==='FAIL_QUERY')return '9$$ß34'
 
       if(this.chosenLO==='/api/users?delay=5')return 'https://reqres.in/api/users?delay=5'
@@ -118,9 +118,10 @@ export default {
 
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
-      return `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
+      let buildQuery = `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
 
-      //return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
+      this.$store.dispatch('search_modifyCurSearchQueryAction',buildQuery)
+      return buildQuery
     }
   },
   watch: {
