@@ -172,14 +172,17 @@ export default {
           chosenLO: self.chosenLO,
           chosenTimeFrame: self.curQueryObject
         }
-        EventBus.$emit('resultReceived', response)
+
+        this.$store.dispatch('search_setSearchResultAction',response)
+
+        EventBus.$emit('resultReceived', response) //todo remove! -> handle via vuex!
         clearTimeout(searchTimer)
       },err => {
-        EventBus.$emit('searchFailed',err)
+        EventBus.$emit('searchFailed',err)  //todo remove! -> handle via vuex!
       });
     },
     toggleFullScreen(){
-      EventBus.$emit('toggleFullScreen');
+      EventBus.$emit('toggleFullScreen');   //todo remove! -> handle via vuex!
     },
     toggleInterfaceLock(lock_boolean){
       // uses lockInterface() method -> calls vuex-actions
