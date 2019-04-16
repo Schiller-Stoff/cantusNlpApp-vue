@@ -44,6 +44,7 @@
 <script>
   let curTimer;
   let searchTimer;
+  import {mapGetters} from 'vuex'
   import ResultTable from '../result/ResultTable'
   import {EventBus} from "../../main";
   import ResultPreview from './ResultPreview'
@@ -66,9 +67,27 @@
       }
     },
     computed: {
+      ...mapGetters({
+        searchBarEnlarged:'interfaceStates_currentSearchBarState'
+      }),
       vizData() {
         if(!this.searchResult)return
         return {searchParams:this.searchParams, lengthCount: this.searchResult.length};
+      }
+    },
+    watch: {
+      searchBarEnlarged(newValue, oldValue) {
+        if(this.searchBarEnlarged){
+          if (!this.searchResult) return;
+          curTimer = setTimeout(_ => {
+            if (this.showPreview) this.showPreview = false;
+            this.showPreview = true;
+          }, 500)
+        } else {
+          this.showPreview = false;
+          //clears delayed blend in via setTimeout
+          clearTimeout(curTimer)
+        }
       }
     },
     components: {
@@ -108,25 +127,7 @@
       EventBus.$on('searchFailed', err => {
         this.loadFailed = true;
         //TODO add error display in component
-
       });
-
-      EventBus.$on('searchBarMinified', _ => {
-        this.showPreview = false;
-
-        //clears delayed blend in via setTimeout
-        clearTimeout(curTimer)
-      })
-
-      EventBus.$on('searchBarEnlarge', _ => {
-        if (!this.searchResult) return;
-        curTimer = setTimeout(_ => {
-          if (this.showPreview) this.showPreview = false;
-          this.showPreview = true;
-        }, 500)
-      })
-
-
     }
   }
 </script>

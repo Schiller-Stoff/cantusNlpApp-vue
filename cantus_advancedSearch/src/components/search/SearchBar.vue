@@ -86,6 +86,8 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
 import {EventBus} from "../../main";
 let timer;
 let searchTimer;
@@ -93,7 +95,6 @@ export default {
   name: "Search",
   data(){
     return {
-      interfaceLocked: false,
       fadeInAtEvent: 'hidden',
       server:'glossa.uni-graz.at',
       chosenGenre:'RP',
@@ -103,6 +104,11 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      searchBarEnlarged: 'interfaceStates_currentSearchBarState',
+      interfaceLocked: 'interfaceStates_currentSearchLockState'
+    }),
+
     blazeGraphQuery(){
 
       if(this.chosenLO==='FAIL_QUERY')return '9$$ß34'
@@ -117,7 +123,24 @@ export default {
       //return `https://${this.server}/archive/objects/query:${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`
     }
   },
+  watch: {
+    searchBarEnlarged(newValue, oldValue) {
+      let self = this;
+      if(this.searchBarEnlarged){
+        timer = setTimeout(_=>{
+          self.fadeInAtEvent = 'animated once fadeIn'
+        },100)
+      } else {
+        clearTimeout(timer)
+        self.fadeInAtEvent = 'hidden'
+      }
+    }
+  },
   methods: {
+    ...mapActions({
+      lockInterface: 'interfaceStatesAction_lockSearchbar',
+      unlockInterface:'interfaceStatesAction_unlockSearchbar'
+    }),
     searchResp(respShortcut){
       let self = this;
       if(respShortcut==='default')return;
@@ -150,29 +173,13 @@ export default {
       EventBus.$emit('toggleFullScreen');
     },
     toggleInterfaceLock(lock_boolean){
+      // uses lockInterface() method -> calls vuex-actions
       if(lock_boolean){
-        EventBus.$emit('interfaceLocked')
+        this.lockInterface()
       } else {
-        EventBus.$emit('interfaceOpened')
+        this.unlockInterface()
       }
-
-      return this.interfaceLocked = lock_boolean
     }
-  },
-  created(){
-    let self = this;
-    EventBus.$on('searchBarEnlarge',_=>{
-      timer = setTimeout(_=>{
-        self.fadeInAtEvent = 'animated once fadeIn'
-      },100)
-
-    })
-
-    EventBus.$on('searchBarMinified',_=>{
-      clearTimeout(timer)
-      self.fadeInAtEvent = 'hidden'
-    })
-
   }
 }
 </script>

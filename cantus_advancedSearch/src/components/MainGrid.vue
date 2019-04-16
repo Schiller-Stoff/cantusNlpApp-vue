@@ -12,8 +12,9 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex';
-  import {EventBus} from "../main";
+  import {mapGetters} from 'vuex'
+  import {mapActions} from 'vuex'
+  import {EventBus} from "../main"
   import SearchBar from './search/SearchBar'
   import Result from './result/Result'
     export default {
@@ -24,22 +25,27 @@
       },
       data(){
         return {
-          interfaceLocked:false,
-          searchBarEnlarged: false
+          // interfaceLocked:false,
+          // searchBarEnlarged: false
         }
       },
-      // computed: {
-      //   ...mapGetters({
-      //     searchBarEnlarged: 'interfaceStates_currentSearchBarState',
-      //     interfaceLocked: 'interfaceStates_currentSearchLockState'
-      //   })
-      // },
+      computed: {
+        ...mapGetters({
+          searchBarEnlarged: 'interfaceStates_currentSearchBarState',
+          interfaceLocked: 'interfaceStates_currentSearchLockState'
+        })
+      },
       methods: {
+        ...mapActions({
+          markSearchEnlargedState: 'interfaceStatesAction_enlargeSearchBar',
+          markSearchMinfiedState:'interfaceStatesAction_minifySearchBar'
+        }),
         moveWidth(){
           if(this.searchBarEnlarged||this.interfaceLocked)return;
 
-          this.searchBarEnlarged = true
-          EventBus.$emit('searchBarEnlarge');
+          //this.searchBarEnlarged = true
+          this.markSearchEnlargedState()
+          //EventBus.$emit('searchBarEnlarge');
 
           this.$refs.first.classList.add('transition')
           this.$refs.second.classList.add('transition')
@@ -52,8 +58,10 @@
         },
         restoreWidth(){
           if(!this.searchBarEnlarged || this.interfaceLocked)return
-          EventBus.$emit('searchBarMinified')
-          this.searchBarEnlarged = false
+
+          this.markSearchMinfiedState()
+          //EventBus.$emit('searchBarMinified')
+          //this.searchBarEnlarged = false
 
           this.$refs.first.classList.add('transition')
           this.$refs.second.classList.add('transition')
@@ -72,13 +80,13 @@
         }
       },
       created(){
-        EventBus.$on('interfaceLocked',_=>{
-          this.interfaceLocked = true
-        })
-
-        EventBus.$on('interfaceOpened',_=>{
-          this.interfaceLocked = false
-        })
+        // EventBus.$on('interfaceLocked',_=>{
+        //   this.interfaceLocked = true
+        // })
+        //
+        // EventBus.$on('interfaceOpened',_=>{
+        //   this.interfaceLocked = false
+        // })
       }
     }
 </script>
