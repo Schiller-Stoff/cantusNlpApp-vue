@@ -1,7 +1,10 @@
 <template>
 
-  <div>
+  <div class="container-fluid">
+    <h4>Letzte Ergebnisse</h4>
+    <br>
     <app-bar-chart :labels="refactoredData.labels" :datasets="refactoredData.data" :class="delayedDisplay"></app-bar-chart>
+    <hr>
   </div>
 
 </template>
