@@ -119,8 +119,15 @@ export default {
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
       let buildQuery = `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
-
       this.$store.dispatch('search_modifyCurSearchQueryAction',buildQuery)
+
+      let searchParams = {
+        chosenGenre:this.chosenGenre,
+        chosenLO:this.chosenLO,
+        chosenTimeFrame:this.curQueryObject
+      }
+      this.$store.dispatch('search_setSearchParamsAction',searchParams)
+
       return buildQuery
     }
   },
@@ -153,13 +160,14 @@ export default {
         this.runningRequest.abort()
       },10000)
 
+      //let vuexSearchQuery = this.$store.getters.search_getCurSearchQuery  todo use getter for query ...> but then bug!
       this.$http.get(this.blazeGraphQuery, {
         //vue resource specific: using above to cancel current request
         before(request){
           this.runningRequest = request
         }
       }).then(response => {
-        response.searchParams = {
+        response.searchParams = { //todo remove ..> now handled via vuex
           chosenGenre:self.chosenGenre,
           chosenLO: self.chosenLO,
           chosenTimeFrame: self.curQueryObject
