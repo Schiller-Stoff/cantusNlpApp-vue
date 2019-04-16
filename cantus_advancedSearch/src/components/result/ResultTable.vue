@@ -74,7 +74,11 @@
     },
     watch: {
       searchBarEnlarged(newValue, oldValue) {
-        this.delayedDisplay = 'hidden'
+        if(this.searchBarEnlarged){
+          this.delayedDisplay = 'hidden'
+        } else {
+          this.delayedDisplay = ''
+        }
       }
     },
     created(){
