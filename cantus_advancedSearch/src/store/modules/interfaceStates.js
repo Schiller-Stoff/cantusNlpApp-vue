@@ -15,7 +15,12 @@ const mutations = {
 }
 
 const actions = {
-
+  'interfaceStatesAction_enlargeSearchBar'({commit}){
+    commit('interfaceStates_enlargeSearchBar')
+  },
+  'interfaceStatesAction_minifySearchBar'({commit}){
+    commit('interfaceStates_minifySearchBar')
+  }
 }
 
 
