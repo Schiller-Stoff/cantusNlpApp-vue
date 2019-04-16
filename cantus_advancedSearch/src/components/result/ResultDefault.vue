@@ -27,29 +27,31 @@
 
 <script>
   let timer;
-  import {EventBus} from "../../main";
+  import {mapGetters} from 'vuex'
   export default {
     name: "ResultDefault",
-    components: {
-
-    },
     data(){
       return {
         showFullContent:false
       }
     },
-    created(){
-      EventBus.$on('searchBarMinified',_=>{
-        if(!this.showFullContent)return clearTimeout(timer);
-        this.showFullContent = false;
-      });
-
-      EventBus.$on('searchBarEnlarge',_=>{
-        if(this.showFullContent)return;
-        timer = setTimeout(_=>{
-          this.showFullContent = true;
-        },500)
-      });
+    computed: {
+      ...mapGetters({
+        searchBarEnlarged:'interfaceStates_currentSearchBarState'
+      })
+    },
+    watch: {
+      searchBarEnlarged(newValue, oldValue) {
+        if(this.searchBarEnlarged){
+          if(this.showFullContent)return;
+          timer = setTimeout(_=>{
+            this.showFullContent = true;
+          },300)
+        } else {
+          if(!this.showFullContent)return clearTimeout(timer);
+          this.showFullContent = false;
+        }
+      }
     }
   }
 </script>
