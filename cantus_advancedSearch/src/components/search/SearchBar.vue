@@ -155,7 +155,7 @@ export default {
       EventBus.$emit('searchStarted')
 
       //if in 10 secs no response fail
-      searchTimer = setTimeout(_=>{
+      searchTimer = setTimeout(_=>{ //todo move searchtimer with delay error validation completely onto vuex?
         EventBus.$emit('searchFailed');
         this.runningRequest.abort()
       },10000)
