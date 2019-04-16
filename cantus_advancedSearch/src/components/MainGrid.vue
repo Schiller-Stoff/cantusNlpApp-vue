@@ -12,6 +12,7 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex';
   import {EventBus} from "../main";
   import SearchBar from './search/SearchBar'
   import Result from './result/Result'
@@ -27,6 +28,12 @@
           searchBarEnlarged: false
         }
       },
+      // computed: {
+      //   ...mapGetters({
+      //     searchBarEnlarged: 'interfaceStates_currentSearchBarState',
+      //     interfaceLocked: 'interfaceStates_currentSearchLockState'
+      //   })
+      // },
       methods: {
         moveWidth(){
           if(this.searchBarEnlarged||this.interfaceLocked)return;
