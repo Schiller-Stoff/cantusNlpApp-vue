@@ -2,16 +2,16 @@
   <div class="container-fluid">
     <app-result-default
       :key="0"
-      v-if="!searchResult && !onGoingSearch">
+      v-if="!searchResult && !onGoingSearch && !searchFailed">
     </app-result-default>
     <app-result-preview
-      v-if="showPreview && searchResult && !onGoingSearch"
+      v-if="showPreview && searchResult && !onGoingSearch && !searchFailed"
       :searchParams="searchParams"
       :prevData="searchResult"
       :key="1">
     </app-result-preview>
     <app-result-table
-      v-if="!showPreview && searchResult && !onGoingSearch"
+      v-if="!showPreview && searchResult && !onGoingSearch && !searchFailed"
       :key="2"
       :tableData="searchResult"
       :searchParams="searchParams">
@@ -20,7 +20,7 @@
     <app-result-card-grid
       :key="3"
       :search-history="searchHistory"
-      v-if="!showPreview && searchResult && !onGoingSearch"
+      v-if="!showPreview && searchResult && !onGoingSearch && !searchFailed"
     >
     </app-result-card-grid>
 
@@ -32,7 +32,7 @@
     </app-result-load-handler>
 
     <app-result-bar-chart
-      v-if="searchHistory && searchResult && vizDataResults[0] && showPreview"
+      v-if="searchHistory && searchResult && vizDataResults[0] && showPreview && !searchFailed"
       :viz-data-results="vizDataResults"
     >
 
