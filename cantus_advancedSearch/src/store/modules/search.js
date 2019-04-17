@@ -10,7 +10,7 @@ const state = {
   searchResult:undefined,
   ongoingSearch: false,
   searchFailed:false,
-  searchHistory:undefined
+  searchHistory:[]
 }
 
 const mutations = {
@@ -39,6 +39,7 @@ const mutations = {
     for (let key of requiredKeys){
       if(!payload.hasOwnProperty(key))console.error(`InvalidState: given object to be pushed onto vuex's searchHistory array has not the property ${key} but is required. Given object was: ${payload}`)
     }
+
     state.searchHistory.push(payload)
   }
 }
