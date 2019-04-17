@@ -25,9 +25,9 @@
     </app-result-card-grid>
 
     <app-result-load-handler
-      v-if="onGoingSearch"
+      v-if="onGoingSearch || searchFailed"
       :key="4"
-      :loadFailed="loadFailed"
+      :searchFailed="searchFailed"
     >
     </app-result-load-handler>
 
@@ -62,13 +62,13 @@
         searchResult: undefined,
         searchParams: undefined,
         showPreview: false,
-        loadFailed: false
       }
     },
     computed: {
       ...mapGetters({
         searchBarEnlarged:'interfaceStates_currentSearchBarState',
-        onGoingSearch:'search_getOngoingSearch'
+        onGoingSearch:'search_getOngoingSearch',
+        searchFailed:'search_getSearchFailed'
       }),
       vizData() {
         if(!this.searchResult)return
@@ -110,21 +110,6 @@
         //operations to register past searches
         this.searchHistory.push(data)
         if(this.vizData)this.vizDataResults.push(this.vizData)
-      });
-
-      EventBus.$on('searchStarted', _ => {
-        this.loadFailed = false;
-
-        //timer will be cleared insight resultReceived event above.
-        let self = this
-        searchTimer = setTimeout(_ => {
-          self.loadFailed = true;
-        }, 10000);
-      })
-
-      EventBus.$on('searchFailed', err => {
-        this.loadFailed = true;
-        //TODO add error display in component
       });
     }
   }
