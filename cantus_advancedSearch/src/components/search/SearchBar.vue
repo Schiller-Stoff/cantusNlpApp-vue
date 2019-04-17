@@ -106,7 +106,8 @@ export default {
   computed: {
     ...mapGetters({
       searchBarEnlarged: 'interfaceStates_currentSearchBarState',
-      interfaceLocked: 'interfaceStates_currentSearchLockState'
+      interfaceLocked: 'interfaceStates_currentSearchLockState',
+      searchParams: 'search_getSearchParams'
     }),
 
     blazeGraphQuery(val){
@@ -178,6 +179,7 @@ export default {
         }
 
         this.$store.dispatch('search_setSearchResultAction',response)
+        this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
 
         EventBus.$emit('resultReceived', response) //todo remove! -> handle via vuex!
         clearTimeout(searchTimer)
