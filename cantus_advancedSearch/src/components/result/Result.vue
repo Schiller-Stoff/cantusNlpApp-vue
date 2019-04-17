@@ -2,16 +2,16 @@
   <div class="container-fluid">
     <app-result-default
       :key="0"
-      v-if="!searchResult && !waitingForSearchResult">
+      v-if="!searchResult && !onGoingSearch">
     </app-result-default>
     <app-result-preview
-      v-if="showPreview && searchResult && !waitingForSearchResult"
+      v-if="showPreview && searchResult && !onGoingSearch"
       :searchParams="searchParams"
       :prevData="searchResult"
       :key="1">
     </app-result-preview>
     <app-result-table
-      v-if="!showPreview && searchResult && !waitingForSearchResult"
+      v-if="!showPreview && searchResult && !onGoingSearch"
       :key="2"
       :tableData="searchResult"
       :searchParams="searchParams">
@@ -20,12 +20,12 @@
     <app-result-card-grid
       :key="3"
       :search-history="searchHistory"
-      v-if="!showPreview && searchResult && !waitingForSearchResult"
+      v-if="!showPreview && searchResult && !onGoingSearch"
     >
     </app-result-card-grid>
 
     <app-result-load-handler
-      v-if="waitingForSearchResult"
+      v-if="onGoingSearch"
       :key="4"
       :loadFailed="loadFailed"
     >
@@ -62,13 +62,13 @@
         searchResult: undefined,
         searchParams: undefined,
         showPreview: false,
-        waitingForSearchResult: false,
         loadFailed: false
       }
     },
     computed: {
       ...mapGetters({
-        searchBarEnlarged:'interfaceStates_currentSearchBarState'
+        searchBarEnlarged:'interfaceStates_currentSearchBarState',
+        onGoingSearch:'search_getOngoingSearch'
       }),
       vizData() {
         if(!this.searchResult)return
@@ -102,7 +102,6 @@
       EventBus.$on('resultReceived', data => {
         // if result received clear searchTimer
         clearTimeout(searchTimer)
-        this.waitingForSearchResult = false;
 
         this.searchResult = data.body;
         this.searchParams = data.searchParams;
@@ -115,7 +114,6 @@
 
       EventBus.$on('searchStarted', _ => {
         this.loadFailed = false;
-        this.waitingForSearchResult = true
 
         //timer will be cleared insight resultReceived event above.
         let self = this
