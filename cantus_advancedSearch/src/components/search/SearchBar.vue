@@ -158,8 +158,8 @@ export default {
       EventBus.$emit('searchStarted')
 
       //if in 10 secs no response fail
-      searchTimer = setTimeout(_=>{ //todo move searchtimer with delay error validation completely onto vuex?
-        this.$store.dispatch('search_setSearchFailedAction',true)
+      searchTimer = setTimeout(_=>{
+        this.$store.dispatch('search_setSearchFailedAction',true) // todo implement vuex
         EventBus.$emit('searchFailed');
         this.runningRequest.abort()
       },10000)
