@@ -151,7 +151,6 @@ export default {
       unlockInterface:'interfaceStatesAction_unlockSearchbar'
     }),
     searchResp(respShortcut){
-      let self = this;
       if(respShortcut==='default')return; //todo needs to be redone! -> causes search start atm because default is now passau!
 
       this.$store.dispatch('search_setSearchFailedAction',false)
@@ -170,12 +169,6 @@ export default {
           this.runningRequest = request
         }
       }).then(response => {
-        response.searchParams = { //todo remove ..> now handled via vuex // above in watcher!
-          chosenGenre:self.chosenGenre,
-          chosenLO: self.chosenLO,
-          chosenTimeFrame: self.curQueryObject
-        }
-
         this.$store.dispatch('search_setSearchResultAction',response)
         this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
         clearTimeout(searchTimer)
