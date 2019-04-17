@@ -32,7 +32,7 @@
     </app-result-load-handler>
 
     <app-result-bar-chart
-      v-if="searchHistory && searchResult && vizDataResults[0] && showPreview && !searchFailed"
+      v-if="searchHistory && searchResult && vizDataResults[0] && showPreview && !searchFailed && !onGoingSearch"
       :viz-data-results="vizDataResults"
     >
 
@@ -67,7 +67,8 @@
         onGoingSearch:'search_getOngoingSearch',
         searchFailed:'search_getSearchFailed',
         searchResult:'search_getSearchResult',
-        searchParams:'search_getSearchParams'
+        searchParams:'search_getSearchParams',
+        searchHistory:'search_getSearchHistory'
       }),
       vizData() {
         if(!this.searchResult)return
