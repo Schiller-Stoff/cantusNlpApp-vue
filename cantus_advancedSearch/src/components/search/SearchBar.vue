@@ -156,12 +156,10 @@ export default {
 
       this.$store.dispatch('search_setSearchFailedAction',false)
       this.$store.dispatch('search_markOngoingSearchAction', true)
-      EventBus.$emit('searchStarted')
 
       //if in 10 secs no response fail
       searchTimer = setTimeout(_=>{
-        this.$store.dispatch('search_setSearchFailedAction',true) // todo implement vuex
-        EventBus.$emit('searchFailed');
+        this.$store.dispatch('search_setSearchFailedAction',true)
         this.runningRequest.abort()
       },10000)
 
@@ -180,13 +178,9 @@ export default {
 
         this.$store.dispatch('search_setSearchResultAction',response)
         this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
-
-        EventBus.$emit('resultReceived', response) //todo remove! -> handle via vuex!
         clearTimeout(searchTimer)
       },err => {
-
         this.$store.dispatch('search_setSearchFailedAction',true)
-        EventBus.$emit('searchFailed',err)  //todo remove! -> handle via vuex!
       }).finally(_=>{
         this.$store.dispatch('search_markOngoingSearchAction', false)
       });
