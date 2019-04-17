@@ -55,7 +55,6 @@
     name: "Result.vue",
     data() {
       return {
-        vizDataResults:[],
         showPreview: false,
       }
     },
