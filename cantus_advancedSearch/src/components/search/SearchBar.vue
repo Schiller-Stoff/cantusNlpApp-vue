@@ -153,11 +153,13 @@ export default {
       let self = this;
       if(respShortcut==='default')return; //todo needs to be redone! -> causes search start atm because default is now passau!
 
-
+      this.$store.dispatch('search_setSearchFailedAction',false)
+      this.$store.dispatch('search_markOngoingSearchAction', true)
       EventBus.$emit('searchStarted')
 
       //if in 10 secs no response fail
       searchTimer = setTimeout(_=>{ //todo move searchtimer with delay error validation completely onto vuex?
+        this.$store.dispatch('search_setSearchFailedAction',true)
         EventBus.$emit('searchFailed');
         this.runningRequest.abort()
       },10000)
@@ -169,7 +171,7 @@ export default {
           this.runningRequest = request
         }
       }).then(response => {
-        response.searchParams = { //todo remove ..> now handled via vuex
+        response.searchParams = { //todo remove ..> now handled via vuex // above in watcher!
           chosenGenre:self.chosenGenre,
           chosenLO: self.chosenLO,
           chosenTimeFrame: self.curQueryObject
@@ -180,7 +182,11 @@ export default {
         EventBus.$emit('resultReceived', response) //todo remove! -> handle via vuex!
         clearTimeout(searchTimer)
       },err => {
+
+        this.$store.dispatch('search_setSearchFailedAction',true)
         EventBus.$emit('searchFailed',err)  //todo remove! -> handle via vuex!
+      }).finally(_=>{
+        this.$store.dispatch('search_markOngoingSearchAction', false)
       });
     },
     toggleFullScreen(){
