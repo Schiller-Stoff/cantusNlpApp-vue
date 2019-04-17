@@ -87,6 +87,11 @@
           //clears delayed blend in via setTimeout
           clearTimeout(curTimer)
         }
+      },
+      searchResult(){
+        if(this.searchResult && this.searchBarEnlarged){
+          this.showPreview = true
+        }
       }
     },
     components: {
@@ -99,8 +104,6 @@
     },
     created() {
       EventBus.$on('resultReceived', data => {
-
-        this.showPreview = true
 
         //operations to register past searches
         this.searchHistory.push(this.searchResult)
