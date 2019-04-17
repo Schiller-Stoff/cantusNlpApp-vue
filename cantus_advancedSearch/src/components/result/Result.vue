@@ -59,7 +59,6 @@
       return {
         searchHistory: [],
         vizDataResults:[],
-        searchParams: undefined,
         showPreview: false,
       }
     },
@@ -68,7 +67,8 @@
         searchBarEnlarged:'interfaceStates_currentSearchBarState',
         onGoingSearch:'search_getOngoingSearch',
         searchFailed:'search_getSearchFailed',
-        searchResult:'search_getSearchResult'
+        searchResult:'search_getSearchResult',
+        searchParams:'search_getSearchParams'
       }),
       vizData() {
         if(!this.searchResult)return
@@ -102,9 +102,6 @@
       EventBus.$on('resultReceived', data => {
         // if result received clear searchTimer
         clearTimeout(searchTimer)
-
-        //this.searchResult = data.body;
-        this.searchParams = data.searchParams;
         this.showPreview = true
 
         //operations to register past searches
