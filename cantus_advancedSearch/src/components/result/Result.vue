@@ -43,7 +43,6 @@
 
 <script>
   let curTimer;
-  let searchTimer;
   import {mapGetters} from 'vuex'
   import ResultTable from '../result/ResultTable'
   import {EventBus} from "../../main";
@@ -100,8 +99,7 @@
     },
     created() {
       EventBus.$on('resultReceived', data => {
-        // if result received clear searchTimer
-        clearTimeout(searchTimer)
+
         this.showPreview = true
 
         //operations to register past searches
