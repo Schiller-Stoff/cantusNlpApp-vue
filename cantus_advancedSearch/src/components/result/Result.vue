@@ -32,8 +32,8 @@
     </app-result-load-handler>
 
     <app-result-bar-chart
-      v-if="searchHistory && searchResult && vizDataResults[0] && showPreview && !searchFailed && !onGoingSearch"
-      :viz-data-results="vizDataResults"
+      v-if="searchHistory && searchResult && vizData[0] && showPreview && !searchFailed && !onGoingSearch"
+      :viz-data-results="vizData"
     >
 
     </app-result-bar-chart>
@@ -45,7 +45,6 @@
   let curTimer;
   import {mapGetters} from 'vuex'
   import ResultTable from '../result/ResultTable'
-  import {EventBus} from "../../main";
   import ResultPreview from './ResultPreview'
   import ResultDefault from './ResultDefault'
   import ResultCardGrid from './ResultCardGrid'
@@ -56,7 +55,6 @@
     name: "Result.vue",
     data() {
       return {
-        searchHistory: [],
         vizDataResults:[],
         showPreview: false,
       }
@@ -71,8 +69,12 @@
         searchHistory:'search_getSearchHistory'
       }),
       vizData() {
-        if(!this.searchResult)return
-        return {searchParams:this.searchParams, lengthCount: this.searchResult.body.length};
+        let vizArray = []
+        for (let data of this.searchHistory){
+          let toPush= {searchParams:data.searchParams, lengthCount:data.response.body.length}
+          vizArray.push(toPush)
+        }
+        return vizArray
       }
     },
     watch: {
@@ -102,14 +104,6 @@
       appResultCardGrid: ResultCardGrid,
       appResultLoadHandler: ResultLoadHandler,
       appResultBarChart: ResultBarChart
-    },
-    created() {
-      EventBus.$on('resultReceived', data => {
-
-        //operations to register past searches
-        this.searchHistory.push(this.searchResult)
-        if(this.vizData)this.vizDataResults.push(this.vizData)
-      });
     }
   }
 </script>
