@@ -151,7 +151,9 @@ export default {
     }),
     searchResp(respShortcut){
       let self = this;
-      if(respShortcut==='default')return;
+      if(respShortcut==='default')return; //todo needs to be redone! -> causes search start atm because default is now passau!
+
+
       EventBus.$emit('searchStarted')
 
       //if in 10 secs no response fail
