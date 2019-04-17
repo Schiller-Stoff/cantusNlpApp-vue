@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid text-center">
-    <i class="fas fa-circle-notch fa-spin" v-if="!loadFailed"></i>
+    <i class="fas fa-circle-notch fa-spin" v-if="!searchFailed"></i>
     <div v-else>
       <h5>Suchfehler: Momentan ist leider keine Verbindung zur Datenbank möglich. Bitte versuchen Sie es später erneut.</h5>
     </div>
@@ -10,7 +10,7 @@
   export default {
     name: "ResultLoadHandler",
     props: {
-      loadFailed: {
+      searchFailed: {
         type: Boolean,
         required: true,
         default: false
