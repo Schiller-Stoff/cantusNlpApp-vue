@@ -12,7 +12,6 @@
 
 <script>
   import {mapGetters} from 'vuex'
-  import {EventBus} from "../../main";
 
   export default {
     name: "ResultTable",
@@ -53,9 +52,7 @@
         columns: ['officeLabel', 'res'],
         options: {
           // see the options API
-        },
-
-        lo: ''
+        }
       }
     },
     computed: {
@@ -82,14 +79,9 @@
       }
     },
     created(){
-      let self = this;
       setTimeout(_=>{
         this.delayedDisplay = 'animated fadeIn once faster'
       },200);
-      EventBus.$on('newSearch',searchParams =>{
-        self.searchParamsObj = searchParams
-        this.lo = searchParams.chosenLo;
-      })
     }
   }
 </script>
