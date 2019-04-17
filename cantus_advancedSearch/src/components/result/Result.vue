@@ -7,13 +7,13 @@
     <app-result-preview
       v-if="showPreview && searchResult && !onGoingSearch && !searchFailed"
       :searchParams="searchParams"
-      :prevData="searchResult"
+      :prevData="searchResult.body"
       :key="1">
     </app-result-preview>
     <app-result-table
       v-if="!showPreview && searchResult && !onGoingSearch && !searchFailed"
       :key="2"
-      :tableData="searchResult"
+      :tableData="searchResult.body"
       :searchParams="searchParams">
     </app-result-table>
 
@@ -59,7 +59,6 @@
       return {
         searchHistory: [],
         vizDataResults:[],
-        searchResult: undefined,
         searchParams: undefined,
         showPreview: false,
       }
@@ -68,11 +67,12 @@
       ...mapGetters({
         searchBarEnlarged:'interfaceStates_currentSearchBarState',
         onGoingSearch:'search_getOngoingSearch',
-        searchFailed:'search_getSearchFailed'
+        searchFailed:'search_getSearchFailed',
+        searchResult:'search_getSearchResult'
       }),
       vizData() {
         if(!this.searchResult)return
-        return {searchParams:this.searchParams, lengthCount: this.searchResult.length};
+        return {searchParams:this.searchParams, lengthCount: this.searchResult.body.length};
       }
     },
     watch: {
@@ -103,12 +103,12 @@
         // if result received clear searchTimer
         clearTimeout(searchTimer)
 
-        this.searchResult = data.body;
+        //this.searchResult = data.body;
         this.searchParams = data.searchParams;
         this.showPreview = true
 
         //operations to register past searches
-        this.searchHistory.push(data)
+        this.searchHistory.push(this.searchResult)
         if(this.vizData)this.vizDataResults.push(this.vizData)
       });
     }
