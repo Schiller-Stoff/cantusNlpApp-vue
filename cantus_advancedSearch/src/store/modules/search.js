@@ -9,7 +9,8 @@ const state = {
   },
   searchResult:undefined,
   ongoingSearch: false,
-  searchFailed:false
+  searchFailed:false,
+  searchHistory:undefined
 }
 
 const mutations = {
@@ -32,6 +33,13 @@ const mutations = {
   },
   'search_toggleSearchFailed'(state,payload = !state.searchFailed){
     state.searchFailed = payload
+  },
+  'search_pushOntoSearchHistory'(state,payload){
+    let requiredKeys = ['response','searchParams']
+    for (let key of requiredKeys){
+      if(!payload.hasOwnProperty(key))console.error(`InvalidState: given object to be pushed onto vuex's searchHistory array has not the property ${key} but is required. Given object was: ${payload}`)
+    }
+    state.searchHistory.push(payload)
   }
 }
 
@@ -50,6 +58,9 @@ const actions = {
   },
   'search_setSearchFailedAction'({commit},payload){
     commit('search_toggleSearchFailed',payload)
+  },
+  'search_pushOntoSearchHistoryAction'({commit},payload){
+    commit('search_pushOntoSearchHistory',payload)
   }
 }
 
@@ -68,6 +79,9 @@ const getters = {
   },
   'search_getSearchFailed'(state){
     return state.searchFailed
+  },
+  'search_getSearchHistory'(state){
+    return state.searchHistory
   }
 }
 
