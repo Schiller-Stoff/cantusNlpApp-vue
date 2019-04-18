@@ -131,11 +131,10 @@
         this.curDiagramData = vizObj
       },
       calcCurChartData(){
-        let chartData = {
+        this.curChartData = {
           labels:[this.searchParams.chosenGenre, 'Rest'],
           datasets: [this.curDiagramData]
         }
-        this.curChartData = chartData
       }
     }
   }
