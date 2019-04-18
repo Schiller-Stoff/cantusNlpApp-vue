@@ -7,7 +7,7 @@
     <app-result-preview
       v-if="showPreview && searchResult && !onGoingSearch && !searchFailed"
       :searchParams="searchParams"
-      :prevData="searchResult.body"
+      :curChartData="curChartData"
       :key="1">
     </app-result-preview>
     <app-result-table
@@ -74,8 +74,30 @@
           vizArray.push(toPush)
         }
         return vizArray
+      },
+      curDiagramData(){
+        let vizObj = {
+          label:'Feste',
+          backgroundColor: [],
+          data: [this.searchResult.body.length, 500] //todo 500 is hardcoded value remove!
+        }
+
+        for (let dp of vizObj.data){
+          vizObj.backgroundColor.push(this.randomColor())
+        }
+
+        return vizObj
+      },
+      curChartData(){
+        let chartData = {
+          labels:[this.searchParams.chosenGenre, 'Rest'],
+          datasets: [this.curDiagramData]
+        }
+        return chartData
       }
     },
+
+
     watch: {
       searchBarEnlarged(newValue, oldValue) {
         if(this.searchBarEnlarged){
@@ -103,6 +125,16 @@
       appResultCardGrid: ResultCardGrid,
       appResultLoadHandler: ResultLoadHandler,
       appResultBarChart: ResultBarChart
+    },
+    methods: {
+      randomColor() {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
     }
   }
 </script>

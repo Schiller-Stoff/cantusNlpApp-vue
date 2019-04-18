@@ -3,7 +3,7 @@
     <h4>Anzahl der Feste</h4>
     <hr>
 
-    <app-pie-chart v-if="prevData" :labels="refactoredData.labels" :datasets="refactoredData.data"></app-pie-chart>
+    <app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>
     <hr>
     <h5>LO - {{searchParams.chosenLO}}</h5>
     <h5>Zeitraum: {{ searchParams.chosenTimeFrame }}</h5>
@@ -18,9 +18,9 @@
   export default {
     name: "ResultPreview",
     props: {
-      prevData:{
-        type:Array,
-        required:true
+      curChartData:{
+        required:true,
+        type:Object
       },
       searchParams:{
         type:Object,
@@ -41,20 +41,6 @@
     },
     components: {
       appPieChart: PieChart
-    },
-    computed: {
-      refactoredData(){
-        return {
-          labels: ['RP','Rest'],
-          data: [
-            {
-              label: 'GitHub Commits',
-              backgroundColor: ['#FF9D40','#0047bb'],
-              data: [this.prevData.length, 500]
-            }
-          ]
-        }
-      }
     }
   }
 </script>
