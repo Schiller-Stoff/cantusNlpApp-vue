@@ -112,6 +112,14 @@ export default {
 
     blazeGraphQuery(val){
       if(val===undefined)return;
+      let searchParams = {
+        chosenGenre:this.chosenGenre,
+        chosenLO:this.chosenLO,
+        chosenTimeFrame:this.curQueryObject
+      }
+      this.$store.dispatch('search_setSearchParamsAction',searchParams)
+
+
       if(this.chosenLO==='FAIL_QUERY')return '9$$ß34'
 
       if(this.chosenLO==='/api/users?delay=5')return 'https://reqres.in/api/users?delay=5'
@@ -121,13 +129,6 @@ export default {
 
       let buildQuery = `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
       this.$store.dispatch('search_modifyCurSearchQueryAction',buildQuery)
-
-      let searchParams = {
-        chosenGenre:this.chosenGenre,
-        chosenLO:this.chosenLO,
-        chosenTimeFrame:this.curQueryObject
-      }
-      this.$store.dispatch('search_setSearchParamsAction',searchParams)
 
       return buildQuery
     }
