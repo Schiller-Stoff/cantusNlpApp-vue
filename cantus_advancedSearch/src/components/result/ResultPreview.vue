@@ -14,10 +14,14 @@
 
 <script>
   import PieChart from './charts/PieChart'
+  import BarChart from './charts/BarChart'
 
   export default {
     name: "ResultPreview",
     props: {
+      vizHistoData: {
+        type:Array
+      },
       curChartData:{
         required:true,
         type:Object
@@ -40,7 +44,33 @@
       }
     },
     components: {
-      appPieChart: PieChart
+      appPieChart: PieChart,
+      appBarChart: BarChart
+    },
+    computed: {
+      refHistoVizData(){
+        let obj = {
+          labels: [],
+          datasets: []
+        }
+
+        let dataObj = {
+          label:'',
+          backgroundColor:[],
+          data: []
+        }
+
+        for (let dp of this.vizHistoData){
+          dataObj.label = "Feste";
+          obj.labels.push(dp.labels[0])
+          dataObj.backgroundColor.push(dp.datasets[0].backgroundColor[0])
+          dataObj.data.push(dp.datasets[0].data[0])
+        }
+        obj.datasets.push(dataObj)
+
+        return obj;
+
+      }
     }
   }
 </script>

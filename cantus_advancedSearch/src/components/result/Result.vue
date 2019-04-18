@@ -8,6 +8,7 @@
       v-if="showPreview && searchResult && !onGoingSearch && !searchFailed"
       :searchParams="searchParams"
       :curChartData="curChartData"
+      :vizHistoData="vizHistory"
       :key="1">
     </app-result-preview>
     <app-result-table
@@ -102,7 +103,7 @@
         this.calcCurChartData()
 
         //push into history
-        //this.vizHistory.push(this.curChartData)
+        this.vizHistory.push(this.curChartData)
       }
     },
     components: {
