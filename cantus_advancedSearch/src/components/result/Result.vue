@@ -102,7 +102,7 @@
         this.calcCurChartData()
 
         //push into history
-        this.vizHistory.push(this.curChartData)
+        //this.vizHistory.push(this.curChartData)
       }
     },
     components: {
