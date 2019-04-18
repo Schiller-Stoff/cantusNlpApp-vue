@@ -54,6 +54,11 @@
               label: 'Feste',
               backgroundColor: colors,
               data: data
+            },
+            {
+              label: 'Feste',
+              backgroundColor: colors,
+              data: data
             }
           ]
         }

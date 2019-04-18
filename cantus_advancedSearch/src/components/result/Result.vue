@@ -56,6 +56,8 @@
     data() {
       return {
         showPreview: false,
+        curDiagramData:undefined,
+        curChartData:undefined
       }
     },
     computed: {
@@ -74,30 +76,8 @@
           vizArray.push(toPush)
         }
         return vizArray
-      },
-      curDiagramData(){
-        let vizObj = {
-          label:'Feste',
-          backgroundColor: [],
-          data: [this.searchResult.body.length, 500] //todo 500 is hardcoded value remove!
-        }
-
-        for (let dp of vizObj.data){
-          vizObj.backgroundColor.push(this.randomColor())
-        }
-
-        return vizObj
-      },
-      curChartData(){
-        let chartData = {
-          labels:[this.searchParams.chosenGenre, 'Rest'],
-          datasets: [this.curDiagramData]
-        }
-        return chartData
       }
     },
-
-
     watch: {
       searchBarEnlarged(newValue, oldValue) {
         if(this.searchBarEnlarged){
@@ -116,6 +96,9 @@
         if(this.searchResult && this.searchBarEnlarged){
           this.showPreview = true
         }
+        // set viz Data
+        this.calcCurDiagramData()
+        this.calcCurChartData()
       }
     },
     components: {
@@ -134,6 +117,25 @@
           color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
+      },
+      calcCurDiagramData(){
+        // set viz Data
+        let vizObj = {
+          label:'Feste',
+          backgroundColor: [],
+          data: [this.searchResult.body.length, 500] //todo 500 is hardcoded value remove!
+        }
+        for (let dp of vizObj.data){
+          vizObj.backgroundColor.push(this.randomColor())
+        }
+        this.curDiagramData = vizObj
+      },
+      calcCurChartData(){
+        let chartData = {
+          labels:[this.searchParams.chosenGenre, 'Rest'],
+          datasets: [this.curDiagramData]
+        }
+        this.curChartData = chartData
       }
     }
   }
