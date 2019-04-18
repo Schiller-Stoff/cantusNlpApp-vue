@@ -57,7 +57,8 @@
       return {
         showPreview: false,
         curDiagramData:undefined,
-        curChartData:undefined
+        curChartData:undefined,
+        vizHistory:[]
       }
     },
     computed: {
@@ -99,6 +100,9 @@
         // set viz Data
         this.calcCurDiagramData()
         this.calcCurChartData()
+
+        //push into history
+        this.vizHistory.push(this.curChartData)
       }
     },
     components: {
