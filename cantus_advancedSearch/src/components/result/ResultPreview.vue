@@ -10,12 +10,15 @@
     <h5>Genre: {{ searchParams.chosenGenre }}</h5>
     <hr>
     <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
+
+    <app-line-chart :chartData="refHistoVizData"></app-line-chart>
   </div>
 </template>
 
 <script>
   import PieChart from './charts/PieChart'
   import BarChart from './charts/BarChart'
+  import LineChart from './charts/LineChart'
 
   export default {
     name: "ResultPreview",
@@ -46,7 +49,8 @@
     },
     components: {
       appPieChart: PieChart,
-      appBarChart: BarChart
+      appBarChart: BarChart,
+      appLineChart: LineChart
     },
     computed: {
       refHistoVizData(){
