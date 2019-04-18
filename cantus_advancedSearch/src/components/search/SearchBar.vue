@@ -175,6 +175,7 @@ export default {
         clearTimeout(searchTimer)
       },err => {
         this.$store.dispatch('search_setSearchFailedAction',true)
+        clearTimeout(searchTimer)
       }).finally(_=>{
         this.$store.dispatch('search_markOngoingSearchAction', false)
       });
