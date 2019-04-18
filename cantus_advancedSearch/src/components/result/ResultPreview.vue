@@ -12,6 +12,7 @@
     <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
 
     <app-line-chart :chartData="refHistoVizData"></app-line-chart>
+    <app-radar-chart :chartData="refHistoVizData"></app-radar-chart>
   </div>
 </template>
 
@@ -19,6 +20,7 @@
   import PieChart from './charts/PieChart'
   import BarChart from './charts/BarChart'
   import LineChart from './charts/LineChart'
+  import RadarChart from './charts/RadarChart'
 
   export default {
     name: "ResultPreview",
@@ -50,7 +52,8 @@
     components: {
       appPieChart: PieChart,
       appBarChart: BarChart,
-      appLineChart: LineChart
+      appLineChart: LineChart,
+      appRadarChart: RadarChart
     },
     computed: {
       refHistoVizData(){
