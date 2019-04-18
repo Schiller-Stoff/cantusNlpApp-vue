@@ -32,8 +32,8 @@
     </app-result-load-handler>
 
     <app-result-bar-chart
-      v-if="searchHistory && searchResult && vizData[0] && showPreview && !searchFailed && !onGoingSearch"
-      :viz-data-results="vizData"
+      v-if="searchHistory && searchResult && vizHistoData[0] && showPreview && !searchFailed && !onGoingSearch"
+      :viz-data-results="vizHistoData"
     >
 
     </app-result-bar-chart>
@@ -70,7 +70,7 @@
         searchParams:'search_getSearchParams',
         searchHistory:'search_getSearchHistory'
       }),
-      vizData() {
+      vizHistoData() {
         let vizArray = []
         for (let data of this.searchHistory){
           let toPush= {searchParams:data.searchParams, lengthCount:data.response.body.length}
