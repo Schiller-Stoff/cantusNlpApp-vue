@@ -9,6 +9,7 @@
     <h5>Zeitraum: {{ searchParams.chosenTimeFrame }}</h5>
     <h5>Genre: {{ searchParams.chosenGenre }}</h5>
     <hr>
+    <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
   </div>
 </template>
 

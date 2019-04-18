@@ -32,13 +32,6 @@
     >
     </app-result-load-handler>
 
-    <app-result-bar-chart
-      v-if="searchHistory && searchResult && vizHistoData[0] && showPreview && !searchFailed && !onGoingSearch"
-      :viz-data-results="vizHistoData"
-    >
-
-    </app-result-bar-chart>
-
   </div>
 </template>
 
