@@ -182,6 +182,18 @@ export default {
         clearTimeout(timer)
         self.fadeInAtEvent = 'hidden'
       }
+    },
+    curQueryObject(newVal,oldVal){
+      if(newVal==='default')return;
+      if(this.chosenFeast !=='default'){
+        return this.chosenFeast = 'default'
+      }
+    },
+    chosenFeast(newVal,oldVal){
+      if(newVal==='default')return;
+      if(this.curQueryObject!=='default'){
+        return this.curQueryObject = 'default'
+      }
     }
   },
   methods: {
