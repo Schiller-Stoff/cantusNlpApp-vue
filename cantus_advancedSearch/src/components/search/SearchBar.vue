@@ -80,9 +80,32 @@
         <option value="AE">AE</option>
       </select>
     </div>
+
+    <div class="input-group mb-3" :class="fadeInAtEvent">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect04">Fest</label>
+      </div>
+      <select v-model="chosenFeast" class="custom-select" id="inputGroupSelect04">
+        <option selected value="default">Bitte wählen...</option>
+        <option value="2201011000">Fest 2201011000</option>
+        <option value="???">Fest ???</option>
+        <option value="!!!">Fest !!!</option>
+      </select>
+    </div>
+
+
+
     <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
     <p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>
+
+
+
+
+
   </div>
+
+
+
 </template>
 
 <script>
@@ -99,7 +122,8 @@ export default {
       server:'glossa.uni-graz.at',
       chosenGenre:'RP',
       chosenLO:'passau.ur',  //atm not in use
-      curQueryObject:'weihnachten'  //for the times
+      curQueryObject:'weihnachten',  //for the times
+      chosenFeast:'default'
 
     }
   },
