@@ -36,6 +36,8 @@
 </template>
 
 <script>
+  import search from "../../store/modules/search";
+
   let curTimer;
   import {mapGetters} from 'vuex'
   import ResultTable from '../result/ResultTable'
@@ -118,10 +120,13 @@
       },
       calcCurDiagramData(){
         // set viz Data
+        let genreTotal_int = this.getLOGenreTotal()
+        let resultCount = this.searchResult.body.length
+        let genreRest = genreTotal_int - resultCount
         let vizObj = {
           label:'Feste',
           backgroundColor: [],
-          data: [this.searchResult.body.length, 500] //todo 500 is hardcoded value remove!
+          data: [this.searchResult.body.length, genreRest] //todo 500 is hardcoded value remove!
         }
         for (let dp of vizObj.data){
           vizObj.backgroundColor.push(this.randomColor())
@@ -133,6 +138,26 @@
           labels:[this.searchParams.chosenGenre, 'Rest'],
           datasets: [this.curDiagramData]
         }
+      },
+      getLOGenreTotal(){
+        let genreTotal;
+        let searchedLO = this.searchParams.chosenLO
+        switch (searchedLO){
+          case 'salzburg.ur':
+            genreTotal = 477;
+            break;
+          case 'salzburg.ra':
+            genreTotal = 431;
+            break;
+          case 'passau.ur':
+            genreTotal = 496;
+            break;
+          //TODO add further data for LOs
+          default:
+            genreTotal = 500;
+            break;
+        }
+        return genreTotal;
       }
     }
   }
