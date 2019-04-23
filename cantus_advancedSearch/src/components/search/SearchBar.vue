@@ -145,12 +145,14 @@ export default {
       }
       this.$store.dispatch('search_setSearchParamsAction',searchParams)
 
-
+      //testing failing query
       if(this.chosenLO==='FAIL_QUERY')return '9$$ß34'
 
+      //for testing delayed respinse
       if(this.chosenLO==='/api/users?delay=5')return 'https://reqres.in/api/users?delay=5'
       if(this.chosenLO==='/api/users?delay=12')return 'https://reqres.in/api/users?delay=12'
 
+      //for resp.test
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
       let buildQuery = `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
