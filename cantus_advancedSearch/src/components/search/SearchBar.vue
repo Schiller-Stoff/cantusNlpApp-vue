@@ -63,7 +63,7 @@
         <label class="input-group-text" for="inputGroupSelect02">Zeitraum</label>
       </div>
       <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
-        <option selected>Bitte wählen...</option>
+        <option selected value="default">Bitte wählen...</option>
         <option value="weihnachten">Weihnachten</option>
 
         <!--<option value="adventsonntage">Adventsonntage</option>-->
@@ -142,6 +142,7 @@ export default {
         chosenGenre:this.chosenGenre,
         chosenLO:this.chosenLO,
         chosenTimeFrame:this.curQueryObject
+        //TODO update searchParams --> chosenFeast now additionally added!
       }
       this.$store.dispatch('search_setSearchParamsAction',searchParams)
 
@@ -155,10 +156,19 @@ export default {
       //for resp.test
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
+      // return different query when a feast is selected
+      if(this.chosenFeast !== 'default'){
+        let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7CRP%3B%243%7C%${this.chosenFeast}%22`
+        this.$store.dispatch('search_modifyCurSearchQueryAction',query)
+        return query
+      }
+
+      //standard query
       let buildQuery = `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
       this.$store.dispatch('search_modifyCurSearchQueryAction',buildQuery)
-
       return buildQuery
+
+
     }
   },
   watch: {
