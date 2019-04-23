@@ -46,6 +46,20 @@
 
     <div class="input-group mb-3" :class="fadeInAtEvent">
       <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect03">Genre</label>
+      </div>
+      <select @change="searchResp(chosenGenre)" v-model="chosenGenre" class="custom-select" id="inputGroupSelect03">
+        <option selected value="default">Bitte wählen...</option>
+        <option value="RP">RP</option>
+        <option value="AB">AB</option>
+        <option value="AE">AE</option>
+      </select>
+    </div>
+
+    <h4 :class="fadeInAtEvent">Zeitraum oder Fest</h4>
+
+    <div class="input-group mb-3" :class="fadeInAtEvent">
+      <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect02">Zeitraum</label>
       </div>
       <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
@@ -66,18 +80,6 @@
         <!--<option value="queryAdventQuatember">Adventquatember</option>-->
         <!--<option value="queryZeitImKirchenjahr">Zeit im Kirchenjahr</option>-->
 
-      </select>
-    </div>
-
-    <div class="input-group mb-3" :class="fadeInAtEvent">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect03">Genre</label>
-      </div>
-      <select @change="searchResp(chosenGenre)" v-model="chosenGenre" class="custom-select" id="inputGroupSelect03">
-        <option selected value="default">Bitte wählen...</option>
-        <option value="RP">RP</option>
-        <option value="AB">AB</option>
-        <option value="AE">AE</option>
       </select>
     </div>
 
