@@ -118,12 +118,13 @@ export default {
       chosenGenre:'RP',
       chosenLO:'passau.ur',  //atm not in use
       curQueryObject:'weihnachten',  //for the times
-
-      autoCompleteOptions:autocompleteVals,
       selectedFeast:{
         value:'default',
         text:'default'
-      }
+      },
+
+      autoCompleteOptions:autocompleteVals
+
 
     }
   },
