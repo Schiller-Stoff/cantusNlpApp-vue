@@ -1,18 +1,20 @@
 <template>
   <div class="container-fluid">
-    <h4>Anzahl der Feste</h4>
+    <br>
+    <h4>Visualisierung des Suchverlaufs</h4>
     <hr>
-
-    <app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>
+    <!--<app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>-->
+    <!--<hr>-->
+    <!--<h5>LO - {{searchParams.chosenLO}}</h5>-->
+    <!--<h5>{{timespanOrFeast}}</h5>-->
+    <!--<h5>Genre: {{ searchParams.chosenGenre }}</h5>-->
+    <!--<hr>-->
+    <app-bar-chart v-if="curChartData" :chartData="refHistoVizData"></app-bar-chart>
     <hr>
-    <h5>LO - {{searchParams.chosenLO}}</h5>
-    <h5>{{timespanOrFeast}}</h5>
-    <h5>Genre: {{ searchParams.chosenGenre }}</h5>
+    <br>
     <hr>
-    <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
-
-    <app-line-chart :chartData="refHistoVizData"></app-line-chart>
-    <app-radar-chart :chartData="refHistoVizData"></app-radar-chart>
+    <app-line-chart v-if="curChartData" :chartData="refHistoVizData"></app-line-chart>
+    <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
   </div>
 </template>
 
