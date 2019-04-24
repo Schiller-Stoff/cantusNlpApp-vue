@@ -135,8 +135,8 @@ export default {
 
       autoCompleteOptions:autocompleteVals,
       selectedItem:{
-        value:'',
-        text:''
+        value:'default',
+        text:'default'
       }
 
     }
