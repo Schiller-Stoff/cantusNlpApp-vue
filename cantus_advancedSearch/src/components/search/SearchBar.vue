@@ -100,9 +100,10 @@
     <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
     <p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>
 
-
-
-
+    <div :class="fadeInAtEvent">
+      <app-model-select :options="autoCompleteOptions" v-model="selectedItem"></app-model-select>
+      <p>{{selectedItem.value}}</p>
+    </div>
 
   </div>
 
@@ -115,10 +116,14 @@ import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 import {EventBus} from "../../main";
 import {autocompleteVals} from "../../data/autocompleteVals"
+import { ModelSelect } from 'vue-search-select'
 let timer;
 let searchTimer;
 export default {
   name: "Search",
+  components:{
+    appModelSelect: ModelSelect
+  },
   data(){
     return {
       fadeInAtEvent: 'hidden',
@@ -126,7 +131,13 @@ export default {
       chosenGenre:'RP',
       chosenLO:'passau.ur',  //atm not in use
       curQueryObject:'weihnachten',  //for the times
-      chosenFeast:'default'
+      chosenFeast:'default',
+
+      autoCompleteOptions:autocompleteVals,
+      selectedItem:{
+        value:'',
+        text:''
+      }
 
     }
   },
