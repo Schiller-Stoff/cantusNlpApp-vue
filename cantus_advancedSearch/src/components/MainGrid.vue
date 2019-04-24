@@ -14,7 +14,6 @@
 <script>
   import {mapGetters} from 'vuex'
   import {mapActions} from 'vuex'
-  import {EventBus} from "../main"
   import SearchBar from './search/SearchBar'
   import Result from './result/Result'
 
@@ -26,8 +25,7 @@
     },
     data() {
       return {
-        // interfaceLocked:false,
-        // searchBarEnlarged: false
+
       }
     },
     computed: {
@@ -44,9 +42,7 @@
       moveWidth() {
         if (this.searchBarEnlarged || this.interfaceLocked) return;
 
-        //this.searchBarEnlarged = true
         this.markSearchEnlargedState()
-        //EventBus.$emit('searchBarEnlarge');
 
         this.$refs.first.classList.add('transition')
         this.$refs.second.classList.add('transition')
@@ -61,8 +57,6 @@
         if (!this.searchBarEnlarged || this.interfaceLocked) return
 
         this.markSearchMinfiedState()
-        //EventBus.$emit('searchBarMinified')
-        //this.searchBarEnlarged = false
 
         this.$refs.first.classList.add('transition')
         this.$refs.second.classList.add('transition')
@@ -79,15 +73,6 @@
         }, 500)
 
       }
-    },
-    created() {
-      // EventBus.$on('interfaceLocked',_=>{
-      //   this.interfaceLocked = true
-      // })
-      //
-      // EventBus.$on('interfaceOpened',_=>{
-      //   this.interfaceLocked = false
-      // })
     }
   }
 </script>
