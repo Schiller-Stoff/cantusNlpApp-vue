@@ -1,5 +1,4 @@
-export default
-const autocompleteVals = [
+export const autocompleteVals = [
 
   {value: 'feastcode', text: 'feast_standard'}, {
     value: '01000000',
