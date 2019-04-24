@@ -7,7 +7,6 @@
   </div>
 </template>
 <script>
-  //TODO let props handle from vuex!!!
   export default {
     name: "ResultLoadHandler",
     props: {
