@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-md-1" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first">
         <app-search-bar></app-search-bar>
+        <app-compare></app-compare>
       </div>
       <div class="col-md-11" id="second" ref="second">
         <app-result></app-result>
@@ -16,12 +17,14 @@
   import {mapActions} from 'vuex'
   import SearchBar from './search/SearchBar'
   import Result from './result/Result'
+  import Compare from './compare/Compare'
 
   export default {
     name: "MainGrid",
     components: {
       appSearchBar: SearchBar,
       appResult: Result,
+      appCompare: Compare
     },
     data() {
       return {
