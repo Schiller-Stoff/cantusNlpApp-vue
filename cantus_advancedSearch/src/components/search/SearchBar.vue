@@ -102,7 +102,7 @@
 
     <div :class="fadeInAtEvent">
       <app-model-select :options="autoCompleteOptions" v-model="selectedItem"></app-model-select>
-      <p>{{selectedItem.value}}</p>
+      <p>Ausgewählte Feast-ID: {{selectedItem.value}}</p>
     </div>
 
   </div>
