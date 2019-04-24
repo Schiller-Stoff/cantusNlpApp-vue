@@ -88,8 +88,8 @@
     <p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>
 
     <div :class="fadeInAtEvent">
-      <app-model-select :options="autoCompleteOptions" v-model="selectedItem"></app-model-select>
-      <p>Ausgewählte Feast-ID: {{selectedItem.value}}</p>
+      <app-model-select :options="autoCompleteOptions" v-model="selectedFeast"></app-model-select>
+      <p>Ausgewählte Feast-ID: {{selectedFeast.value}}</p>
     </div>
 
   </div>
@@ -120,7 +120,7 @@ export default {
       curQueryObject:'weihnachten',  //for the times
 
       autoCompleteOptions:autocompleteVals,
-      selectedItem:{
+      selectedFeast:{
         value:'default',
         text:'default'
       }
@@ -155,8 +155,8 @@ export default {
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
       // return different query when a feast is selected
-      if(this.selectedItem.value !== 'default'){
-        let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C%${this.selectedItem.value}%22`
+      if(this.selectedFeast.value !== 'default'){
+        let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C%${this.selectedFeast.value}%22`
         this.$store.dispatch('search_modifyCurSearchQueryAction',query)
         return query
       }
@@ -183,11 +183,11 @@ export default {
     },
     curQueryObject(newVal,oldVal){
       if(newVal==='default')return;
-      if(this.selectedItem.value !=='default'){
-        return this.selectedItem.value = 'default'
+      if(this.selectedFeast.value !=='default'){
+        return this.selectedFeast.value = 'default'
       }
     },
-    selectedItem(newVal,oldVal){
+    selectedFeast(newVal, oldVal){
       if(newVal==='default')return;
       if(this.curQueryObject!=='default'){
         return this.curQueryObject = 'default'
