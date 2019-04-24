@@ -48,7 +48,7 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect03">Genre</label>
       </div>
-      <select @change="searchResp(chosenGenre)" v-model="chosenGenre" class="custom-select" id="inputGroupSelect03">
+      <select v-model="chosenGenre" class="custom-select" id="inputGroupSelect03">
         <option selected value="default">Bitte wählen...</option>
         <option value="RP">RP</option>
         <option value="AB">AB</option>
