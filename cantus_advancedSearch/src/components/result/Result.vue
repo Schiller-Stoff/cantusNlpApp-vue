@@ -126,7 +126,7 @@
         let vizObj = {
           label:'Feste',
           backgroundColor: [],
-          data: [this.searchResult.body.length, genreRest] //todo 500 is hardcoded value remove!
+          data: [this.searchResult.body.length, genreRest]
         }
         for (let dp of vizObj.data){
           vizObj.backgroundColor.push(this.randomColor())
