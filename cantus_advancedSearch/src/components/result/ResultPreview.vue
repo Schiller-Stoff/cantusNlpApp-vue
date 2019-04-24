@@ -6,7 +6,7 @@
     <app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>
     <hr>
     <h5>LO - {{searchParams.chosenLO}}</h5>
-    <h5>Zeitraum: {{ searchParams.chosenTimeFrame }}</h5>
+    <h5>{{timespanOrFeast}}</h5>
     <h5>Genre: {{ searchParams.chosenGenre }}</h5>
     <hr>
     <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
@@ -78,6 +78,14 @@
 
         return obj;
 
+      },
+      timespanOrFeast(){
+        let feast = this.searchParams.chosenFeast
+        if(feast==='default'){
+          return "Gewählter Zeitraum: " + this.searchParams.chosenTimeFrame
+        } else {
+          return "Gewähltes Fest: " + feast
+        }
       }
     }
   }
