@@ -1,6 +1,6 @@
 export const autocompleteVals = [
 
-  {value: 'feastcode', text: 'feast_standard'}, {
+  {value: 'default', text: 'Bitte wählen...'}, {
     value: '01000000',
     text: 'In tempore Adventus'
   }, {
