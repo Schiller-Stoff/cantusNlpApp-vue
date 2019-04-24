@@ -17,103 +17,104 @@
   import {EventBus} from "../main"
   import SearchBar from './search/SearchBar'
   import Result from './result/Result'
-    export default {
-      name: "MainGrid",
-      components: {
-        appSearchBar: SearchBar,
-        appResult: Result,
-      },
-      data(){
-        return {
-          // interfaceLocked:false,
-          // searchBarEnlarged: false
-        }
-      },
-      computed: {
-        ...mapGetters({
-          searchBarEnlarged: 'interfaceStates_currentSearchBarState',
-          interfaceLocked: 'interfaceStates_currentSearchLockState'
-        })
-      },
-      methods: {
-        ...mapActions({
-          markSearchEnlargedState: 'interfaceStatesAction_enlargeSearchBar',
-          markSearchMinfiedState:'interfaceStatesAction_minifySearchBar'
-        }),
-        moveWidth(){
-          if(this.searchBarEnlarged||this.interfaceLocked)return;
 
-          //this.searchBarEnlarged = true
-          this.markSearchEnlargedState()
-          //EventBus.$emit('searchBarEnlarge');
-
-          this.$refs.first.classList.add('transition')
-          this.$refs.second.classList.add('transition')
-
-          this.$refs.first.classList.remove('col-md-1')
-          this.$refs.second.classList.remove('col-md-11')
-
-          this.$refs.first.classList.add('col-md-7')
-          this.$refs.second.classList.add('col-md-5')
-        },
-        restoreWidth(){
-          if(!this.searchBarEnlarged || this.interfaceLocked)return
-
-          this.markSearchMinfiedState()
-          //EventBus.$emit('searchBarMinified')
-          //this.searchBarEnlarged = false
-
-          this.$refs.first.classList.add('transition')
-          this.$refs.second.classList.add('transition')
-
-          this.$refs.first.classList.remove('col-md-7')
-          this.$refs.second.classList.remove('col-md-5')
-
-          this.$refs.first.classList.add('col-md-1')
-          this.$refs.second.classList.add('col-md-11')
-
-          setTimeout(_=>{
-            this.$refs.first.classList.remove('transition')
-            this.$refs.second.classList.remove('transition')
-          },500)
-
-        }
-      },
-      created(){
-        // EventBus.$on('interfaceLocked',_=>{
-        //   this.interfaceLocked = true
-        // })
-        //
-        // EventBus.$on('interfaceOpened',_=>{
-        //   this.interfaceLocked = false
-        // })
+  export default {
+    name: "MainGrid",
+    components: {
+      appSearchBar: SearchBar,
+      appResult: Result,
+    },
+    data() {
+      return {
+        // interfaceLocked:false,
+        // searchBarEnlarged: false
       }
+    },
+    computed: {
+      ...mapGetters({
+        searchBarEnlarged: 'interfaceStates_currentSearchBarState',
+        interfaceLocked: 'interfaceStates_currentSearchLockState'
+      })
+    },
+    methods: {
+      ...mapActions({
+        markSearchEnlargedState: 'interfaceStatesAction_enlargeSearchBar',
+        markSearchMinfiedState: 'interfaceStatesAction_minifySearchBar'
+      }),
+      moveWidth() {
+        if (this.searchBarEnlarged || this.interfaceLocked) return;
+
+        //this.searchBarEnlarged = true
+        this.markSearchEnlargedState()
+        //EventBus.$emit('searchBarEnlarge');
+
+        this.$refs.first.classList.add('transition')
+        this.$refs.second.classList.add('transition')
+
+        this.$refs.first.classList.remove('col-md-1')
+        this.$refs.second.classList.remove('col-md-11')
+
+        this.$refs.first.classList.add('col-md-7')
+        this.$refs.second.classList.add('col-md-5')
+      },
+      restoreWidth() {
+        if (!this.searchBarEnlarged || this.interfaceLocked) return
+
+        this.markSearchMinfiedState()
+        //EventBus.$emit('searchBarMinified')
+        //this.searchBarEnlarged = false
+
+        this.$refs.first.classList.add('transition')
+        this.$refs.second.classList.add('transition')
+
+        this.$refs.first.classList.remove('col-md-7')
+        this.$refs.second.classList.remove('col-md-5')
+
+        this.$refs.first.classList.add('col-md-1')
+        this.$refs.second.classList.add('col-md-11')
+
+        setTimeout(_ => {
+          this.$refs.first.classList.remove('transition')
+          this.$refs.second.classList.remove('transition')
+        }, 500)
+
+      }
+    },
+    created() {
+      // EventBus.$on('interfaceLocked',_=>{
+      //   this.interfaceLocked = true
+      // })
+      //
+      // EventBus.$on('interfaceOpened',_=>{
+      //   this.interfaceLocked = false
+      // })
     }
+  }
 </script>
 
 <style scoped lang="scss">
-@import '../scss/globalVariables/globalVariables.scss';
+  @import '../scss/globalVariables/globalVariables.scss';
 
-#first {
-  background-color: $primaryColor;
-  min-height: 10vh;
-  @include lg {
-    min-height: 100vh;
+  #first {
+    background-color: $primaryColor;
+    min-height: 10vh;
+    @include lg {
+      min-height: 100vh;
+    }
+
   }
 
-}
-
-#second {
-  background-color: $blankColor;
-  min-height: 20vh;
-  @include lg {
-    min-height: 100vh;
+  #second {
+    background-color: $blankColor;
+    min-height: 20vh;
+    @include lg {
+      min-height: 100vh;
+    }
   }
-}
 
-.transition {
-  transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .transition {
+    transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
 
 </style>
