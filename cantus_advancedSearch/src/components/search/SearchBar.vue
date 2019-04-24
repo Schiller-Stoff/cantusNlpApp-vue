@@ -114,6 +114,7 @@
 import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 import {EventBus} from "../../main";
+import {autocompleteVals} from "../../data/autocompleteVals"
 let timer;
 let searchTimer;
 export default {
