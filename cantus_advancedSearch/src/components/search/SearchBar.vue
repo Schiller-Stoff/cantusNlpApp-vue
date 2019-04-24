@@ -169,8 +169,8 @@ export default {
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
       // return different query when a feast is selected
-      if(this.chosenFeast !== 'default'){
-        let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C%${this.chosenFeast}%22`
+      if(this.selectedItem.value !== 'default'){
+        let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C%${this.selectedItem.value}%22`
         this.$store.dispatch('search_modifyCurSearchQueryAction',query)
         return query
       }
@@ -197,11 +197,11 @@ export default {
     },
     curQueryObject(newVal,oldVal){
       if(newVal==='default')return;
-      if(this.chosenFeast !=='default'){
-        return this.chosenFeast = 'default'
+      if(this.selectedItem.value !=='default'){
+        return this.selectedItem.value = 'default'
       }
     },
-    chosenFeast(newVal,oldVal){
+    selectedItem(newVal,oldVal){
       if(newVal==='default')return;
       if(this.curQueryObject!=='default'){
         return this.curQueryObject = 'default'
