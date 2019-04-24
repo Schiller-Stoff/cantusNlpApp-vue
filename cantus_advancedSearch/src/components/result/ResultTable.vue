@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid" :class="delayedDisplay">
       <h2>LO {{searchParams.chosenLO}}</h2>
-      <p>Zeitraum: {{ searchParams.chosenTimeFrame }}</p>
+      <p>{{timespanOrFeast}}</p>
       <p>Genre: {{ searchParams.chosenGenre}}</p>
       <hr>
       <br>
@@ -67,6 +67,14 @@
           refined.push({officeLabel:dataPoint.officelabel, res:dataPoint.res})
         }
         return refined;
+      },
+      timespanOrFeast(){
+        let feast = this.searchParams.chosenFeast
+        if(feast==='default'){
+          return "Gewählter Zeitraum: " + this.searchParams.chosenTimeFrame
+        } else {
+          return "Gewähltes Fest: " + feast
+        }
       }
     },
     watch: {
