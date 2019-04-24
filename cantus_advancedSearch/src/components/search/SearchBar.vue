@@ -140,7 +140,8 @@ export default {
       let searchParams = {
         chosenGenre:this.chosenGenre,
         chosenLO:this.chosenLO,
-        chosenTimeFrame:this.curQueryObject
+        chosenTimeFrame:this.curQueryObject,
+        chosenFeast: this.selectedFeast.text
         //TODO update searchParams --> chosenFeast now additionally added!
       }
       this.$store.dispatch('search_setSearchParamsAction',searchParams)
@@ -185,6 +186,7 @@ export default {
     curQueryObject(newVal,oldVal){
       if(newVal==='default')return;
       if(this.selectedFeast.value !=='default'){
+        this.selectedFeast.text = 'default'
         return this.selectedFeast.value = 'default'
       }
     },
