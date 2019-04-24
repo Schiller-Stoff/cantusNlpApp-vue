@@ -157,7 +157,7 @@ export default {
 
       // return different query when a feast is selected
       if(this.selectedFeast.value !== 'default'){
-        let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C%${this.selectedFeast.value}%22`
+        let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C${this.selectedFeast.value}`
         this.$store.dispatch('search_modifyCurSearchQueryAction',query)
         return query
       }
