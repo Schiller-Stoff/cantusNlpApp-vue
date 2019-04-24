@@ -142,7 +142,6 @@ export default {
         chosenLO:this.chosenLO,
         chosenTimeFrame:this.curQueryObject,
         chosenFeast: this.selectedFeast.text
-        //TODO update searchParams --> chosenFeast now additionally added!
       }
       this.$store.dispatch('search_setSearchParamsAction',searchParams)
 
