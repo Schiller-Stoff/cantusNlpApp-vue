@@ -87,6 +87,8 @@
     <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
     <p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>
 
+    <p>{{dataQuery}}</p>
+
     <div :class="fadeInAtEvent">
       <app-model-select :options="autoCompleteOptions" v-model="selectedFeast"></app-model-select>
       <p>Ausgewählte Feast-ID: {{selectedFeast.value}}</p>
@@ -123,6 +125,8 @@ export default {
         text:'default'
       },
 
+      feasts: [999999,88888,77777],
+
       autoCompleteOptions:autocompleteVals
 
 
@@ -132,7 +136,7 @@ export default {
     ...mapGetters({
       searchBarEnlarged: 'interfaceStates_currentSearchBarState',
       interfaceLocked: 'interfaceStates_currentSearchLockState',
-      searchParams: 'search_getSearchParams'
+      searchParams: 'search_getSearchParams',
     }),
 
     blazeGraphQuery(val){
@@ -168,6 +172,18 @@ export default {
       return buildQuery
 
 
+    },
+    dataQuery(){
+      let queryStart = `https://${this.server}/archive/objects/query:cantus.countgenre/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}%3B%242%7C`
+      for (let i = 0; i <this.feasts.length; i++) {
+        let feast = this.feasts[i]
+        if(i===0){
+          queryStart += `%7B%3Ffeast%20cantus%3AfeastCode%20%22${feast}%22%7D%20`
+        } else {
+          queryStart += `UNION%20%7B%3Ffeast%20cantus%3AfeastCode%20%22${feast}%22%7D%20`
+        }
+      }
+      return queryStart
     }
   },
   watch: {
