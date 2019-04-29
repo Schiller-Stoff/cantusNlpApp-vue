@@ -5,16 +5,19 @@
       <hr>
       <p>Hi! I'm the ResultPreviewCompare Component!</p>
       <app-bar-chart :chartData="refVizCompareData"></app-bar-chart>
+      <app-pie-chart :chart-data="refVizCompareData"></app-pie-chart>
     </div>
   </div>
 </template>
 
 <script>
   import BarChart from './../charts/BarChart'
+  import LineChart from './../charts/LineChart'
   export default {
     name: "ResultPreviewCompare",
     components: {
-      appBarChart: BarChart
+      appBarChart:BarChart,
+      appPieChart:LineChart
     },
     props: {
       vizCompareData: {
