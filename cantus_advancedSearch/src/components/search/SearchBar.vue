@@ -191,6 +191,7 @@ export default {
       searchBarEnlarged: 'interfaceStates_currentSearchBarState',
       interfaceLocked: 'interfaceStates_currentSearchLockState',
       searchParams: 'search_getSearchParams',
+      vizCompareQuery:'search_getVizCompareQuery'
     }),
 
     blazeGraphQuery(val){
