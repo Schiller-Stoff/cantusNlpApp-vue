@@ -1,20 +1,29 @@
 <template>
   <div class="container-fluid">
     <br>
-    <h4>Visualisierung des Suchverlaufs</h4>
-    <hr>
-    <!--<app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>-->
-    <!--<hr>-->
-    <!--<h5>LO - {{searchParams.chosenLO}}</h5>-->
-    <!--<h5>{{timespanOrFeast}}</h5>-->
-    <!--<h5>Genre: {{ searchParams.chosenGenre }}</h5>-->
-    <!--<hr>-->
-    <app-bar-chart v-if="curChartData" :chartData="refHistoVizData"></app-bar-chart>
-    <hr>
-    <br>
-    <hr>
-    <app-line-chart v-if="curChartData" :chartData="refHistoVizData"></app-line-chart>
-    <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
+    <div class="ResultPreview_headerIconContainer">
+      <i class="fas fa-arrows-alt-h"></i>
+      <h4>Visualisierung des Suchverlaufs</h4>
+    </div>
+    <div class="ResultPreview_histoViz">
+      <hr>
+      <!--<app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>-->
+      <!--<hr>-->
+      <!--<h5>LO - {{searchParams.chosenLO}}</h5>-->
+      <!--<h5>{{timespanOrFeast}}</h5>-->
+      <!--<h5>Genre: {{ searchParams.chosenGenre }}</h5>-->
+      <!--<hr>-->
+      <app-bar-chart v-if="curChartData" :chartData="refHistoVizData"></app-bar-chart>
+      <hr>
+      <br>
+      <hr>
+      <app-line-chart v-if="curChartData" :chartData="refHistoVizData"></app-line-chart>
+      <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
+    </div>
+
+    <div class="ResultPreview_compareViz">
+
+    </div>
   </div>
 </template>
 
@@ -57,6 +66,11 @@
       appLineChart: LineChart,
       appRadarChart: RadarChart
     },
+    data(){
+      return {
+        showHistoViz:true
+      }
+    },
     computed: {
       refHistoVizData(){
         let obj = {
@@ -98,6 +112,15 @@
   .container-fluid {
     //margin-top:3em;
     max-width: 30em;
+  }
+
+  .ResultPreview_headerIconContainer {
+    h4, i {
+      display: inline;
+    }
+    i {
+      font-size: 1.5em;
+    }
   }
 
 </style>
