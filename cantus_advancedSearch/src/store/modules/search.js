@@ -2,6 +2,7 @@
 
 const state = {
   curSearchQuery:'',
+  vizCompareQuery:'',
   searchParams:{
     chosenGenre:'',
     chosenLO:'',
@@ -39,8 +40,10 @@ const mutations = {
     for (let key of requiredKeys){
       if(!payload.hasOwnProperty(key))console.error(`InvalidState: given object to be pushed onto vuex's searchHistory array has not the property ${key} but is required. Given object was: ${payload}`)
     }
-
     state.searchHistory.push(payload)
+  },
+  'search_setVizCompareQuery'(state,payload){
+    state.vizCompareQuery = payload
   }
 }
 
@@ -62,6 +65,9 @@ const actions = {
   },
   'search_pushOntoSearchHistoryAction'({commit},payload){
     commit('search_pushOntoSearchHistory',payload)
+  },
+  'search_setVizCompareQueryAction'({commit},payload){
+    commit('search_setVizCompareQuery',payload)
   }
 }
 
@@ -83,6 +89,9 @@ const getters = {
   },
   'search_getSearchHistory'(state){
     return state.searchHistory
+  },
+  'search_getVizCompareQuery'(state){
+    return state.vizCompareQuery
   }
 }
 
