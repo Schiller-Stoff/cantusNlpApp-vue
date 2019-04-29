@@ -43,7 +43,7 @@
 
         for (let dp of this.vizCompareData){
           dataObj.label = "Genre";
-          obj.labels.push(dp.l)
+          obj.labels.push(dp.l.substring(dp.l.length,dp.l.length-12))
           dataObj.backgroundColor.push("blue") //TODO randomize color
           dataObj.data.push(dp.mitgenre)
         }
@@ -59,7 +59,7 @@
 
         for (let dp of this.vizCompareData){
           total.label = "Feste";
-          obj.labels.push(dp.l)
+          //obj.labels.push(1)      // avoid! -> will add further lables that are simply not needed
           total.backgroundColor.push("lightgrey") //TODO randomize color
           total.data.push(dp.gesamt)
         }
