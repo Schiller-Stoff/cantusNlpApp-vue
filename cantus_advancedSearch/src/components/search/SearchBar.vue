@@ -65,6 +65,7 @@
       <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
         <option selected value="default">Bitte wählen...</option>
         <option value="weihnachten">Weihnachten</option>
+        <option value="vorfastenzeit">Vorfastenzeit</option>
 
         <!--<option value="adventsonntage">Adventsonntage</option>-->
         <!--<option value="nachostern">Nachostern</option>-->
@@ -122,17 +123,21 @@ export default {
       server:'glossa.uni-graz.at',
       chosenGenre:'RP',
       chosenLO:'passau.ur',  //atm not in use
+
+      //needed for handling selection of timeframes -> like "pfingsten"
       curQueryObject:'weihnachten',  //for the times
+      timeFrames: {
+        weihnachten: ['02122400','02122500','02122600','02122700','02122800','05010600'],
+        vorfastenzeit: ['06011000','06021000','06031000','06034000']
+      },
+      feasts: ['02122400','02122500','02122600','02122700','02122800','05010600'], //TODO atm per standard filled with christmas feasts
+
+      //handling Einzelfest
       selectedFeast:{
         value:'default',
         text:'default'
       },
-
-      //TODO atm per standard filled with christmas feasts
-      feasts: ['02122400','02122500','02122600','02122700','02122800','05010600'],
-
       autoCompleteOptions:autocompleteVals
-
 
     }
   },
@@ -209,6 +214,17 @@ export default {
       }
     },
     curQueryObject(newVal,oldVal){
+      let curTimeFrame = this.timeFrames[this.curQueryObject]
+      if(curTimeFrame) {  //skip whnen curQueryObject is set to default
+        for (let i = 0; i < curTimeFrame.length; i++) {
+          if (i === 0) {
+            this.addToFeasts(curTimeFrame[i], false)
+          } else {
+            this.addToFeasts(curTimeFrame[i], true)
+          }
+        }
+      }
+
       if(newVal==='default')return;
       if(this.selectedFeast.value !=='default'){
         this.selectedFeast.text = 'default'
@@ -216,11 +232,12 @@ export default {
       }
     },
     selectedFeast(newVal, oldVal){
+      this.addToFeasts(this.selectedFeast.value,false)
       if(newVal==='default')return;
       if(this.curQueryObject!=='default'){
         return this.curQueryObject = 'default'
       }
-    }
+    },
   },
   methods: {
     ...mapActions({
@@ -266,6 +283,13 @@ export default {
       } else {
         this.unlockInterface()
       }
+    },
+    addToFeasts(feastNumbr, prependFlag = true){
+      if(!feastNumbr)return console.warn("No Feastnumber given to addToFeasts, but method was called.")
+      if(!prependFlag){
+        this.feasts.length = 0
+      }
+      this.feasts.push(feastNumbr)
     }
   }
 }
