@@ -9,8 +9,26 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   export default {
-    name: "ResultPreviewCompare"
+    name: "ResultPreviewCompare",
+    data(){
+      return {
+
+      }
+    },
+    computed: {
+      ...mapGetters({
+
+      }),
+    },
+    methods: {
+
+    },
+    created(){
+      // here send ajax=? for compare data?
+      // but only if no data is available? -> or searchParams are not the same.
+    }
   }
 </script>
 
