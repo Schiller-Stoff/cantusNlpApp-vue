@@ -125,7 +125,8 @@ export default {
         text:'default'
       },
 
-      feasts: [999999,88888,77777],
+      //TODO atm per standard filled with christmas feasts
+      feasts: ['02122400','02122500','02122600','02122700','02122800','05010600'],
 
       autoCompleteOptions:autocompleteVals
 
@@ -159,19 +160,25 @@ export default {
       //for resp.test
       if(this.chosenLO==='passau') return `https://${this.server}/archive/objects/query:resp.test/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}`;
 
-      // return different query when a feast is selected
-      if(this.selectedFeast.value !== 'default'){
+      // return correct query
+      // takes feasts numbers in "feasts" array and build correct SPARQL via string concatination
+      // a UNION triple-statement
+      if(this.feasts.length > 1){
+        let buildQuery = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C`
+        for (let i = 0; i < this.feasts.length; i++) {
+          if(i===0){
+            buildQuery += `%7B%3Ffeast%20cantus%3AfeastCode%20%22${this.feasts[i]}%22%7D`
+          } else {
+            buildQuery += `%20UNION%20%7B%3Ffeast%20cantus%3AfeastCode%20%22${this.feasts[i]}%22%7D`
+          }
+        }
+        this.$store.dispatch('search_modifyCurSearchQueryAction',buildQuery)
+        return buildQuery
+      } else {
         let query = `https://${this.server}/archive/objects/query:cantus.genres/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}%3B%243%7C%7B%3Ffeast%20cantus%3AfeastCode%20%22${this.selectedFeast.value}%22%7D`
         this.$store.dispatch('search_modifyCurSearchQueryAction',query)
         return query
       }
-
-      //standard query
-      let buildQuery = `https://${this.server}/archive/objects/query:cantus.${this.curQueryObject}/methods/sdef:Query/getJSON?params=%241%7C%3Chttps%3A%2F%2Fgams.uni-graz.at%2Fo%3Acantus.${this.chosenLO}%3E%3B%242%7C${this.chosenGenre}`
-      this.$store.dispatch('search_modifyCurSearchQueryAction',buildQuery)
-      return buildQuery
-
-
     },
     dataQuery(){
       let queryStart = `https://${this.server}/archive/objects/query:cantus.countgenre/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}%3B%242%7C`
