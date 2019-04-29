@@ -243,6 +243,7 @@ export default {
           queryStart += `UNION%20%7B%3Ffeast%20cantus%3AfeastCode%20%22${feast}%22%7D%20`
         }
       }
+      this.$store.dispatch('search_setVizCompareQueryAction',queryStart)
       return queryStart
     }
   },
