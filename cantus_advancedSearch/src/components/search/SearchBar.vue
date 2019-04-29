@@ -73,6 +73,8 @@
         <option value="sonntageNachPfingsten">Sonntage nach Pfingsten</option>
         <option value="communeSanctorum">Commune Sanctorum</option>
         <option value="adventSonntage">Adventsonntage</option>
+        <option value="adventQuatember">Adventquatember</option>
+        <option value="zeitImKirchenJahr">Zeit im Kirchenjahr</option>
 
         <!--<option value="adventsonntage">Adventsonntage</option>-->
         <!--<option value="nachostern">Nachostern</option>-->
@@ -142,7 +144,10 @@ export default {
         pfingsten: ['08081000','08081008','08081008','08082000','08082000','08083000','08083000','08084000','08084000','08085000','08085000','08086000','08086000','08087000','08087000'],
         sonntageNachPfingsten: ['09021000','09031000','09041000','09051000','09061000','09071000','09081000','09091000','09101000','09111000','09121000','09131000','09141000','09151000','09161000','09171000','09181000','09191000','09201000','09211000','09221000','09231000','09241000','09251000','09261000'],
         communeSanctorum:['12001000','12002000','12002100','12003000','12004000','12004100','12004700','12005000','12005200','12005100','12006000','12007000','12007200','12011000','12801000','12802000','12803000','12804000','12805000','12806000','12807000'],
-        adventSonntage:['01011000', '01021000', '01031000', '01041000']
+        adventSonntage:['01011000', '01021000', '01031000', '01041000'],
+        adventQuatember:['01034009', '01036009', '01037009'],
+        zeitImKirchenJahr:['04001000', '04002000', '04003000', '04004000', '04005000', '04006000', '04007000']
+
       },
       feasts: ['02122400','02122500','02122600','02122700','02122800','05010600'], //TODO atm per standard filled with christmas feasts
 
