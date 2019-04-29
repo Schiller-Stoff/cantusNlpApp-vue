@@ -9,13 +9,12 @@
 </template>
 
 <script>
-    export default {
-        name: "ResultPreviewCompare"
-    }
+  export default {
+    name: "ResultPreviewCompare"
+  }
 </script>
 
 <style scoped lang="scss">
-
 
 
 </style>
