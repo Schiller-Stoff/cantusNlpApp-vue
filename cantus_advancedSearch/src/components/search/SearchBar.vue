@@ -66,6 +66,7 @@
         <option selected value="default">Bitte wählen...</option>
         <option value="weihnachten">Weihnachten</option>
         <option value="vorfastenzeit">Vorfastenzeit</option>
+        <option value="fastenzeit">Fastenzeit</option>
 
         <!--<option value="adventsonntage">Adventsonntage</option>-->
         <!--<option value="nachostern">Nachostern</option>-->
@@ -128,7 +129,8 @@ export default {
       curQueryObject:'weihnachten',  //for the times
       timeFrames: {
         weihnachten: ['02122400','02122500','02122600','02122700','02122800','05010600'],
-        vorfastenzeit: ['06011000','06021000','06031000','06034000']
+        vorfastenzeit: ['06011000','06021000','06031000','06034000'],
+        fastenzeit: ['07011000','07012000','07013000','07014000','07015000','07016000','07017000','07018000','07021000','07022000','07023000','07024000','07025000','07026000','07027000','07028000','07031000','07032000','07033000','07034000','07035000','07036000','07037000','07038000','07041000','07042000','07043000','07044000','07045000','07046000','07047000','07048000','07051000','07052000','07053000','07054000','07055000','07056000','07057000','07058000','07061000','07062000','07062000','07063000','07063000','07064000','07064000'],
       },
       feasts: ['02122400','02122500','02122600','02122700','02122800','05010600'], //TODO atm per standard filled with christmas feasts
 
