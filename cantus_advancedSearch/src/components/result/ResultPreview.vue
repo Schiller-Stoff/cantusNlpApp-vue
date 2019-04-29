@@ -1,11 +1,11 @@
 <template>
   <div class="container-fluid" v-if="curChartData">
     <br>
-    <div class="ResultPreview_headerIconContainer">
-      <i class="fas fa-arrows-alt-h"></i>
-      <h4>Visualisierung des Suchverlaufs</h4>
-    </div>
-    <div class="ResultPreview_histoViz">
+    <div class="ResultPreview_histoViz" v-if="showHistoViz">
+      <div class="ResultPreview_headerIconContainer">
+        <i class="fas fa-arrows-alt-h" @click="showHistoViz = !showHistoViz"></i>
+        <h4>Visualisierung des Suchverlaufs</h4>
+      </div>
       <hr>
       <!--<app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>-->
       <!--<hr>-->
@@ -21,8 +21,11 @@
       <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
     </div>
 
-    <div class="ResultPreview_compareViz">
-
+    <div class="ResultPreview_compareViz" v-if="!showHistoViz">
+      <div class="ResultPreview_headerIconContainer">
+        <i class="fas fa-arrows-alt-h" @click="showHistoViz = !showHistoViz"></i>
+        <h4>Vergleichende Visualisierung</h4>
+      </div>
     </div>
   </div>
 </template>
@@ -120,6 +123,9 @@
     }
     i {
       font-size: 1.5em;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
