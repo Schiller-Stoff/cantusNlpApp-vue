@@ -9,6 +9,7 @@
       :searchParams="searchParams"
       :curChartData="curChartData"
       :vizHistoData="vizHistory"
+      :vizCompareData="vizCompareData.body"
       :key="1">
     </app-result-preview>
     <app-result-table
@@ -64,7 +65,8 @@
         searchFailed:'search_getSearchFailed',
         searchResult:'search_getSearchResult',
         searchParams:'search_getSearchParams',
-        searchHistory:'search_getSearchHistory'
+        searchHistory:'search_getSearchHistory',
+        vizCompareData:'viz_getVizCompareData'
       }),
       vizHistoData() {
         let vizArray = []

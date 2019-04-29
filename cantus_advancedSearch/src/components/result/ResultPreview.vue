@@ -59,6 +59,10 @@
           }
           return true;
         }
+      },
+      vizCompareData:{
+        required:true,
+        type:Object
       }
     },
     components: {
