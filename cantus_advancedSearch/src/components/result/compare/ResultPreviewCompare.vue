@@ -12,15 +12,21 @@
   import {mapGetters} from 'vuex'
   export default {
     name: "ResultPreviewCompare",
+    props: {
+      vizCompareData: {
+        required:true,
+        type:Array
+      }
+    },
     data(){
       return {
 
       }
     },
     computed: {
-      ...mapGetters({
+      refVizCompareData(){
 
-      }),
+      }
     },
     methods: {
 
