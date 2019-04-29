@@ -96,6 +96,7 @@
 
       </select>
     </div>
+    <button class="btn btn-secondary" @click="searchVizCompareData('viz_setVizCompareDataAction')">Query Compare Data</button>
 
     <h4 :class="fadeInAtEvent">Zeitraum oder Fest</h4>
 
@@ -319,6 +320,34 @@ export default {
       }).finally(_=>{
         this.$store.dispatch('search_markOngoingSearchAction', false)
       });
+    },
+    searchVizCompareData(vuexResultAction,vuexQueryParamsAction){
+
+      this.$store.dispatch('search_setSearchFailedAction',false)
+      this.$store.dispatch('search_markOngoingSearchAction', true)
+
+      //if in 10 secs no response fail
+      searchTimer = setTimeout(_=>{
+        this.$store.dispatch('search_setSearchFailedAction',true)
+        this.runningRequest.abort()
+      },10000)
+
+      this.$http.get(this.dataQuery, {
+        //vue resource specific: using above to cancel current request
+        before(request){
+          this.runningRequest = request
+        }
+      }).then(response => {
+        this.$store.dispatch(vuexResultAction,response)
+        //this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
+        clearTimeout(searchTimer)
+      },err => {
+        this.$store.dispatch('search_setSearchFailedAction',true)
+        clearTimeout(searchTimer)
+      }).finally(_=>{
+        this.$store.dispatch('search_markOngoingSearchAction', false)
+      });
+
     },
     toggleFullScreen(){
       EventBus.$emit('toggleFullScreen');   //todo remove! -> handle via vuex!
