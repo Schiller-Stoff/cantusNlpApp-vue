@@ -75,21 +75,6 @@
         <option value="adventSonntage">Adventsonntage</option>
         <option value="adventQuatember">Adventquatember</option>
         <option value="zeitImKirchenJahr">Zeit im Kirchenjahr</option>
-
-        <!--<option value="adventsonntage">Adventsonntage</option>-->
-        <!--<option value="nachostern">Nachostern</option>-->
-
-        <!--<option value="queryTriduumSacrum">Triduum Sacrum</option>-->
-        <!--<option value="queryNachOstern">Nachostern</option>-->
-        <!--<option value="queryPfingsten">Pfingsten</option>-->
-
-        <!--<option value="querySonntageNachPfingsten">Sonntage nach Pfingsten</option>-->
-        <!--<option value="queryCommuneSanctorum">Commune Sanctorum</option>-->
-        <!--<option value="queryAdventSonntage">Adventsonntage</option>-->
-
-        <!--<option value="queryAdventQuatember">Adventquatember</option>-->
-        <!--<option value="queryZeitImKirchenjahr">Zeit im Kirchenjahr</option>-->
-
       </select>
     </div>
 
