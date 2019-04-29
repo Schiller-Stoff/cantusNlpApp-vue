@@ -4,14 +4,18 @@
       <h4>Vergleichende Visualisierung</h4>
       <hr>
       <p>Hi! I'm the ResultPreviewCompare Component!</p>
+      <app-bar-chart :chartData="refVizCompareData"></app-bar-chart>
     </div>
   </div>
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
+  import BarChart from './../charts/BarChart'
   export default {
     name: "ResultPreviewCompare",
+    components: {
+      appBarChart: BarChart
+    },
     props: {
       vizCompareData: {
         required:true,
@@ -26,6 +30,26 @@
     computed: {
       refVizCompareData(){
 
+        let obj = {
+          labels: [],
+          datasets: []
+        }
+
+        let dataObj = {
+          label:'',
+          backgroundColor:[],
+          data: []
+        }
+
+        for (let dp of this.vizCompareData){
+          dataObj.label = "Feste";
+          obj.labels.push(dp.l)
+          dataObj.backgroundColor.push("red") //TODO randomize color
+          dataObj.data.push(dp.mitgenre)
+        }
+        obj.datasets.push(dataObj)
+
+        return obj;
       }
     },
     methods: {
