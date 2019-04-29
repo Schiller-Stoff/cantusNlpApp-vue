@@ -1,11 +1,12 @@
 <template>
   <div class="container-fluid" v-if="curChartData">
     <br>
+    <div class="ResultPreview_headerIconContainer">
+      <i class="fas fa-arrows-alt-h" @click="showHistoViz = !showHistoViz"></i>
+    </div>
+
     <div class="ResultPreview_histoViz" v-if="showHistoViz">
-      <div class="ResultPreview_headerIconContainer">
-        <i class="fas fa-arrows-alt-h" @click="showHistoViz = !showHistoViz"></i>
-        <h4>Visualisierung des Suchverlaufs</h4>
-      </div>
+      <h4>Visualisierung des Suchverlaufs</h4>
       <hr>
       <!--<app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>-->
       <!--<hr>-->
@@ -21,12 +22,8 @@
       <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
     </div>
 
-    <div class="ResultPreview_compareViz" v-if="!showHistoViz">
-      <div class="ResultPreview_headerIconContainer">
-        <i class="fas fa-arrows-alt-h" @click="showHistoViz = !showHistoViz"></i>
-        <h4>Vergleichende Visualisierung</h4>
-      </div>
-    </div>
+    <app-result-preview-compare v-if="!showHistoViz"></app-result-preview-compare>
+
   </div>
 </template>
 
@@ -35,6 +32,7 @@
   import BarChart from './charts/BarChart'
   import LineChart from './charts/LineChart'
   import RadarChart from './charts/RadarChart'
+  import ResultPreviewCompare from './compare/ResultPreviewCompare'
 
   export default {
     name: "ResultPreview",
@@ -67,7 +65,8 @@
       appPieChart: PieChart,
       appBarChart: BarChart,
       appLineChart: LineChart,
-      appRadarChart: RadarChart
+      appRadarChart: RadarChart,
+      appResultPreviewCompare: ResultPreviewCompare
     },
     data(){
       return {
@@ -115,18 +114,6 @@
   .container-fluid {
     //margin-top:3em;
     max-width: 30em;
-  }
-
-  .ResultPreview_headerIconContainer {
-    h4, i {
-      display: inline;
-    }
-    i {
-      font-size: 1.5em;
-      &:hover {
-        cursor: pointer;
-      }
-    }
   }
 
 </style>
