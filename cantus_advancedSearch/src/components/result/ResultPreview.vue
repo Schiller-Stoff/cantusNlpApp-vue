@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" v-if="curChartData">
     <br>
     <div class="ResultPreview_headerIconContainer">
       <i class="fas fa-arrows-alt-h"></i>
@@ -13,11 +13,11 @@
       <!--<h5>{{timespanOrFeast}}</h5>-->
       <!--<h5>Genre: {{ searchParams.chosenGenre }}</h5>-->
       <!--<hr>-->
-      <app-bar-chart v-if="curChartData" :chartData="refHistoVizData"></app-bar-chart>
+      <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
       <hr>
       <br>
       <hr>
-      <app-line-chart v-if="curChartData" :chartData="refHistoVizData"></app-line-chart>
+      <app-line-chart :chartData="refHistoVizData"></app-line-chart>
       <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
     </div>
 
