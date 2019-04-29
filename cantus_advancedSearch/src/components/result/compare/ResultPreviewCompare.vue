@@ -42,12 +42,28 @@
         }
 
         for (let dp of this.vizCompareData){
-          dataObj.label = "Feste";
+          dataObj.label = "Genre";
           obj.labels.push(dp.l)
-          dataObj.backgroundColor.push("red") //TODO randomize color
+          dataObj.backgroundColor.push("blue") //TODO randomize color
           dataObj.data.push(dp.mitgenre)
         }
         obj.datasets.push(dataObj)
+
+
+        // from here a second dataset is created with the total numbers
+        let total = {
+          label:'',
+          backgroundColor:[],
+          data: []
+        }
+
+        for (let dp of this.vizCompareData){
+          total.label = "Feste";
+          obj.labels.push(dp.l)
+          total.backgroundColor.push("lightgrey") //TODO randomize color
+          total.data.push(dp.gesamt)
+        }
+        obj.datasets.push(total)
 
         return obj;
       }
