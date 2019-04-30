@@ -122,12 +122,12 @@
 
 
     <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
+    <hr>
+    <!--<h4>Query for Zeiträume AND Einzelfeste</h4>-->
+    <!--<p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>-->
 
-    <h4>Query for Zeiträume AND Einzelfeste</h4>
-    <p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>
-
-    <h4>Data Query for the "vergleichende Visualisierung"</h4>
-    <p>{{dataQuery}}</p>
+    <!--<h4>Data Query for the "vergleichende Visualisierung"</h4>-->
+    <!--<p>{{dataQuery}}</p>-->
 
     <div :class="fadeInAtEvent">
       <app-model-select :options="autoCompleteOptions" v-model="selectedFeast"></app-model-select>
