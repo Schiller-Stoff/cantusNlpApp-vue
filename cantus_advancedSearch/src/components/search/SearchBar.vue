@@ -121,7 +121,7 @@
     </div>
 
 
-    <button @click.prevent="searchResp(chosenGenre)" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
+    <button @click.prevent="searchResp(chosenGenre);searchVizCompareData('viz_setVizCompareDataAction')" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
     <hr>
     <!--<h4>Query for Zeiträume AND Einzelfeste</h4>-->
     <!--<p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>-->
@@ -323,14 +323,14 @@ export default {
     },
     searchVizCompareData(vuexResultAction,vuexQueryParamsAction){
 
-      this.$store.dispatch('search_setSearchFailedAction',false)
-      this.$store.dispatch('search_markOngoingSearchAction', true)
+      //this.$store.dispatch('search_setSearchFailedAction',false)
+      //this.$store.dispatch('search_markOngoingSearchAction', true)
 
       //if in 10 secs no response fail
-      searchTimer = setTimeout(_=>{
-        this.$store.dispatch('search_setSearchFailedAction',true)
-        this.runningRequest.abort()
-      },10000)
+      // searchTimer = setTimeout(_=>{
+      //   //this.$store.dispatch('search_setSearchFailedAction',true)
+      //   this.runningRequest.abort()
+      // },10000)
 
       this.$http.get(this.dataQuery, {
         //vue resource specific: using above to cancel current request
@@ -340,12 +340,12 @@ export default {
       }).then(response => {
         this.$store.dispatch(vuexResultAction,response)
         //this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
-        clearTimeout(searchTimer)
+        //clearTimeout(searchTimer)
       },err => {
-        this.$store.dispatch('search_setSearchFailedAction',true)
-        clearTimeout(searchTimer)
+        //this.$store.dispatch('search_setSearchFailedAction',true)
+        //clearTimeout(searchTimer)
       }).finally(_=>{
-        this.$store.dispatch('search_markOngoingSearchAction', false)
+        //this.$store.dispatch('search_markOngoingSearchAction', false)
       });
 
     },
