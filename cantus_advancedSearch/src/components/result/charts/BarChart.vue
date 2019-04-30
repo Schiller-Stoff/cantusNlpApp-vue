@@ -3,14 +3,27 @@
   // CommitChart.js
   import {Bar} from 'vue-chartjs'
   let options = {
-    legend: {display:false},
+    legend: {
+      display:true
+    },
     responsive: true,
     maintainAspectRatio: false,
+    tooltips: {
+      //for displaying tooltips
+    },
     scales: { //hides the y axis
-      xAxes: [{
+      yAxes:[{
         display: true,
+        ticks:{
+          display:true,
+        }
+      }],
+      xAxes: [{
         ticks: {
-          display: false //this will remove only the label
+          display: false //this will remove only the label from tick
+          //callback: function(value, index, values) {      // with that we could hide the x-ticks when 4
+            //if (index <4) return value
+          //}
         },
         scaleLabel: {
           display: true,
