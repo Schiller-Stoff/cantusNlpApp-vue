@@ -70,7 +70,7 @@
             filterPlaceholder:"Suche",
             limit:"Zeilen:",
             page:"Page:",
-            noResults:"Leider keine Ergebnisse gefunden",
+            noResults:"Leider keine Ergebnisse",
             filterBy:"Filter by {column}",
             loading:'Laden...',
             defaultOption:'Select {column}',
