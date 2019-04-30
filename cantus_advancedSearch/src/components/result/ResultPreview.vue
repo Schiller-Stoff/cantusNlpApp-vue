@@ -9,15 +9,15 @@
       <h4>Visualisierung des Suchverlaufs</h4>
       <hr>
       <!--<app-pie-chart v-if="curChartData" :chartData="curChartData"></app-pie-chart>-->
-      <!--<hr>-->
-      <!--<h5>LO - {{searchParams.chosenLO}}</h5>-->
-      <!--<h5>{{timespanOrFeast}}</h5>-->
-      <!--<h5>Genre: {{ searchParams.chosenGenre }}</h5>-->
-      <!--<hr>-->
       <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
       <hr>
-      <br>
+      <div class="ResultPreview_searchParamsContainer">
+        <h5><em>Gewähltes LO: {{searchParams.chosenLO}}</em></h5>
+        <h5><em>{{timespanOrFeast}}</em></h5>
+        <h5><em>Gewähltes Genre: {{ searchParams.chosenGenre }}</em></h5>
+      </div>
       <hr>
+      <br>
       <app-line-chart :chartData="refHistoVizData"></app-line-chart>
       <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
     </div>
@@ -118,10 +118,21 @@
 </script>
 
 <style scoped lang="scss">
+  @import '/../../scss/globalVariables/globalVariables.scss';
+
+  em {
+    text-decoration: none;
+    font-weight: 600;
+  }
 
   .container-fluid {
-    //margin-top:3em;
     max-width: 30em;
+  }
+
+  .ResultPreview_searchParamsContainer {
+    background-color: $primaryColor;
+    padding: .25em;
+    border-radius: .5em;
   }
 
 </style>
