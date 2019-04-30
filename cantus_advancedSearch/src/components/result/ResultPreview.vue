@@ -12,7 +12,7 @@
       <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
       <hr>
       <div class="ResultPreview_searchParamsContainer">
-        <h5><em>Gewähltes LO: {{searchParams.chosenLO}}</em></h5>
+        <h5><em>Gewählter LO: {{searchParams.chosenLO}}</em></h5>
         <h5><em>{{timespanOrFeast}}</em></h5>
         <h5><em>Gewähltes Genre: {{ searchParams.chosenGenre }}</em></h5>
       </div>
