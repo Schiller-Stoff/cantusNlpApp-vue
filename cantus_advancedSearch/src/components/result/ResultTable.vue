@@ -62,7 +62,21 @@
         columns: ['Fest','Hora', 'Gattungsbez', 'Incipits','Referenz'],
         options: {
           // see the options API
-        }
+          texts: {
+            count:"Zeige {from} bis {to} von {count} Zeilen|{count} allen Zeilen|Einer Zeile",
+            first:'Erste',
+            last:'Letzte',
+            filter:"Filtern:",
+            filterPlaceholder:"Suche",
+            limit:"Zeilen:",
+            page:"Page:",
+            noResults:"Leider keine Ergebnisse gefunden",
+            filterBy:"Filter by {column}",
+            loading:'Laden...',
+            defaultOption:'Select {column}',
+            columns:'Spalten'
+          }
+        },
       }
     },
     computed: {
