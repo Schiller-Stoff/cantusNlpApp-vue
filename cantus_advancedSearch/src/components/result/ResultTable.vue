@@ -49,7 +49,7 @@
     data(){
       return {
         delayedDisplay:'hidden',
-        columns: ['officeLabel', 'res'],
+        columns: ['Fest','Offizien', 'Incipits'],
         options: {
           // see the options API
         }
@@ -64,7 +64,7 @@
         //TODO computed runs everytime when component created instead of re-ajaxed
         let refined = []
         for (let dataPoint of this.tableData){
-          refined.push({officeLabel:dataPoint.officelabel, res:dataPoint.res})
+          refined.push({Fest: dataPoint.feastname,Offizien:dataPoint.office, Incipits:dataPoint.incipit})
         }
         return refined;
       },
