@@ -90,9 +90,13 @@
           data: []
         }
 
+
+
         for (let dp of this.vizHistoData){
           dataObj.label = "Feste";
-          obj.labels.push(dp.labels[0])
+          let timeFrame = dp.searchParams.chosenFeast === "default" ? dp.searchParams.chosenTimeFrame : dp.searchParams.chosenFeast    // default behavior controlled by method timespanOrFeast
+          let singleLabel = `${dp.searchParams.chosenLO}, ${dp.searchParams.chosenGenre}, ${timeFrame}`
+          obj.labels.push(singleLabel)
           dataObj.backgroundColor.push(dp.datasets[0].backgroundColor[0])
           dataObj.data.push(dp.datasets[0].data[0])
         }

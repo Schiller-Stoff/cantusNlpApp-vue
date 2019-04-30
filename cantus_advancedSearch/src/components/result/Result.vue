@@ -100,6 +100,7 @@
         this.calcCurChartData()
 
         //push into history
+        this.curChartData.searchParams = this.searchParams
         this.vizHistory.push(this.curChartData)
       }
     },
