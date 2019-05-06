@@ -19,12 +19,12 @@
       :searchParams="searchParams">
     </app-result-table>
 
-    <app-result-card-grid
-      :key="3"
-      :search-history="searchHistory"
-      v-if="!showPreview && searchResult && !onGoingSearch && !searchFailed"
-    >
-    </app-result-card-grid>
+    <!--<app-result-card-grid-->
+      <!--:key="3"-->
+      <!--:search-history="searchHistory"-->
+      <!--v-if="!showPreview && searchResult && !onGoingSearch && !searchFailed"-->
+    <!--&gt;-->
+    <!--</app-result-card-grid>-->
 
     <app-result-load-handler
       v-if="onGoingSearch || searchFailed"
