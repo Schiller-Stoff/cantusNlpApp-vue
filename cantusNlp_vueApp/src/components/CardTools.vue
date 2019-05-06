@@ -14,22 +14,22 @@
     <div class="cantusNlp_iconContainer">
       <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'top');"><i class="fab fa-creative-commons-share"></i></div>
     </div>
-    <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" data-balloon="Lemma-Modus" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-stream"></i></div>
-    </div>
-    <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-tablet"></i></div>
-    </div>
-    <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="far fa-file-excel"></i></div>
-    </div>
+    <!--<div class="cantusNlp_iconContainer">-->
+      <!--<div class="cantusNlp_iconHolder" data-balloon="Lemma-Modus" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-stream"></i></div>-->
+    <!--</div>-->
+    <!--<div class="cantusNlp_iconContainer">-->
+      <!--<div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-tablet"></i></div>-->
+    <!--</div>-->
+    <!--<div class="cantusNlp_iconContainer">-->
+      <!--<div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="far fa-file-excel"></i></div>-->
+    <!--</div>-->
     <hr>
     <div>
+      <!--<div class="cantusNlp_iconContainer">-->
+        <!--<div @click="notify('Title','hi there!')" id="v-step-3" class="cantusNlp_iconHolder" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn"></i></div>-->
+      <!--</div>-->
       <div class="cantusNlp_iconContainer">
-        <div @click="notify('Title','hi there!')" id="v-step-3" class="cantusNlp_iconHolder" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn"></i></div>
-      </div>
-      <div class="cantusNlp_iconContainer">
-        <div class="cantusNlp_iconHolder" id="v-step-4" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
+        <div class="cantusNlp_iconHolder" id="v-step-3" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
       </div>
 
     </div>
@@ -101,17 +101,17 @@
                 placement: 'right'
               }
             },
+            // {
+            //   target: '#v-step-3',  // We're using document.querySelector() under the hood
+            //   content: `Dummy <strong>Cantus Voyant</strong>!`,
+            //   offset:document.documentElement.scrollTop-150,
+            //   duration:100,
+            //   params: {
+            //     placement: 'right'
+            //   }
+            // },
             {
               target: '#v-step-3',  // We're using document.querySelector() under the hood
-              content: `Dummy <strong>Cantus Voyant</strong>!`,
-              offset:document.documentElement.scrollTop-150,
-              duration:100,
-              params: {
-                placement: 'right'
-              }
-            },
-            {
-              target: '#v-step-4',  // We're using document.querySelector() under the hood
               content: `Hiermit können alle Karten <strong>gelöscht</strong> werden.`,
               offset:document.documentElement.scrollTop-150,
               duration:100,
