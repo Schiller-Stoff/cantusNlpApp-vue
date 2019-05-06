@@ -18,7 +18,7 @@
     <h4 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h4>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
 
-    <hr class="coloredHr" :class="fadeInAtEvent">
+    <!--<hr class="coloredHr" :class="fadeInAtEvent">-->
 
     <br>
     <h5 :class="fadeInAtEvent">Genre</h5>
@@ -96,7 +96,6 @@
 
       </select>
     </div>
-    <button class="btn btn-secondary" @click="searchVizCompareData('viz_setVizCompareDataAction')">Query Compare Data</button>
 
     <h4 :class="fadeInAtEvent">Zeitraum oder Fest</h4>
 
@@ -122,7 +121,6 @@
 
 
     <button @click.prevent="searchResp(chosenGenre);searchVizCompareData('viz_setVizCompareDataAction')" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
-    <hr>
     <!--<h4>Query for Zeiträume AND Einzelfeste</h4>-->
     <!--<p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>-->
 
