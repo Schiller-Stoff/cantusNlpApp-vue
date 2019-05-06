@@ -22,7 +22,7 @@
       <!--<app-radar-chart :chartData="refHistoVizData"></app-radar-chart>-->
     </div>
 
-    <app-result-preview-compare :vizCompareData="vizCompareData" v-if="!showHistoViz"></app-result-preview-compare>
+    <app-result-preview-compare :vizCompareData="vizCompareData" :searchParams="searchParams" v-if="!showHistoViz"></app-result-preview-compare>
 
   </div>
 </template>
