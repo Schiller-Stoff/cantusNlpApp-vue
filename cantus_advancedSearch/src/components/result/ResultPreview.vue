@@ -126,7 +126,7 @@
   }
 
   .container-fluid {
-    max-width: 30em;
+    max-width: 50em;
   }
 
   .ResultPreview_searchParamsContainer {
