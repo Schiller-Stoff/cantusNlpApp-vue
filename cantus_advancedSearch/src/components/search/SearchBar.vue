@@ -129,9 +129,11 @@
     <div :class="fadeInAtEvent">
       <p>...<em>einzelnes Fest</em>.</p>
       <app-model-select :options="autoCompleteOptions" v-model="selectedFeast"></app-model-select>
+      <br>
+      <button @click.prevent="searchResp(chosenGenre);searchVizCompareData('viz_setVizCompareDataAction')" class="btn btn-primary" :class="fadeInAtEvent">Suche starten</button>
     </div>
     <br :class="fadeInAtEvent">
-    <button @click.prevent="searchResp(chosenGenre);searchVizCompareData('viz_setVizCompareDataAction')" class="btn btn-primary" :class="fadeInAtEvent">Suche starten</button>
+
     <br :class="fadeInAtEvent">
     <br :class="fadeInAtEvent">
   </div>
