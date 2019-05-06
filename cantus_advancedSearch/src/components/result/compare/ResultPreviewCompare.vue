@@ -3,8 +3,14 @@
     <div class="ResultPreviewCompare_headerIconContainer">
       <h4>Vergleichende Visualisierung</h4>
       <hr>
-      <p>Hi! I'm the ResultPreviewCompare Component!</p>
       <app-bar-chart :chartData="refVizCompareData"></app-bar-chart>
+      <hr>
+      <div class="ResultPreviewCompare_searchParamsContainer">
+        <h5><em>Gewählter LO: Alle LO</em></h5>
+        <h5><em>{{timespanOrFeast()}}</em></h5>
+        <h5><em>Gewähltes Genre: {{ searchParams.chosenGenre }}</em></h5>
+      </div>
+      <hr>
       <app-pie-chart :chart-data="refVizCompareData"></app-pie-chart>
     </div>
   </div>
@@ -23,6 +29,10 @@
       vizCompareData: {
         required:true,
         type:Array
+      },
+      searchParams:{
+        required:true,
+        type:Object
       }
     },
     data(){
@@ -72,7 +82,14 @@
       }
     },
     methods: {
-
+      timespanOrFeast(){
+        let feast = this.searchParams.chosenFeast
+        if(feast==='default'){
+          return "Gewählter Zeitraum: " + this.searchParams.chosenTimeFrame
+        } else {
+          return "Gewähltes Fest: " + feast
+        }
+      }
     },
     created(){
       // here send ajax=? for compare data?
@@ -82,6 +99,17 @@
 </script>
 
 <style scoped lang="scss">
+  @import '../../../scss/globalVariables/globalVariables.scss';
 
+  .ResultPreviewCompare_searchParamsContainer {
+    background-color: $primaryColor;
+    padding: .25em;
+    border-radius: .5em;
+  }
+
+  em {
+    text-decoration: none;
+    font-weight: 600;
+  }
 
 </style>
