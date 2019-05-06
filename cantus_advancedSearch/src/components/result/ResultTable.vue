@@ -104,7 +104,6 @@
     watch: {
       searchBarEnlarged(newValue, oldValue) {
         if(this.searchBarEnlarged){
-          this.delayedDisplay = 'hidden'
         } else {
           this.delayedDisplay = ''
         }

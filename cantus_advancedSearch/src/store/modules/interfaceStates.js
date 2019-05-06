@@ -7,10 +7,10 @@ const state = {
 
 const mutations = {
   'interfaceStates_enlargeSearchBar'(state){
-    if(!state.searchBarLocked)state.searchBarEnlarged = true;
+    state.searchBarEnlarged = true;
   },
   'interfaceStates_minifySearchBar'(state){
-    if(!state.searchBarLocked)state.searchBarEnlarged = false;
+    state.searchBarEnlarged = false;
   },
   'interfaceStates_lockSearchbar'(state){
     state.searchBarLocked = true

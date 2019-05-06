@@ -5,7 +5,7 @@
       v-if="!searchResult && !onGoingSearch && !searchFailed">
     </app-result-default>
     <app-result-preview
-      v-if="showPreview && searchResult && !onGoingSearch && !searchFailed"
+      v-if="searchResult && !onGoingSearch && !searchFailed && !searchBarLocked"
       :searchParams="searchParams"
       :curChartData="curChartData"
       :vizHistoData="vizHistory"
@@ -13,7 +13,7 @@
       :key="1">
     </app-result-preview>
     <app-result-table
-      v-if="!showPreview && searchResult && !onGoingSearch && !searchFailed"
+      v-if="searchResult && !onGoingSearch && !searchFailed && searchBarLocked"
       :key="2"
       :tableData="searchResult.body"
       :searchParams="searchParams">
@@ -61,6 +61,7 @@
     computed: {
       ...mapGetters({
         searchBarEnlarged:'interfaceStates_currentSearchBarState',
+        searchBarLocked:'interfaceStates_currentSearchLockState',
         onGoingSearch:'search_getOngoingSearch',
         searchFailed:'search_getSearchFailed',
         searchResult:'search_getSearchResult',
@@ -79,17 +80,17 @@
     },
     watch: {
       searchBarEnlarged(newValue, oldValue) {
-        if(this.searchBarEnlarged){
+        /*if(this.searchBarEnlarged){
           if (!this.searchResult) return;
           curTimer = setTimeout(_ => {
             if (this.showPreview) this.showPreview = false;
             this.showPreview = true;
           }, 500)
         } else {
-          this.showPreview = false;
+          //this.showPreview = false;
           //clears delayed blend in via setTimeout
           clearTimeout(curTimer)
-        }
+        }*/
       },
       searchResult(){
         if(this.searchResult && this.searchBarEnlarged){

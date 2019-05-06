@@ -40,8 +40,6 @@
         markSearchMinfiedState: 'interfaceStatesAction_minifySearchBar'
       }),
       moveWidth() {
-        if (this.searchBarEnlarged || this.interfaceLocked) return;
-
         this.markSearchEnlargedState()
 
         this.$refs.first.classList.add('transition')
@@ -54,8 +52,6 @@
         this.$refs.second.classList.add('col-md-5')
       },
       restoreWidth() {
-        if (!this.searchBarEnlarged || this.interfaceLocked) return
-
         this.markSearchMinfiedState()
 
         this.$refs.first.classList.add('transition')
