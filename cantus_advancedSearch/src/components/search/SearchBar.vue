@@ -1,8 +1,5 @@
 <template>
   <div class="container-fluid">
-
-
-
     <div>
       <div class="searchBar_iconHolder"><i class="fas fa-home"></i></div>
       <div class="searchBar_iconHolder" :class="fadeInAtEvent">
@@ -18,12 +15,13 @@
     <h4 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h4>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
 
-    <!--<hr class="coloredHr" :class="fadeInAtEvent">-->
-
     <br>
     <h5 :class="fadeInAtEvent">Genre</h5>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
+
+    <hr :class="fadeInAtEvent">
+    <h4 :class="fadeInAtEvent">Suche</h4>
 
     <div class="input-group mb-3" :class="fadeInAtEvent">
       <div class="input-group-prepend">
@@ -97,11 +95,14 @@
       </select>
     </div>
 
-    <h4 :class="fadeInAtEvent">Zeitraum oder Fest</h4>
-
+    <br>
+    <div :class="fadeInAtEvent">
+      <!--<h4>Zeitraum oder Fest</h4>-->
+      <p>Wählen Sie einen <em>Zeitraum</em> oder ein...</p>
+    </div>
     <div class="input-group mb-3" :class="fadeInAtEvent">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect02">Zeitraum</label>
+        <!--<label class="input-group-text" for="inputGroupSelect02">Zeitraum</label>-->
       </div>
       <select v-model="curQueryObject" class="custom-select" id="inputGroupSelect02">
         <option selected value="default">Bitte wählen...</option>
@@ -120,18 +121,19 @@
     </div>
 
 
-    <button @click.prevent="searchResp(chosenGenre);searchVizCompareData('viz_setVizCompareDataAction')" class="btn btn-secondary" :class="fadeInAtEvent">Query Abfragen</button>
     <!--<h4>Query for Zeiträume AND Einzelfeste</h4>-->
     <!--<p :class="fadeInAtEvent">{{blazeGraphQuery}}</p>-->
 
     <!--<h4>Data Query for the "vergleichende Visualisierung"</h4>-->
     <!--<p>{{dataQuery}}</p>-->
-
     <div :class="fadeInAtEvent">
+      <p>...<em>einzelnes Fest</em>.</p>
       <app-model-select :options="autoCompleteOptions" v-model="selectedFeast"></app-model-select>
-      <p>Ausgewählte Feast-ID: {{selectedFeast.value}}</p>
     </div>
-
+    <br :class="fadeInAtEvent">
+    <button @click.prevent="searchResp(chosenGenre);searchVizCompareData('viz_setVizCompareDataAction')" class="btn btn-primary" :class="fadeInAtEvent">Suche starten</button>
+    <br :class="fadeInAtEvent">
+    <br :class="fadeInAtEvent">
   </div>
 
 
@@ -406,6 +408,11 @@ export default {
 
   input {
     background-color: $primaryColor;
+  }
+
+  em {
+    text-decoration: none;
+    font-weight: 600;
   }
 
 </style>
