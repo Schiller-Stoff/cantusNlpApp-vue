@@ -28,11 +28,11 @@
 </template>
 
 <script>
-  import PieChart from './charts/PieChart'
-  import BarChart from './charts/BarChart'
-  import LineChart from './charts/LineChart'
-  import RadarChart from './charts/RadarChart'
-  import ResultPreviewCompare from './compare/ResultPreviewCompare'
+  import PieChart from '../charts/PieChart'
+  import BarChart from '../charts/BarChart'
+  import LineChart from '../charts/LineChart'
+  import RadarChart from '../charts/RadarChart'
+  import ResultPreviewCompare from './ResultPreviewCompare'
 
   export default {
     name: "ResultPreview",
@@ -118,7 +118,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import '/../../scss/globalVariables/globalVariables.scss';
+  @import '../../../scss/globalVariables/globalVariables';
 
   em {
     text-decoration: none;

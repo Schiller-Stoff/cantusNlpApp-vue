@@ -42,7 +42,7 @@
   let curTimer;
   import {mapGetters} from 'vuex'
   import ResultTable from '../result/ResultTable'
-  import ResultPreview from './ResultPreview'
+  import ResultPreview from './compare/ResultPreview'
   import ResultDefault from './ResultDefault'
   import ResultCardGrid from './ResultCardGrid'
   import ResultLoadHandler from './ResultLoadHandler'
