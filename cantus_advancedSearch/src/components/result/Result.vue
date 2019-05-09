@@ -46,7 +46,7 @@
   import ResultDefault from './ResultDefault'
   import ResultCardGrid from './ResultCardGrid'
   import ResultLoadHandler from './ResultLoadHandler'
-  import ResultBarChart from './ResultBarChart'
+  import ResultBarChart from './compare/ResultBarChart'
 
   export default {
     name: "Result.vue",

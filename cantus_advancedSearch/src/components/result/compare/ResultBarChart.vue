@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import BarChart from './charts/BarChart'
+  import BarChart from '../charts/BarChart'
   import {mapGetters} from 'vuex'
 
   export default {
