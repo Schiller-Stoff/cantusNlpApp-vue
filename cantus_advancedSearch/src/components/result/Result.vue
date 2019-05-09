@@ -44,7 +44,7 @@
   import ResultTable from '../result/ResultTable'
   import ResultPreview from './compare/ResultPreview'
   import ResultDefault from './ResultDefault'
-  import ResultCardGrid from './ResultCardGrid'
+  import ResultCardGrid from './card/ResultCardGrid'
   import ResultLoadHandler from './ResultLoadHandler'
   import ResultBarChart from './compare/ResultBarChart'
 
