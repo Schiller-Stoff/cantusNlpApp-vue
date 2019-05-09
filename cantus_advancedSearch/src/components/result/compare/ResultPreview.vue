@@ -28,10 +28,10 @@
 </template>
 
 <script>
-  import PieChart from '../charts/PieChart'
-  import BarChart from '../charts/BarChart'
-  import LineChart from '../charts/LineChart'
-  import RadarChart from '../charts/RadarChart'
+  import PieChart from './charts/PieChart'
+  import BarChart from './charts/BarChart'
+  import LineChart from './charts/LineChart'
+  import RadarChart from './charts/RadarChart'
   import ResultPreviewCompare from './ResultPreviewCompare'
 
   export default {

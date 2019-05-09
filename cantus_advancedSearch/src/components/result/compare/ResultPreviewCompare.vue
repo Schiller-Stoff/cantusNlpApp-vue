@@ -17,8 +17,8 @@
 </template>
 
 <script>
-  import BarChart from './../charts/BarChart'
-  import LineChart from './../charts/LineChart'
+  import BarChart from './charts/BarChart'
+  import LineChart from './charts/LineChart'
   export default {
     name: "ResultPreviewCompare",
     components: {
