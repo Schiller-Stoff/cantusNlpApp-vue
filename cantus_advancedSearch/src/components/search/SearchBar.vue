@@ -323,21 +323,21 @@ export default {
       //   this.runningRequest.abort()
       // },10000)
 
-      this.$http.get(this.dataQuery, {
-        //vue resource specific: using above to cancel current request
-        before(request){
-          this.runningRequest = request
-        }
-      }).then(response => {
-        this.$store.dispatch(vuexResultAction,response)
-        //this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
-        //clearTimeout(searchTimer)
-      },err => {
-        //this.$store.dispatch('search_setSearchFailedAction',true)
-        //clearTimeout(searchTimer)
-      }).finally(_=>{
-        //this.$store.dispatch('search_markOngoingSearchAction', false)
-      });
+      // this.$http.get(this.dataQuery, {
+      //   //vue resource specific: using above to cancel current request
+      //   before(request){
+      //     this.runningRequest = request
+      //   }
+      // }).then(response => {
+      //   this.$store.dispatch(vuexResultAction,response)
+      //   //this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
+      //   //clearTimeout(searchTimer)
+      // },err => {
+      //   //this.$store.dispatch('search_setSearchFailedAction',true)
+      //   //clearTimeout(searchTimer)
+      // }).finally(_=>{
+      //   //this.$store.dispatch('search_markOngoingSearchAction', false)
+      // });
 
     },
     toggleFullScreen(){
