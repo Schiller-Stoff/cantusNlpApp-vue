@@ -46,7 +46,6 @@
   import ResultDefault from './ResultDefault'
   import ResultCardGrid from './card/ResultCardGrid'
   import ResultLoadHandler from './ResultLoadHandler'
-  import ResultBarChart from './compare/ResultBarChart'
 
   export default {
     name: "Result.vue",
@@ -110,8 +109,7 @@
       appResultTable: ResultTable,
       appResultDefault: ResultDefault,
       appResultCardGrid: ResultCardGrid,
-      appResultLoadHandler: ResultLoadHandler,
-      appResultBarChart: ResultBarChart
+      appResultLoadHandler: ResultLoadHandler
     },
     methods: {
       randomColor() {
