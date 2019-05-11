@@ -155,7 +155,7 @@
       <app-model-select :options="autoCompleteOptions" v-model="chosenFeast"></app-model-select>
       <br>
       <button
-              class="btn btn-primary">Suche starten
+              class="btn btn-primary" @click="initSearch">Suche starten
       </button>
     </div>
     <br>
@@ -167,9 +167,8 @@
 </template>
 
 <script>
-  //TODO: events --> startIncipitSearch / updateIncipitSearchParams? /
   //TODO: props? --> none needed?
-  //TODO: RESTRUCTURE: this component should pass in vlas to searchBar -> this then to Search (which does the ajax etc.)
+  //TODO: RESTRUCTURE: this component should pass in values to searchBar -> this then to Search (which does the ajax etc.)
 
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
@@ -191,13 +190,20 @@
     },
     computed: {
       incipitSearchParams(){
-        return {
+        let searchParams = {
           chosenLO: this.chosenLO,
           chosenGenre: this.chosenGenre,
           chosenHora: this.chosenHora,
           chosenTimeFrame: this.chosenTimeFrame,
           chosenFeast:this.chosenFeast
         }
+        this.$emit('incipitParamsUpdated',searchParams)
+        return searchParams
+      }
+    },
+    methods: {
+      initSearch(){
+        this.$emit('startIncipitSearch')
       }
     }
   }
