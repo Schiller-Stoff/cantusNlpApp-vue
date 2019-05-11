@@ -1,5 +1,9 @@
 <template>
 
+  <div class="container-fluid">
+    <p>TheSearchSwitch Component</p>
+  </div>
+
 </template>
 
 <script>
