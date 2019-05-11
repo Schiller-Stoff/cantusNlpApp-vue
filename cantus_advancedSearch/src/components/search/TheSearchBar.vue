@@ -150,7 +150,7 @@ import {EventBus} from "../../main";
 import { ModelSelect } from 'vue-search-select'
 import {autocompleteVals} from "../../data/autocompleteVals"
 import {timeFrames} from '../../data/timeFrameFeasts'
-import TheSearchSwitch from './searchBar/TheSearchSwitch'
+import TheSearchSwitch from './searchBar/TheSearchControl'
 
 let timer;
 let searchTimer;

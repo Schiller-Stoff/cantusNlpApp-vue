@@ -1,7 +1,7 @@
 <template>
 
   <div class="container-fluid">
-    <p>TheSearchSwitch Component</p>
+    <p>TheSearchControl Component</p>
   </div>
 
 </template>
