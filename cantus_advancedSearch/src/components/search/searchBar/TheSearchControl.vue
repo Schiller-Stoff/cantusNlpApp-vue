@@ -1,17 +1,61 @@
 <template>
-
   <div class="container-fluid">
-    <p>TheSearchControl Component</p>
+
+    <div class="TheSearchControl_inlineBar">
+      <div class="TheSearchControl_iconHolder"><i class="fas fa-home TheSearchControl_icons"></i></div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance">
+        <div class="TheSearchControl_iconHolder"><i class="fas fa-font TheSearchControl_icons"></i></div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="TheSearchControl_iconHolder"><i class="fas fa-search TheSearchControl_icons"
+                                                :class="reverseAnimatedAppearance"></i></div>
   </div>
 
 </template>
 
 <script>
-    export default {
-        name: "TheSearchSwitch"
+  export default {
+    name: "TheSearchSwitch",
+    props: {
+      showFull: {
+        type: Boolean,
+        required: true
+      }
+    },
+    computed: {
+      animatedAppearance() {
+        return this.showFull ? 'animated once fadeIn' : 'hidden'
+      },
+      reverseAnimatedAppearance() {
+        return this.showFull ? 'hidden' : 'animated once fadeIn'
+      }
     }
+  }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "../../../scss/globalVariables/globalVariables.scss";
 
+  .TheSearchControl_icons {
+    color: $secondaryColor;
+    font-size: 1.5em;
+    //margin-top: 1em;
+    margin-right: .5em;
+  }
+
+  .TheSearchControl_inlineBar {
+    div {
+      display: inline-block;
+    }
+    .TheSearchControl_iconHolder {
+      &:hover {
+        cursor: pointer;
+        i {
+          color: $fourthColor
+        }
+      }
+    }
+  }
 </style>
