@@ -1,6 +1,11 @@
 <template>
   <div class="container-fluid">
-    <app-the-search-control :showFull="searchBarEnlarged" class="container-fluid"></app-the-search-control>
+    <app-the-search-control
+      class="container-fluid"
+      :showFull="searchBarEnlarged"
+      @searchModeDemanded="toggleSearchMode($event)"
+
+    ></app-the-search-control>
 
 
 
@@ -153,6 +158,8 @@ export default {
   },
   data(){
     return {
+      showIncipitSearch:true,
+
       fadeInAtEvent: 'hidden',
       server:'glossa.uni-graz.at',
       chosenGenre:'RP',
@@ -351,6 +358,13 @@ export default {
         this.feasts.length = 0
       }
       this.feasts.push(feastNumbr)
+    },
+    toggleSearchMode(searchMode){
+
+      if(searchMode==='fullTextSearch')this.showIncipitSearch = false;
+
+      if(searchMode==='incipitSearch')this.showIncipitSearch = true;
+
     }
   }
 }

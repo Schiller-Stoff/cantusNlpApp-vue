@@ -3,8 +3,11 @@
 
     <div class="TheSearchControl_inlineBar">
       <div class="TheSearchControl_iconHolder"><i class="fas fa-home TheSearchControl_icons"></i></div>
-      <div class="searchBar_iconHolder" :class="animatedAppearance">
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('fullTextSearch')">
         <div class="TheSearchControl_iconHolder"><i class="fas fa-font TheSearchControl_icons"></i></div>
+      </div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('incipitSearch')">
+        <div class="TheSearchControl_iconHolder"><i class="fas fa-list-ol TheSearchControl_icons"></i></div>
       </div>
     </div>
 
@@ -35,6 +38,14 @@
       },
       reverseAnimatedAppearance() {
         return this.showFull ? 'hidden' : 'animated once fadeIn'
+      }
+    },
+    methods: {
+      demandSearchMode(newMode_str){
+        this.$emit('searchModeDemanded',newMode_str)
+      },
+      toggleFullScreen(){
+
       }
     }
   }
