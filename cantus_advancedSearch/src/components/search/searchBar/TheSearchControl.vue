@@ -46,7 +46,6 @@
   .TheSearchControl_icons {
     color: $secondaryColor;
     font-size: 1.5em;
-    //margin-top: 1em;
     margin-right: .5em;
   }
 
@@ -62,5 +61,9 @@
         }
       }
     }
+  }
+
+  hr {
+    border-color: $secondaryColor;
   }
 </style>

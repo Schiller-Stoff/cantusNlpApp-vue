@@ -359,12 +359,6 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/globalVariables/globalVariables";
 
-  .container-fluid {
-    margin: 0;
-    padding:.5em;
-    border: .1em solid $secondaryColor;
-  }
-
   h4 {
     color: $secondaryColor;
     margin-top: 2em;
