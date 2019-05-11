@@ -190,15 +190,18 @@
     },
     computed: {
       incipitSearchParams(){
-        let searchParams = {
+        return {
           chosenLO: this.chosenLO,
           chosenGenre: this.chosenGenre,
           chosenHora: this.chosenHora,
           chosenTimeFrame: this.chosenTimeFrame,
           chosenFeast:this.chosenFeast
         }
-        this.$emit('incipitParamsUpdated',searchParams)
-        return searchParams
+      }
+    },
+    watch: {
+      incipitSearchParams(){
+        this.$emit('incipitParamsUpdated',this.incipitSearchParams)
       }
     },
     methods: {
