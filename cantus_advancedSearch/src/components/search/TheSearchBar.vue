@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <app-the-search-switch></app-the-search-switch>
+    <app-the-search-control></app-the-search-control>
     <div>
       <div class="searchBar_iconHolder"><i class="fas fa-home"></i></div>
       <div class="searchBar_iconHolder" :class="fadeInAtEvent">
@@ -150,7 +150,7 @@ import {EventBus} from "../../main";
 import { ModelSelect } from 'vue-search-select'
 import {autocompleteVals} from "../../data/autocompleteVals"
 import {timeFrames} from '../../data/timeFrameFeasts'
-import TheSearchSwitch from './searchBar/TheSearchControl'
+import TheSearchControl from './searchBar/TheSearchControl'
 
 let timer;
 let searchTimer;
@@ -158,7 +158,7 @@ export default {
   name: "Search",
   components:{
     appModelSelect: ModelSelect,
-    appTheSearchSwitch: TheSearchSwitch
+    appTheSearchControl: TheSearchControl
   },
   data(){
     return {
