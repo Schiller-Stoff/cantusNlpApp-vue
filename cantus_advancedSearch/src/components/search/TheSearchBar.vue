@@ -3,7 +3,7 @@
     <app-the-search-control
       class="container-fluid"
       :showFull="searchBarEnlarged"
-      @searchModeDemanded="toggleSearchMode($event)"
+      @searchModeDemanded="switchSearchMode($event)"
 
     ></app-the-search-control>
 
@@ -359,7 +359,7 @@ export default {
       }
       this.feasts.push(feastNumbr)
     },
-    toggleSearchMode(searchMode){
+    switchSearchMode(searchMode){
 
       if(searchMode==='fullTextSearch')this.showIncipitSearch = false;
 
