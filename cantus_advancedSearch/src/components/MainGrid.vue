@@ -14,7 +14,7 @@
 <script>
   import {mapGetters} from 'vuex'
   import {mapActions} from 'vuex'
-  import SearchBar from './search/SearchBar'
+  import SearchBar from './search/TheSearchBar'
   import Result from './result/Result'
 
   export default {
