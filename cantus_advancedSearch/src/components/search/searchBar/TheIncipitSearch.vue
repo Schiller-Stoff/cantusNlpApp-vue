@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    <p>TheIncipitSearchComponent</p>
+  </div>
 </template>
 
 <script>

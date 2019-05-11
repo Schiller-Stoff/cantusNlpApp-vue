@@ -7,9 +7,7 @@
 
     ></app-the-search-control>
 
-    <app-the-search-help-text :class="fadeInAtEvent"></app-the-search-help-text>
-
-
+    <component :class="fadeInAtEvent" :is="searchBarMode"></component>
 
     <h4 :class="fadeInAtEvent">Suche</h4>
 
@@ -141,6 +139,8 @@ import {autocompleteVals} from "../../data/autocompleteVals"
 import {timeFrames} from '../../data/timeFrameFeasts'
 import TheSearchControl from './searchBar/TheSearchControl'
 import TheSearchHelpText from './searchBar/TheSearchHelpText'
+import TheIncipitSearch from './searchBar/TheIncipitSearch'
+import TheFullTextSearch from './searchBar/TheFullTextSearch'
 
 let timer;
 let searchTimer;
@@ -149,11 +149,13 @@ export default {
   components:{
     appModelSelect: ModelSelect,
     appTheSearchControl: TheSearchControl,
-    appTheSearchHelpText: TheSearchHelpText
+    appTheSearchHelpText: TheSearchHelpText,
+    appTheIncipitSearch: TheIncipitSearch,
+    appTheFullTextSearch: TheFullTextSearch
   },
   data(){
     return {
-      searchBarMode:'incipitSearch',
+      searchBarMode:'appTheSearchHelpText',
 
       fadeInAtEvent: 'hidden',
       server:'glossa.uni-graz.at',

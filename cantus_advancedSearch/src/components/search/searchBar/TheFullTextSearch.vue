@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    <p>TheFullTextSearch Component</p>
+  </div>
 </template>
 
 <script>
