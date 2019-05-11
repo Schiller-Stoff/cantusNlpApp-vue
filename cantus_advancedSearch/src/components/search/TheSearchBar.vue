@@ -1,18 +1,9 @@
 <template>
   <div class="container-fluid">
-    <app-the-search-control></app-the-search-control>
-    <div>
-      <div class="searchBar_iconHolder"><i class="fas fa-home"></i></div>
-      <div class="searchBar_iconHolder" :class="fadeInAtEvent">
-        <i @click="toggleFullScreen" class="far fa-window-maximize"></i>
-      </div>
-      <div @click="toggleInterfaceLock(true)" class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-lock"></i></div>
-      <div @click="toggleInterfaceLock(false)" class="searchBar_iconHolder" :class="fadeInAtEvent"><i class="fas fa-unlock"></i></div>
-    </div>
+    <app-the-search-control :showFull="searchBarEnlarged" class="container-fluid"></app-the-search-control>
 
-    <hr>
-    <i class="fas fa-search" :class="fadeInAtEvent === 'hidden' ? '' : 'hidden'"></i>
-    <br>
+
+
     <h4 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h4>
     <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
 
@@ -369,6 +360,8 @@ export default {
 @import "../../scss/globalVariables/globalVariables";
 
   .container-fluid {
+    margin: 0;
+    padding:.5em;
     border: .1em solid $secondaryColor;
   }
 
@@ -376,21 +369,6 @@ export default {
     color: $secondaryColor;
     margin-top: 2em;
     font-style: normal;
-  }
-
-  .searchBar_iconHolder {
-    display: inline-block;
-    &:hover {
-      cursor: pointer;
-      i {color: $fourthColor}
-      }
-  }
-
-  i {
-    color: $secondaryColor;
-    font-size: 1.5em;
-    margin-top: 1em;
-    margin-right: .75em;
   }
 
   p {
