@@ -40,6 +40,7 @@
         markSearchMinfiedState: 'interfaceStatesAction_minifySearchBar'
       }),
       moveWidth() {
+        if(this.searchBarEnlarged)return
         this.markSearchEnlargedState()
 
         this.$refs.first.classList.add('transition')
