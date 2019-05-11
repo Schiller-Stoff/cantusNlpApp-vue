@@ -167,9 +167,6 @@
 </template>
 
 <script>
-  //TODO: props? --> none needed?
-  //TODO: RESTRUCTURE: this component should pass in values to searchBar -> this then to Search (which does the ajax etc.)
-
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
 
