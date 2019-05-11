@@ -169,7 +169,7 @@
 <script>
   //TODO: events --> startIncipitSearch / updateIncipitSearchParams? /
   //TODO: props? --> none needed?
-  //TODO:
+  //TODO: RESTRUCTURE: this component should pass in vlas to searchBar -> this then to Search (which does the ajax etc.)
 
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
