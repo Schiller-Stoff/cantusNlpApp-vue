@@ -7,7 +7,12 @@
 
     ></app-the-search-control>
 
-    <component :class="fadeInAtEvent" :is="searchBarMode"></component>
+    <component
+      :class="fadeInAtEvent"
+      :is="searchBarMode"
+      @incipitParamsUpdated="logToConsole"
+      @startIncipitSearch="logToConsole"
+    ></component>
 
     <h4 :class="fadeInAtEvent">Suche</h4>
 
@@ -359,6 +364,9 @@ export default {
     switchSearchMode(searchMode){
       this.searchBarMode=searchMode
 
+    },
+    logToConsole(){
+      console.log("test method called!")
     }
   }
 }
