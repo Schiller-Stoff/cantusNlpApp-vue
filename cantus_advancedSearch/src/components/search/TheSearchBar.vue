@@ -7,17 +7,10 @@
 
     ></app-the-search-control>
 
+    <app-the-search-help-text :class="fadeInAtEvent"></app-the-search-help-text>
 
 
-    <h4 :class="fadeInAtEvent">Wilkommen zur erweiterten Suche von Cantus</h4>
-    <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
 
-    <br>
-    <h5 :class="fadeInAtEvent">Genre</h5>
-    <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-    <p :class="fadeInAtEvent">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-
-    <hr :class="fadeInAtEvent">
     <h4 :class="fadeInAtEvent">Suche</h4>
 
     <div class="input-group mb-3" :class="fadeInAtEvent">
@@ -147,6 +140,7 @@ import { ModelSelect } from 'vue-search-select'
 import {autocompleteVals} from "../../data/autocompleteVals"
 import {timeFrames} from '../../data/timeFrameFeasts'
 import TheSearchControl from './searchBar/TheSearchControl'
+import TheSearchHelpText from './searchBar/TheSearchHelpText'
 
 let timer;
 let searchTimer;
@@ -154,7 +148,8 @@ export default {
   name: "Search",
   components:{
     appModelSelect: ModelSelect,
-    appTheSearchControl: TheSearchControl
+    appTheSearchControl: TheSearchControl,
+    appTheSearchHelpText: TheSearchHelpText
   },
   data(){
     return {
