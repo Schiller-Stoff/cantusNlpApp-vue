@@ -16,6 +16,11 @@
 </template>
 
 <script>
+  //TODO: events: --> switching between fullText + incipitSearch / toogleFullscreen? / interfaceLocked?
+  //TODO  props? -->
+  //TODO : remove old/outdated functionality from TheSearchBar!
+
+
   export default {
     name: "TheSearchSwitch",
     props: {
