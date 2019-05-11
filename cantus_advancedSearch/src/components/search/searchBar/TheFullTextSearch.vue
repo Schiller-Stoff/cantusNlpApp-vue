@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>TheFullTextSearch Component</p>
+    <h4>Erweiterte Volltextsuche</h4>
   </div>
 </template>
 
