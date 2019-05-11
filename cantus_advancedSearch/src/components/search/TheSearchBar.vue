@@ -158,7 +158,7 @@ export default {
   },
   data(){
     return {
-      showIncipitSearch:true,
+      searchBarMode:'incipitSearch',
 
       fadeInAtEvent: 'hidden',
       server:'glossa.uni-graz.at',
@@ -360,10 +360,7 @@ export default {
       this.feasts.push(feastNumbr)
     },
     switchSearchMode(searchMode){
-
-      if(searchMode==='fullTextSearch')this.showIncipitSearch = false;
-
-      if(searchMode==='incipitSearch')this.showIncipitSearch = true;
+      this.searchBarMode=searchMode
 
     }
   }

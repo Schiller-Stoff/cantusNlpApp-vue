@@ -9,6 +9,9 @@
       <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('incipitSearch')">
         <div class="TheSearchControl_iconHolder"><i class="fas fa-list-ol TheSearchControl_icons"></i></div>
       </div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('help')">
+        <div class="TheSearchControl_iconHolder"><i class="far fa-question-circle TheSearchControl_icons"></i></div>
+      </div>
     </div>
 
     <hr>
