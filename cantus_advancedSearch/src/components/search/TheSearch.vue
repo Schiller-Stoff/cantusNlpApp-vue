@@ -1,8 +1,8 @@
 <template>
   <div>
     <app-the-search-bar
-      @routed_startIncipitSearch="logToConsole($event);searchIncipit()"
-      @routed_incipitParamsUpdated="logToConsole($event);saveIncipitSearchData($event)"
+      @routed_startIncipitSearch="searchIncipit()"
+      @routed_incipitParamsUpdated="saveIncipitSearchData($event)"
       :searchBarEnlarged="searchBarEnlarged"
     ></app-the-search-bar>
 
