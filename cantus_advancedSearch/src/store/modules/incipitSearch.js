@@ -1,7 +1,7 @@
 
 
 const state = {
-  curSearchQuery:'',
+  incipitQuery:'',
   vizCompareQuery:'',
   searchParams:{
     chosenGenre:'',
@@ -16,7 +16,7 @@ const state = {
 
 const mutations = {
   'search_modifyCurSearchQuery'(state,payload){
-    state.curSearchQuery = payload
+    state.incipitQuery = payload
   },
   'search_setSearchParams'(state,payload){
     let requiredKeys = ['chosenGenre','chosenLO','chosenTimeFrame']
@@ -73,7 +73,7 @@ const actions = {
 
 const getters = {
   'search_getCurSearchQuery'(state){
-    return state.curSearchQuery
+    return state.incipitQuery
   },
   'search_getSearchParams'(state){
     return state.searchParams
