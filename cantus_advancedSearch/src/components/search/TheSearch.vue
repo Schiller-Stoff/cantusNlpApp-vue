@@ -101,7 +101,7 @@
       },
       searchIncipit(){
         this.$store.dispatch('search_setSearchFailedAction',false)
-        this.$store.dispatch('search_markOngoingSearchAction', true)
+        this.$store.dispatch('incipit_markOngoingSearchAction', true)
 
         //if in 10 secs no response fail
         incipitSearchTimer = setTimeout(_=>{
@@ -125,7 +125,7 @@
           this.$store.dispatch('search_setSearchFailedAction',true)
           clearTimeout(incipitSearchTimer)
         }).finally(_=>{
-          this.$store.dispatch('search_markOngoingSearchAction', false)
+          this.$store.dispatch('incipit_markOngoingSearchAction', false)
         });
       },
 

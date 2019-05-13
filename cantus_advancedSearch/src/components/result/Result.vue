@@ -61,7 +61,7 @@
       ...mapGetters({
         searchBarEnlarged:'interfaceStates_currentSearchBarState',
         searchBarLocked:'interfaceStates_currentSearchLockState',
-        onGoingSearch:'search_getOngoingSearch',
+        onGoingSearch:'incipit_getOngoingSearch',
         searchFailed:'search_getSearchFailed',
         searchResult:'search_getSearchResult',
         searchParams:'incipit_getSearchParams',
