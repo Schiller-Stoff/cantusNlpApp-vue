@@ -59,7 +59,7 @@ const actions = {
     commit('incipit_toggleSearchFailed',payload)
   },
   'incipit_pushOntoSearchHistoryAction'({commit},payload){
-    commit('search_pushOntoSearchHistory',payload)
+    commit('incipit_pushOntoSearchHistory',payload)
   },
   // 'search_setVizCompareQueryAction'({commit},payload){
   //   commit('search_setVizCompareQuery',payload)
