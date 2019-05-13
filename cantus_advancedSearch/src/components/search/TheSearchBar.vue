@@ -24,7 +24,7 @@ import TheFullTextSearch from './searchBar/TheFullTextSearch'
 
 let timer;
 export default {
-  name: "Search",
+  name: "TheSearchBar",
   components:{
     appTheSearchControl: TheSearchControl,
     appTheSearchHelpText: TheSearchHelpText,
