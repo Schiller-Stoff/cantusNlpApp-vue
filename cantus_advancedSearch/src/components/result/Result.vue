@@ -65,12 +65,12 @@
         searchFailed:'incipit_getSearchFailed',
         incipitSearchResult:'incipit_getSearchResult',
         incipitSearchParams:'incipit_getSearchParams',
-        searchHistory:'incipit_getSearchHistory',
+        incipitSearchHistory:'incipit_getSearchHistory',
         vizCompareData:'viz_getVizCompareData'
       }),
       vizHistoData() {
         let vizArray = []
-        for (let data of this.searchHistory){
+        for (let data of this.incipitSearchHistory){
           let toPush= {searchParams:data.incipitSearchParams, lengthCount:data.response.body.length}
           vizArray.push(toPush)
         }
