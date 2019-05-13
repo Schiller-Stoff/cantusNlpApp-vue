@@ -11,11 +11,12 @@
 </template>
 
 <script>
-  //TODO split functionality between TheSearch component (ajax etc.) and TheSearchBar (gui etc.)
-  //TODO think about event emiting / handling and props
-  //TODO implement incipitSearch
+  //TODO split functionality between TheSearch component (ajax /query building etc.) and TheSearchBar (gui etc.)
+  //TODO URI DECODING IN JS
+  //TODO implement incipitSearch 1.Correctly display query in <p> 2.Implement correct ajax request 3.correct Vuex transfer to the result components
 
   import TheSearchBar from './TheSearchBar'
+  let incipitSearchTimer;
 
   export default {
     name: "TheSearch",
@@ -82,6 +83,33 @@
 
       saveIncipitSearchData(data){
         this.incipitSearchParams = data
+      },
+      searchIncipit(){
+        //this.$store.dispatch('search_setSearchFailedAction',false)
+        //this.$store.dispatch('search_markOngoingSearchAction', true)
+
+        //if in 10 secs no response fail
+        incipitSearchTimer = setTimeout(_=>{
+          //this.$store.dispatch('search_setSearchFailedAction',true)
+          this.runningRequest.abort()
+        },10000)
+
+        //let vuexSearchQuery = this.$store.getters.search_getCurSearchQuery
+        this.$http.get(this.incipitQuery, {
+          //vue resource specific: using above to cancel current request
+          before(request){
+            this.runningRequest = request
+          }
+        }).then(response => {
+          //this.$store.dispatch('search_setSearchResultAction',response)
+          //this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
+          clearTimeout(incipitSearchTimer)
+        },err => {
+          //this.$store.dispatch('search_setSearchFailedAction',true)
+          clearTimeout(incipitSearchTimer)
+        }).finally(_=>{
+          //this.$store.dispatch('search_markOngoingSearchAction', false)
+        });
       }
 
     }
