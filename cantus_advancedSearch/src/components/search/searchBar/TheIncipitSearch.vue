@@ -169,6 +169,7 @@
 <script>
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
+  import {timeFrames} from '../../../data/timeFrameFeasts'
 
   export default {
     name: "TheIncipitSearch",
@@ -177,12 +178,13 @@
     },
     data(){
       return {
-        chosenLO:'',
-        chosenGenre:'',
+        chosenLO:'passau.ur',
+        chosenGenre:'RP',
         chosenHora:'',
         chosenTimeFrame:'',
         chosenFeast:'',
-        autoCompleteOptions:autocompleteVals
+        autoCompleteOptions:autocompleteVals,
+        timeFrames
       }
     },
     computed: {
@@ -191,7 +193,7 @@
           chosenLO: this.chosenLO,
           chosenGenre: this.chosenGenre,
           chosenHora: this.chosenHora,
-          chosenTimeFrame: this.chosenTimeFrame,
+          chosenTimeFrame: this.timeFrames[this.chosenTimeFrame],
           chosenFeast:this.chosenFeast
         }
       }
