@@ -5,9 +5,6 @@
       @routed_incipitParamsUpdated="saveIncipitSearchData($event)"
       :searchBarEnlarged="searchBarEnlarged"
     ></app-the-search-bar>
-
-    <p>{{incipitQuery}}</p>
-
   </div>
 </template>
 
