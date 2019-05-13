@@ -76,7 +76,7 @@
           `$1|<https://gams.uni-graz.at/o:cantus.${this.incipitSearchParams.chosenLO}>;` +
           `$2|${this.incipitSearchParams.chosenGenre};` +
           `$3|${this.incipitSearchParams.chosenHora};` +
-          `$4|${this.incipitSearchParams.chosenFeast}.`
+          `$4|${this.incipitSearchParams.chosenFeasts}`
 
         return this.encodeUri(queryStart + queryParams)
       }

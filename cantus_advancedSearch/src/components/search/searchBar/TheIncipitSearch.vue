@@ -107,7 +107,7 @@
     <div class="input-group mb-3">
       <div class="input-group-prepend">
       </div>
-      <select v-model="chosenTimeFrame" class="custom-select" id="inputGroupSelect04">
+      <select v-model="chosenFeasts" class="custom-select" id="inputGroupSelect04">
         <option selected value="default">Bitte wählen...</option>
         <option value="weihnachten">Weihnachten</option>
         <option value="vorfastenzeit">Vorfastenzeit</option>
@@ -125,7 +125,7 @@
 
     <div>
       <p>...<em>einzelnes Fest</em>.</p>
-      <app-model-select :options="autoCompleteOptions" v-model="chosenFeast"></app-model-select>
+      <app-model-select :options="autoCompleteOptions" v-model="chosenFeasts"></app-model-select>
       <br>
       <button
               class="btn btn-primary" @click="initSearch">Suche starten
@@ -140,9 +140,6 @@
 </template>
 
 <script>
-
-  //TODO only timeFrame OR individual feast should be selectable -> return 'default'?
-
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
   import {timeFrames} from '../../../data/timeFrameFeasts'
@@ -156,22 +153,28 @@
       return {
         chosenLO:'passau.ur',
         chosenGenre:'RP',
-        chosenHora:'',
-        chosenTimeFrame:'',
-        chosenFeast:'',
+        chosenHora:'C',
+        chosenFeasts:'weihnachten',
         autoCompleteOptions:autocompleteVals,
         timeFrames
       }
     },
     computed: {
       incipitSearchParams(){
-        return {
+
+        let params = {
           chosenLO: this.chosenLO,
           chosenGenre: this.chosenGenre,
           chosenHora: this.chosenHora,
-          chosenTimeFrame: this.timeFrames[this.chosenTimeFrame],
-          chosenFeast:this.chosenFeast
+          chosenFeasts:''
         }
+
+        // chosen Feasts is can be multiple feasts (from one dropdown) OR
+        // just one (selected via the other dropdown)
+        let selTimeFrame = this.timeFrames[this.chosenFeasts]
+        params.chosenFeasts = selTimeFrame ? selTimeFrame : this.chosenFeasts
+
+        return params
       }
     },
     watch: {
