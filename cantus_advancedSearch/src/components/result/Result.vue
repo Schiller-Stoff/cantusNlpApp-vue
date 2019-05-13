@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <app-result-default
       :key="0"
-      v-if="!incipitSearchResult && !onGoingSearch && !searchFailed">
+      v-if="!incipitSearchResult && !onGoingSearch && !incipitSearchFailed">
     </app-result-default>
     <app-result-preview
-      v-if="incipitSearchResult && !onGoingSearch && !searchFailed && !searchBarLocked"
+      v-if="incipitSearchResult && !onGoingSearch && !incipitSearchFailed && !searchBarLocked"
       :searchParams="incipitSearchParams"
       :curChartData="curChartData"
       :vizHistoData="vizHistory"
@@ -13,7 +13,7 @@
       :key="1">
     </app-result-preview>
     <app-result-table
-      v-if="incipitSearchResult && !onGoingSearch && !searchFailed && searchBarLocked"
+      v-if="incipitSearchResult && !onGoingSearch && !incipitSearchFailed && searchBarLocked"
       :key="2"
       :tableData="incipitSearchResult.body"
       :searchParams="incipitSearchParams">
@@ -27,9 +27,9 @@
     <!--</app-result-card-grid>-->
 
     <app-result-load-handler
-      v-if="onGoingSearch || searchFailed"
+      v-if="onGoingSearch || incipitSearchFailed"
       :key="4"
-      :searchFailed="searchFailed"
+      :searchFailed="incipitSearchFailed"
     >
     </app-result-load-handler>
 
@@ -62,7 +62,7 @@
         searchBarEnlarged:'interfaceStates_currentSearchBarState',
         searchBarLocked:'interfaceStates_currentSearchLockState',
         onGoingSearch:'incipit_getOngoingSearch',
-        searchFailed:'incipit_getSearchFailed',
+        incipitSearchFailed:'incipit_getSearchFailed',
         incipitSearchResult:'incipit_getSearchResult',
         incipitSearchParams:'incipit_getSearchParams',
         incipitSearchHistory:'incipit_getSearchHistory',
