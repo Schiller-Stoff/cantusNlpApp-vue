@@ -2,21 +2,21 @@
   <div class="container-fluid">
     <app-result-default
       :key="0"
-      v-if="!searchResult && !onGoingSearch && !searchFailed">
+      v-if="!incipitSearchResult && !onGoingSearch && !searchFailed">
     </app-result-default>
     <app-result-preview
-      v-if="searchResult && !onGoingSearch && !searchFailed && !searchBarLocked"
-      :searchParams="searchParams"
+      v-if="incipitSearchResult && !onGoingSearch && !searchFailed && !searchBarLocked"
+      :searchParams="incipitSearchParams"
       :curChartData="curChartData"
       :vizHistoData="vizHistory"
       :vizCompareData="vizCompareData.body"
       :key="1">
     </app-result-preview>
     <app-result-table
-      v-if="searchResult && !onGoingSearch && !searchFailed && searchBarLocked"
+      v-if="incipitSearchResult && !onGoingSearch && !searchFailed && searchBarLocked"
       :key="2"
-      :tableData="searchResult.body"
-      :searchParams="searchParams">
+      :tableData="incipitSearchResult.body"
+      :searchParams="incipitSearchParams">
     </app-result-table>
 
     <!--<app-result-card-grid-->
@@ -63,15 +63,15 @@
         searchBarLocked:'interfaceStates_currentSearchLockState',
         onGoingSearch:'incipit_getOngoingSearch',
         searchFailed:'incipit_getSearchFailed',
-        searchResult:'incipit_getSearchResult',
-        searchParams:'incipit_getSearchParams',
+        incipitSearchResult:'incipit_getSearchResult',
+        incipitSearchParams:'incipit_getSearchParams',
         searchHistory:'incipit_getSearchHistory',
         vizCompareData:'viz_getVizCompareData'
       }),
       vizHistoData() {
         let vizArray = []
         for (let data of this.searchHistory){
-          let toPush= {searchParams:data.searchParams, lengthCount:data.response.body.length}
+          let toPush= {searchParams:data.incipitSearchParams, lengthCount:data.response.body.length}
           vizArray.push(toPush)
         }
         return vizArray
@@ -91,8 +91,8 @@
           clearTimeout(curTimer)
         }*/
       },
-      searchResult(){
-        if(this.searchResult && this.searchBarEnlarged){
+      incipitSearchResult(){
+        if(this.incipitSearchResult && this.searchBarEnlarged){
           this.showPreview = true
         }
         // set viz Data
@@ -100,7 +100,7 @@
         this.calcCurChartData()
 
         //push into history
-        this.curChartData.searchParams = this.searchParams
+        this.curChartData.searchParams = this.incipitSearchParams
         this.vizHistory.push(this.curChartData)
       }
     },
@@ -123,12 +123,12 @@
       calcCurDiagramData(){
         // set viz Data
         let genreTotal_int = this.getLOGenreTotal()
-        let resultCount = this.searchResult.body.length
+        let resultCount = this.incipitSearchResult.body.length
         let genreRest = genreTotal_int - resultCount
         let vizObj = {
           label:'Feste',
           backgroundColor: [],
-          data: [this.searchResult.body.length, genreRest]
+          data: [this.incipitSearchResult.body.length, genreRest]
         }
         for (let dp of vizObj.data){
           vizObj.backgroundColor.push(this.randomColor())
@@ -137,13 +137,13 @@
       },
       calcCurChartData(){
         this.curChartData = {
-          labels:[this.searchParams.chosenGenre, 'Rest'],
+          labels:[this.incipitSearchParams.chosenGenre, 'Rest'],
           datasets: [this.curDiagramData]
         }
       },
       getLOGenreTotal(){
         let genreTotal;
-        let searchedLO = this.searchParams.chosenLO
+        let searchedLO = this.incipitSearchParams.chosenLO
         switch (searchedLO){
           case 'salzburg.ur':
             genreTotal = 477;
