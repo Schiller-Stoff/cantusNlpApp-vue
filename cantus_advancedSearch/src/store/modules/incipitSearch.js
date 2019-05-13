@@ -12,7 +12,7 @@ const state = {
   incipitSearchResult:undefined,
   incipitOngoingSearch: false,
   incipitSearchFailed:false,
-  searchHistory:[]
+  incipitSearchHistory:[]
 }
 
 const mutations = {
@@ -33,12 +33,12 @@ const mutations = {
   'incipit_toggleSearchFailed'(state,payload = !state.incipitSearchFailed){
     state.incipitSearchFailed = payload
   },
-  'search_pushOntoSearchHistory'(state,payload){
+  'incipit_pushOntoSearchHistory'(state,payload){
     let requiredKeys = ['response','searchParams']
     for (let key of requiredKeys){
       if(!payload.hasOwnProperty(key))console.error(`InvalidState: given object to be pushed onto vuex's searchHistory array has not the property ${key} but is required. Given object was: ${payload}`)
     }
-    state.searchHistory.push(payload)
+    state.incipitSearchHistory.push(payload)
   },
   // 'search_setVizCompareQuery'(state,payload){
   //   state.vizCompareQuery = payload
@@ -58,7 +58,7 @@ const actions = {
   'incipit_setSearchFailedAction'({commit},payload){
     commit('incipit_toggleSearchFailed',payload)
   },
-  'search_pushOntoSearchHistoryAction'({commit},payload){
+  'incipit_pushOntoSearchHistoryAction'({commit},payload){
     commit('search_pushOntoSearchHistory',payload)
   },
   // 'search_setVizCompareQueryAction'({commit},payload){
@@ -79,8 +79,8 @@ const getters = {
   'incipit_getSearchFailed'(state){
     return state.incipitSearchFailed
   },
-  'search_getSearchHistory'(state){
-    return state.searchHistory
+  'incipit_getSearchHistory'(state){
+    return state.incipitSearchHistory
   },
   // 'search_getVizCompareQuery'(state){
   //   return state.vizCompareQuery

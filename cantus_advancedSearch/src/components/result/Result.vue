@@ -65,7 +65,7 @@
         searchFailed:'incipit_getSearchFailed',
         searchResult:'incipit_getSearchResult',
         searchParams:'incipit_getSearchParams',
-        searchHistory:'search_getSearchHistory',
+        searchHistory:'incipit_getSearchHistory',
         vizCompareData:'viz_getVizCompareData'
       }),
       vizHistoData() {
