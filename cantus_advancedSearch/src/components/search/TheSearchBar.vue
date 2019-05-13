@@ -14,6 +14,9 @@
       @startIncipitSearch="logToConsole;routeEvent($event,'startIncipitSearch')"
     ></component>
 
+    <button class="btn btn-primary" @click="toggleInterfaceLock(true)">lock</button>
+    <button class="btn btn-primary" @click="toggleInterfaceLock(false)">unlock</button>
+
     <h4 :class="fadeInAtEvent">Suche</h4>
 
     <div class="input-group mb-3" :class="fadeInAtEvent">
