@@ -10,8 +10,8 @@
     <component
       :class="fadeInAtEvent"
       :is="searchBarMode"
-      @incipitParamsUpdated="logToConsole"
-      @startIncipitSearch="logToConsole"
+      @incipitParamsUpdated="logToConsole;routeEvent($event,'incipitParamsUpdated')"
+      @startIncipitSearch="logToConsole;routeEvent($event,'startIncipitSearch')"
     ></component>
 
     <h4 :class="fadeInAtEvent">Suche</h4>
@@ -365,9 +365,16 @@ export default {
       this.searchBarMode=searchMode
 
     },
+
+    //from here new methods
     logToConsole(){
       console.log("test method called!")
+    },
+
+    routeEvent(eventData,eventName){
+      this.$emit('routed_' + eventName,eventData)
     }
+
   }
 }
 </script>

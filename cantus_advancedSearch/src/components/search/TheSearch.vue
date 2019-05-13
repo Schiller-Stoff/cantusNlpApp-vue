@@ -1,5 +1,8 @@
 <template>
-  <app-the-search-bar></app-the-search-bar>
+  <app-the-search-bar
+    @routed_startIncipitSearch="logToConsole($event)"
+    @routed_incipitParamsUpdated="logToConsole($event)"
+  ></app-the-search-bar>
 </template>
 
 <script>
@@ -12,6 +15,12 @@
     name: "TheSearch",
     components: {
       appTheSearchBar: TheSearchBar
+    },
+    methods: {
+      logToConsole(data){
+        console.log("test method called!")
+        console.log(data)
+      },
     }
   }
 </script>
