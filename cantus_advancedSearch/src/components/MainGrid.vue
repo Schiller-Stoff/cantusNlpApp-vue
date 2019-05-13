@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-1" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first">
-        <app-search-bar></app-search-bar>
+        <app-the-search></app-the-search>
       </div>
       <div class="col-md-11" id="second" ref="second">
         <app-result></app-result>
@@ -14,14 +14,14 @@
 <script>
   import {mapGetters} from 'vuex'
   import {mapActions} from 'vuex'
-  import SearchBar from './search/TheSearchBar'
   import Result from './result/Result'
+  import TheSearch from './search/TheSearch'
 
   export default {
     name: "MainGrid",
     components: {
-      appSearchBar: SearchBar,
-      appResult: Result
+      appResult: Result,
+      appTheSearch: TheSearch
     },
     data() {
       return {

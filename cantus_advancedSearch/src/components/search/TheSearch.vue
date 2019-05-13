@@ -1,13 +1,8 @@
 <template>
-
-  <div class="container-fluid">
-    <app-the-search-bar></app-the-search-bar>
-  </div>
-
+  <app-the-search-bar></app-the-search-bar>
 </template>
 
 <script>
-  //TODO --> add this component to MainGrid
   //TODO split functionality between TheSearch component (ajax etc.) and TheSearchBar (gui etc.)
   //TODO think about event emiting / handling and props
 
@@ -16,7 +11,7 @@
   export default {
     name: "TheSearch",
     components: {
-      appTheSearchBar:TheSearchBar
+      appTheSearchBar: TheSearchBar
     }
   }
 </script>
