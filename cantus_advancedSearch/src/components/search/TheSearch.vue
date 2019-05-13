@@ -16,11 +16,15 @@
   //TODO repair labeling in the result display --- repair component structure etc.
   //TODO implement incipitSearch 1.Correctly display query in <p> 2.Implement correct ajax request 3.correct Vuex transfer to the result components
 
+  import {incipitDummyDataMixin} from './../../mixins/incipitDummyData'
+
   import TheSearchBar from './TheSearchBar'
+
   let incipitSearchTimer;
 
   export default {
     name: "TheSearch",
+    mixins: [incipitDummyDataMixin],
     components: {
       appTheSearchBar: TheSearchBar
     },
@@ -32,6 +36,7 @@
     data(){
       return {
         urlStart:'https://glossa.uni-graz.at/archive/objects',
+        useDummyData:true,
         incipitSearchParams: {
           chosenLO: 'passau.ur',
           chosenGenre: 'RP',
@@ -102,6 +107,15 @@
       searchIncipit(){
         this.$store.dispatch('incipit_setSearchFailedAction',false)
         this.$store.dispatch('incipit_markOngoingSearchAction', true)
+
+        if(this.useDummyData){
+          let response = {}
+          response.body = this.testIncipitSearch()
+          this.$store.dispatch('incipit_setSearchResultAction',response)
+          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',{response:response, searchParams:this.incipitSearchParams})
+          this.$store.dispatch('incipit_markOngoingSearchAction', false)
+          return;
+        }
 
         //if in 10 secs no response fail
         incipitSearchTimer = setTimeout(_=>{
