@@ -11,7 +11,7 @@ const state = {
   },
   incipitSearchResult:undefined,
   incipitOngoingSearch: false,
-  searchFailed:false,
+  incipitSearchFailed:false,
   searchHistory:[]
 }
 
@@ -30,8 +30,8 @@ const mutations = {
     if((payload!== true) && (payload !==false)) console.error(`InvalidState: ongoingSearch must be a Boolean but got: ${payload}`)
     state.incipitOngoingSearch = payload
   },
-  'search_toggleSearchFailed'(state,payload = !state.searchFailed){
-    state.searchFailed = payload
+  'incipit_toggleSearchFailed'(state,payload = !state.incipitSearchFailed){
+    state.incipitSearchFailed = payload
   },
   'search_pushOntoSearchHistory'(state,payload){
     let requiredKeys = ['response','searchParams']
@@ -55,8 +55,8 @@ const actions = {
   'incipit_markOngoingSearchAction'({commit},payload){
     commit('incipit_markOngoingSearch',payload)
   },
-  'search_setSearchFailedAction'({commit},payload){
-    commit('search_toggleSearchFailed',payload)
+  'incipit_setSearchFailedAction'({commit},payload){
+    commit('incipit_toggleSearchFailed',payload)
   },
   'search_pushOntoSearchHistoryAction'({commit},payload){
     commit('search_pushOntoSearchHistory',payload)
@@ -76,8 +76,8 @@ const getters = {
   'incipit_getOngoingSearch'(state){
     return state.incipitOngoingSearch
   },
-  'search_getSearchFailed'(state){
-    return state.searchFailed
+  'incipit_getSearchFailed'(state){
+    return state.incipitSearchFailed
   },
   'search_getSearchHistory'(state){
     return state.searchHistory

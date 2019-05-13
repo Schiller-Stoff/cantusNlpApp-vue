@@ -100,12 +100,12 @@
         this.$store.dispatch('incipit_setSearchParamsAction',data)
       },
       searchIncipit(){
-        this.$store.dispatch('search_setSearchFailedAction',false)
+        this.$store.dispatch('incipit_setSearchFailedAction',false)
         this.$store.dispatch('incipit_markOngoingSearchAction', true)
 
         //if in 10 secs no response fail
         incipitSearchTimer = setTimeout(_=>{
-          this.$store.dispatch('search_setSearchFailedAction',true)
+          this.$store.dispatch('incipit_setSearchFailedAction',true)
           this.runningRequest.abort()
         },10000)
 
@@ -122,7 +122,7 @@
           console.info('Response received:')
           console.info(response)
         },err => {
-          this.$store.dispatch('search_setSearchFailedAction',true)
+          this.$store.dispatch('incipit_setSearchFailedAction',true)
           clearTimeout(incipitSearchTimer)
         }).finally(_=>{
           this.$store.dispatch('incipit_markOngoingSearchAction', false)

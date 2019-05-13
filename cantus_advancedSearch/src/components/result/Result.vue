@@ -62,7 +62,7 @@
         searchBarEnlarged:'interfaceStates_currentSearchBarState',
         searchBarLocked:'interfaceStates_currentSearchLockState',
         onGoingSearch:'incipit_getOngoingSearch',
-        searchFailed:'search_getSearchFailed',
+        searchFailed:'incipit_getSearchFailed',
         searchResult:'incipit_getSearchResult',
         searchParams:'incipit_getSearchParams',
         searchHistory:'search_getSearchHistory',
