@@ -9,10 +9,6 @@
 </template>
 
 <script>
-  //TODO split functionality between TheSearch component (ajax /query building etc.) and TheSearchBar (gui etc.)
-  //TODO repair labeling in the result display --- repair component structure etc.
-  //TODO implement incipitSearch 1.Correctly display query in <p> 2.Implement correct ajax request 3.correct Vuex transfer to the result components
-
   import {incipitDummyDataMixin} from './../../mixins/incipitDummyData' //TODO remove when not longer needed
 
   import TheSearchBar from './TheSearchBar'
