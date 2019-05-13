@@ -95,7 +95,9 @@
       },
 
       saveIncipitSearchData(data){
+        console.debug('saveIncipitSearchData...')
         this.incipitSearchParams = data
+        this.$store.dispatch('incipit_setSearchParamsAction',data)
       },
       searchIncipit(){
         this.$store.dispatch('search_setSearchFailedAction',false)

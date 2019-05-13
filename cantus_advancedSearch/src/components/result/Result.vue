@@ -64,7 +64,7 @@
         onGoingSearch:'search_getOngoingSearch',
         searchFailed:'search_getSearchFailed',
         searchResult:'search_getSearchResult',
-        searchParams:'search_getSearchParams',
+        searchParams:'incipit_getSearchParams',
         searchHistory:'search_getSearchHistory',
         vizCompareData:'viz_getVizCompareData'
       }),

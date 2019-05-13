@@ -16,7 +16,7 @@ const state = {
 }
 
 const mutations = {
-  'search_setSearchParams'(state,payload){
+  'incipit_setSearchParams'(state,payload){
     let requiredKeys = ['chosenGenre','chosenLO','chosenFeasts','chosenHora']
     for (let key of requiredKeys){
       if(!payload.hasOwnProperty(key))console.error(`InvalidSearchInput: Could not find required key ${key} in given searchParams object. ${payload}`);
@@ -46,8 +46,8 @@ const mutations = {
 }
 
 const actions = {
-  'search_setSearchParamsAction'({commit},payload){
-    commit('search_setSearchParams',payload)
+  'incipit_setSearchParamsAction'({commit},payload){
+    commit('incipit_setSearchParams',payload)
   },
   'search_setSearchResultAction'({commit},payload){
     commit('search_setSearchResult',payload)
@@ -67,7 +67,7 @@ const actions = {
 }
 
 const getters = {
-  'search_getSearchParams'(state){
+  'incipit_getSearchParams'(state){
     return state.incipitSearchParams
   },
   'search_getSearchResult'(state){
