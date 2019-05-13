@@ -21,6 +21,61 @@
       </select>
     </div>
 
+    <br>
+    <div>
+      <p>Wählen Sie einen <em>Zeitraum</em> oder ein...</p>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      </div>
+      <select v-model="chosenFeasts" class="custom-select" id="inputGroupSelect04">
+        <option selected value="default">Bitte wählen...</option>
+        <option value="weihnachten">Weihnachten</option>
+        <option value="vorfastenzeit">Vorfastenzeit</option>
+        <option value="fastenzeit">Fastenzeit</option>
+        <option value="triduumSacrum">Triduum Sacrum</option>
+        <option value="nachOstern">Nachostern</option>
+        <option value="pfingsten">Pfingsten</option>
+        <option value="sonntageNachPfingsten">Sonntage nach Pfingsten</option>
+        <option value="communeSanctorum">Commune Sanctorum</option>
+        <option value="adventSonntage">Adventsonntage</option>
+        <option value="adventQuatember">Adventquatember</option>
+        <option value="zeitImKirchenJahr">Zeit im Kirchenjahr</option>
+      </select>
+    </div>
+    <div>
+      <p>...<em>einzelnes Fest</em>.</p>
+      <app-model-select :options="autoCompleteOptions" v-model="chosenFeasts"></app-model-select>
+      <br>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect03">Hora</label>
+      </div>
+      <select v-model="chosenHora" class="custom-select" id="inputGroupSelect03">
+        <option selected value="default">Bitte wählen...</option>
+        <option value="C">Completorium (C)</option>
+
+        <option value="L">Laudes (L)</option>
+        <option value="M">Matutinae (M)</option>
+        <option value="MI">Missa (MI)</option>
+        <option value="N">Nona (N)</option>
+
+        <option value="P">Prima (P)</option>
+        <option value="PRO">Prozessio (PRO)</option>
+        <option value="S">Sexta (S)</option>
+
+        <option value="T">Tertia (T)</option>
+        <option value="V">Vespera-1 (V)</option>
+        <option value="V2">Vespera-2 (V2)</option>
+
+
+
+      </select>
+    </div>
+    <br>
+
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect02">Genre</label>
@@ -74,63 +129,13 @@
       </select>
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect03">Hora</label>
-      </div>
-      <select v-model="chosenHora" class="custom-select" id="inputGroupSelect03">
-        <option selected value="default">Bitte wählen...</option>
-        <option value="C">Completorium (C)</option>
-
-        <option value="L">Laudes (L)</option>
-        <option value="M">Matutinae (M)</option>
-        <option value="MI">Missa (MI)</option>
-        <option value="N">Nona (N)</option>
-
-        <option value="P">Prima (P)</option>
-        <option value="PRO">Prozessio (PRO)</option>
-        <option value="S">Sexta (S)</option>
-
-        <option value="T">Tertia (T)</option>
-        <option value="V">Vespera-1 (V)</option>
-        <option value="V2">Vespera-2 (V2)</option>
-
-
-
-      </select>
-    </div>
-
     <br>
-    <div>
-      <p>Wählen Sie einen <em>Zeitraum</em> oder ein...</p>
-    </div>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      </div>
-      <select v-model="chosenFeasts" class="custom-select" id="inputGroupSelect04">
-        <option selected value="default">Bitte wählen...</option>
-        <option value="weihnachten">Weihnachten</option>
-        <option value="vorfastenzeit">Vorfastenzeit</option>
-        <option value="fastenzeit">Fastenzeit</option>
-        <option value="triduumSacrum">Triduum Sacrum</option>
-        <option value="nachOstern">Nachostern</option>
-        <option value="pfingsten">Pfingsten</option>
-        <option value="sonntageNachPfingsten">Sonntage nach Pfingsten</option>
-        <option value="communeSanctorum">Commune Sanctorum</option>
-        <option value="adventSonntage">Adventsonntage</option>
-        <option value="adventQuatember">Adventquatember</option>
-        <option value="zeitImKirchenJahr">Zeit im Kirchenjahr</option>
-      </select>
-    </div>
 
-    <div>
-      <p>...<em>einzelnes Fest</em>.</p>
-      <app-model-select :options="autoCompleteOptions" v-model="chosenFeasts"></app-model-select>
-      <br>
-      <button
-              class="btn btn-primary" @click="initSearch">Suche starten
-      </button>
-    </div>
+    <button
+      class="btn btn-primary" @click="initSearch">Suche starten
+    </button>
+
+
     <br>
 
     <br>
@@ -153,7 +158,7 @@
       return {
         chosenLO:'passau.ur',
         chosenGenre:'RP',
-        chosenHora:'C',
+        chosenHora:'M',
         chosenFeasts:'weihnachten',
         autoCompleteOptions:autocompleteVals,
         timeFrames
