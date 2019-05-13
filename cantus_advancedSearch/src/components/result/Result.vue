@@ -33,6 +33,9 @@
     >
     </app-result-load-handler>
 
+    <button class="btn btn-primary" @click="toggleInterfaceLock(true)">lock</button>
+    <button class="btn btn-primary" @click="toggleInterfaceLock(false)">unlock</button>
+
   </div>
 </template>
 
@@ -40,6 +43,7 @@
   //import search from "../../store/modules/search";
 
   let curTimer;
+  import {mapActions} from 'vuex'
   import {mapGetters} from 'vuex'
   import ResultTable from '../result/ResultTable'
   import ResultPreview from './compare/ResultPreview'
@@ -112,6 +116,18 @@
       appResultLoadHandler: ResultLoadHandler
     },
     methods: {
+      ...mapActions({
+        lockInterface: 'interfaceStatesAction_lockSearchbar',
+        unlockInterface:'interfaceStatesAction_unlockSearchbar'
+      }),
+      toggleInterfaceLock(lock_boolean){
+        // uses lockInterface() method -> calls vuex-actions
+        if(lock_boolean){
+          this.lockInterface()
+        } else {
+          this.unlockInterface()
+        }
+      },
       randomColor() {
         let letters = '0123456789ABCDEF';
         let color = '#';

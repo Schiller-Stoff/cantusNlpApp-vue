@@ -13,16 +13,10 @@
       @incipitParamsUpdated="routeEvent($event,'incipitParamsUpdated')"
       @startIncipitSearch="routeEvent($event,'startIncipitSearch')"
     ></component>
-
-    <button class="btn btn-primary" @click="toggleInterfaceLock(true)">lock</button>
-    <button class="btn btn-primary" @click="toggleInterfaceLock(false)">unlock</button>
-
-
   </div>
 </template>
 
 <script>
-import {mapActions} from 'vuex'
 import TheSearchControl from './searchBar/TheSearchControl'
 import TheSearchHelpText from './searchBar/TheSearchHelpText'
 import TheIncipitSearch from './searchBar/TheIncipitSearch'
@@ -62,18 +56,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-      lockInterface: 'interfaceStatesAction_lockSearchbar',
-      unlockInterface:'interfaceStatesAction_unlockSearchbar'
-    }),
-    toggleInterfaceLock(lock_boolean){    //TODO move somewhere inside TheResult.vue hierarchy!
-      // uses lockInterface() method -> calls vuex-actions
-      if(lock_boolean){
-        this.lockInterface()
-      } else {
-        this.unlockInterface()
-      }
-    },
     switchSearchMode(searchMode){
       this.searchBarMode=searchMode
     },
