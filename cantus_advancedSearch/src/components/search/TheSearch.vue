@@ -110,6 +110,10 @@
         }).finally(_=>{
           //this.$store.dispatch('search_markOngoingSearchAction', false)
         });
+      },
+
+      encodeUri(uri){
+        return encodeURI(uri)
       }
 
     }
