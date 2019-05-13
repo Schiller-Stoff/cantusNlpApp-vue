@@ -66,7 +66,7 @@ export default {
       lockInterface: 'interfaceStatesAction_lockSearchbar',
       unlockInterface:'interfaceStatesAction_unlockSearchbar'
     }),
-    toggleInterfaceLock(lock_boolean){
+    toggleInterfaceLock(lock_boolean){    //TODO move somewhere inside TheResult.vue hierarchy!
       // uses lockInterface() method -> calls vuex-actions
       if(lock_boolean){
         this.lockInterface()
