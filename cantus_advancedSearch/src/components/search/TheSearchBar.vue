@@ -10,8 +10,8 @@
     <component
       :class="fadeInAtEvent"
       :is="searchBarMode"
-      @incipitParamsUpdated="logToConsole;routeEvent($event,'incipitParamsUpdated')"
-      @startIncipitSearch="logToConsole;routeEvent($event,'startIncipitSearch')"
+      @incipitParamsUpdated="routeEvent($event,'incipitParamsUpdated')"
+      @startIncipitSearch="routeEvent($event,'startIncipitSearch')"
     ></component>
 
     <button class="btn btn-primary" @click="toggleInterfaceLock(true)">lock</button>
@@ -76,9 +76,6 @@ export default {
     },
     switchSearchMode(searchMode){
       this.searchBarMode=searchMode
-    },
-    logToConsole(){
-      console.log("test method called!")
     },
     routeEvent(eventData,eventName){
       this.$emit('routed_' + eventName,eventData)
