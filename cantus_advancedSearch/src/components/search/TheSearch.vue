@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-the-search-bar
-      @routed_startIncipitSearch="logToConsole($event)"
+      @routed_startIncipitSearch="logToConsole($event);searchIncipit()"
       @routed_incipitParamsUpdated="logToConsole($event);saveIncipitSearchData($event)"
     ></app-the-search-bar>
 
@@ -91,12 +91,12 @@
         this.incipitSearchParams = data
       },
       searchIncipit(){
-        //this.$store.dispatch('search_setSearchFailedAction',false)
-        //this.$store.dispatch('search_markOngoingSearchAction', true)
+        this.$store.dispatch('search_setSearchFailedAction',false)
+        this.$store.dispatch('search_markOngoingSearchAction', true)
 
         //if in 10 secs no response fail
         incipitSearchTimer = setTimeout(_=>{
-          //this.$store.dispatch('search_setSearchFailedAction',true)
+          this.$store.dispatch('search_setSearchFailedAction',true)
           this.runningRequest.abort()
         },10000)
 
@@ -107,14 +107,16 @@
             this.runningRequest = request
           }
         }).then(response => {
-          //this.$store.dispatch('search_setSearchResultAction',response)
-          //this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.searchParams})
+          this.$store.dispatch('search_setSearchResultAction',response)
+          this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.incipitSearchParams})
           clearTimeout(incipitSearchTimer)
+          console.info('Response received:')
+          console.info(response)
         },err => {
-          //this.$store.dispatch('search_setSearchFailedAction',true)
+          this.$store.dispatch('search_setSearchFailedAction',true)
           clearTimeout(incipitSearchTimer)
         }).finally(_=>{
-          //this.$store.dispatch('search_markOngoingSearchAction', false)
+          this.$store.dispatch('search_markOngoingSearchAction', false)
         });
       },
 
