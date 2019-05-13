@@ -116,7 +116,7 @@
             this.runningRequest = request
           }
         }).then(response => {
-          this.$store.dispatch('search_setSearchResultAction',response)
+          this.$store.dispatch('incipit_setSearchResultAction',response)
           this.$store.dispatch('search_pushOntoSearchHistoryAction',{response:response, searchParams:this.incipitSearchParams})
           clearTimeout(incipitSearchTimer)
           console.info('Response received:')

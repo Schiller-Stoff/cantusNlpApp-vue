@@ -63,7 +63,7 @@
         searchBarLocked:'interfaceStates_currentSearchLockState',
         onGoingSearch:'incipit_getOngoingSearch',
         searchFailed:'search_getSearchFailed',
-        searchResult:'search_getSearchResult',
+        searchResult:'incipit_getSearchResult',
         searchParams:'incipit_getSearchParams',
         searchHistory:'search_getSearchHistory',
         vizCompareData:'viz_getVizCompareData'

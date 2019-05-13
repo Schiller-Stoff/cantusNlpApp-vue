@@ -23,7 +23,7 @@ const mutations = {
     }
     state.incipitSearchParams = payload
   },
-  'search_setSearchResult'(state,payload){
+  'incipit_setSearchResult'(state,payload){
     state.incipitSearchResult = payload
   },
   'incipit_markOngoingSearch'(state, payload = !state.incipitOngoingSearch){
@@ -49,8 +49,8 @@ const actions = {
   'incipit_setSearchParamsAction'({commit},payload){
     commit('incipit_setSearchParams',payload)
   },
-  'search_setSearchResultAction'({commit},payload){
-    commit('search_setSearchResult',payload)
+  'incipit_setSearchResultAction'({commit},payload){
+    commit('incipit_setSearchResult',payload)
   },
   'incipit_markOngoingSearchAction'({commit},payload){
     commit('incipit_markOngoingSearch',payload)
@@ -70,7 +70,7 @@ const getters = {
   'incipit_getSearchParams'(state){
     return state.incipitSearchParams
   },
-  'search_getSearchResult'(state){
+  'incipit_getSearchResult'(state){
     return state.incipitSearchResult
   },
   'incipit_getOngoingSearch'(state){
