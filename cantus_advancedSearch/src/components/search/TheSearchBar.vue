@@ -52,7 +52,6 @@ export default {
   computed: {
     ...mapGetters({
       interfaceLocked: 'interfaceStates_currentSearchLockState',
-      searchParams: 'search_getSearchParams',
       vizCompareQuery:'search_getVizCompareQuery'
     }),
     dataQuery(){
