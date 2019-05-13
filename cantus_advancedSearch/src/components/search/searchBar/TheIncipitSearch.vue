@@ -141,6 +141,8 @@
 
 <script>
 
+  //TODO only timeFrame OR individual feast should be selectable -> return 'default'?
+
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
   import {timeFrames} from '../../../data/timeFrameFeasts'
