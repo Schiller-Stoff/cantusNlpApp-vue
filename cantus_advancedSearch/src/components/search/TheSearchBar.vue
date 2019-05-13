@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 import TheSearchControl from './searchBar/TheSearchControl'
 import TheSearchHelpText from './searchBar/TheSearchHelpText'
@@ -47,25 +46,6 @@ export default {
     return {
       searchBarMode:'appTheSearchHelpText',
       fadeInAtEvent: 'hidden',  //blending in dynamic components
-    }
-  },
-  computed: {
-    ...mapGetters({
-      interfaceLocked: 'interfaceStates_currentSearchLockState',
-      vizCompareQuery:'search_getVizCompareQuery'
-    }),
-    dataQuery(){
-      // let queryStart = `https://${this.server}/archive/objects/query:cantus.countgenre/methods/sdef:Query/getJSON?params=%241%7C${this.chosenGenre}%3B%242%7C`
-      // for (let i = 0; i <this.feasts.length; i++) {
-      //   let feast = this.feasts[i]
-      //   if(i===0){
-      //     queryStart += `%7B%3Ffeast%20cantus%3AfeastCode%20%22${feast}%22%7D%20`
-      //   } else {
-      //     queryStart += `UNION%20%7B%3Ffeast%20cantus%3AfeastCode%20%22${feast}%22%7D%20`
-      //   }
-      // }
-      // this.$store.dispatch('search_setVizCompareQueryAction',queryStart)
-      // return queryStart
     }
   },
   watch: {
