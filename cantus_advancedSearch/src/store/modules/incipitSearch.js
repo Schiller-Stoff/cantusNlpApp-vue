@@ -1,7 +1,6 @@
 
 
 const state = {
-  incipitQuery:'',
   //vizCompareQuery:'',
   incipitSearchParams:{
     chosenLO:'',
@@ -17,9 +16,6 @@ const state = {
 }
 
 const mutations = {
-  'search_modifyCurSearchQuery'(state,payload){
-    state.incipitQuery = payload
-  },
   'search_setSearchParams'(state,payload){
     let requiredKeys = ['chosenGenre','chosenLO','chosenFeasts','chosenHora']
     for (let key of requiredKeys){
@@ -50,9 +46,6 @@ const mutations = {
 }
 
 const actions = {
-  'search_modifyCurSearchQueryAction'({commit},payload){
-    commit('search_modifyCurSearchQuery',payload)
-  },
   'search_setSearchParamsAction'({commit},payload){
     commit('search_setSearchParams',payload)
   },
@@ -74,9 +67,6 @@ const actions = {
 }
 
 const getters = {
-  'search_getCurSearchQuery'(state){
-    return state.incipitQuery
-  },
   'search_getSearchParams'(state){
     return state.incipitSearchParams
   },
