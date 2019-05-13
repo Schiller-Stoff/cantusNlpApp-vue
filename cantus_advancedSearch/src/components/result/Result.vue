@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import search from "../../store/modules/search";
+  //import search from "../../store/modules/search";
 
   let curTimer;
   import {mapGetters} from 'vuex'
