@@ -12,7 +12,6 @@
 
 <script>
   //TODO split functionality between TheSearch component (ajax /query building etc.) and TheSearchBar (gui etc.)
-  //TODO URI DECODING IN JS
   //TODO implement incipitSearch 1.Correctly display query in <p> 2.Implement correct ajax request 3.correct Vuex transfer to the result components
 
   import TheSearchBar from './TheSearchBar'
@@ -25,7 +24,7 @@
     },
     data(){
       return {
-        server:'glossa.uni-graz.at',
+        urlStart:'https://glossa.uni-graz.at/archive/objects',
         incipitSearchParams: {
           chosenLO: 'passau.ur',
           chosenGenre: 'RP',
@@ -70,9 +69,16 @@
         //   return query
         // }
 
-        return `${this.incipitSearchParams.chosenLO} + ${this.incipitSearchParams.chosenGenre} + ${this.incipitSearchParams.chosenHora} + ${this.incipitSearchParams.chosenTimeFrame} + ${this.incipitSearchParams.chosenFeast}`
 
+        let queryStart = `${this.urlStart}/query:cantus.genres/methods/sdef:Query/getJSON?params=`
 
+        let queryParams =
+          `$1|<https://gams.uni-graz.at/o:cantus.${this.incipitSearchParams.chosenLO}>;` +
+          `$2|${this.incipitSearchParams.chosenGenre};` +
+          `$3|${this.incipitSearchParams.chosenHora};` +
+          `$4|${this.incipitSearchParams.chosenFeast}.`
+
+        return this.encodeUri(queryStart + queryParams)
       }
     },
     methods: {
