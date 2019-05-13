@@ -3,6 +3,7 @@
     <app-the-search-bar
       @routed_startIncipitSearch="logToConsole($event);searchIncipit()"
       @routed_incipitParamsUpdated="logToConsole($event);saveIncipitSearchData($event)"
+      :searchBarEnlarged="searchBarEnlarged"
     ></app-the-search-bar>
 
     <p>{{incipitQuery}}</p>
@@ -22,6 +23,11 @@
     name: "TheSearch",
     components: {
       appTheSearchBar: TheSearchBar
+    },
+    props: {
+      searchBarEnlarged: {
+        type: Boolean
+      }
     },
     data(){
       return {

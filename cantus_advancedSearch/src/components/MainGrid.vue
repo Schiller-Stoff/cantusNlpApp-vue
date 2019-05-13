@@ -2,7 +2,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-1" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first">
-        <app-the-search></app-the-search>
+        <app-the-search
+          :searchBarEnlarged="searchBarEnlarged"
+        ></app-the-search>
       </div>
       <div class="col-md-11" id="second" ref="second">
         <app-result></app-result>
@@ -25,7 +27,7 @@
     },
     data() {
       return {
-
+        //searchBarEnlarged:false
       }
     },
     computed: {
@@ -42,6 +44,7 @@
       moveWidth() {
         if(this.searchBarEnlarged)return
         this.markSearchEnlargedState()
+        //this.searchBarEnlarged = true;
 
         this.$refs.first.classList.add('transition')
         this.$refs.second.classList.add('transition')
@@ -54,6 +57,7 @@
       },
       restoreWidth() {
         this.markSearchMinfiedState()
+        //this.searchBarEnlarged = false;
 
         this.$refs.first.classList.add('transition')
         this.$refs.second.classList.add('transition')

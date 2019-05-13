@@ -38,6 +38,11 @@ export default {
     appTheIncipitSearch: TheIncipitSearch,
     appTheFullTextSearch: TheFullTextSearch
   },
+  props: {
+    searchBarEnlarged: {
+      type: Boolean
+    }
+  },
   data(){
     return {
       searchBarMode:'appTheSearchHelpText',
@@ -46,7 +51,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      searchBarEnlarged: 'interfaceStates_currentSearchBarState',
       interfaceLocked: 'interfaceStates_currentSearchLockState',
       searchParams: 'search_getSearchParams',
       vizCompareQuery:'search_getVizCompareQuery'
