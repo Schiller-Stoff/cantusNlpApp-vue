@@ -43,6 +43,7 @@
   //TODO rename components according to UML + create proper folder hierarchy
   //TODO move gui functionality to TheResultDisplay.vue
   //TODO pass in data via props and events / vuex only in TheResult.vue
+  //TODO remove old + dead code
 
   let curTimer;
   import {mapActions} from 'vuex'
