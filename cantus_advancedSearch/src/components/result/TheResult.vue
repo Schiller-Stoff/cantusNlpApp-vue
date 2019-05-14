@@ -55,7 +55,7 @@
   import ResultLoadHandler from './ResultLoadHandler'
 
   export default {
-    name: "Result.vue",
+    name: "TheResult.vue",
     data() {
       return {
         showPreview: false,

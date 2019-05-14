@@ -7,7 +7,7 @@
         ></app-the-search>
       </div>
       <div class="col-md-11" id="second" ref="second">
-        <app-result></app-result>
+        <app-the-result></app-the-result>
       </div>
     </div>
   </div>
@@ -16,13 +16,13 @@
 <script>
   import {mapGetters} from 'vuex'
   import {mapActions} from 'vuex'
-  import Result from './result/Result'
+  import TheResult from './result/TheResult'
   import TheSearch from './search/TheSearch'
 
   export default {
     name: "MainGrid",
     components: {
-      appResult: Result,
+      appTheResult: TheResult,
       appTheSearch: TheSearch
     },
     data() {
