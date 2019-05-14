@@ -1,16 +1,16 @@
 <template>
   <div id="vue_app" :style="maximizedStyle" :class="animClass">
-    <app-main-grid></app-main-grid>
+    <app-the-main-grid></app-the-main-grid>
   </div>
 </template>
 
 <script>
-import MainGrid from './components/MainGrid';
+import TheMainGrid from './components/TheMainGrid';
 import {EventBus} from "./main";
 export default {
   name: 'app',
   components: {
-    appMainGrid: MainGrid
+    appTheMainGrid: TheMainGrid
   },
   data () {
     return {
