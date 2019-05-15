@@ -49,7 +49,6 @@
     name: "TheResult.vue",
     data() {
       return {
-        showPreview: false,
         incipitDiagramData:undefined, // "one bar" (but there might be other inline-bars like segments for comparison inside one diagram)
         incipitChartData:undefined,   // "complete chart" with multiple bars next to each other
         vizHistory:[],
@@ -85,11 +84,6 @@
 
         //save reference to last/current incipitSearch
         this.incipitSearch = this.incipitSearchHistory[this.incipitSearchHistory.length-1]
-
-        // might be outdated
-        if(this.incipitSearchHistory && this.searchBarEnlarged){
-          this.showPreview = true
-        }
 
         //set viz Data
         this.calcCurDiagramData()
