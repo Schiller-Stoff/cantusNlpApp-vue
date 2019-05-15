@@ -37,7 +37,7 @@
 
         // used class variables
         incipitSearchHistory:[],  //not used here, defined in vueX
-        incipitSearch:{   //this object is pushed into the incipitSearchHistory-Array
+        incipitSearch:{   //this object is pushed into the incipitSearchHistory-Array -> to vueX -> given to TheResult.vue
           response:'',
           query:'',
           searchParams:{
