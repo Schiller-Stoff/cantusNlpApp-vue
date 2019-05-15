@@ -20,7 +20,7 @@
   import TheSearch from './search/TheSearch'
 
   export default {
-    name: "MainGrid",
+    name: "TheMainGrid",
     components: {
       appTheResult: TheResult,
       appTheSearch: TheSearch
