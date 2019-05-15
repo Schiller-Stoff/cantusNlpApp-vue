@@ -51,8 +51,8 @@
     data() {
       return {
         showPreview: false,
-        curDiagramData:undefined,
-        curChartData:undefined,
+        curDiagramData:undefined, //agregation of multiple bars
+        curChartData:undefined,   // one bar with segments or "inline" compare-bars
         vizHistory:[],
 
         // data of 'last/current' incipitSearch
