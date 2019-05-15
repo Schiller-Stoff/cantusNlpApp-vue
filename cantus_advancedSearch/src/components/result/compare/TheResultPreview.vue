@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" v-if="curChartData">
+  <div class="container-fluid" v-if="searchParams">
     <br>
     <div class="ResultPreview_headerIconContainer">
       <i class="fas fa-arrows-alt-h" @click="showHistoViz = !showHistoViz"></i>
@@ -39,10 +39,6 @@
     props: {
       vizHistoData: {
         type:Array
-      },
-      curChartData:{
-        required:true,
-        type:Object
       },
       searchParams:{
         type:Object,

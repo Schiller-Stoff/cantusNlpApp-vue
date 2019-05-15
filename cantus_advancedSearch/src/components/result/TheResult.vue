@@ -7,7 +7,6 @@
     <app-the-result-preview
       v-if="incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed && !searchBarLocked"
       :searchParams="incipitSearchParams"
-      :curChartData="curChartData"
       :vizHistoData="vizHistory"
       :vizCompareData="vizCompareData.body"
       :key="1">
@@ -32,6 +31,7 @@
 </template>
 
 <script>
+  //TODO remove curChartData variable --- I think it's unnecessary?
   //TODO move gui functionality to TheResultDisplay.vue
   //TODO pass in data via props and events / vuex only in TheResult.vue
   //TODO remove old + dead code
