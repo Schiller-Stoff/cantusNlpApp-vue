@@ -1,9 +1,9 @@
 <template>
   <div class="container-fluid">
-    <app-result-default
+    <app-the-result-default
       :key="0"
       v-if="!incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed">
-    </app-result-default>
+    </app-the-result-default>
     <app-result-preview
       v-if="incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed && !searchBarLocked"
       :searchParams="incipitSearchParams"
@@ -50,7 +50,7 @@
   import {mapGetters} from 'vuex'
   import ResultTable from '../result/ResultTable'
   import ResultPreview from './compare/ResultPreview'
-  import ResultDefault from './ResultDefault'
+  import TheResultDefault from './TheResultDefault'
   import ResultCardGrid from './card/ResultCardGrid'
   import ResultLoadHandler from './ResultLoadHandler'
 
@@ -114,7 +114,7 @@
     components: {
       appResultPreview: ResultPreview,
       appResultTable: ResultTable,
-      appResultDefault: ResultDefault,
+      appTheResultDefault: TheResultDefault,
       appResultCardGrid: ResultCardGrid,
       appResultLoadHandler: ResultLoadHandler
     },

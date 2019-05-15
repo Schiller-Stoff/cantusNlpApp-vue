@@ -29,7 +29,7 @@
   let timer;
   import {mapGetters} from 'vuex'
   export default {
-    name: "ResultDefault",
+    name: "TheResultDefault",
     data(){
       return {
         showFullContent:false
