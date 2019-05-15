@@ -24,7 +24,7 @@
   import {mapGetters} from 'vuex'
 
   export default {
-    name: "ResultTable",
+    name: "TheResultTable",
     props: {
       tableData: {
         required: true,

@@ -12,12 +12,12 @@
       :vizCompareData="vizCompareData.body"
       :key="1">
     </app-result-preview>
-    <app-result-table
+    <app-the-result-table
       v-if="incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed && searchBarLocked"
       :key="2"
       :tableData="incipitSearchResult.body"
       :searchParams="incipitSearchParams">
-    </app-result-table>
+    </app-the-result-table>
 
     <!--<app-result-card-grid-->
       <!--:key="3"-->
@@ -48,7 +48,7 @@
   let curTimer;
   import {mapActions} from 'vuex'
   import {mapGetters} from 'vuex'
-  import ResultTable from '../result/ResultTable'
+  import TheResultTable from './TheResultTable'
   import ResultPreview from './compare/ResultPreview'
   import TheResultDefault from './TheResultDefault'
   import ResultCardGrid from './card/ResultCardGrid'
@@ -113,7 +113,7 @@
     },
     components: {
       appResultPreview: ResultPreview,
-      appResultTable: ResultTable,
+      appTheResultTable: TheResultTable,
       appTheResultDefault: TheResultDefault,
       appResultCardGrid: ResultCardGrid,
       appTheResultLoadHandler: TheResultLoadHandler
