@@ -7,7 +7,7 @@
     <app-the-result-preview
       v-if="incipitSearchHistory[0] && !incipitOnGoingSearch && !incipitSearchFailed && !searchBarLocked"
       :searchParams="incipitSearch.searchParams"
-      :vizHistoData="vizHistory"
+      :vizHistoData="incipitVizHistory"
       :key="1">
     </app-the-result-preview>
     <app-the-result-table
@@ -51,7 +51,7 @@
       return {
         incipitDiagramData:undefined, // "one bar" (but there might be other inline-bars like segments for comparison inside one diagram)
         incipitChartData:undefined,   // "complete chart" with multiple bars next to each other
-        vizHistory:[],
+        incipitVizHistory:[],
 
         // data of 'last/current' incipitSearch
         incipitSearch:''
@@ -91,7 +91,7 @@
 
         //push into viz history
         this.incipitChartData.searchParams = this.incipitSearch.searchParams
-        this.vizHistory.push(this.incipitChartData)
+        this.incipitVizHistory.push(this.incipitChartData)
       }
     },
     components: {
