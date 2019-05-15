@@ -9,6 +9,8 @@
 </template>
 
 <script>
+  //TODO reduce param to only work with incipitSearch!
+
   import {incipitDummyDataMixin} from './../../mixins/incipitDummyData' //TODO remove when not longer needed
 
   import TheSearchBar from './TheSearchBar'
@@ -41,10 +43,18 @@
           chosenTimeFrame: '',
           chosenFeast:''
         },
-        incipitSearchResponse:'',
+
+        //TODO use this object instead of above
         incipitSearch:{
           response:this.incipitSearchResponse,
-          incipitSearchParams:this.incipitSearchParams
+          query:'',
+          searchParams:{
+            chosenLO: '',
+            chosenGenre: '',
+            chosenHora: '',
+            chosenTimeFrame: '',
+            chosenFeast:''
+          }
         }
       }
     },
