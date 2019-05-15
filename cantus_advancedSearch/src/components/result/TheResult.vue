@@ -4,14 +4,14 @@
       :key="0"
       v-if="!incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed">
     </app-the-result-default>
-    <app-result-preview
+    <app-the-result-preview
       v-if="incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed && !searchBarLocked"
       :searchParams="incipitSearchParams"
       :curChartData="curChartData"
       :vizHistoData="vizHistory"
       :vizCompareData="vizCompareData.body"
       :key="1">
-    </app-result-preview>
+    </app-the-result-preview>
     <app-the-result-table
       v-if="incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed && searchBarLocked"
       :key="2"
@@ -49,7 +49,7 @@
   import {mapActions} from 'vuex'
   import {mapGetters} from 'vuex'
   import TheResultTable from './TheResultTable'
-  import ResultPreview from './compare/ResultPreview'
+  import TheResultPreview from './compare/TheResultPreview'
   import TheResultDefault from './TheResultDefault'
   import ResultCardGrid from './card/ResultCardGrid'
   import TheResultLoadHandler from './TheResultLoadHandler'
@@ -112,7 +112,7 @@
       }
     },
     components: {
-      appResultPreview: ResultPreview,
+      appTheResultPreview: TheResultPreview,
       appTheResultTable: TheResultTable,
       appTheResultDefault: TheResultDefault,
       appResultCardGrid: ResultCardGrid,

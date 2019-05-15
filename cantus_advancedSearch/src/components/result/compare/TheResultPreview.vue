@@ -35,7 +35,7 @@
   import ResultPreviewCompare from './ResultPreviewCompare'
 
   export default {
-    name: "ResultPreview",
+    name: "TheResultPreview",
     props: {
       vizHistoData: {
         type:Array
