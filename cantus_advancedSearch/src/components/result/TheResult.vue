@@ -50,8 +50,8 @@
     data() {
       return {
         showPreview: false,
-        curDiagramData:undefined, // "one bar" (but there might be other inline-bars like segments for comparison inside one diagram)
-        curChartData:undefined,   // "complete chart" with multiple bars next to each other
+        incipitDiagramData:undefined, // "one bar" (but there might be other inline-bars like segments for comparison inside one diagram)
+        incipitChartData:undefined,   // "complete chart" with multiple bars next to each other
         vizHistory:[],
 
         // data of 'last/current' incipitSearch
@@ -96,8 +96,8 @@
         this.calcCurChartData()
 
         //push into viz history
-        this.curChartData.searchParams = this.incipitSearch.searchParams
-        this.vizHistory.push(this.curChartData)
+        this.incipitChartData.searchParams = this.incipitSearch.searchParams
+        this.vizHistory.push(this.incipitChartData)
       }
     },
     components: {
@@ -137,12 +137,12 @@
         for (let dp of vizObj.data){
           vizObj.backgroundColor.push(this.randomColor())
         }
-        this.curDiagramData = vizObj
+        this.incipitDiagramData = vizObj
       },
       calcCurChartData(){
-        this.curChartData = {
+        this.incipitChartData = {
           labels:[this.incipitSearch.searchParams.chosenGenre, 'Rest'],
-          datasets: [this.curDiagramData]
+          datasets: [this.incipitDiagramData]
         }
       }
     }
