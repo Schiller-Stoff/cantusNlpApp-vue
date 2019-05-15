@@ -26,12 +26,12 @@
     <!--&gt;-->
     <!--</app-result-card-grid>-->
 
-    <app-result-load-handler
+    <app-the-result-load-handler
       v-if="incipitOnGoingSearch || incipitSearchFailed"
       :key="4"
       :searchFailed="incipitSearchFailed"
     >
-    </app-result-load-handler>
+    </app-the-result-load-handler>
 
     <button class="btn btn-primary" @click="toggleInterfaceLock(true)">lock</button>
     <button class="btn btn-primary" @click="toggleInterfaceLock(false)">unlock</button>
@@ -52,7 +52,7 @@
   import ResultPreview from './compare/ResultPreview'
   import TheResultDefault from './TheResultDefault'
   import ResultCardGrid from './card/ResultCardGrid'
-  import ResultLoadHandler from './ResultLoadHandler'
+  import TheResultLoadHandler from './TheResultLoadHandler'
 
   export default {
     name: "TheResult.vue",
@@ -116,7 +116,7 @@
       appResultTable: ResultTable,
       appTheResultDefault: TheResultDefault,
       appResultCardGrid: ResultCardGrid,
-      appResultLoadHandler: ResultLoadHandler
+      appTheResultLoadHandler: TheResultLoadHandler
     },
     methods: {
       ...mapActions({

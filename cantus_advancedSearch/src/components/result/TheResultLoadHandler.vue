@@ -8,7 +8,7 @@
 </template>
 <script>
   export default {
-    name: "ResultLoadHandler",
+    name: "TheResultLoadHandler",
     props: {
       searchFailed: {
         type: Boolean,
