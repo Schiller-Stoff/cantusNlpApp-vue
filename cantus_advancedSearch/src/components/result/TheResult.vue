@@ -2,20 +2,20 @@
   <div class="container-fluid">
     <app-the-result-default
       :key="0"
-      v-if="!incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed">
+      v-if="!incipitSearchHistory[0] && !incipitOnGoingSearch && !incipitSearchFailed">
     </app-the-result-default>
     <app-the-result-preview
-      v-if="incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed && !searchBarLocked"
-      :searchParams="incipitSearchParams"
+      v-if="incipitSearchHistory[0] && !incipitOnGoingSearch && !incipitSearchFailed && !searchBarLocked"
+      :searchParams="incipitSearch.searchParams"
       :vizHistoData="vizHistory"
       :vizCompareData="vizCompareData.body"
       :key="1">
     </app-the-result-preview>
     <app-the-result-table
-      v-if="incipitSearchResult && !incipitOnGoingSearch && !incipitSearchFailed && searchBarLocked"
+      v-if="incipitSearchHistory[0] && !incipitOnGoingSearch && !incipitSearchFailed && searchBarLocked"
       :key="2"
-      :tableData="incipitSearchResult.body"
-      :searchParams="incipitSearchParams">
+      :tableData="incipitSearch.response.body"
+      :searchParams="incipitSearch.searchParams">
     </app-the-result-table>
     <app-the-result-load-handler
       v-if="incipitOnGoingSearch || incipitSearchFailed"
@@ -53,7 +53,10 @@
         showPreview: false,
         curDiagramData:undefined,
         curChartData:undefined,
-        vizHistory:[]
+        vizHistory:[],
+
+        // data of 'last/current' incipitSearch
+        incipitSearch:''
       }
     },
     computed: {
@@ -62,8 +65,6 @@
         searchBarLocked:'interfaceStates_currentSearchLockState',
         incipitOnGoingSearch:'incipit_getOngoingSearch',
         incipitSearchFailed:'incipit_getSearchFailed',
-        incipitSearchResult:'incipit_getSearchResult',
-        incipitSearchParams:'incipit_getSearchParams',
         incipitSearchHistory:'incipit_getSearchHistory',
         vizCompareData:'viz_getVizCompareData'
       })
@@ -82,19 +83,22 @@
           clearTimeout(curTimer)
         }*/
       },
-      incipitSearchResult(){
-        //called when result is received -> watcher initiates calculation of diagram data
-        //saves it to class variables
+      incipitSearchHistory(){
 
-        if(this.incipitSearchResult && this.searchBarEnlarged){
+        //save reference to last/current incipitSearch
+        this.incipitSearch = this.incipitSearchHistory[this.incipitSearchHistory.length-1]
+
+        // might be outdated
+        if(this.incipitSearchHistory && this.searchBarEnlarged){
           this.showPreview = true
         }
-        // set viz Data
+
+        //set viz Data
         this.calcCurDiagramData()
         this.calcCurChartData()
 
-        //push into history
-        this.curChartData.searchParams = this.incipitSearchParams
+        //push into viz history
+        this.curChartData.searchParams = this.incipitSearch.searchParams
         this.vizHistory.push(this.curChartData)
       }
     },
@@ -126,7 +130,7 @@
         return color;
       },
       calcCurDiagramData(){
-        let resultCount = this.incipitSearchResult.body.length
+        let resultCount = this.incipitSearch.response.body.length
         let vizObj = {
           label:'Feste',
           backgroundColor: [],
@@ -139,7 +143,7 @@
       },
       calcCurChartData(){
         this.curChartData = {
-          labels:[this.incipitSearchParams.chosenGenre, 'Rest'],
+          labels:[this.incipitSearch.searchParams.chosenGenre, 'Rest'],
           datasets: [this.curDiagramData]
         }
       }
