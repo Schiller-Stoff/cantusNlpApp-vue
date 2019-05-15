@@ -9,7 +9,8 @@
 </template>
 
 <script>
-  //TODO reduce param to only work with incipitSearch!
+  //TODO reduce param to only work with incipitSearch! -> I think i only need the IncipitArray as vueX store variable!
+  // and of course search failed/succeeded states.
 
   import {incipitDummyDataMixin} from './../../mixins/incipitDummyData' //TODO remove when not longer needed
 
