@@ -83,6 +83,9 @@
         }*/
       },
       incipitSearchResult(){
+        //called when result is received -> watcher initiates calculation of diagram data
+        //saves it to class variables
+
         if(this.incipitSearchResult && this.searchBarEnlarged){
           this.showPreview = true
         }
