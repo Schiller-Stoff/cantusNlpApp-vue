@@ -8,7 +8,6 @@
       v-if="incipitSearchHistory[0] && !incipitOnGoingSearch && !incipitSearchFailed && !searchBarLocked"
       :searchParams="incipitSearch.searchParams"
       :vizHistoData="vizHistory"
-      :vizCompareData="vizCompareData.body"
       :key="1">
     </app-the-result-preview>
     <app-the-result-table
@@ -65,8 +64,7 @@
         searchBarLocked:'interfaceStates_currentSearchLockState',
         incipitOnGoingSearch:'incipit_getOngoingSearch',
         incipitSearchFailed:'incipit_getSearchFailed',
-        incipitSearchHistory:'incipit_getSearchHistory',
-        vizCompareData:'viz_getVizCompareData'
+        incipitSearchHistory:'incipit_getSearchHistory'
       })
     },
     watch: {
