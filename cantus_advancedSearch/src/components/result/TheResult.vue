@@ -18,14 +18,6 @@
       :tableData="incipitSearchResult.body"
       :searchParams="incipitSearchParams">
     </app-the-result-table>
-
-    <!--<app-result-card-grid-->
-      <!--:key="3"-->
-      <!--:search-history="searchHistory"-->
-      <!--v-if="!showPreview && searchResult && !onGoingSearch && !searchFailed"-->
-    <!--&gt;-->
-    <!--</app-result-card-grid>-->
-
     <app-the-result-load-handler
       v-if="incipitOnGoingSearch || incipitSearchFailed"
       :key="4"
@@ -51,7 +43,6 @@
   import TheResultTable from './TheResultTable'
   import TheResultPreview from './compare/TheResultPreview'
   import TheResultDefault from './TheResultDefault'
-  import ResultCardGrid from './card/ResultCardGrid'
   import TheResultLoadHandler from './TheResultLoadHandler'
 
   export default {
@@ -115,7 +106,6 @@
       appTheResultPreview: TheResultPreview,
       appTheResultTable: TheResultTable,
       appTheResultDefault: TheResultDefault,
-      appResultCardGrid: ResultCardGrid,
       appTheResultLoadHandler: TheResultLoadHandler
     },
     methods: {
