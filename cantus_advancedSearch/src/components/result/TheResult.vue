@@ -66,15 +66,7 @@
         incipitSearchParams:'incipit_getSearchParams',
         incipitSearchHistory:'incipit_getSearchHistory',
         vizCompareData:'viz_getVizCompareData'
-      }),
-      vizHistoData() {
-        let vizArray = []
-        for (let data of this.incipitSearchHistory){
-          let toPush= {searchParams:data.incipitSearchParams, lengthCount:data.response.body.length}
-          vizArray.push(toPush)
-        }
-        return vizArray
-      }
+      })
     },
     watch: {
       searchBarEnlarged(newValue, oldValue) {
