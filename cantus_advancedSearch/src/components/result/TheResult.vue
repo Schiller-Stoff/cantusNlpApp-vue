@@ -32,6 +32,7 @@
 
 <script>
   //TODO remove curChartData variable --- I think it's unnecessary?
+  //TODO vuex result namings are wrong now -> e.g. searchHistory -> to incipitSearchHistory
   //TODO move gui functionality to TheResultDisplay.vue
   //TODO pass in data via props and events / vuex only in TheResult.vue
   //TODO remove old + dead code
