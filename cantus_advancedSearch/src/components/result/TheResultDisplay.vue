@@ -3,6 +3,8 @@
 </template>
 
 <script>
+  //TODO implement viz Data refactoring inside here!
+
   export default {
     name: "TheResultDisplay",
     props:{
