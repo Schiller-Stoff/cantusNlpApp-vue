@@ -50,8 +50,8 @@
     data() {
       return {
         showPreview: false,
-        curDiagramData:undefined, //agregation of multiple bars
-        curChartData:undefined,   // one bar with segments or "inline" compare-bars
+        curDiagramData:undefined, // "one bar" (but there might be other inline-bars like segments for comparison inside one diagram)
+        curChartData:undefined,   // "complete chart" with multiple bars next to each other
         vizHistory:[],
 
         // data of 'last/current' incipitSearch
