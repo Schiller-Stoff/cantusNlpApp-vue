@@ -36,17 +36,8 @@
         useDummyData:true,
 
         // used class variables
-        // variables used via incipitSearch -> passed to vuex
-        incipitSearchParams: {
-          chosenLO: '',
-          chosenGenre: '',
-          chosenHora: '',
-          chosenTimeFrame: '',
-          chosenFeast:''
-        },
-
-        //TODO use this object instead of above
-        incipitSearch:{
+        incipitSearchHistory:[],  //not used here, defined in vueX
+        incipitSearch:{   //this object is pushed into the incipitSearchHistory-Array
           response:'',
           query:'',
           searchParams:{
@@ -75,8 +66,7 @@
     methods: {
       saveIncipitSearchData(data){
         console.debug('saveIncipitSearchData...')
-        this.incipitSearchParams = data
-        this.$store.dispatch('incipit_setSearchParamsAction',data)
+        this.incipitSearch.searchParams = data
       },
       searchIncipit(){
         this.$store.dispatch('incipit_setSearchFailedAction',false)
@@ -86,8 +76,9 @@
         if(this.useDummyData){
           let response = {}
           response.body = this.testIncipitSearch()
-          this.$store.dispatch('incipit_setSearchResultAction',response)
-          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',{response:response, searchParams:this.incipitSearchParams})
+          this.incipitSearch.response = response
+
+          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',this.incipitSearch)
           this.$store.dispatch('incipit_markOngoingSearchAction', false)
           return;
         }
@@ -105,8 +96,9 @@
             this.runningRequest = request
           }
         }).then(response => {
-          this.$store.dispatch('incipit_setSearchResultAction',response)
-          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',{response:response, searchParams:this.incipitSearchParams})
+          this.incipitSearch.response = response
+          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',this.incipitSearch)
+
           clearTimeout(incipitSearchTimer)
           console.info('Response received:')
           console.info(response)
