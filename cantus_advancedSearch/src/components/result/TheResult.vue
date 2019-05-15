@@ -123,14 +123,11 @@
         return color;
       },
       calcCurDiagramData(){
-        // set viz Data
-        let genreTotal_int = this.getLOGenreTotal()
         let resultCount = this.incipitSearchResult.body.length
-        let genreRest = genreTotal_int - resultCount
         let vizObj = {
           label:'Feste',
           backgroundColor: [],
-          data: [this.incipitSearchResult.body.length, genreRest]
+          data: [resultCount]
         }
         for (let dp of vizObj.data){
           vizObj.backgroundColor.push(this.randomColor())
@@ -142,26 +139,6 @@
           labels:[this.incipitSearchParams.chosenGenre, 'Rest'],
           datasets: [this.curDiagramData]
         }
-      },
-      getLOGenreTotal(){
-        let genreTotal;
-        let searchedLO = this.incipitSearchParams.chosenLO
-        switch (searchedLO){
-          case 'salzburg.ur':
-            genreTotal = 477;
-            break;
-          case 'salzburg.ra':
-            genreTotal = 431;
-            break;
-          case 'passau.ur':
-            genreTotal = 496;
-            break;
-          //TODO add further data for LOs
-          default:
-            genreTotal = 500;
-            break;
-        }
-        return genreTotal;
       }
     }
   }
