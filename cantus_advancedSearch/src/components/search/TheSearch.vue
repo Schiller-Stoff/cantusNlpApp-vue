@@ -46,7 +46,7 @@
 
         //TODO use this object instead of above
         incipitSearch:{
-          response:this.incipitSearchResponse,
+          response:'',
           query:'',
           searchParams:{
             chosenLO: '',
