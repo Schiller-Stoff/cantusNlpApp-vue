@@ -59,7 +59,6 @@
     },
     computed: {
       ...mapGetters({
-        searchBarEnlarged:'interfaceStates_currentSearchBarState',
         searchBarLocked:'interfaceStates_currentSearchLockState',
         incipitOnGoingSearch:'incipit_getOngoingSearch',
         incipitSearchFailed:'incipit_getSearchFailed',
@@ -67,21 +66,7 @@
       })
     },
     watch: {
-      searchBarEnlarged(newValue, oldValue) {
-        /*if(this.searchBarEnlarged){
-          if (!this.searchResult) return;
-          curTimer = setTimeout(_ => {
-            if (this.showPreview) this.showPreview = false;
-            this.showPreview = true;
-          }, 500)
-        } else {
-          //this.showPreview = false;
-          //clears delayed blend in via setTimeout
-          clearTimeout(curTimer)
-        }*/
-      },
       incipitSearchHistory(){
-
         //save reference to last/current incipitSearch
         this.incipitSearch = this.incipitSearchHistory[this.incipitSearchHistory.length-1]
 
