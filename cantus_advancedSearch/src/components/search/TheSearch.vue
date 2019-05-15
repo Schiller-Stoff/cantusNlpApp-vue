@@ -28,14 +28,23 @@
     },
     data(){
       return {
+        // settings data
         urlStart:'https://glossa.uni-graz.at/archive/objects',
         useDummyData:true,
+
+        // used class variables
+        // variables used via incipitSearch -> passed to vuex
         incipitSearchParams: {
-          chosenLO: 'passau.ur',
-          chosenGenre: 'RP',
+          chosenLO: '',
+          chosenGenre: '',
           chosenHora: '',
           chosenTimeFrame: '',
-          chosenFeast:'01013000'
+          chosenFeast:''
+        },
+        incipitSearchResponse:'',
+        incipitSearch:{
+          response:this.incipitSearchResponse,
+          incipitSearchParams:this.incipitSearchParams
         }
       }
     },
@@ -62,6 +71,7 @@
         this.$store.dispatch('incipit_setSearchFailedAction',false)
         this.$store.dispatch('incipit_markOngoingSearchAction', true)
 
+        //only accessed when no real ajax, just test data should be applied
         if(this.useDummyData){
           let response = {}
           response.body = this.testIncipitSearch()
