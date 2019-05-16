@@ -1,5 +1,7 @@
 <template>
-  <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
+  <div>
+    <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
+  </div>
 </template>
 
 <script>
@@ -63,7 +65,7 @@
         }
 
         for (let dp of this.incipitVizHistory){
-          dataObj.label = "Feste";
+          dataObj.label = "Incipits";
           let timeFrame = dp.searchParams.chosenFeast === "default" ? dp.searchParams.chosenTimeFrame : dp.searchParams.chosenFeast    // default behavior controlled by method timespanOrFeast
           let singleLabel = `${dp.searchParams.chosenLO}, ${dp.searchParams.chosenGenre}, ${timeFrame}`
           obj.labels.push(singleLabel)
