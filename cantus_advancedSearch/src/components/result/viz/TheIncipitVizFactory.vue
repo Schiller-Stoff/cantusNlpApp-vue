@@ -1,6 +1,11 @@
 <template>
   <div>
-    <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
+    <app-bar-chart
+      :chartData="refHistoVizData"
+    ></app-bar-chart>
+    <app-line-chart
+      :chartData="refHistoVizData"
+    ></app-line-chart>
   </div>
 </template>
 
@@ -10,12 +15,14 @@
 
   import TheResultPreview from './../compare/TheResultPreview'
   import BarChart from './../compare/charts/BarChart'
+  import LineChart from '../compare/charts/LineChart'
 
   export default {
     name: "TheIncipitVizFactory",
     components:{
       appTheResultPreview:TheResultPreview,
-      appBarChart: BarChart
+      appBarChart: BarChart,
+      appLineChart:LineChart
     },
     props:{
       incipitSearch:{
