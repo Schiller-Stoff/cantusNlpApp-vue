@@ -8,7 +8,6 @@
 </template>
 
 <script>
-  //TODO remove curChartData variable --- I think it's unnecessary?
   //TODO vuex result namings are wrong now -> e.g. searchHistory -> to incipitSearchHistory
   //TODO Complete renaming and hierarchy
 
