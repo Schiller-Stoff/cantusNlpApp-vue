@@ -4,12 +4,6 @@
       :key="0"
       v-if="!incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed">
     </app-the-result-default>
-    <app-the-result-preview
-      v-if="incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed && !showTable"
-      :searchParams="incipitSearch.searchParams"
-      :vizHistoData="incipitVizHistory"
-      :key="1">
-    </app-the-result-preview>
     <app-the-result-table
       v-if="incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed && showTable"
       :key="2"
@@ -23,7 +17,15 @@
     >
     </app-the-result-load-handler>
 
-    <app-the-incipit-viz-factory></app-the-incipit-viz-factory>
+    <app-the-incipit-viz-factory
+      v-if="incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed && !showTable"
+      :key="1"
+
+      :incipitSearch="incipitSearch"
+      :incipitOngoingSearch="incipitOngoingSearch"
+      :incipitSearchFailed="incipitOngoingSearch"
+      :incipitSearchHistory="incipitSearchHistory"
+    ></app-the-incipit-viz-factory>
 
 
     <button class="btn btn-primary" @click="toggleTable">switch</button>
@@ -36,7 +38,6 @@
   import TheResultDefault from './TheResultDefault'
   import TheResultTable from './TheResultTable'
   import TheResultLoadHandler from './TheResultLoadHandler'
-  import TheResultPreview from './compare/TheResultPreview'
   import TheIncipitVizFactory from './viz/TheIncipitVizFactory'
 
   export default {
@@ -45,7 +46,6 @@
       appTheResultDefault:TheResultDefault,
       appTheResultTable:TheResultTable,
       appTheResultLoadHandler: TheResultLoadHandler,
-      appTheResultPreview: TheResultPreview,
       appTheIncipitVizFactory: TheIncipitVizFactory
     },
     props:{
@@ -68,44 +68,10 @@
         incipitVizHistory:[]
       }
     },
-    computed: {
-      incipitDiagramData(){
-        let resultCount = this.incipitSearch.response.body.length
-        return {
-          label:'Incipits',
-          backgroundColor: [this.randomColor()],
-          data: [resultCount]
-        };
-      },
-      incipitChartData(){
-        return {
-          labels:[this.incipitSearch.searchParams.chosenGenre, 'Rest'],
-          datasets: [this.incipitDiagramData],
-          searchParams:this.incipitSearch.searchParams
-        }
-      }
-    },
-    watch: {
-      incipitSearchHistory:{
-        deep:true,
-        handler(){
-          this.incipitVizHistory.push(this.incipitChartData)
-          console.log(this.incipitVizHistory)
-        }
-      }
-    },
     methods: {
       toggleTable(){
         return this.showTable = !this.showTable
-      },
-      randomColor() {
-        let letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-          color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-      },
+      }
     }
   }
 </script>
