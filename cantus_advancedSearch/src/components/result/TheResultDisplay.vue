@@ -23,6 +23,9 @@
     >
     </app-the-result-load-handler>
 
+    <app-the-incipit-viz-factory></app-the-incipit-viz-factory>
+
+
     <button class="btn btn-primary" @click="toggleTable">switch</button>
   </div>
 </template>
@@ -34,6 +37,7 @@
   import TheResultTable from './TheResultTable'
   import TheResultLoadHandler from './TheResultLoadHandler'
   import TheResultPreview from './compare/TheResultPreview'
+  import TheIncipitVizFactory from './viz/TheIncipitVizFactory'
 
   export default {
     name: "TheResultDisplay",
@@ -41,7 +45,8 @@
       appTheResultDefault:TheResultDefault,
       appTheResultTable:TheResultTable,
       appTheResultLoadHandler: TheResultLoadHandler,
-      appTheResultPreview: TheResultPreview
+      appTheResultPreview: TheResultPreview,
+      appTheIncipitVizFactory: TheIncipitVizFactory
     },
     props:{
       incipitSearch:{
