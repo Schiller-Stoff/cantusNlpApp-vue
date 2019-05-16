@@ -1,18 +1,19 @@
 <template>
-  <app-the-result-preview
-    :searchParams="incipitSearch.searchParams"
-    :vizHistoData="incipitVizHistory"
-  ></app-the-result-preview>
+  <app-bar-chart :chartData="refHistoVizData"></app-bar-chart>
 </template>
 
 <script>
 
+  //TODO correct component folder strucutre/hierarchy
+
   import TheResultPreview from './../compare/TheResultPreview'
+  import BarChart from './../compare/charts/BarChart'
 
   export default {
     name: "TheIncipitVizFactory",
     components:{
-      appTheResultPreview:TheResultPreview
+      appTheResultPreview:TheResultPreview,
+      appBarChart: BarChart
     },
     props:{
       incipitSearch:{
@@ -48,7 +49,32 @@
           datasets: [this.incipitDiagramData],
           searchParams:this.incipitSearch.searchParams
         }
-      }
+      },
+      refHistoVizData(){
+        let obj = {
+          labels: [],
+          datasets: []
+        }
+
+        let dataObj = {
+          label:'',
+          backgroundColor:[],
+          data: []
+        }
+
+        for (let dp of this.incipitVizHistory){
+          dataObj.label = "Feste";
+          let timeFrame = dp.searchParams.chosenFeast === "default" ? dp.searchParams.chosenTimeFrame : dp.searchParams.chosenFeast    // default behavior controlled by method timespanOrFeast
+          let singleLabel = `${dp.searchParams.chosenLO}, ${dp.searchParams.chosenGenre}, ${timeFrame}`
+          obj.labels.push(singleLabel)
+          dataObj.backgroundColor.push(dp.datasets[0].backgroundColor[0])
+          dataObj.data.push(dp.datasets[0].data[0])
+        }
+        obj.datasets.push(dataObj)
+
+        return obj;
+
+      },
     },
     watch: {
       incipitSearchHistory:{
