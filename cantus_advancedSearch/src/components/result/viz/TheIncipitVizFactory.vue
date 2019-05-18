@@ -9,10 +9,18 @@
       ></app-line-chart>
     </div>
     <div v-else>
-      <app-the-result-table
-        :tableData="incipitSearch.response.body"
-        :searchParams="incipitSearch.searchParams">
-      </app-the-result-table>
+      <v-client-table :data="incipitTableData" :columns="tableOptions.columns" :options="tableOptions.options">
+        <a slot="Fest" slot-scope="props" class="fa fa-edit" :href="props.row.Uri">
+          {{props.row.Fest}}
+        </a>
+        <a slot="Incipits" slot-scope="props" class="fa fa-edit" :href="props.row.i">
+          {{props.row.Incipits}}
+        </a>
+        <a slot="Hora" slot-scope="props" class="fa fa-edit" :href="props.row.o">
+          {{props.row.Hora}}
+        </a>
+      </v-client-table>
+
     </div>
     <button class="btn btn-primary" @click="toggleTable">switch</button>
   </div>
@@ -26,15 +34,13 @@
   import TheResultPreview from './../compare/TheResultPreview'
   import BarChart from './../compare/charts/BarChart'
   import LineChart from '../compare/charts/LineChart'
-  import TheResultTable from '../TheResultTable'
 
   export default {
     name: "TheIncipitVizFactory",
     components:{
       appTheResultPreview:TheResultPreview,
       appBarChart: BarChart,
-      appLineChart:LineChart,
-      appTheResultTable:TheResultTable
+      appLineChart:LineChart
     },
     props:{
       incipitSearch:{
@@ -53,7 +59,27 @@
     data(){
       return {
         incipitVizHistory:[],
-        showTable:false
+        showTable:false,
+        tableOptions: {
+          columns: ['Fest','Hora', 'Gattungsbez', 'Incipits','Referenz'],
+          options: {
+            // see the options API
+            texts: {
+              count:"Zeige {from} bis {to} von {count} Zeilen|{count} allen Zeilen|Einer Zeile",
+              first:'Erste',
+              last:'Letzte',
+              filter:"Filtern:",
+              filterPlaceholder:"Suche",
+              limit:"Zeilen:",
+              page:"Page:",
+              noResults:"Leider keine Ergebnisse",
+              filterBy:"Filter by {column}",
+              loading:'Laden...',
+              defaultOption:'Select {column}',
+              columns:'Spalten'
+            }
+          },
+        }
       }
     },
     computed: {
@@ -96,6 +122,13 @@
 
         return obj;
 
+      },
+      incipitTableData(){
+        let refined = []
+        for (let dataPoint of this.incipitSearch.response.body){
+          refined.push({Fest: dataPoint.feastname,Hora:dataPoint.office, 'Gattungsbez':dataPoint.genre, Incipits:dataPoint.incipit,Referenz:dataPoint.r, Uri:dataPoint.feast, i:dataPoint.i, o:dataPoint.o })
+        }
+        return refined;
       },
     },
     watch: {
