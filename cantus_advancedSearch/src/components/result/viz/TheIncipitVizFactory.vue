@@ -29,7 +29,7 @@
 <script>
 
   //TODO correct component folder strucutre/hierarchy
-  //TODO TheResultTable: -> add VClientTable here remove TheResultTable
+  //TODO Use ul or plain table to visualize incipit results
 
   import TheResultPreview from './../compare/TheResultPreview'
   import BarChart from './../compare/charts/BarChart'
