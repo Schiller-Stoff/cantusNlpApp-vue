@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="TheIncipitVizFactory_mainContainer">
     <div v-if="!showTable">
       <app-bar-chart
         :chartData="refHistoVizData"
@@ -8,8 +8,8 @@
         :chartData="refHistoVizData"
       ></app-line-chart>
     </div>
-    <div v-else>
-      <v-client-table :data="incipitTableData" :columns="tableOptions.columns" :options="tableOptions.options">
+    <div v-else class="TheIncipitVizFactory_incipitCointainer">
+      <!--<v-client-table :data="incipitTableData" :columns="tableOptions.columns" :options="tableOptions.options">
         <a slot="Fest" slot-scope="props" class="fa fa-edit" :href="props.row.Uri">
           {{props.row.Fest}}
         </a>
@@ -19,7 +19,27 @@
         <a slot="Hora" slot-scope="props" class="fa fa-edit" :href="props.row.o">
           {{props.row.Hora}}
         </a>
-      </v-client-table>
+      </v-client-table>-->
+
+      <ul class="TheIncipitVizFactory_mainUl list-group list-inline">
+        <li class="TheIncipitVizFactory_outerLi list-group-item" v-for="incipitSearch in incipitSearchHistory">
+          <ul class="list-group">
+            <li
+              class="list-group-item"
+              v-for="(result,index) in incipitSearch.response.body"
+              :class="index===0 ? 'active' : ''"
+            >
+              <a :href="index===0 ? '' : result.i" :style="index===0 ? 'text-decoration:none;color:white' : ''">
+                {{ index!==0 ? (result.incipit) : `${incipitSearch.searchParams.chosenLO}/${incipitSearch.searchParams.chosenGenre}` }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!--<ul class="list-group" v-for="incipitSearch in incipitSearchHistory">
+        <li class="list-group-item" v-for="result in incipitSearch.response.body">{{ result.incipit }}</li>
+      </ul>-->
 
     </div>
     <button class="btn btn-primary" @click="toggleTable">switch</button>
@@ -79,7 +99,7 @@
               columns:'Spalten'
             }
           },
-        }
+        },
       }
     },
     computed: {
@@ -130,6 +150,12 @@
         }
         return refined;
       },
+      incipitListData(){
+
+
+
+        return []
+      }
     },
     watch: {
       incipitSearchHistory:{
@@ -156,6 +182,18 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+  .TheIncipitVizFactory_outerLi {
+    vertical-align: top;
+  }
+
+  .TheIncipitVizFactory_mainUl {
+    width: 1000em;
+  }
+
+  .TheIncipitVizFactory_incipitCointainer {
+    overflow-x: auto;
+  }
 
 </style>
