@@ -78,7 +78,8 @@
           response.body = this.testIncipitSearch()
           this.incipitSearch.response = response
 
-          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',this.incipitSearch)
+          let copy = Object.assign({},this.incipitSearch)
+          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',copy)
           this.$store.dispatch('incipit_markOngoingSearchAction', false)
           return;
         }
@@ -97,7 +98,8 @@
           }
         }).then(response => {
           this.incipitSearch.response = response
-          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',this.incipitSearch)
+          let copy = Object.assign({},this.incipitSearch)
+          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',copy)
 
           clearTimeout(incipitSearchTimer)
           console.info('Response received:')
