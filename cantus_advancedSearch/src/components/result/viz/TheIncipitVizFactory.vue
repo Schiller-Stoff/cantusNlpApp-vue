@@ -21,6 +21,7 @@
 <script>
 
   //TODO correct component folder strucutre/hierarchy
+  //TODO TheResultTable: -> add VClientTable here remove TheResultTable
 
   import TheResultPreview from './../compare/TheResultPreview'
   import BarChart from './../compare/charts/BarChart'
