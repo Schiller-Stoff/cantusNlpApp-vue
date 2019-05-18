@@ -1,11 +1,20 @@
 <template>
   <div>
-    <app-bar-chart
-      :chartData="refHistoVizData"
-    ></app-bar-chart>
-    <app-line-chart
-      :chartData="refHistoVizData"
-    ></app-line-chart>
+    <div v-if="!showTable">
+      <app-bar-chart
+        :chartData="refHistoVizData"
+      ></app-bar-chart>
+      <app-line-chart
+        :chartData="refHistoVizData"
+      ></app-line-chart>
+    </div>
+    <div v-else>
+      <app-the-result-table
+        :tableData="incipitSearch.response.body"
+        :searchParams="incipitSearch.searchParams">
+      </app-the-result-table>
+    </div>
+    <button class="btn btn-primary" @click="toggleTable">switch</button>
   </div>
 </template>
 
@@ -16,13 +25,15 @@
   import TheResultPreview from './../compare/TheResultPreview'
   import BarChart from './../compare/charts/BarChart'
   import LineChart from '../compare/charts/LineChart'
+  import TheResultTable from '../TheResultTable'
 
   export default {
     name: "TheIncipitVizFactory",
     components:{
       appTheResultPreview:TheResultPreview,
       appBarChart: BarChart,
-      appLineChart:LineChart
+      appLineChart:LineChart,
+      appTheResultTable:TheResultTable
     },
     props:{
       incipitSearch:{
@@ -40,7 +51,8 @@
     },
     data(){
       return {
-        incipitVizHistory:[]
+        incipitVizHistory:[],
+        showTable:false
       }
     },
     computed: {

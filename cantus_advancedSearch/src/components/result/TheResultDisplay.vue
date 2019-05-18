@@ -4,12 +4,7 @@
       :key="0"
       v-if="!incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed">
     </app-the-result-default>
-    <app-the-result-table
-      v-if="incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed && showTable"
-      :key="2"
-      :tableData="incipitSearch.response.body"
-      :searchParams="incipitSearch.searchParams">
-    </app-the-result-table>
+
     <app-the-result-load-handler
       v-if="incipitOngoingSearch || incipitSearchFailed"
       :key="3"
@@ -28,7 +23,7 @@
     ></app-the-incipit-viz-factory>
 
 
-    <button class="btn btn-primary" @click="toggleTable">switch</button>
+
   </div>
 </template>
 
