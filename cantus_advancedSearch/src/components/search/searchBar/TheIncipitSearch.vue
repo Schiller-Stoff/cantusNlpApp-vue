@@ -159,10 +159,11 @@
         chosenLO:'passau.ur',
         chosenGenre:'RP',
         chosenHora:'M',
-        chosenFeasts:'weihnachten',
 
+        // inside here are objectItem.text = chosenTimeFrameName AND objectItem.value = chosenTimeFrameNumber!!
+        // necessary because of plugin
         objectItem:{
-          text:'',
+          text:'weihnachten',
           value:''
         },
         autoCompleteOptions:autocompleteVals,
@@ -171,27 +172,13 @@
     },
     computed: {
       incipitSearchParams(){
-
-        let params = {
+        return {
           chosenLO: this.chosenLO,
           chosenGenre: this.chosenGenre,
           chosenHora: this.chosenHora,
-          chosenFeasts:'',
-
-          //chosenFeastNumbers are above?
           chosenTimeFrameName:this.objectItem.text,
           chosenTimeFrameNumber:this.objectItem.value
         }
-
-
-
-
-        // chosen Feasts is can be multiple feasts (from one dropdown) OR
-        // just one (selected via the other dropdown)
-        let selTimeFrame = this.timeFrames[this.chosenFeasts]
-        params.chosenFeasts = selTimeFrame ? selTimeFrame : this.chosenFeasts
-
-        return params
       }
     },
     watch: {

@@ -44,8 +44,8 @@
             chosenLO: 'passau.ur',
             chosenGenre: 'RP',
             chosenHora: 'M',
-            chosenTimeFrame: 'weihnachten',
-            chosenFeast:''
+            chosenTimeFrameName: 'weihnachten',
+            chosenTimeFrameNumber:''
           }
         }
       }
@@ -55,10 +55,10 @@
         if(val===undefined)return;
         let queryStart = `${this.urlStart}/query:cantus.genres/methods/sdef:Query/getJSON?params=`
         let queryParams =
-          `$1|<https://gams.uni-graz.at/o:cantus.${this.incipitSearchParams.chosenLO}>;` +
-          `$2|${this.incipitSearchParams.chosenGenre};` +
-          `$3|${this.incipitSearchParams.chosenHora};` +
-          `$4|${this.incipitSearchParams.chosenFeasts}`
+          `$1|<https://gams.uni-graz.at/o:cantus.${this.incipitSearch.searchParams.chosenLO}>;` +
+          `$2|${this.incipitSearch.searchParams.chosenGenre};` +
+          `$3|${this.incipitSearch.searchParams.chosenHora};` +
+          `$4|${this.incipitSearch.searchParams.chosenTimeFrameNumber}`
 
         return this.encodeUri(queryStart + queryParams)
       }

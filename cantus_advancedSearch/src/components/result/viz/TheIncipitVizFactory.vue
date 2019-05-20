@@ -118,8 +118,7 @@
 
         for (let dp of this.incipitVizHistory){
           dataObj.label = "Incipits";
-          let timeFrame = dp.searchParams.chosenFeast === "default" ? dp.searchParams.chosenTimeFrame : dp.searchParams.chosenFeast    // default behavior controlled by method timespanOrFeast
-          let singleLabel = `${dp.searchParams.chosenLO}, ${dp.searchParams.chosenGenre}, ${timeFrame}`
+          let singleLabel = `${dp.searchParams.chosenLO}, ${dp.searchParams.chosenGenre}, ${dp.searchParams.chosenTimeFrameName}`
           obj.labels.push(singleLabel)
           dataObj.backgroundColor.push(dp.datasets[0].backgroundColor[0])
           dataObj.data.push(dp.datasets[0].data[0])
@@ -143,7 +142,7 @@
 
 
           innerArray.push({
-            val:`LO: ${incipitSearch.searchParams.chosenLO} - ${incipitSearch.searchParams.chosenFeast ? incipitSearch.searchParams.chosenFeast : incipitSearch.searchParams.chosenTimeFrame}`,
+            val:`LO: ${incipitSearch.searchParams.chosenLO} - ${incipitSearch.searchParams.chosenTimeFrameName}`,
             type:'header'
           })
           innerArray.push({
