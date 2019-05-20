@@ -164,11 +164,10 @@
       }
     },
     watch: {
-      incipitSearchHistory:{
-        deep:true,
-        handler(){
-          this.incipitVizHistory.push(this.incipitChartData)
-          console.log(this.incipitVizHistory)
+      incipitChartData: {
+        immediate: true,  //needed to fire watcher at first data change
+        handler(val){
+          this.incipitVizHistory.push(val)
         }
       }
     },
