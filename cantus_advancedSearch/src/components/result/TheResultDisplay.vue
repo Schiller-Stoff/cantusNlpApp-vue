@@ -69,7 +69,7 @@
       return {
         showTable:false,
         incipitVizHistory:[],
-        incipitViewToShow:'incipitTable'
+        incipitViewToShow:'incipitHistoViz'
       }
     },
     methods: {
