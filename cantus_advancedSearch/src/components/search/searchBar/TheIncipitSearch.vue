@@ -179,8 +179,8 @@
           chosenFeasts:'',
 
           //chosenFeastNumbers are above?
-          chosenFeastName:'',
-          chosenTimeFrameName:''
+          chosenTimeFrameName:this.objectItem.text,
+          chosenTimeFrameNumber:this.objectItem.value
         }
 
 
