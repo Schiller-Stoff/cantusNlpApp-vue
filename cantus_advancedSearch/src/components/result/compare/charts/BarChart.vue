@@ -16,14 +16,16 @@
         display: true,
         ticks:{
           display:true,
+          min: 0
         }
       }],
       xAxes: [{
         ticks: {
-          display: false //this will remove only the label from tick
+          display: false, //this will remove only the label from tick
           //callback: function(value, index, values) {      // with that we could hide the x-ticks when 4
             //if (index <4) return value
           //}
+          min: 0
         },
         scaleLabel: {
           display: true,
@@ -41,8 +43,12 @@
       }
     },
     watch: {
-      chartData(){
-        this.renderChart(this.chartData,options)
+      chartData: {
+        deep:true,
+        handler(){
+          console.log("NEW CHART DATA + RERENDER")
+          this.renderChart(this.chartData,options)
+        }
       }
     },
     mounted() {
