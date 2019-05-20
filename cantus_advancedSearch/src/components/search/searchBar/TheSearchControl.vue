@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid TheSearchControl_mainContainer">
 
     <div class="TheSearchControl_inlineBar">
       <div class="TheSearchControl_iconHolder"><i class="fas fa-home TheSearchControl_icons"></i></div>
@@ -51,6 +51,12 @@
 
 <style scoped lang="scss">
   @import "../../../scss/globalVariables/globalVariables.scss";
+
+  .TheSearchControl_mainContainer {
+    @include lg {
+      padding-top: 6vh;
+    }
+  }
 
   .TheSearchControl_icons {
     color: $secondaryColor;
