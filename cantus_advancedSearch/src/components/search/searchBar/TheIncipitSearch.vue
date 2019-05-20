@@ -28,7 +28,7 @@
     <div class="input-group mb-3">
       <div class="input-group-prepend">
       </div>
-      <select v-model="chosenFeasts" class="custom-select" id="inputGroupSelect04">
+      <select v-model="objectItem.text" @change="objectItem.value=assignTimeFrameNumbers(objectItem.text)"  class="custom-select" id="inputGroupSelect04">
         <option selected value="default">Bitte wählen...</option>
         <option value="weihnachten">Weihnachten</option>
         <option value="vorfastenzeit">Vorfastenzeit</option>
@@ -45,7 +45,7 @@
     </div>
     <div>
       <p>...<em>einzelnes Fest</em>.</p>
-      <app-model-select :options="autoCompleteOptions" v-model="chosenFeasts"></app-model-select>
+      <app-model-select :options="autoCompleteOptions" v-model="objectItem"></app-model-select>
       <br>
     </div>
 
@@ -160,6 +160,11 @@
         chosenGenre:'RP',
         chosenHora:'M',
         chosenFeasts:'weihnachten',
+
+        objectItem:{
+          text:'',
+          value:''
+        },
         autoCompleteOptions:autocompleteVals,
         timeFrames
       }
@@ -171,8 +176,15 @@
           chosenLO: this.chosenLO,
           chosenGenre: this.chosenGenre,
           chosenHora: this.chosenHora,
-          chosenFeasts:''
+          chosenFeasts:'',
+
+          //chosenFeastNumbers are above?
+          chosenFeastName:'',
+          chosenTimeFrameName:''
         }
+
+
+
 
         // chosen Feasts is can be multiple feasts (from one dropdown) OR
         // just one (selected via the other dropdown)
@@ -190,6 +202,10 @@
     methods: {
       initSearch(){
         this.$emit('startIncipitSearch')
+      },
+      assignTimeFrameNumbers(timeFrameName){
+        let number = this.timeFrames[timeFrameName]
+        if(number)return number
       }
     }
   }
