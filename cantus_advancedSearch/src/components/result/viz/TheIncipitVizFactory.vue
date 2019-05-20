@@ -1,5 +1,5 @@
 <template>
-  <div class="TheIncipitVizFactory_mainContainer">
+  <div class="TheIncipitVizFactory_mainContainer container-fluid">
     <div v-if="!showTable">
       <app-bar-chart
         :chartData="refHistoVizData"
