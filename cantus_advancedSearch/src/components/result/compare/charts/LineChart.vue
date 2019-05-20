@@ -28,7 +28,7 @@
       }
     },
     watch: {
-      datasets(){
+      chartData(){
         this.renderChart(this.chartData,options)
       }
     },
