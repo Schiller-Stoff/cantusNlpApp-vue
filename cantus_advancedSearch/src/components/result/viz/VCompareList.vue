@@ -98,11 +98,18 @@
     border: none;
     & > li {
       border: none;
-    }
-  }
+      padding:0;
 
-  .VCompareList_mainCointainer {
-    overflow-x: auto;
-  }
+      li {
+        border-top-left-radius:0;
+        border-top-right-radius: 0;
+      }
+
+}
+}
+
+.VCompareList_mainCointainer {
+overflow-x: auto;
+}
 
 </style>
