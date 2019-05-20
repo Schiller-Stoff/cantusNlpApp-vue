@@ -93,6 +93,7 @@
   #second {
     background-color: $blankColor;
     min-height: 20vh;
+    padding-left: 0;
     @include lg {
       min-height: 100vh;
     }
