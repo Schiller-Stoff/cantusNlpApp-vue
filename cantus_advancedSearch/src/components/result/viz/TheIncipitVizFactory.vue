@@ -37,10 +37,6 @@
         </li>
       </ul>
 
-      <!--<ul class="list-group" v-for="incipitSearch in incipitSearchHistory">
-        <li class="list-group-item" v-for="result in incipitSearch.response.body">{{ result.incipit }}</li>
-      </ul>-->
-
     </div>
     <button class="btn btn-primary" @click="toggleTable">switch</button>
   </div>
