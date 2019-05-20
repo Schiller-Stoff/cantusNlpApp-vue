@@ -41,10 +41,10 @@
           response:'',
           query:'',
           searchParams:{
-            chosenLO: '',
-            chosenGenre: '',
-            chosenHora: '',
-            chosenTimeFrame: '',
+            chosenLO: 'passau.ur',
+            chosenGenre: 'RP',
+            chosenHora: 'M',
+            chosenTimeFrame: 'weihnachten',
             chosenFeast:''
           }
         }
