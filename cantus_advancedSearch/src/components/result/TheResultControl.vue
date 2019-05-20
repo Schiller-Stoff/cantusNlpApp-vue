@@ -8,18 +8,23 @@
         <div @click="demandResultView('incipitTable')"><i class="far fa-file-alt"></i></div>
       </li>
       <li class="list-group-item">
-        <div><i class="far fa-window-maximize"></i></div>
+        <div @click="toggleFullScreen"><i class="far fa-window-maximize"></i></div>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+  import {EventBus} from "../../main";
+
   export default {
     name: "TheResultControl",
     methods: {
       demandResultView(val){
         return this.$emit('resultViewDemanded',val)
+      },
+      toggleFullScreen(){
+        EventBus.$emit('toggleFullScreen')
       }
     }
   }

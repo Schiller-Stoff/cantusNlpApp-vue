@@ -6,7 +6,7 @@
           :searchBarEnlarged="searchBarEnlarged"
         ></app-the-search>
       </div>
-      <div class="col-md-11" id="second" ref="second">
+      <div class="col-md-11" id="second" ref="second" :style="maximizedStyle" :class="animClass">
         <app-the-result></app-the-result>
       </div>
     </div>
@@ -18,6 +18,7 @@
   import {mapActions} from 'vuex'
   import TheResult from './result/TheResult'
   import TheSearch from './search/TheSearch'
+  import {EventBus} from "../main";
 
   export default {
     name: "TheMainGrid",
@@ -28,6 +29,8 @@
     data() {
       return {
         //searchBarEnlarged:false
+        maximizedStyle:'',
+        animClass:''
       }
     },
     computed: {
@@ -74,6 +77,17 @@
         }, 500)
 
       }
+    },
+    created(){
+      EventBus.$on('toggleFullScreen',_=>{
+        if(this.maximizedStyle){
+          this.animClass = ""
+          this.maximizedStyle = undefined
+        } else {
+          this.animClass = "animated fadeIn once";
+          this.maximizedStyle = {position:'absolute', height:'120vh', width: '100vw', left:0, top:0,zIndex:'2000'}
+        }
+      });
     }
   }
 </script>
