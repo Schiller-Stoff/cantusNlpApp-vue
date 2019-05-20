@@ -8,7 +8,11 @@
         :chartData="refHistoVizData"
       ></app-line-chart>
     </div>
-    <div v-else class="TheIncipitVizFactory_incipitCointainer">
+    <div v-else>
+      <app-compare-list
+        :arrayToLoop="incipitListData">
+      </app-compare-list>
+
       <!--<v-client-table :data="incipitTableData" :columns="tableOptions.columns" :options="tableOptions.options">
         <a slot="Fest" slot-scope="props" class="fa fa-edit" :href="props.row.Uri">
           {{props.row.Fest}}
@@ -20,23 +24,6 @@
           {{props.row.Hora}}
         </a>
       </v-client-table>-->
-
-      <ul class="TheIncipitVizFactory_mainUl list-group list-inline">
-        <li class="TheIncipitVizFactory_outerLi list-group-item" v-for="incipitSearch in incipitSearchHistory">
-          <ul class="list-group">
-            <li
-              class="list-group-item"
-              v-for="(result,index) in incipitSearch.response.body"
-              :class="index===0 ? 'active' : ''"
-            >
-              <a :href="index===0 ? '' : result.i" :style="index===0 ? 'text-decoration:none;color:white' : ''">
-                {{ index!==0 ? (result.incipit) : `${incipitSearch.searchParams.chosenLO}/${incipitSearch.searchParams.chosenGenre}` }}
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
     </div>
     <button class="btn btn-primary" @click="toggleTable">switch</button>
   </div>
@@ -45,18 +32,19 @@
 <script>
 
   //TODO correct component folder strucutre/hierarchy
-  //TODO Use ul or plain table to visualize incipit results
 
   import TheResultPreview from './../compare/TheResultPreview'
   import BarChart from './../compare/charts/BarChart'
   import LineChart from '../compare/charts/LineChart'
+  import VCompareList from './VCompareList'
 
   export default {
     name: "TheIncipitVizFactory",
     components:{
       appTheResultPreview:TheResultPreview,
       appBarChart: BarChart,
-      appLineChart:LineChart
+      appLineChart:LineChart,
+      appCompareList:VCompareList
     },
     props:{
       incipitSearch:{
@@ -147,10 +135,30 @@
         return refined;
       },
       incipitListData(){
+        let array = []
+        for (let incipitSearch of this.incipitSearchHistory){
+          let innerArray = []
 
 
+          innerArray.push({
+            val:`LO: ${incipitSearch.searchParams.chosenLO} - ${incipitSearch.searchParams.chosenFeast ? incipitSearch.searchParams.chosenFeast : incipitSearch.searchParams.chosenTimeFrame}`,
+            type:'header'
+          })
+          innerArray.push({
+            val:`Hora: ${incipitSearch.searchParams.chosenHora} - Genre: ${incipitSearch.searchParams.chosenGenre}`,
+            type:'subHeader'
+          })
 
-        return []
+          for (let result of incipitSearch.response.body) {
+            let objToPush = {
+              val:result.incipit,
+              href:result.i
+            }
+            innerArray.push(objToPush)
+          }
+          array.push(innerArray)
+        }
+        return array
       }
     },
     watch: {
@@ -180,16 +188,5 @@
 
 <style scoped lang="scss">
 
-  .TheIncipitVizFactory_outerLi {
-    vertical-align: top;
-  }
-
-  .TheIncipitVizFactory_mainUl {
-    width: 1000em;
-  }
-
-  .TheIncipitVizFactory_incipitCointainer {
-    overflow-x: auto;
-  }
 
 </style>
