@@ -2,6 +2,7 @@
   <div class="">
     <app-the-result-control
       v-if="incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed && !showTable"
+      @resultViewDemanded="incipitViewToShow = $event"
     >
     </app-the-result-control>
 
@@ -20,11 +21,11 @@
     <app-the-incipit-viz-factory
       v-if="incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed && !showTable"
       :key="1"
-
       :incipitSearch="incipitSearch"
       :incipitOngoingSearch="incipitOngoingSearch"
       :incipitSearchFailed="incipitOngoingSearch"
       :incipitSearchHistory="incipitSearchHistory"
+      :incipitViewToShow="incipitViewToShow"
     ></app-the-incipit-viz-factory>
 
 
@@ -67,7 +68,8 @@
     data(){
       return {
         showTable:false,
-        incipitVizHistory:[]
+        incipitVizHistory:[],
+        incipitViewToShow:'incipitTable'
       }
     },
     methods: {

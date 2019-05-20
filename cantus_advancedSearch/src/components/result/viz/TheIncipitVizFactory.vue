@@ -1,6 +1,6 @@
 <template>
   <div class="TheIncipitVizFactory_mainContainer container-fluid">
-    <div v-if="!showTable">
+    <div v-if="incipitViewToShow==='incipitHistoViz'">
       <app-bar-chart
         :chartData="refHistoVizData"
       ></app-bar-chart>
@@ -8,7 +8,7 @@
         :chartData="refHistoVizData"
       ></app-line-chart>
     </div>
-    <div v-else>
+    <div v-if="incipitViewToShow==='incipitTable'">
       <app-compare-list
         :arrayToLoop="incipitListData">
       </app-compare-list>
@@ -25,7 +25,6 @@
         </a>
       </v-client-table>-->
     </div>
-    <button class="btn btn-primary" @click="toggleTable">switch</button>
   </div>
 </template>
 
@@ -58,6 +57,9 @@
       },
       incipitSearchHistory: {
         required:true
+      },
+      incipitViewToShow: {
+        default:'incipitTable', //or incipitHistoViz
       }
     },
     data(){
@@ -171,9 +173,6 @@
       }
     },
     methods: {
-      toggleTable(){
-        return this.showTable = !this.showTable
-      },
       randomColor() {
         let letters = '0123456789ABCDEF';
         let color = '#';
