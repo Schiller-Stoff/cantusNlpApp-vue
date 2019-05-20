@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div class="container-fluid">
     <h2>Cantus Erweiterte Suche</h2>
     <hr>
     <div v-if="!showFullContent" class="ResultDefault_iconHolder">
