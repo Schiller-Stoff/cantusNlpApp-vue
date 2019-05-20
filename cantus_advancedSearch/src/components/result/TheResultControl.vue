@@ -2,13 +2,13 @@
   <div class="TheResultControl_mainContainer">
     <ul class="list-group list-inline text-right">
       <li class="list-group-item">
-        <i class="fas fa-chart-bar"></i>
+        <div><i class="fas fa-chart-bar"></i></div>
       </li>
       <li class="list-group-item">
-        <i class="far fa-file-alt"></i>
+        <div><i class="far fa-file-alt"></i></div>
       </li>
       <li class="list-group-item">
-        <i class="far fa-window-maximize"></i>
+        <div><i class="far fa-window-maximize"></i></div>
       </li>
     </ul>
   </div>
@@ -25,19 +25,23 @@
 
   .TheResultControl_mainContainer {
     background-color: $primaryColor;
+    i {
+      font-size: 1.5em;
+      padding: .25em;
+    }
+    li {
+      border: none;
+    }
+    ul {
+      position: sticky !important;
+    }
+    div:hover {
+      & > i {
+        color: $fourthColor;
+        cursor: pointer;
+      }
+    }
   }
 
-  i {
-    font-size: 1.75em;
-    padding: .25em;
-  }
-
-  li {
-    border:none;
-  }
-
-  ul {
-    position: sticky !important;
-  }
 
 </style>
