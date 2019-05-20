@@ -85,7 +85,7 @@
           this.maximizedStyle = undefined
         } else {
           this.animClass = "animated fadeIn once";
-          this.maximizedStyle = {position:'absolute', height:'120vh', width: '100vw', left:0, top:0,zIndex:'2000'}
+          this.maximizedStyle = {position:'absolute', height:'120vh', width: '99vw', left:0, top:0,zIndex:'2000'}
         }
       });
     }
