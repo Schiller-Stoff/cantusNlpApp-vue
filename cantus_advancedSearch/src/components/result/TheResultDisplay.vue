@@ -1,5 +1,10 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
+    <app-the-result-control
+      v-if="incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed && !showTable"
+    >
+    </app-the-result-control>
+
     <app-the-result-default
       :key="0"
       v-if="!incipitSearchHistory[0] && !incipitOngoingSearch && !incipitSearchFailed">
@@ -34,6 +39,7 @@
   import TheResultTable from './TheResultTable'
   import TheResultLoadHandler from './TheResultLoadHandler'
   import TheIncipitVizFactory from './viz/TheIncipitVizFactory'
+  import TheResultControl from './TheResultControl'
 
   export default {
     name: "TheResultDisplay",
@@ -41,7 +47,8 @@
       appTheResultDefault:TheResultDefault,
       appTheResultTable:TheResultTable,
       appTheResultLoadHandler: TheResultLoadHandler,
-      appTheIncipitVizFactory: TheIncipitVizFactory
+      appTheIncipitVizFactory: TheIncipitVizFactory,
+      appTheResultControl:TheResultControl
     },
     props:{
       incipitSearch:{
