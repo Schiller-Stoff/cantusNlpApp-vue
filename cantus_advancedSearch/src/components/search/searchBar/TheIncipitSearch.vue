@@ -2,19 +2,7 @@
   <div class="container-fluid">
     <h4>Incipit Suche</h4>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">LO</label>
-      </div>
-      <select v-model="chosenLO" class="custom-select" id="inputGroupSelect01">
-        <option selected>Bitte wählen...</option>
-        <option v-for="liber in libriOrdinarii" :value="liber.value">{{liber.text}}</option>
-
-        <option value="FAIL_QUERY">MALFORMED_QUERY</option>
-        <option value="/api/users?delay=5">DELAYED_RESPONSE_5sek</option>
-        <option value="/api/users?delay=12">DELAYED_RESPONSE_12sek_error_displayed</option>
-      </select>
-    </div>
+    <app-v-librii-ordinarii-select v-model="chosenLO"></app-v-librii-ordinarii-select>
 
     <br>
     <div>
@@ -143,12 +131,13 @@
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
   import {timeFrames} from '../../../data/timeFrameFeasts'
-  import {libriOrdinarii} from "../../../data/libriOrdinarii";
+  import VLibriiOrdinariiSelect from "./dropdowns/VLibriiOrdinariiSelect"
 
   export default {
     name: "TheIncipitSearch",
     components: {
       appModelSelect: ModelSelect,
+      appVLibriiOrdinariiSelect: VLibriiOrdinariiSelect
     },
     data(){
       return {
@@ -164,7 +153,6 @@
         },
         autoCompleteOptions:autocompleteVals,
         timeFrames,
-        libriOrdinarii
       }
     },
     computed: {
