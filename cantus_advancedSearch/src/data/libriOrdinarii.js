@@ -8,7 +8,33 @@ export const libriOrdinarii = {
   'Klosteneuburg (CRSA) - Edition KNB3 (A-KN 983)':'o:cantus.klosterneuburg.knb3',
   'Klosteneuburg (CRSA) - Edition KNB4 (A-KN 1014)':'o:cantus.klosterneuburg.knb4',
 
-  'Moosburg (Kollegiatsstift) - Edition D-Mbs Clm 9469':'o:cantus.mossburg',
+  'Moosburg (Kollegiatsstift) - Edition D-Mbs Clm 9469':'o:cantus.moosburg',
+
+  'Dioezese Passau - Edition rekonstruierter Urtext':'o:cantus.passau.ur',
+  'Dioezese Passau - Edition Edition SP1 (A-SPL 83/3)':'o:cantus.passau.sp',
+  'Dioezese Passau - Edition SVE (A-Wn 1874)':'o:cantus.passau.sve',
+  'Dioezese Passau - Edition KNB (A-KN 1194)':'o:cantus.passau.knb',
+
+  'Dioezese Passau (CRSA) - Edition PAC (A-Gu 208)':'o:cantus.seckau1.pac',
+
+  'St.Nikola (CRSA) - Edition Mengotus (A-Wn 1482)':'o:cantus.stnikola',
+
+  'Dioesese Regensburg - Edition D-Mbs clm 26947':'o:cantus.regensburg',
+
+  'St.Emmeram (OSB) - Edition EMM1 (D-Mbs clm 14183)':'o:cantus.emmeram.emm1',
+  'St.Emmeram (OSB) - Edition EMM2 (D-Mbs clm 14428)':'o:cantus.emmeram.emm2',
+  'St.Emmeram (OSB) - Edition EMM3 (D-Mbs clm 14073, Kastl)':'o:cantus.emmeram.emm3',
+
+  'Erzdioezese Salzburg - Edition rekonstruierter Urtext': 'o:cantus.salzburg.ur',
+  'Erzdioezese Salzburg - Edition SAL (A-Su M II 6)': 'o:cantus.salzburg.sal',
+  'Erzdioezese Salzburg - Edition RA (D-Mbs clm 12635)': 'o:cantus.salzburg.ra',
+  'Erzdioezese Salzburg - Edition VO (A-VOR 99)': 'o:cantus.salzburg.vo',
+
+  'Seckau (CRSA) - Edition Seckau 1 (A-Gu 208)':'o:cantus.seckau1.se1',
+  'Seckau (CRSA) - Edition Seckau 2':'o:cantus.seckau2',
+  'Seckau (CRSA) - Edition Seckau 3 (A-Gu 1566)':'o:cantus.seckau3',
+
+  'Vorau-Salzburg (CRSA) - Edition A-VOR 333':'o:cantus.vorau'
 
 
 }
