@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <h4>Incipit Suche</h4>
+    <h4>Erweiterte Incipit Suche</h4>
 
     <app-v-librii-ordinarii-select v-model="chosenLO"></app-v-librii-ordinarii-select>
 
