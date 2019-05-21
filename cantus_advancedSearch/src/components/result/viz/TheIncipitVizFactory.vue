@@ -32,6 +32,10 @@
 
   //TODO correct component folder strucutre/hierarchy
 
+  //array is needed for the incipitVizHistory to work
+  //see inside incipitChartData watcher
+  let array = []
+
   import TheResultPreview from './../compare/TheResultPreview'
   import BarChart from './../compare/charts/BarChart'
   import LineChart from '../compare/charts/LineChart'
@@ -166,7 +170,11 @@
       incipitChartData: {
         immediate: true,  //needed to fire watcher at first data change
         handler(val){
-          this.incipitVizHistory.push(val)
+          array.push(val)
+          //needs to be done that way -> otherwise reference will be lost
+          //and this.incipitVizHistory will recreate on each call
+          this.incipitVizHistory = array
+          console.log(array.length)
         }
       }
     },
