@@ -10,7 +10,9 @@
 
     <app-horae-select v-model="chosenHora"></app-horae-select>
 
-    <p></p>
+
+    <p>FullTextUrl:</p>
+    <p>{{fullTextUrl}}</p>
 
   </div>
 </template>
@@ -32,12 +34,32 @@
     },
     data(){
       return {
+        urlStart:`https://gams.uni-graz.at/archive/objects/`,
+
         autoCompleteOptions:autocompleteVals,
         chosenTimeFrame:{
           text:'',
           value:''
         },
         chosenHora:''
+      }
+    },
+    computed: {
+      fullTextUrl(){
+        if((this.chosenTimeFrame.value)!=='' && (this.chosenHora==='')){
+          let queryObject = 'query.cantus.FULLTEXT_ONLY_FEAST'
+
+          let queryStart = `${this.urlStart + queryObject}/methods/sdef:Query/get?params=`
+          let params = `$4|${this.chosenTimeFrame.value}`
+
+          let url = queryStart + encodeURI(params)
+          return url
+
+        }
+
+
+        let buildQuery = `${this.urlStart}`
+
       }
     }
   }
