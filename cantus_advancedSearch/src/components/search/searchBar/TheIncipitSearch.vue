@@ -8,16 +8,11 @@
       </div>
       <select v-model="chosenLO" class="custom-select" id="inputGroupSelect01">
         <option selected>Bitte wählen...</option>
-        <option value="passau">PASSAU RESP.TEST</option>
-        <option value="passau.ur">Passau Ur</option>
-        <option value="passau.sp">Passau SP</option>
+        <option v-for="liber in libriOrdinarii" :value="liber.value">{{liber.text}}</option>
+
         <option value="FAIL_QUERY">MALFORMED_QUERY</option>
         <option value="/api/users?delay=5">DELAYED_RESPONSE_5sek</option>
         <option value="/api/users?delay=12">DELAYED_RESPONSE_12sek_error_displayed</option>
-
-
-        <option value="salzburg.ur">Salzburg Ur</option>
-        <option value="klosterneuburg.ur">Kosterneuburg Ur</option>
       </select>
     </div>
 
@@ -148,6 +143,7 @@
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
   import {timeFrames} from '../../../data/timeFrameFeasts'
+  import {libriOrdinarii} from "../../../data/libriOrdinarii";
 
   export default {
     name: "TheIncipitSearch",
@@ -156,7 +152,7 @@
     },
     data(){
       return {
-        chosenLO:'passau.ur',
+        chosenLO:'o:cantus.passau.ur',
         chosenGenre:'RP',
         chosenHora:'M',
 
@@ -164,10 +160,11 @@
         // necessary because of plugin
         objectItem:{
           text:'weihnachten',
-          value:''
+          value:'"02122400" "02122500" "02122600" "02122700" "02122800" "05010600"'
         },
         autoCompleteOptions:autocompleteVals,
-        timeFrames
+        timeFrames,
+        libriOrdinarii
       }
     },
     computed: {
