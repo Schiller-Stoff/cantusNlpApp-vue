@@ -8,6 +8,7 @@
 
 <script>
   //TODO import selection values via mixins! (e.g. like selection for the LOs etc.) -> proceed with libriOrdinarii.js!
+  //TODO move reusable Dropdowns to own components! (like LO-dropdown/Fest-dropdown etc. / Hora)
 
   export default {
     name: "TheFullTextSearch"
