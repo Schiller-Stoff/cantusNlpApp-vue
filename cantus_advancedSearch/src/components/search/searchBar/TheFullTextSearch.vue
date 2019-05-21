@@ -8,9 +8,14 @@
     <p>Fest</p>
     <app-model-select :options="autoCompleteOptions" v-model="chosenTimeFrame"></app-model-select>
 
-    <app-horae-select v-model="chosenHora"></app-horae-select>
+    <hr>
+    <div>
+      <button class="btn btn-primary" @click="horaeSearch=true">Auf Horae einschränken</button>
+      <br>
+      <app-horae-select v-model="chosenHora" v-if="horaeSearch"></app-horae-select>
+    </div>
 
-
+    <br>
     <p>FullTextUrl:</p>
     <p>{{fullTextUrl}}</p>
 
@@ -43,12 +48,16 @@
           text:'',
           value:''
         },
-        chosenHora:''
+        chosenHora:'',
+
+        horaeSearch:false
+
+
       }
     },
     computed: {
       fullTextUrl(){
-        if((this.chosenTimeFrame.value)!=='' && (this.chosenHora==='')){
+        if(!this.horaeSearch){
           let queryObject = 'query.cantus.FULLTEXT_ONLY_FEAST'
 
           let queryStart = `${this.urlStart + queryObject}/methods/sdef:Query/get?params=`
