@@ -19,6 +19,8 @@
 
 <script>
   //TODO add incipit query etc.
+  //TODO think about: better to let user add further fields???? --> might be much easier to implement!
+  // -> because then -> as field is added the query will behave differently!
 
   import { ModelSelect } from 'vue-search-select'
   import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
