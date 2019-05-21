@@ -117,7 +117,6 @@
 <script>
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
-  import {timeFrames} from '../../../data/timeFrameFeasts'
   import VLibriiOrdinariiSelect from "./dropdowns/VLibriiOrdinariiSelect"
   import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
 
@@ -140,8 +139,7 @@
           text:'weihnachten',
           value:'"02122400" "02122500" "02122600" "02122700" "02122800" "05010600"'
         },
-        autoCompleteOptions:autocompleteVals,
-        timeFrames,
+        autoCompleteOptions:autocompleteVals
       }
     },
     computed: {
@@ -163,10 +161,6 @@
     methods: {
       initSearch(){
         this.$emit('startIncipitSearch')
-      },
-      assignTimeFrameNumbers(timeFrameName){
-        let number = this.timeFrames[timeFrameName]
-        if(number)return number
       }
     }
   }
