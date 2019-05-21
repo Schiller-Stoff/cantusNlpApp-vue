@@ -19,31 +19,9 @@
       <br>
     </div>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect03">Hora</label>
-      </div>
-      <select v-model="chosenHora" class="custom-select" id="inputGroupSelect03">
-        <option selected value="default">Bitte wählen...</option>
-        <option value="C">Completorium (C)</option>
 
-        <option value="L">Laudes (L)</option>
-        <option value="M">Matutinae (M)</option>
-        <option value="MI">Missa (MI)</option>
-        <option value="N">Nona (N)</option>
+    <app-v-horae-select v-model="chosenHora"></app-v-horae-select>
 
-        <option value="P">Prima (P)</option>
-        <option value="PRO">Prozessio (PRO)</option>
-        <option value="S">Sexta (S)</option>
-
-        <option value="T">Tertia (T)</option>
-        <option value="V">Vespera-1 (V)</option>
-        <option value="V2">Vespera-2 (V2)</option>
-
-
-
-      </select>
-    </div>
     <br>
 
     <div class="input-group mb-3">
@@ -119,13 +97,15 @@
   import {autocompleteVals} from "../../../data/autocompleteVals"
   import VLibriiOrdinariiSelect from "./dropdowns/VLibriiOrdinariiSelect"
   import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
+  import VHoraeSelect from './dropdowns/VHoraeSelect'
 
   export default {
     name: "TheIncipitSearch",
     components: {
       appModelSelect: ModelSelect,
       appVLibriiOrdinariiSelect: VLibriiOrdinariiSelect,
-      appVTimeFrameSelect: VTimeFrameSelect
+      appVTimeFrameSelect: VTimeFrameSelect,
+      appVHoraeSelect:VHoraeSelect
     },
     data(){
       return {
