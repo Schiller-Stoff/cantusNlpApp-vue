@@ -33,7 +33,7 @@
       return {
         // settings data
         urlStart:'https://glossa.uni-graz.at/archive/objects',
-        useDummyData:true,
+        useDummyData:false,
 
         // used class variables
         incipitSearchHistory:[],  //not used here, defined in vueX
@@ -55,7 +55,7 @@
         if(val===undefined)return;
         let queryStart = `${this.urlStart}/query:cantus.genres/methods/sdef:Query/getJSON?params=`
         let queryParams =
-          `$1|<https://gams.uni-graz.at/o:cantus.${this.incipitSearch.searchParams.chosenLO}>;` +
+          `$1|<https://gams.uni-graz.at/${this.incipitSearch.searchParams.chosenLO}>;` +
           `$2|${this.incipitSearch.searchParams.chosenGenre};` +
           `$3|${this.incipitSearch.searchParams.chosenHora};` +
           `$4|${this.incipitSearch.searchParams.chosenTimeFrameNumber}`
