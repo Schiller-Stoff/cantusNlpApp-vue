@@ -24,58 +24,7 @@
 
     <br>
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect02">Genre</label>
-      </div>
-      <select v-model="chosenGenre" class="custom-select" id="inputGroupSelect02">
-        <option selected value="default">Bitte wählen...</option>
-        <option value="AB">AB - Antiphon zum Benedictus</option>
-        <option value="AC">AC - Antiphon zur Commemoratio bzw. ad suffragium</option>
-        <option value="AD">AD - Antiphon zum Nunc dimittis</option>
-        <option value="AE">AE - Cantica-Antiphon (Evangelium)</option>
-        <option value="ALV">ALV - Alleluia-Vers</option>
-        <option value="AM">AM - Antiphon zum Magnificat</option>
-        <option value="AN">AN - Antiphon</option>
-        <option value="AP">AP - Prozessionsantiphon</option>
-        <option value="AS">AS - Marianische Schlussantiphon</option>
-
-        <option value="CO">CO - Communio</option>
-        <option value="CP">CP - Capitulum</option>
-
-        <option value="EP">EP - Epistel</option>
-        <option value="EPP">EPP - Epistel aus den Propheten</option>
-        <option value="EV">EV - Evangelium</option>
-
-        <option value="GR">GR - Graduale</option>
-
-        <option value="HY">HY - Hymnus</option>
-
-        <option value="IN">IN - Introitus</option>
-        <option value="INV">INV - Invitatorium</option>
-
-        <option value="LE">LE - Lectio (AT/NT)</option>
-        <option value="LH">LH - Homilie als Lectio</option>
-        <option value="LHI">LHI - Lectio aus Historia, Vita, Passio, Legenda</option>
-        <option value="LS">LS - Sermo als Lectio</option>
-
-        <option value="OF">OF - Offertorium</option>
-
-        <option value="PR">PR - Prosa</option>
-        <option value="PS">PS - Psalm</option>
-
-        <option value="RB">RB - Responsorium breve</option>
-        <option value="RP">RP - Responsorium prolixum</option>
-        <option value="RPP">RPP - Prozessionsresponsorium</option>
-
-        <option value="SE">SE - Sequenz</option>
-        <option value="TP">TP - Tropus</option>
-        <option value="TR">TR - Tractus</option>
-        <option value="VIS">VIS - Visitatio sepulchri</option>
-        <option value="VS">VS - Versikel</option>
-
-      </select>
-    </div>
+    <app-v-genre-select v-model="chosenGenre"></app-v-genre-select>
 
     <br>
 
@@ -98,6 +47,7 @@
   import VLibriiOrdinariiSelect from "./dropdowns/VLibriiOrdinariiSelect"
   import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
   import VHoraeSelect from './dropdowns/VHoraeSelect'
+  import VGenreSelect from './dropdowns/VGenreSelect'
 
   export default {
     name: "TheIncipitSearch",
@@ -105,7 +55,8 @@
       appModelSelect: ModelSelect,
       appVLibriiOrdinariiSelect: VLibriiOrdinariiSelect,
       appVTimeFrameSelect: VTimeFrameSelect,
-      appVHoraeSelect:VHoraeSelect
+      appVHoraeSelect:VHoraeSelect,
+      appVGenreSelect:VGenreSelect
     },
     data(){
       return {
