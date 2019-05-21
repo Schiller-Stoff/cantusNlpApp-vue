@@ -2,16 +2,44 @@
   <div>
     <h4>Erweiterte Volltextsuche</h4>
 
+    <p>Zeitraum</p>
+    <app-v-time-frame-select v-model="chosenTimeFrame"></app-v-time-frame-select>
+
+    <p>Fest</p>
+    <app-model-select :options="autoCompleteOptions" v-model="chosenTimeFrame"></app-model-select>
+
+    <app-horae-select v-model="chosenHora"></app-horae-select>
+
+    <p></p>
 
   </div>
 </template>
 
 <script>
-  //TODO import selection values via mixins! (e.g. like selection for the LOs etc.) -> proceed with libriOrdinarii.js!
-  //TODO move reusable Dropdowns to own components! (like LO-dropdown/Fest-dropdown etc. / Hora)
+  //TODO add incipit query etc.
+
+  import { ModelSelect } from 'vue-search-select'
+  import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
+  import VHoraeSelect from './dropdowns/VHoraeSelect'
+  import {autocompleteVals} from "../../../data/autocompleteVals"
 
   export default {
-    name: "TheFullTextSearch"
+    name: "TheFullTextSearch",
+    components: {
+      appVTimeFrameSelect:VTimeFrameSelect,
+      appModelSelect: ModelSelect,
+      appHoraeSelect:VHoraeSelect
+    },
+    data(){
+      return {
+        autoCompleteOptions:autocompleteVals,
+        chosenTimeFrame:{
+          text:'',
+          value:''
+        },
+        chosenHora:''
+      }
+    }
   }
 </script>
 
