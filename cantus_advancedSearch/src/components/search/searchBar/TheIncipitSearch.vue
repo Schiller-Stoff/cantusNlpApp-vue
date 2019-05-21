@@ -5,27 +5,14 @@
     <app-v-librii-ordinarii-select v-model="chosenLO"></app-v-librii-ordinarii-select>
 
     <br>
+
     <div>
       <p>Wählen Sie einen <em>Zeitraum</em> oder ein...</p>
     </div>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      </div>
-      <select v-model="objectItem.text" @change="objectItem.value=assignTimeFrameNumbers(objectItem.text)"  class="custom-select" id="inputGroupSelect04">
-        <option selected value="default">Bitte wählen...</option>
-        <option value="weihnachten">Weihnachten</option>
-        <option value="vorfastenzeit">Vorfastenzeit</option>
-        <option value="fastenzeit">Fastenzeit</option>
-        <option value="triduumSacrum">Triduum Sacrum</option>
-        <option value="nachOstern">Nachostern</option>
-        <option value="pfingsten">Pfingsten</option>
-        <option value="sonntageNachPfingsten">Sonntage nach Pfingsten</option>
-        <option value="communeSanctorum">Commune Sanctorum</option>
-        <option value="adventSonntage">Adventsonntage</option>
-        <option value="adventQuatember">Adventquatember</option>
-        <option value="zeitImKirchenJahr">Zeit im Kirchenjahr</option>
-      </select>
-    </div>
+
+    <app-v-time-frame-select v-model="objectItem"></app-v-time-frame-select>
+
+
     <div>
       <p>...<em>einzelnes Fest</em>.</p>
       <app-model-select :options="autoCompleteOptions" v-model="objectItem"></app-model-select>
@@ -132,12 +119,14 @@
   import {autocompleteVals} from "../../../data/autocompleteVals"
   import {timeFrames} from '../../../data/timeFrameFeasts'
   import VLibriiOrdinariiSelect from "./dropdowns/VLibriiOrdinariiSelect"
+  import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
 
   export default {
     name: "TheIncipitSearch",
     components: {
       appModelSelect: ModelSelect,
-      appVLibriiOrdinariiSelect: VLibriiOrdinariiSelect
+      appVLibriiOrdinariiSelect: VLibriiOrdinariiSelect,
+      appVTimeFrameSelect: VTimeFrameSelect
     },
     data(){
       return {
