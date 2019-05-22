@@ -66,10 +66,10 @@
         timeFrameSearchActive:false,
 
         queryObjects: {
-          onlyTimeFrame:'query.cantus.ONLY_TIMEFRAME',
-          onlyHorae:'query.cantus.ONLY_HORAE',
-          timeFrameAndHorae:'query.cantus.TIMEFRAME_AND_HORAE',
-          standardFullText:'query.cantus.STANDARD_FULLTEXT'
+          onlyTimeFrame:'query:cantus.ONLY_TIMEFRAME',
+          onlyHorae:'query:cantus.ONLY_HORAE',
+          timeFrameAndHorae:'query:cantus.TIMEFRAME_AND_HORAE',
+          standardFullText:'query:cantus.fulltext'
         }
 
 
@@ -79,37 +79,29 @@
       fullTextUrl(){
         if(this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyTimeFrame}/methods/sdef:Query/get?params=`
-          let params = `$4|${this.chosenTimeFrame.value};$5|${this.searchText}`
-          //return queryStart + encodeURI(params)
-
-          return 'ONLY TIMEFRAME'
+          let params = `$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
+          return queryStart + encodeURIC(params)
 
         }
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
-          let params = `$3|${this.chosenHora};$4|${this.chosenTimeFrame.value};$5|${this.searchText}`
-          //return queryStart + encodeURI(params)
-
-          return 'TIMEFRAME AND HORAESAERCH'
+          let params = `$3|${this.chosenHora};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
+          return queryStart + encodeURI(params)
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
-          let params = `$3|${this.chosenHora};$5|${this.searchText}`
-          //return queryStart + encodeURI(params)
-
-          return 'ONLY HORAE'
+          let params = `$3|${this.chosenHora};$5|${this.searchText.toLowerCase()}`
+          return queryStart + encodeURI(params)
 
         }
 
 
         if(!this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.standardFullText}/methods/sdef:Query/get?params=`
-          let params = `$5|${this.searchText}`
-          //return queryStart + encodeURI(params)
-
-          return 'NORMAL FULLTEXTSEARCH'
+          let params = `$5|${this.searchText.toLowerCase()}`
+          return queryStart + encodeURIComponent(params)
         }
 
       }
