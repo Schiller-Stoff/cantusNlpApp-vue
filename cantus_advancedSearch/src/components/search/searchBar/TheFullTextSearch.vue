@@ -2,6 +2,15 @@
   <div>
     <h4>Erweiterte Volltextsuche</h4>
     <br>
+
+    <app-full-text-input
+      v-model="searchText"
+    ></app-full-text-input>
+    <hr>
+    <br>
+    <br>
+    <h5>Sucheinschränkungen</h5>
+    <hr>
     <app-time-frame-or-feast-select
       v-model="chosenTimeFrame"
       :searchFieldsShown="false"
@@ -32,19 +41,21 @@
   import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
   import VHoraeSelect from './dropdowns/VHoraeSelect'
   import VTimeFrameOrFeastSelect from './dropdowns/VTimeFrameOrFeastSelect'
-
+  import VFullTextInput from './dropdowns/VFullTextInput'
 
   export default {
     name: "TheFullTextSearch",
     components: {
       appVTimeFrameSelect:VTimeFrameSelect,
       appHoraeSelect:VHoraeSelect,
-      appTimeFrameOrFeastSelect: VTimeFrameOrFeastSelect
+      appTimeFrameOrFeastSelect: VTimeFrameOrFeastSelect,
+      appFullTextInput: VFullTextInput
     },
     data(){
       return {
         urlStart:`https://gams.uni-graz.at/archive/objects/`,
 
+        searchText:'',
         chosenTimeFrame:{
           text:'',
           value:''
@@ -63,7 +74,7 @@
           let queryObject = 'query.cantus.FULLTEXT_ONLY_TIMEFRAME'
 
           let queryStart = `${this.urlStart + queryObject}/methods/sdef:Query/get?params=`
-          let params = `$4|${this.chosenTimeFrame.value}`
+          let params = `$4|${this.chosenTimeFrame.value};$5|${this.searchText}`
 
           let url = queryStart + encodeURI(params)
           //return url
