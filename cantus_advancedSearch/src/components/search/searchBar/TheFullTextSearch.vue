@@ -2,20 +2,19 @@
   <div>
 
     <div class="TheFullTextSearch_searchContstraintsContainer">
-    <h4>Erweiterte Volltextsuche</h4>
-    <br>
+    <h3>Erweiterte Volltextsuche</h3>
+      <hr>
+      <br>
 
 
 
       <app-full-text-input
         v-model="searchText"
       ></app-full-text-input>
-      <hr>
-      <br>
       <br>
 
 
-      <h5>Sucheinschränkungen</h5>
+      <h4>Sucheinschränkungen</h4>
       <hr>
       <app-time-frame-or-feast-select
         v-model="chosenTimeFrame"
@@ -32,6 +31,8 @@
         ></app-horae-select>
       </div>
 
+      <br>
+      <hr>
       <br>
       <!--<p>FullTextUrl:</p>
       <p>{{fullTextUrl}}</p>-->
@@ -136,10 +137,16 @@
 
   .TheFullTextSearch_searchContstraintsContainer {
     padding:2em;
-    border: lightgrey solid .15em;
+    /*border: lightgrey solid .15em;*/
     margin:1em;
     border-radius: .25em;
     background-color: $blankColor;
+  }
+
+  hr {
+    border: none;
+    padding:.35em;
+    background-color: $primaryColor;
   }
 
 </style>
