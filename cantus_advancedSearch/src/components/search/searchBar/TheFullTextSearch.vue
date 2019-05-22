@@ -138,7 +138,7 @@
     padding:2em;
     border: lightgrey solid .15em;
     margin:1em;
-    border-radius: .15em;
+    border-radius: .25em;
     background-color: $blankColor;
   }
 
