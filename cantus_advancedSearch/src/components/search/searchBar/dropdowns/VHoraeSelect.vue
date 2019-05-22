@@ -5,6 +5,7 @@
     :searchButton="{textActive:'activeText',textInActive:'inactiveText'}"
     v-model="value"
     @input="vModelEmit(value)"
+    @searchFieldToggled="emitSearchFieldShownStatus($event)"
   ></app-v-toggable-search-bar>
 </template>
 
@@ -32,6 +33,9 @@
     methods:{
       vModelEmit(val){
         this.$emit('input',val.value)
+      },
+      emitSearchFieldShownStatus(value){
+        this.$emit('searchFieldToggled', value)
       }
     }
   }
