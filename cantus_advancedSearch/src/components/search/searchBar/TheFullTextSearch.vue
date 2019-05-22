@@ -2,7 +2,7 @@
   <div>
 
     <div class="TheFullTextSearch_searchContstraintsContainer">
-    <h3>Erweiterte Volltextsuche</h3>
+    <h4>Erweiterte Volltextsuche</h4>
       <hr>
       <br>
 
@@ -14,8 +14,7 @@
       <br>
 
 
-      <h4>Sucheinschränkungen</h4>
-      <hr>
+      <h5>Sucheinschränkungen</h5>
       <app-time-frame-or-feast-select
         v-model="chosenTimeFrame"
         :searchFieldsShown="false"
@@ -33,7 +32,6 @@
 
       <br>
       <hr>
-      <br>
       <!--<p>FullTextUrl:</p>
       <p>{{fullTextUrl}}</p>-->
       <button class="btn btn-primary" @click="navigateToQuery">Suche Starten</button>
@@ -136,7 +134,7 @@
   @import "../../../scss/globalVariables/globalVariables";
 
   .TheFullTextSearch_searchContstraintsContainer {
-    padding:2em;
+    padding:4em 2em 2em 2em;
     /*border: lightgrey solid .15em;*/
     margin:1em;
     border-radius: .25em;

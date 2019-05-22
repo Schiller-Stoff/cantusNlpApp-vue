@@ -1,6 +1,8 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid TheIncipitSearch_mainContainer">
     <h4>Erweiterte Incipit Suche</h4>
+
+    <hr>
 
     <app-v-librii-ordinarii-select v-model="chosenLO"></app-v-librii-ordinarii-select>
 
@@ -28,6 +30,7 @@
 
     <br>
 
+    <hr>
     <button
       class="btn btn-primary" @click="initSearch">Suche starten
     </button>
@@ -97,6 +100,21 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "../../../scss/globalVariables/globalVariables";
+
+  .TheIncipitSearch_mainContainer {
+    padding:4em 2em 2em 2em;
+    /*border: lightgrey solid .15em;*/
+    margin:1em;
+    border-radius: .25em;
+    background-color: $blankColor;
+  }
+
+  hr {
+    border: none;
+    padding:.35em;
+    background-color: $primaryColor;
+  }
 
 </style>
