@@ -1,19 +1,30 @@
 <template>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-    </div>
-    <select v-model="value" @change="emitValue(value)" class="custom-select" id="inputGroupSelect04" :options="timeFrames">
-      <option selected value="default">Bitte wählen...</option>
-      <option v-for="time in timeFrames" :value="time">{{time.text}}</option>
-    </select>
+  <div>
+    <app-v-toggable-search-bar
+      :options="timeFrames"
+      :searchToggable="searchToggable"
+      :searchButton="{textActive:'activeText',textInActive:'inactiveText'}"
+      v-model="value"
+      @input="vModelEmit(value)"
+      @searchFieldToggled="emitSearchFieldShownStatus($event)"
+    ></app-v-toggable-search-bar>
   </div>
 </template>
 
 <script>
   import {timeFrames} from "../../../../data/timeFrameFeasts";
+  import VToggableSearchBar from './VToggableSearchBar'
 
   export default {
     name: "VTimeFrameSelect",
+    components: {
+      appVToggableSearchBar:VToggableSearchBar
+    },
+    props:{
+      searchToggable: {
+        default:false
+      }
+    },
     data(){
       return {
         value:'',
@@ -21,8 +32,11 @@
       }
     },
     methods:{
-      emitValue(val){
-        this.$emit('input',val)
+      vModelEmit(value){
+        this.$emit('input',value)
+      },
+      emitSearchFieldShownStatus(value){
+        this.$emit('searchFieldToggled', value)
       }
     }
   }
