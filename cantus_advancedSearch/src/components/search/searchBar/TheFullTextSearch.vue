@@ -1,8 +1,6 @@
 <template>
   <div>
     <h4>Erweiterte Volltextsuche</h4>
-
-    <p>Zeitraum</p>
     <app-time-frame-or-feast-select
       v-model="chosenTimeFrame"
       :searchFieldsShown="false"

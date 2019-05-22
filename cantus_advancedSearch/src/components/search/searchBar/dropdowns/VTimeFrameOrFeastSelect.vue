@@ -1,9 +1,9 @@
 <template>
   <div>
-    <button
-      class="btn btn-primary"
+    <span
+      class="VTimeFrameOrFeastSelect_buttonSpan"
       @click="toggleSearchFields()"
-    >Zeitraumsuche</button>
+    >Auf Zeitraum einschränken</span>
     <app-model-select
       v-if="searchShown"
       :options="autoCompleteOptions"
@@ -58,6 +58,21 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "../../../../scss/globalVariables/globalVariables";
+  .VTimeFrameOrFeastSelect_buttonSpan {
+    width: 100%;
+    display: block;
+    text-align: center;
+    background-color:#eee;
+    padding: 3px 8px;
+    border: 1px solid #ccc;
+    transition: background-color .25s;
+    &:hover {
+      cursor: pointer;
+      background-color: $fourthColor;
+    }
+  }
+
 
 </style>
