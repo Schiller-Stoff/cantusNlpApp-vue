@@ -59,15 +59,31 @@
     },
     computed: {
       fullTextUrl(){
-        if(this.horaeSearchActive && !this.timeFrameSearchActive){
-          /*let queryObject = 'query.cantus.FULLTEXT_ONLY_FEAST'
+        if(this.timeFrameSearchActive && !this.horaeSearchActive){
+          let queryObject = 'query.cantus.FULLTEXT_ONLY_TIMEFRAME'
 
           let queryStart = `${this.urlStart + queryObject}/methods/sdef:Query/get?params=`
           let params = `$4|${this.chosenTimeFrame.value}`
 
           let url = queryStart + encodeURI(params)
-          return url*/
+          //return url
 
+          return 'ONLY TIMEFRAME'
+
+        }
+
+        if(this.timeFrameSearchActive && this.horaeSearchActive){
+          return 'TIMEFRAME AND HORAESAERCH'
+        }
+
+        if(!this.timeFrameSearchActive && this.horaeSearchActive){
+          return 'ONLY HORAE'
+
+        }
+
+
+        if(!this.timeFrameSearchActive && !this.horaeSearchActive){
+          return 'NORMAL FULLTEXTSEARCH'
         }
 
 
