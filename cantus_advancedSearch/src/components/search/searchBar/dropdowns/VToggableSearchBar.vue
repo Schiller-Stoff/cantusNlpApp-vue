@@ -9,7 +9,7 @@
 
     <select
       v-model="value"
-      class="form-control"
+      class="form-control VToggableSearchBar_select"
       id="inputGroupSelect03"
       @change="vModelEmit(value)"
       v-if="searchToggable ? showSearch : true">
@@ -83,6 +83,16 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "../../../../scss/globalVariables/globalVariables";
+
+  span {
+    background-color: #337ab7;
+    color:white;
+  }
+
+  .VToggableSearchBar_select {
+    background-color: $primaryColor;
+  }
 
 </style>
