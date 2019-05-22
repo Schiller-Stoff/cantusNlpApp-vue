@@ -1,37 +1,44 @@
 <template>
   <div>
+
+    <div class="TheFullTextSearch_searchContstraintsContainer">
     <h4>Erweiterte Volltextsuche</h4>
     <br>
 
-    <app-full-text-input
-      v-model="searchText"
-    ></app-full-text-input>
-    <hr>
-    <br>
-    <br>
-    <h5>Sucheinschränkungen</h5>
-    <hr>
-    <app-time-frame-or-feast-select
-      v-model="chosenTimeFrame"
-      :searchFieldsShown="false"
-      @searchFieldToggled="timeFrameSearchActive = $event"
-    ></app-time-frame-or-feast-select>
 
-    <div>
+
+      <app-full-text-input
+        v-model="searchText"
+      ></app-full-text-input>
+      <hr>
       <br>
-      <app-horae-select
-        v-model="chosenHora"
-        :search-toggable="true"
-        @searchFieldToggled="horaeSearchActive = $event"
-      ></app-horae-select>
+      <br>
+
+
+      <h5>Sucheinschränkungen</h5>
+      <hr>
+      <app-time-frame-or-feast-select
+        v-model="chosenTimeFrame"
+        :searchFieldsShown="false"
+        @searchFieldToggled="timeFrameSearchActive = $event"
+      ></app-time-frame-or-feast-select>
+
+      <div>
+        <br>
+        <app-horae-select
+          v-model="chosenHora"
+          :search-toggable="true"
+          @searchFieldToggled="horaeSearchActive = $event"
+        ></app-horae-select>
+      </div>
+
+      <br>
+      <!--<p>FullTextUrl:</p>
+      <p>{{fullTextUrl}}</p>-->
+      <button class="btn btn-primary" @click="navigateToQuery">Suche Starten</button>
     </div>
 
-    <br>
-    <p>FullTextUrl:</p>
-    <p>{{fullTextUrl}}</p>
 
-
-    <button class="btn btn-primary" @click="navigateToQuery">Suche Starten</button>
 
 
 
@@ -124,6 +131,14 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import "../../../scss/globalVariables/globalVariables";
+
+  .TheFullTextSearch_searchContstraintsContainer {
+    padding:2em;
+    border: lightgrey solid .15em;
+    border-radius: .15em;
+    background-color: $blankColor;
+  }
 
 </style>
