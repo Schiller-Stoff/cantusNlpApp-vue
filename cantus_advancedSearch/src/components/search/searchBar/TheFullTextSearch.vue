@@ -143,8 +143,8 @@
 
   hr {
     border: none;
-    padding:.35em;
-    background-color: $primaryColor;
+    padding:.15em;
+    background-color: lightgrey;
   }
 
 </style>
