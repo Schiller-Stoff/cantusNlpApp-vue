@@ -3,7 +3,7 @@
     <app-v-toggable-search-bar
       :options="timeFrames"
       :searchToggable="searchToggable"
-      :searchButton="{textActive:'activeText',textInActive:'inactiveText'}"
+      :searchButton="{textActive:'Zeitraum',textInActive:'Einschränken auf Zeitraum'}"
       v-model="value"
       @input="vModelEmit(value)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
