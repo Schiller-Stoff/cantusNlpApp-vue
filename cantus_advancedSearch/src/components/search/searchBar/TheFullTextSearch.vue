@@ -10,9 +10,9 @@
 
     <hr>
     <div>
-      <button class="btn btn-primary" @click="horaeSearch=true">Auf Horae einschränken</button>
       <br>
-      <app-horae-select v-model="chosenHora" v-if="horaeSearch"></app-horae-select>
+      <app-horae-select v-model="chosenHora" v-if="horaeSearch.active"></app-horae-select>
+      <button class="btn btn-primary" @click="toggleHoraeSearch()">{{ horaeSearch.active ? horaeSearch.activeText : horaeSearch.inactiveText}}</button>
     </div>
 
     <br>
@@ -50,7 +50,11 @@
         },
         chosenHora:'',
 
-        horaeSearch:false
+        horaeSearch:{
+          active:false,
+          inactiveText:'Auf Horae einschränken',
+          activeText:'Horae Einschränkung auflösen'
+        },
 
 
       }
@@ -71,6 +75,11 @@
 
         let buildQuery = `${this.urlStart}`
 
+      }
+    },
+    methods:{
+      toggleHoraeSearch(){
+        return this.horaeSearch.active = !this.horaeSearch.active
       }
     }
   }
