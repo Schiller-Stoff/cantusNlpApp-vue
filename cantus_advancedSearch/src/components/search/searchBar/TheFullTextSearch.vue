@@ -137,6 +137,7 @@
   .TheFullTextSearch_searchContstraintsContainer {
     padding:2em;
     border: lightgrey solid .15em;
+    margin:1em;
     border-radius: .15em;
     background-color: $blankColor;
   }
