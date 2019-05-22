@@ -3,15 +3,26 @@
     <h4>Erweiterte Volltextsuche</h4>
 
     <p>Zeitraum</p>
-    <app-v-time-frame-select v-model="chosenTimeFrame" :search-toggable="true" @searchFieldToggled="timeFrameSearchActive = $event"></app-v-time-frame-select>
+    <app-v-time-frame-select
+      v-model="chosenTimeFrame"
+      :search-toggable="true"
+      @searchFieldToggled="timeFrameSearchActive = $event"
+    ></app-v-time-frame-select>
 
     <p>Fest</p>
-    <app-model-select :options="autoCompleteOptions" v-model="chosenTimeFrame"></app-model-select>
+    <app-model-select
+      :options="autoCompleteOptions"
+      v-model="chosenTimeFrame"
+    ></app-model-select>
 
     <hr>
     <div>
       <br>
-      <app-horae-select v-model="chosenHora" :search-toggable="true" @searchFieldToggled="horaeSearchActive = $event"></app-horae-select>
+      <app-horae-select
+        v-model="chosenHora"
+        :search-toggable="true"
+        @searchFieldToggled="horaeSearchActive = $event"
+      ></app-horae-select>
     </div>
 
     <br>
