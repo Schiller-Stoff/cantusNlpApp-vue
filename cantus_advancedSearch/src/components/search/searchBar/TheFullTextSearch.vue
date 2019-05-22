@@ -11,8 +11,7 @@
     <hr>
     <div>
       <br>
-      <app-horae-select v-model="chosenHora" v-if="horaeSearch.active"></app-horae-select>
-      <button class="btn btn-primary" @click="toggleHoraeSearch()">{{ horaeSearch.active ? horaeSearch.activeText : horaeSearch.inactiveText}}</button>
+      <app-horae-select v-model="chosenHora" :search-toggable="true" @horaeSearchToggled="horaeSearchActive = $event"></app-horae-select>
     </div>
 
     <br>
@@ -50,18 +49,14 @@
         },
         chosenHora:'',
 
-        horaeSearch:{
-          active:false,
-          inactiveText:'Auf Horae einschränken',
-          activeText:'Horae Einschränkung auflösen'
-        },
+        horaeSearchActive:false
 
 
       }
     },
     computed: {
       fullTextUrl(){
-        if(this.horaeSearch.active){
+        if(this.horaeSearchActive){
           /*let queryObject = 'query.cantus.FULLTEXT_ONLY_FEAST'
 
           let queryStart = `${this.urlStart + queryObject}/methods/sdef:Query/get?params=`
@@ -78,9 +73,7 @@
       }
     },
     methods:{
-      toggleHoraeSearch(){
-        return this.horaeSearch.active = !this.horaeSearch.active
-      }
+
     }
   }
 </script>
