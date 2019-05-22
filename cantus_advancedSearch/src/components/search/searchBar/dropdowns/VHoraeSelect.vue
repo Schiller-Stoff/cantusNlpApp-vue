@@ -38,14 +38,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../../../../scss/globalVariables/globalVariables";
-  #basic-addon1{
-    width:10px;
-    transition: background-color .25s;
-    &:hover {
-      cursor: pointer;
-      background-color: $fourthColor;
-    }
-  }
 
 </style>
