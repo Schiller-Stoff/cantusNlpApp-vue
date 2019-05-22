@@ -1,18 +1,23 @@
 <template>
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1" @click="searchToggable ? toggleHoraeSearch() : ''">Horae</span>
-    <select v-model="value" class="form-control" id="inputGroupSelect03" @change="emitVal(value)" v-if="searchToggable ? showSearch : true">
-      <option v-for="hora in horae" :value="hora.value">{{hora.text}}</option>
-    </select>
-  </div>
+  <app-v-toggable-search-bar
+    :options="horae"
+    :searchToggable="searchToggable"
+    :searchButton="{textActive:'activeText',textInActive:'inactiveText'}"
+    v-model="value"
+    @input="vModelEmit(value)"
+  ></app-v-toggable-search-bar>
 </template>
 
 <script>
 
   import {horae} from "../../../../data/Horae";
+  import VToggableSearchBar from './VToggableSearchBar'
 
   export default {
     name: "VHoraeSelect",
+    components: {
+      appVToggableSearchBar:VToggableSearchBar
+    },
     props:{
       searchToggable:{
         default:false
@@ -21,17 +26,12 @@
     data(){
       return {
         value:'',
-        horae,
-        showSearch:false
+        horae
       }
     },
     methods:{
-      emitVal(val){
-        this.$emit('input',val)
-      },
-      toggleHoraeSearch(){
-        this.showSearch = !this.showSearch
-        this.$emit('horaeSearchToggled',this.showSearch)
+      vModelEmit(val){
+        this.$emit('input',val.value)
       }
     }
   }
