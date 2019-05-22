@@ -61,14 +61,14 @@
     },
     computed: {
       fullTextUrl(){
-        if(!this.horaeSearch){
-          let queryObject = 'query.cantus.FULLTEXT_ONLY_FEAST'
+        if(this.horaeSearch.active){
+          /*let queryObject = 'query.cantus.FULLTEXT_ONLY_FEAST'
 
           let queryStart = `${this.urlStart + queryObject}/methods/sdef:Query/get?params=`
           let params = `$4|${this.chosenTimeFrame.value}`
 
           let url = queryStart + encodeURI(params)
-          return url
+          return url*/
 
         }
 
