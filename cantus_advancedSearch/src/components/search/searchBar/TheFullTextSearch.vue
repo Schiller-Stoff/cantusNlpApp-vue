@@ -63,7 +63,14 @@
         chosenHora:'',
 
         horaeSearchActive:false,
-        timeFrameSearchActive:false
+        timeFrameSearchActive:false,
+
+        queryObjects: {
+          onlyTimeFrame:'query.cantus.ONLY_TIMEFRAME',
+          onlyHorae:'query.cantus.ONLY_HORAE',
+          timeFrameAndHorae:'query.cantus.TIMEFRAME_AND_HORAE',
+          standardFullText:'query.cantus.STANDARD_FULLTEXT'
+        }
 
 
       }
@@ -71,34 +78,39 @@
     computed: {
       fullTextUrl(){
         if(this.timeFrameSearchActive && !this.horaeSearchActive){
-          let queryObject = 'query.cantus.FULLTEXT_ONLY_TIMEFRAME'
-
-          let queryStart = `${this.urlStart + queryObject}/methods/sdef:Query/get?params=`
+          let queryStart = `${this.urlStart + this.queryObjects.onlyTimeFrame}/methods/sdef:Query/get?params=`
           let params = `$4|${this.chosenTimeFrame.value};$5|${this.searchText}`
-
-          let url = queryStart + encodeURI(params)
-          //return url
+          //return queryStart + encodeURI(params)
 
           return 'ONLY TIMEFRAME'
 
         }
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
+          let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
+          let params = `$3|${this.chosenHora};$4|${this.chosenTimeFrame.value};$5|${this.searchText}`
+          //return queryStart + encodeURI(params)
+
           return 'TIMEFRAME AND HORAESAERCH'
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
+          let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
+          let params = `$3|${this.chosenHora};$5|${this.searchText}`
+          //return queryStart + encodeURI(params)
+
           return 'ONLY HORAE'
 
         }
 
 
         if(!this.timeFrameSearchActive && !this.horaeSearchActive){
+          let queryStart = `${this.urlStart + this.queryObjects.standardFullText}/methods/sdef:Query/get?params=`
+          let params = `$5|${this.searchText}`
+          //return queryStart + encodeURI(params)
+
           return 'NORMAL FULLTEXTSEARCH'
         }
-
-
-        let buildQuery = `${this.urlStart}`
 
       }
     },
