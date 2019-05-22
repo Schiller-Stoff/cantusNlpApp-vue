@@ -5,6 +5,7 @@
     <app-time-frame-or-feast-select
       v-model="chosenTimeFrame"
       :searchFieldsShown="false"
+      @searchFieldToggled="timeFrameSearchActive = $event"
     ></app-time-frame-or-feast-select>
 
     <div>
