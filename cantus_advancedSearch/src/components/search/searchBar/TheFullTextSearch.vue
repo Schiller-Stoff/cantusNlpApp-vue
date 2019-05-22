@@ -30,7 +30,15 @@
     <p>FullTextUrl:</p>
     <p>{{fullTextUrl}}</p>
 
+
+    <button class="btn btn-primary" @click="navigateToQuery">Suche Starten</button>
+
+
+
   </div>
+
+
+
 </template>
 
 <script>
@@ -80,20 +88,20 @@
         if(this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyTimeFrame}/methods/sdef:Query/get?params=`
           let params = `$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
-          return queryStart + encodeURIC(params)
+          return queryStart + encodeURIComponent(params)
 
         }
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
           let params = `$3|${this.chosenHora};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
-          return queryStart + encodeURI(params)
+          return queryStart + encodeURIComponent(params)
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
           let params = `$3|${this.chosenHora};$5|${this.searchText.toLowerCase()}`
-          return queryStart + encodeURI(params)
+          return queryStart + encodeURIComponent(params)
 
         }
 
@@ -107,7 +115,11 @@
       }
     },
     methods:{
-
+      navigateToQuery(){
+        //window.location.href=this.fullTextUrl
+        if(this.searchText==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an.')
+        return window.open( this.fullTextUrl)
+      }
     }
   }
 </script>
