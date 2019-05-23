@@ -84,7 +84,10 @@
     },
     data(){
       return {
-        chosenLO:'o:cantus.passau.ur',
+        chosenLO:{
+          text:'',
+          value:'o:cantus.passau.ur'
+        },
         chosenGenre:'RP',
         chosenHora:'M',
 

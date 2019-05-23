@@ -41,7 +41,7 @@
           response:'',
           query:'',
           searchParams:{
-            chosenLO: 'passau.ur',
+            chosenLO: {text:'',value:'o:cantus.passau.ur'},
             chosenGenre: 'RP',
             chosenHora: 'M',
             chosenTimeFrameName: 'weihnachten',
@@ -55,7 +55,7 @@
         if(val===undefined)return;
         let queryStart = `${this.urlStart}/query:cantus.genres/methods/sdef:Query/getJSON?params=`
         let queryParams =
-          `$1|<https://gams.uni-graz.at/${this.incipitSearch.searchParams.chosenLO}>;` +
+          `$1|<https://gams.uni-graz.at/${this.incipitSearch.searchParams.chosenLO.value}>;` +
           `$2|${this.incipitSearch.searchParams.chosenGenre};` +
           `$3|${this.incipitSearch.searchParams.chosenHora};` +
           `$4|${this.incipitSearch.searchParams.chosenTimeFrameNumber}`

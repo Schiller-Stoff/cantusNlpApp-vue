@@ -5,7 +5,7 @@
       :searchButton="{textActive:'LO', textInActive:'LO einschränken'}"
       :options="libriOrdinarii"
       :searchToggable="searchToggable"
-      @input="vModelEmit(value.value)"
+      @input="vModelEmit(value)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
     ></app-v-toggable-search-bar>
   </div>
