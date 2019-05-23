@@ -1,24 +1,31 @@
 <template>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">LO</label>
-    </div>
-    <select v-model="value" class="custom-select" id="inputGroupSelect01" :options="libriOrdinarii" @change="emitValue(value)">
-      <option value="default">Bitte wählen...</option>
-      <option v-for="liber in libriOrdinarii" :value="liber.value">{{liber.text}}</option>
-
-      <option value="FAIL_QUERY">MALFORMED_QUERY</option>
-      <option value="/api/users?delay=5">DELAYED_RESPONSE_5sek</option>
-      <option value="/api/users?delay=12">DELAYED_RESPONSE_12sek_error_displayed</option>
-    </select>
+  <div>
+    <app-v-toggable-search-bar
+      v-model="value"
+      :searchButton="{textActive:'LO', textInActive:'LO einschränken'}"
+      :options="libriOrdinarii"
+      :searchToggable="searchToggable"
+      @input="vModelEmit(value.value)"
+      @searchFieldToggled="emitSearchFieldShownStatus($event)"
+    ></app-v-toggable-search-bar>
   </div>
 </template>
 
 <script>
   import {libriOrdinarii} from "../../../../data/libriOrdinarii";
+  import VToggableSearchBar from './VToggableSearchBar'
 
   export default {
     name: "VLibriiOrdinariiSelect",
+    components: {
+      appVToggableSearchBar:VToggableSearchBar
+    },
+    props:{
+      searchToggable:{
+        type:Boolean,
+        default:false
+      }
+    },
     data(){
       return {
         libriOrdinarii,
@@ -26,8 +33,11 @@
       }
     },
     methods:{
-      emitValue(val){
-        this.$emit('input',val)
+      vModelEmit(value){
+        this.$emit('input',value)
+      },
+      emitSearchFieldShownStatus(value){
+        this.$emit('searchFieldToggled', value)
       }
     }
   }
