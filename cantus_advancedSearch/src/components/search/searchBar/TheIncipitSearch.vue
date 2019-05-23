@@ -86,16 +86,16 @@
       return {
         chosenLO:{
           text:'',
-          value:'o:cantus.passau.ur'
+          value:''
         },
         chosenGenre:{text:'',value:''},
-        chosenHora:{text:'',value:'M'},
+        chosenHora:{text:'',value:''},
 
         // inside here are objectItem.text = chosenTimeFrameName AND objectItem.value = chosenTimeFrameNumber!!
         // necessary because of plugin
         objectItem:{
-          text:'weihnachten',
-          value:'"02122400" "02122500" "02122600" "02122700" "02122800" "05010600"'
+          text:'',
+          value:''
         },
         autoCompleteOptions:autocompleteVals
       }
@@ -120,6 +120,7 @@
     },
     methods: {
       initSearch(){
+        if(this.chosenLO.value==='' || this.chosenGenre.value==='' || this.chosenHora.value==='' || this.objectItem.value==='')return window.alert('Alle Eingabefelder müssen für die Suche gefüllt sein.')
         this.$emit('startIncipitSearch')
       }
     }
