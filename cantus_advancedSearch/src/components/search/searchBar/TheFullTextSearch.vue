@@ -68,7 +68,7 @@
     },
     data(){
       return {
-        urlStart:`https://gams.uni-graz.at/archive/objects/`,
+        urlStart:`https://glossa.uni-graz.at/archive/objects/`,
 
         searchText:'',
         chosenTimeFrame:{
@@ -81,9 +81,9 @@
         timeFrameSearchActive:false,
 
         queryObjects: {
-          onlyTimeFrame:'query:cantus.ONLY_TIMEFRAME',
-          onlyHorae:'query:cantus.ONLY_HORAE',
-          timeFrameAndHorae:'query:cantus.TIMEFRAME_AND_HORAE',
+          onlyTimeFrame:'query:cantus.fulladv-feast',
+          onlyHorae:'query:cantus.fulladv-hora',
+          timeFrameAndHorae:'query:cantus.fulladv-hf',
           standardFullText:'query:cantus.fulltext'
         }
 

@@ -68,6 +68,8 @@
     },
     data(){
       return {
+        urlStart:`https://glossa.uni-graz.at/archive/objects/`,
+
         searchText:'',
         chosenTimeFrame:{
           text:'',
@@ -78,10 +80,10 @@
         timeFrameSearchActive:false,
         horaeSearchActive:false,
         queryObjects: {
-          onlyTimeFrame:'query:cantus.ONLY_TIMEFRAME',
-          onlyHorae:'query:cantus.ONLY_HORAE',
-          timeFrameAndHorae:'query:cantus.TIMEFRAME_AND_HORAE',
-          standardFullText:'query:cantus.ONLY_GENRE'
+          onlyTimeFrame:'query:cantus.incadv-genrefeast',
+          onlyHorae:'query:cantus.incadv-genrehora',
+          timeFrameAndHorae:'query:cantus.incadv-genrehf',
+          standardFullText:'query:cantus.incadv-genreonly'
         }
       }
     },
