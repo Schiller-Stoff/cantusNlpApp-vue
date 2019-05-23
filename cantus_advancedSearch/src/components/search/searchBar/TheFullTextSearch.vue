@@ -84,7 +84,7 @@
           onlyTimeFrame:'query:cantus.fulladv-feast',
           onlyHorae:'query:cantus.fulladv-hora',
           timeFrameAndHorae:'query:cantus.fulladv-hf',
-          standardFullText:'query:cantus.fulltext'
+          standardFullText:'query:cantus.phrase'
         }
 
 
