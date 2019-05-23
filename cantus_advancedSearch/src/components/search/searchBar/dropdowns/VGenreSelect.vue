@@ -3,7 +3,7 @@
     <app-v-toggable-search-bar
       v-model="value"
       :options="genres"
-      :searchButton="{textActive:'Genre', textInActive:'Genre einschränken'}"
+      :searchButton="{textActive:'Genre', textInActive:'Genre'}"
       :searchToggable="searchToggable"
       @input="vModelEmit(value.value)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"

@@ -2,7 +2,7 @@
   <app-v-toggable-search-bar
     :options="horae"
     :searchToggable="searchToggable"
-    :searchButton="{textActive:'Horae',textInActive:'Einschränken auf Horae'}"
+    :searchButton="{textActive:'Horae',textInActive:'Horae einschränken'}"
     v-model="value"
     @input="vModelEmit(value)"
     @searchFieldToggled="emitSearchFieldShownStatus($event)"

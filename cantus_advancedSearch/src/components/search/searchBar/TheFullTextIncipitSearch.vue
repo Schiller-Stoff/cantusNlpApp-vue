@@ -2,12 +2,85 @@
   <div class="container-fluid TheFullTextIncipitSearch_mainContainer">
     <h4>Erweiterte Volltextsuche (incipit)</h4>
     <br>
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+    </p>
+    <br>
+
+    <app-full-text-input
+      v-model="searchText"
+      class="TheFullTextIncipitSearch_input"
+    ></app-full-text-input>
+
+    <br>
+
+    <app-v-time-frame-or-feast-select
+      v-model="chosenTimeFrame"
+      :searchFieldsShown="false"
+      class="TheFullTextIncipitSearch_input"
+      @searchFieldToggled="timeFrameSearchActive = $event"
+    ></app-v-time-frame-or-feast-select>
+
+    <br>
+
+    <app-v-horae-select
+      v-model="chosenHora"
+      :searchToggable="true"
+      class="TheFullTextIncipitSearch_input"
+      @searchFieldToggled="horaeSearchActive = $event"
+    ></app-v-horae-select>
+
+    <br>
+
+    <app-v-genre-select
+      v-model="chosenGenre"
+      class="TheFullTextIncipitSearch_input"
+    ></app-v-genre-select>
+
+    <br>
+    <br>
+
+    <button
+      class="btn btn-secondary" @click="initSearch">Suche starten
+    </button>
+
+    <br>
+    <br>
+    <hr>
   </div>
 </template>
 
 <script>
+
+  import VTimeFrameOrFeastSelect from './dropdowns/VTimeFrameOrFeastSelect'
+  import VHoraeSelect from './dropdowns/VHoraeSelect'
+  import VFullTextInput from './dropdowns/VFullTextInput'
+  import VGenreSelect from './dropdowns/VGenreSelect'
+
   export default {
-    name: "TheFullTextIncipitSearch"
+    name: "TheFullTextIncipitSearch",
+    components: {
+      appVTimeFrameOrFeastSelect: VTimeFrameOrFeastSelect,
+      appVHoraeSelect: VHoraeSelect,
+      appFullTextInput: VFullTextInput,
+      appVGenreSelect:VGenreSelect
+    },
+    data(){
+      return {
+        searchText:'',
+        chosenTimeFrame:{
+          text:'',
+          value:''
+        },
+        chosenHora:'',
+        chosenGenre:'',
+
+
+        timeFrameSearchActive:false,
+        horaeSearchActive:false
+      }
+    }
   }
 </script>
 
