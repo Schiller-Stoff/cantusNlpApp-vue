@@ -89,7 +89,7 @@
           value:'o:cantus.passau.ur'
         },
         chosenGenre:{text:'',value:''},
-        chosenHora:'M',
+        chosenHora:{text:'',value:'M'},
 
         // inside here are objectItem.text = chosenTimeFrameName AND objectItem.value = chosenTimeFrameNumber!!
         // necessary because of plugin

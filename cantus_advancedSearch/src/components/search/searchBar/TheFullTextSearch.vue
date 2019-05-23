@@ -75,7 +75,7 @@
           text:'',
           value:''
         },
-        chosenHora:'',
+        chosenHora:{text:'',value:''},
 
         horaeSearchActive:false,
         timeFrameSearchActive:false,
@@ -101,13 +101,13 @@
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
-          let params = `$3|${this.chosenHora};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
+          let params = `$3|${this.chosenHora.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
           return queryStart + encodeURIComponent(params)
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
-          let params = `$3|${this.chosenHora};$5|${this.searchText.toLowerCase()}`
+          let params = `$3|${this.chosenHora.value};$5|${this.searchText.toLowerCase()}`
           return queryStart + encodeURIComponent(params)
 
         }

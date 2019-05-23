@@ -32,7 +32,7 @@
     },
     methods:{
       vModelEmit(val){
-        this.$emit('input',val.value)
+        this.$emit('input',val)
       },
       emitSearchFieldShownStatus(value){
         this.$emit('searchFieldToggled', value)
