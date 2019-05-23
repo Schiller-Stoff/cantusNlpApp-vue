@@ -79,6 +79,9 @@
   }
 
   hr {
-    border-color: $secondaryColor;
+    border: none;
+    padding:.25em;
+    background-color: lightgrey;
+    border-radius: 5em;
   }
 </style>
