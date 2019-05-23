@@ -2,13 +2,13 @@
   <div class="TheResultControl_mainContainer">
     <ul class="list-group list-inline text-right">
       <li class="list-group-item">
-        <div @click="demandResultView('incipitHistoViz')"><i class="fas fa-chart-bar"></i></div>
+        <div data-balloon="Visualisierung" data-balloon-pos="up" @click="demandResultView('incipitHistoViz')"><i class="fas fa-chart-bar"></i></div>
       </li>
       <li class="list-group-item">
-        <div @click="demandResultView('incipitTable')"><i class="far fa-file-alt"></i></div>
+        <div data-balloon="Incipittabelle" data-balloon-pos="up" @click="demandResultView('incipitTable')"><i class="far fa-file-alt"></i></div>
       </li>
       <li class="list-group-item">
-        <div @click="toggleFullScreen"><i class="far fa-window-maximize"></i></div>
+        <div data-balloon="Vollbild/Verkleinern" data-balloon-pos="up" @click="toggleFullScreen"><i class="far fa-window-maximize"></i></div>
       </li>
     </ul>
   </div>
