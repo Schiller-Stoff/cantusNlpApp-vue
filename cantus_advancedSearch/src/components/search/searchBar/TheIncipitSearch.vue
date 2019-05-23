@@ -1,8 +1,7 @@
 <template>
   <div class="container-fluid TheIncipitSearch_mainContainer">
     <h4>Erweiterte Incipit Suche</h4>
-
-    <hr>
+    <br>
 
     <app-v-librii-ordinarii-select v-model="chosenLO"></app-v-librii-ordinarii-select>
 
@@ -105,17 +104,22 @@
   @import "../../../scss/globalVariables/globalVariables";
 
   .TheIncipitSearch_mainContainer {
-    padding:4em 2em 2em 2em;
+    /*padding:4em 2em 2em 2em;*/
     /*border: lightgrey solid .15em;*/
-    margin:1em;
+    /*margin:1em;*/
     border-radius: .25em;
-    background-color: $blankColor;
+    background-color: $primaryColor;
   }
 
   hr {
     border: none;
-    padding:.35em;
-    background-color: $primaryColor;
+    padding:.15em;
+    background-color: lightgrey;
+  }
+
+  h4 {
+    text-decoration: underline;
+    /*color: $tertiaryColor*/
   }
 
 </style>

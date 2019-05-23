@@ -87,12 +87,13 @@
   @import "../../../../scss/globalVariables/globalVariables";
 
   span {
-    background-color: $fourthColor;
-    color:black;
+    /*background-color: $fourthColor;
+    color:black;*/
   }
 
   .VToggableSearchBar_select {
-    background-color: $primaryColor;
+    /*background-color: $primaryColor;*/
+    /*max-width: 50%;*/
   }
 
 </style>

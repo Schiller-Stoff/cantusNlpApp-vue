@@ -3,22 +3,22 @@
 
     <div class="TheFullTextSearch_searchContstraintsContainer">
     <h4>Erweiterte Volltextsuche</h4>
-      <hr>
       <br>
 
 
 
       <app-full-text-input
         v-model="searchText"
+        class="TheFullTextSearch_inputs"
       ></app-full-text-input>
       <br>
+      <br>
 
-
-      <h5>Sucheinschränkungen</h5>
       <app-time-frame-or-feast-select
         v-model="chosenTimeFrame"
         :searchFieldsShown="false"
         @searchFieldToggled="timeFrameSearchActive = $event"
+        class="TheFullTextSearch_inputs"
       ></app-time-frame-or-feast-select>
 
       <div>
@@ -27,14 +27,15 @@
           v-model="chosenHora"
           :search-toggable="true"
           @searchFieldToggled="horaeSearchActive = $event"
+          class="TheFullTextSearch_inputs"
         ></app-horae-select>
       </div>
 
       <br>
-      <hr>
+      <br>
       <!--<p>FullTextUrl:</p>
       <p>{{fullTextUrl}}</p>-->
-      <button class="btn btn-primary" @click="navigateToQuery">Suche Starten</button>
+      <button class="btn btn-secondary" @click="navigateToQuery">Suche Starten</button>
     </div>
 
 
@@ -134,17 +135,26 @@
   @import "../../../scss/globalVariables/globalVariables";
 
   .TheFullTextSearch_searchContstraintsContainer {
-    padding:4em 2em 2em 2em;
+    /*padding:4em 2em 2em 2em;*/
     /*border: lightgrey solid .15em;*/
     margin:1em;
     border-radius: .25em;
-    background-color: $blankColor;
+    background-color: $primaryColor;
+  }
+
+  h4 {
+    text-decoration: underline;
   }
 
   hr {
-    border: none;
-    padding:.15em;
-    background-color: lightgrey;
+    /*border: none;
+    padding:.15em;*/
+    background-color: black;
+    border-color: black;
+  }
+
+  .TheFullTextSearch_inputs {
+    width:65%;
   }
 
 </style>
