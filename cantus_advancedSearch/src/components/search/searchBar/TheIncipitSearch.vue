@@ -88,7 +88,7 @@
           text:'',
           value:'o:cantus.passau.ur'
         },
-        chosenGenre:'RP',
+        chosenGenre:{text:'',value:''},
         chosenHora:'M',
 
         // inside here are objectItem.text = chosenTimeFrameName AND objectItem.value = chosenTimeFrameNumber!!

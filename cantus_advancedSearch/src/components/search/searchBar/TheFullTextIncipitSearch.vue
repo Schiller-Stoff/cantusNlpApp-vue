@@ -74,7 +74,7 @@
           value:''
         },
         chosenHora:'',
-        chosenGenre:'',
+        chosenGenre:{text:'',value:''},
         timeFrameSearchActive:false,
         horaeSearchActive:false,
         queryObjects: {
@@ -90,20 +90,20 @@
 
         if(this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyTimeFrame}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
           return queryStart + encodeURIComponent(params)
 
         }
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre};$3|${this.chosenHora};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
           return queryStart + encodeURIComponent(params)
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre};$3|${this.chosenHora};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora};$5|${this.searchText.toLowerCase()}`
           return queryStart + encodeURIComponent(params)
 
         }
@@ -111,7 +111,7 @@
 
         if(!this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.standardFullText}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$5|${this.searchText.toLowerCase()}`
           return queryStart + encodeURIComponent(params)
         }
 
@@ -120,7 +120,7 @@
     methods: {
       navigateToQuery(){
         //window.location.href=this.fullTextUrl
-        if(this.searchText==='' ||this.chosenGenre==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an UND wählen Sie ein Genre.')
+        if(this.searchText==='' ||this.chosenGenre.value==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an UND wählen Sie ein Genre.')
         return window.open( this.fullTextIncipitUrl)
       }
     }

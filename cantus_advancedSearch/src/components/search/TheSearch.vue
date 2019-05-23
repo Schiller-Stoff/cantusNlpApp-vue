@@ -42,7 +42,7 @@
           query:'',
           searchParams:{
             chosenLO: {text:'',value:'o:cantus.passau.ur'},
-            chosenGenre: 'RP',
+            chosenGenre:{text:'RP - Responsorium prolixum',value:'RP'},
             chosenHora: 'M',
             chosenTimeFrameName: 'weihnachten',
             chosenTimeFrameNumber:''
@@ -56,7 +56,7 @@
         let queryStart = `${this.urlStart}/query:cantus.genres/methods/sdef:Query/getJSON?params=`
         let queryParams =
           `$1|<https://gams.uni-graz.at/${this.incipitSearch.searchParams.chosenLO.value}>;` +
-          `$2|${this.incipitSearch.searchParams.chosenGenre};` +
+          `$2|${this.incipitSearch.searchParams.chosenGenre.value};` +
           `$3|${this.incipitSearch.searchParams.chosenHora};` +
           `$4|${this.incipitSearch.searchParams.chosenTimeFrameNumber}`
 

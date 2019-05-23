@@ -103,7 +103,7 @@
       },
       incipitChartData(){
         return {
-          labels:[this.incipitSearch.searchParams.chosenGenre, 'Rest'],
+          labels:[this.incipitSearch.searchParams.chosenGenre.text, 'Rest'],
           datasets: [this.incipitDiagramData],
           searchParams:this.incipitSearch.searchParams
         }
@@ -122,7 +122,7 @@
 
         for (let dp of this.incipitVizHistory){
           dataObj.label = "Incipits";
-          let singleLabel = `${dp.searchParams.chosenLO.text}, ${dp.searchParams.chosenGenre}, ${dp.searchParams.chosenTimeFrameName}`
+          let singleLabel = `${dp.searchParams.chosenLO.text}, ${dp.searchParams.chosenGenre.text}, ${dp.searchParams.chosenTimeFrameName}`
           obj.labels.push(singleLabel)
           dataObj.backgroundColor.push(dp.datasets[0].backgroundColor[0])
           dataObj.data.push(dp.datasets[0].data[0])
@@ -150,7 +150,7 @@
             type:'header'
           })
           innerArray.push({
-            val:`Hora: ${incipitSearch.searchParams.chosenHora} - Genre: ${incipitSearch.searchParams.chosenGenre}`,
+            val:`Hora: ${incipitSearch.searchParams.chosenHora} - Genre: ${incipitSearch.searchParams.chosenGenre.text}`,
             type:'subHeader'
           })
 

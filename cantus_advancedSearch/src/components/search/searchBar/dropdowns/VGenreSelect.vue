@@ -5,7 +5,7 @@
       :options="genres"
       :searchButton="{textActive:'Genre', textInActive:'Genre'}"
       :searchToggable="searchToggable"
-      @input="vModelEmit(value.value)"
+      @input="vModelEmit(value)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
 
     ></app-v-toggable-search-bar>
