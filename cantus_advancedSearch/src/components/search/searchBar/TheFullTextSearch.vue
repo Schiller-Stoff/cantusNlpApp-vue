@@ -4,6 +4,11 @@
     <div class="TheFullTextSearch_searchContstraintsContainer">
     <h4>Erweiterte Volltextsuche</h4>
       <br>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+      </p>
+      <br>
 
 
 
@@ -36,16 +41,11 @@
       <!--<p>FullTextUrl:</p>
       <p>{{fullTextUrl}}</p>-->
       <button class="btn btn-secondary" @click="navigateToQuery">Suche Starten</button>
+      <br>
+      <br>
+      <hr>
     </div>
-
-
-
-
-
   </div>
-
-
-
 </template>
 
 <script>
@@ -147,14 +147,18 @@
   }
 
   hr {
-    /*border: none;
-    padding:.15em;*/
-    background-color: black;
-    border-color: black;
+    border: none;
+    padding:.25em;
+    background-color: lightgrey;
+    border-radius: 5em;
   }
 
   .TheFullTextSearch_inputs {
     width:65%;
+  }
+
+  p {
+    text-align: justify;
   }
 
 </style>

@@ -2,6 +2,11 @@
   <div class="container-fluid TheIncipitSearch_mainContainer">
     <h4>Erweiterte Incipit Suche</h4>
     <br>
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+    </p>
+    <br>
 
     <app-v-librii-ordinarii-select
       class="TheIncipitSearch_input"
@@ -55,6 +60,7 @@
     <br>
     <br>
     <br>
+    <hr>
   </div>
 
 </template>
@@ -131,10 +137,15 @@
     background-color: $primaryColor;
   }
 
+  p {
+    text-align: justify;
+  }
+
   hr {
     border: none;
-    padding:.15em;
+    padding:.25em;
     background-color: lightgrey;
+    border-radius: 5em;
   }
 
   h4 {
