@@ -21,6 +21,7 @@ import TheSearchControl from './searchBar/TheSearchControl'
 import TheSearchHelpText from './searchBar/TheSearchHelpText'
 import TheIncipitSearch from './searchBar/TheIncipitSearch'
 import TheFullTextSearch from './searchBar/TheFullTextSearch'
+import TheFullTextIncipitSearch from './searchBar/TheFullTextIncipitSearch'
 
 let timer;
 export default {
@@ -29,7 +30,8 @@ export default {
     appTheSearchControl: TheSearchControl,
     appTheSearchHelpText: TheSearchHelpText,
     appTheIncipitSearch: TheIncipitSearch,
-    appTheFullTextSearch: TheFullTextSearch
+    appTheFullTextSearch: TheFullTextSearch,
+    appTheFullTextIncipitSearch:TheFullTextIncipitSearch
   },
   props: {
     searchBarEnlarged: {
