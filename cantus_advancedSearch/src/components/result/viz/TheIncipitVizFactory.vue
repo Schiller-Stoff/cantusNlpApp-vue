@@ -122,7 +122,7 @@
 
         for (let dp of this.incipitVizHistory){
           dataObj.label = "Incipits";
-          let singleLabel = `${dp.searchParams.chosenLO.text}, ${dp.searchParams.chosenGenre.text}, ${dp.searchParams.chosenTimeFrameName},${dp.searchParams.chosenHora.text}`
+          let singleLabel = `${dp.searchParams.chosenLO.text}, ${dp.searchParams.chosenGenre.text}, ${dp.searchParams.chosenTimeFrame.text},${dp.searchParams.chosenHora.text}`
           obj.labels.push(singleLabel)
           dataObj.backgroundColor.push(dp.datasets[0].backgroundColor[0])
           dataObj.data.push(dp.datasets[0].data[0])
@@ -146,7 +146,7 @@
 
 
           innerArray.push({
-            val:`LO: ${incipitSearch.searchParams.chosenLO.text} - ${incipitSearch.searchParams.chosenTimeFrameName}`,
+            val:`LO: ${incipitSearch.searchParams.chosenLO.text} - ${incipitSearch.searchParams.chosenTimeFrame.text}`,
             type:'header'
           })
           innerArray.push({

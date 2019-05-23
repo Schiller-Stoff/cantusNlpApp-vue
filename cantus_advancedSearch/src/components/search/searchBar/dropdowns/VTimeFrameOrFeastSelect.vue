@@ -41,7 +41,7 @@
     },
     data(){
       return {
-        chosenTimeFrame:'',
+        chosenTimeFrame:{text:'',value:''},
         searchShown:this.searchFieldsShown,
         autoCompleteOptions:autocompleteVals
       }

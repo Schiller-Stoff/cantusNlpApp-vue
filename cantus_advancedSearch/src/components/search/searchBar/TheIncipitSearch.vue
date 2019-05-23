@@ -106,8 +106,10 @@
           chosenLO: this.chosenLO,
           chosenGenre: this.chosenGenre,
           chosenHora: this.chosenHora,
-          chosenTimeFrameName:this.objectItem.text,
-          chosenTimeFrameNumber:this.objectItem.value
+          chosenTimeFrame:{
+            text:this.objectItem.text,
+            value:this.objectItem.value
+          }
         }
       }
     },
