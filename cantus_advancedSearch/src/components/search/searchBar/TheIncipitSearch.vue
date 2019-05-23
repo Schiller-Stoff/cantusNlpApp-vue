@@ -3,7 +3,10 @@
     <h4>Erweiterte Incipit Suche</h4>
     <br>
 
-    <app-v-librii-ordinarii-select v-model="chosenLO"></app-v-librii-ordinarii-select>
+    <app-v-librii-ordinarii-select
+      class="TheIncipitSearch_input"
+      v-model="chosenLO"
+    ></app-v-librii-ordinarii-select>
 
     <br>
 
@@ -11,33 +14,45 @@
       <p>Wählen Sie einen <em>Zeitraum</em> oder ein...</p>
     </div>
 
-    <app-v-time-frame-select v-model="objectItem"></app-v-time-frame-select>
+    <app-v-time-frame-select
+      v-model="objectItem"
+      class="TheIncipitSearch_input"
+    ></app-v-time-frame-select>
 
 
     <div>
       <br>
       <p>...<em>einzelnes Fest</em>.</p>
-      <app-model-select :options="autoCompleteOptions" v-model="objectItem"></app-model-select>
+      <app-model-select
+        :options="autoCompleteOptions"
+        v-model="objectItem"
+        class="TheIncipitSearch_input"
+      ></app-model-select>
       <br>
     </div>
 
 
-    <app-v-horae-select v-model="chosenHora"></app-v-horae-select>
+    <app-v-horae-select
+      v-model="chosenHora"
+      class="TheIncipitSearch_input"
+    ></app-v-horae-select>
 
     <br>
 
-    <app-v-genre-select v-model="chosenGenre"></app-v-genre-select>
+    <app-v-genre-select
+      v-model="chosenGenre"
+      class="TheIncipitSearch_input"
+    ></app-v-genre-select>
 
     <br>
 
-    <hr>
     <button
-      class="btn btn-primary" @click="initSearch">Suche starten
+      class="btn btn-secondary" @click="initSearch">Suche starten
     </button>
 
 
     <br>
-
+    <br>
     <br>
     <br>
   </div>
@@ -102,6 +117,11 @@
 
 <style scoped lang="scss">
   @import "../../../scss/globalVariables/globalVariables";
+
+  .TheIncipitSearch_input {
+    width:65% !important;
+  }
+
 
   .TheIncipitSearch_mainContainer {
     /*padding:4em 2em 2em 2em;*/
