@@ -106,7 +106,7 @@
 
   #second {
     background-color: $blankColor;
-    border-right: 2em solid lightgrey;
+    box-shadow: 10px 10px 5px 0px lightgrey;
     border-radius: 1em;
     min-height: 20vh;
     padding-left: 0;
