@@ -1,8 +1,16 @@
 <template>
 
   <div>
+
+    <div class="input-group" v-if="toggleOptions.inputType ==='text'">
+      <span class="input-group-addon" id="basic-addon2"><i :class="inputFilledMarker"></i>{{ searchButton.textInActive }}</span>
+      <input v-model="value" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2" @change="vModelEmit(value)">
+    </div>
+
+
+
     <span
-      v-if="toggleOptions.mode==='top'"
+      v-if="toggleOptions.mode==='top' && toggleOptions.inputType!=='text'"
       class="VToggableSearchBar_topSpan"
       @click="toggleSearchField()"
     >
@@ -11,7 +19,7 @@
       {{ showTopLinkedSearch ? searchButton.textActive : searchButton.textInActive }}
     </span>
 
-    <div class="input-group" v-if="(searchToggable ? (showSearch||showTopLinkedSearch) : true)">
+    <div class="input-group" v-if="((searchToggable ? (showSearch||showTopLinkedSearch) : true) && toggleOptions.inputType!=='text' )">
       <span
         class="input-group-addon"
         id="basic-addon1"
@@ -77,7 +85,6 @@
         }
       },
       searchToggable: {
-        required: true,
         default: false
       },
       toggleOptions: {
@@ -87,7 +94,7 @@
           }
         },
         validator(){
-          let demandedKeys = ['mode']
+          let demandedKeys = ['mode','inputType']
         }
       }
     },
@@ -114,10 +121,10 @@
     },
     computed: {
       faClass(){
-        return this.showTopLinkedSearch ? 'far fa-check-circle' : 'far fa-times-circle'
+        return this.showTopLinkedSearch ? 'far fa-check-circle green' : 'far fa-times-circle red'
       },
       inputFilledMarker(){
-        return this.value === '' ? 'fas fa-hourglass-start' : 'fas fa-check'
+        return this.value === '' ? 'fas fa-hourglass-start red' : 'fas fa-check green'
       }
     }
   }
@@ -149,11 +156,18 @@
 
   .input-group {
     i {
-      color:$secondaryColor;
+      /*color:$secondaryColor;*/
       margin-right: .25em;
     }
   }
 
+  .green {
+    color: lightgreen;
+  }
+
+  .red {
+    color: tomato;
+  }
 
 
 </style>

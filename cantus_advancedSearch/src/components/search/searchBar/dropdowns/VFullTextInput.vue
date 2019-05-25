@@ -1,21 +1,29 @@
 <template>
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Volltextsuche</span>
-    <input v-model="value" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon1" @change="vModelEmit(value)">
-  </div>
+  <app-v-toggable-search-bar
+    :searchButton="{testActive:'Volltext',textInActive:'Volltext'}"
+    :options="[]"
+    :toggleOptions="{mode:'normal',inputType:'text'}"
+    v-model="value"
+    @input="vModelEmit($event)"
+  ></app-v-toggable-search-bar>
 </template>
 
 <script>
+  import VToggableSearchBar from './VToggableSearchBar'
+
   export default {
     name: "VFullTextInput",
-    data(){
+    components: {
+      appVToggableSearchBar:VToggableSearchBar
+    },
+    data() {
       return {
-        value:''
+        value: ''
       }
     },
     methods: {
-      vModelEmit(val){
-        this.$emit('input',val)
+      vModelEmit(val) {
+        this.$emit('input', val)
       }
     }
   }

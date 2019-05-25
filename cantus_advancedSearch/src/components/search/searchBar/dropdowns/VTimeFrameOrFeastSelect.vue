@@ -59,7 +59,7 @@
     },
     computed: {
       faClass(){
-        return this.searchShown ? 'far fa-check-circle' : 'far fa-times-circle'
+        return this.searchShown ? 'far fa-check-circle green' : 'far fa-times-circle red'
       }
     }
   }
@@ -84,5 +84,11 @@
     }
   }
 
+  .green {
+    color: lightgreen;
+  }
 
+  .red {
+    color: tomato;
+  }
 </style>
