@@ -18,7 +18,9 @@
         @click="searchToggable ? toggleSearchField() : ''"
         v-if="toggleOptions.mode==='normal'"
 
-      >{{(showSearch ||showTopLinkedSearch) ? searchButton.textActive : searchButton.textInActive}}</span>
+      >
+        <i :class="inputFilledMarker"></i>
+        {{(showSearch ||showTopLinkedSearch) ? searchButton.textActive : searchButton.textInActive}}</span>
 
       <select
         v-model="value"
@@ -113,6 +115,9 @@
     computed: {
       faClass(){
         return this.showTopLinkedSearch ? 'far fa-check-circle' : 'far fa-times-circle'
+      },
+      inputFilledMarker(){
+        return this.value === '' ? 'fas fa-hourglass-start' : 'fas fa-check'
       }
     }
   }
@@ -141,6 +146,14 @@
     }
 
   }
+
+  .input-group {
+    i {
+      color:$secondaryColor;
+      margin-right: .25em;
+    }
+  }
+
 
 
 </style>
