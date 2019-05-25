@@ -1,4 +1,4 @@
-export const incipitDummyDataMixin = {
+export const fullTextDummyDataMixin = {
   data() {
     return {
       pageAsString: "\n" +
