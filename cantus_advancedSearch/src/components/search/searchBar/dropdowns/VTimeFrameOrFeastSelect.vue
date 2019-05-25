@@ -3,7 +3,9 @@
     <span
       class="VTimeFrameOrFeastSelect_buttonSpan"
       @click="toggleSearchFields()"
-    >{{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
+    >
+       <i :class="faClass"></i>
+      {{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
     <app-model-select
       v-if="searchShown"
       :options="autoCompleteOptions"
@@ -54,6 +56,11 @@
       vModelEmit(value){
         this.$emit('input',value)
       }
+    },
+    computed: {
+      faClass(){
+        return this.searchShown ? 'far fa-check-circle' : 'far fa-times-circle'
+      }
     }
   }
 </script>
@@ -71,6 +78,9 @@
     &:hover {
       cursor: pointer;
       background-color: $fourthColor;
+    }
+    i {
+      margin: .25em 0 0 1em;
     }
   }
 

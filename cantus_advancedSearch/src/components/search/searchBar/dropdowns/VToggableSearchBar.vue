@@ -5,7 +5,10 @@
       v-if="toggleOptions.mode==='top'"
       class="VToggableSearchBar_topSpan"
       @click="toggleSearchField()"
-    >{{ showTopLinkedSearch ? searchButton.textActive : searchButton.textInActive }}
+    >
+
+      <i :class="faClass"></i>
+      {{ showTopLinkedSearch ? searchButton.textActive : searchButton.textInActive }}
     </span>
 
     <div class="input-group" v-if="(searchToggable ? (showSearch||showTopLinkedSearch) : true)">
@@ -106,6 +109,11 @@
       vModelEmit(val){
         this.$emit('input',val)
       }
+    },
+    computed: {
+      faClass(){
+        return this.showTopLinkedSearch ? 'far fa-check-circle' : 'far fa-times-circle'
+      }
     }
   }
 </script>
@@ -115,8 +123,10 @@
 
   .VToggableSearchBar_topSpan {
     width: 100%;
-    display: block;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
     background-color:#eee;
     padding: 3px 8px;
     border: 1px solid #ccc;
@@ -125,6 +135,11 @@
       cursor: pointer;
       background-color: $fourthColor;
     }
+
+    i {
+      margin: .25em .5em 0 0
+    }
+
   }
 
 

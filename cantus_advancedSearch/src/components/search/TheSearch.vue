@@ -33,7 +33,7 @@
       return {
         // settings data
         urlStart:'https://glossa.uni-graz.at/archive/objects',
-        useDummyData:false,
+        useDummyData:true,
 
         // used class variables
         incipitSearchHistory:[],  //not used here, defined in vueX
