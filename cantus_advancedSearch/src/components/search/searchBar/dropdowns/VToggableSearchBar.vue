@@ -108,8 +108,8 @@
     methods:{
       toggleSearchField(){
         if(this.toggleOptions.mode==='top'){
-          this.$emit('searchFieldToggled',this.showTopLinkedSearch)
-          return this.showTopLinkedSearch = !this.showTopLinkedSearch
+          this.showTopLinkedSearch = !this.showTopLinkedSearch
+          return this.$emit('searchFieldToggled',this.showTopLinkedSearch)
         }
 
         this.showSearch = !this.showSearch
