@@ -89,6 +89,7 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../../../scss/globalVariables/globalVariables";
 
   .VCompareList_outerLi {
     vertical-align: top;
@@ -97,6 +98,17 @@
   .VCompareList_mainUl {
     width: 1000em;
     border: none;
+    .active {
+      background-color: $secondaryColor;
+      border-color: $secondaryColor;
+    }
+    .list-group-item-info {
+      background-color: $primaryColor;
+      border-color: $secondaryColor;
+    }
+    a {
+      color: $secondaryColor;
+    }
     & > li {
       border: none;
       padding:0;
