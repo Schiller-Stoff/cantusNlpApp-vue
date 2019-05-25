@@ -1,26 +1,37 @@
 <template>
-  <div class="input-group">
+
+  <div>
     <span
-      class="input-group-addon"
-      id="basic-addon1"
-      @click="searchToggable ? toggleSearchField() : ''"
+      v-if="toggleOptions.mode==='top'"
+      class="VToggableSearchBar_topSpan"
+      @click="toggleSearchField()"
+    >{{ showTopLinkedSearch ? searchButton.textActive : searchButton.textInActive }}
+    </span>
 
-    >{{showSearch ? searchButton.textActive : searchButton.textInActive}}</span>
+    <div class="input-group" v-if="(searchToggable ? (showSearch||showTopLinkedSearch) : true)">
+      <span
+        class="input-group-addon"
+        id="basic-addon1"
+        @click="searchToggable ? toggleSearchField() : ''"
+        v-if="toggleOptions.mode==='normal'"
 
-    <select
-      v-model="value"
-      class="form-control VToggableSearchBar_select"
-      id="inputGroupSelect03"
-      @change="vModelEmit(value)"
-      v-if="searchToggable ? showSearch : true">
+      >{{(showSearch ||showTopLinkedSearch) ? searchButton.textActive : searchButton.textInActive}}</span>
 
-      <option
-        v-for="option in options"
-        :value="option"
-      >{{option.text}}
-      </option>
+      <select
+        v-model="value"
+        class="form-control VToggableSearchBar_select"
+        id="inputGroupSelect03"
+        @change="vModelEmit(value)"
+        v-if="(searchToggable ? (showSearch||showTopLinkedSearch) : true)">
 
-    </select>
+        <option
+          v-for="option in options"
+          :value="option"
+        >{{option.text}}
+        </option>
+      </select>
+    </div>
+
   </div>
 </template>
 
@@ -63,16 +74,32 @@
       searchToggable: {
         required: true,
         default: false
+      },
+      toggleOptions: {
+        default(){
+          return {
+            mode:'normal'
+          }
+        },
+        validator(){
+          let demandedKeys = ['mode']
+        }
       }
     },
     data(){
       return {
-        showSearch: !this.searchToggable,
+        showSearch: this.toggleOptions.mode==='normal' ? !this.searchToggable : false,
+        showTopLinkedSearch: this.toggleOptions.mode==='top' ? !this.searchToggable : false,
         value:''
       }
     },
     methods:{
       toggleSearchField(){
+        if(this.toggleOptions.mode==='top'){
+          this.$emit('searchFieldToggled',this.showTopLinkedSearch)
+          return this.showTopLinkedSearch = !this.showTopLinkedSearch
+        }
+
         this.showSearch = !this.showSearch
         this.$emit('searchFieldToggled',this.showSearch)
       },
@@ -84,6 +111,21 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../../../../scss/globalVariables/globalVariables";
+
+  .VToggableSearchBar_topSpan {
+    width: 100%;
+    display: block;
+    text-align: center;
+    background-color:#eee;
+    padding: 3px 8px;
+    border: 1px solid #ccc;
+    transition: background-color .25s;
+    &:hover {
+      cursor: pointer;
+      background-color: $fourthColor;
+    }
+  }
 
 
 </style>

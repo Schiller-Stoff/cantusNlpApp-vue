@@ -7,6 +7,7 @@
       v-model="value"
       @input="vModelEmit(value)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
+      :toggleOptions="{toggable:true,mode:'normal'}"
     ></app-v-toggable-search-bar>
   </div>
 </template>

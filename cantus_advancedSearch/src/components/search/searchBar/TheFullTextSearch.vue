@@ -31,6 +31,7 @@
         <app-horae-select
           v-model="chosenHora"
           :search-toggable="true"
+          :toggleOptions="{mode:'top'}"
           @searchFieldToggled="horaeSearchActive = $event"
           class="TheFullTextSearch_inputs"
         ></app-horae-select>

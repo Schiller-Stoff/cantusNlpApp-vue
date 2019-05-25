@@ -3,7 +3,7 @@
     <span
       class="VTimeFrameOrFeastSelect_buttonSpan"
       @click="toggleSearchFields()"
-    >Zeitraum einschränken</span>
+    >{{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
     <app-model-select
       v-if="searchShown"
       :options="autoCompleteOptions"

@@ -5,8 +5,10 @@
       :options="genres"
       :searchButton="{textActive:'Genre', textInActive:'Genre'}"
       :searchToggable="searchToggable"
+      :toggleOptions="toggleOptions"
       @input="vModelEmit(value)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
+
 
     ></app-v-toggable-search-bar>
   </div>
@@ -26,6 +28,14 @@
       searchToggable:{
         default:false,
         type:Boolean
+      },
+      toggleOptions: {
+        type:Object,
+        default(){
+          return {
+            mode:'normal'
+          }
+        }
       }
     },
     data(){

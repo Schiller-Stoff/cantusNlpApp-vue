@@ -6,6 +6,9 @@
     v-model="value"
     @input="vModelEmit(value)"
     @searchFieldToggled="emitSearchFieldShownStatus($event)"
+
+    :toggleOptions="toggleOptions"
+
   ></app-v-toggable-search-bar>
 </template>
 
@@ -22,7 +25,14 @@
     props:{
       searchToggable:{
         default:false
-      }
+      },
+      toggleOptions:{
+        default(){
+          return {
+            mode:'normal'
+          }
+        },
+      },
     },
     data(){
       return {
