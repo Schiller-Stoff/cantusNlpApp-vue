@@ -150,7 +150,7 @@
           let loVariant = loNameObj.variant ? loNameObj.variant : ''
 
           innerArray.push({
-            val:`LO: ${loTrad} (${loVariant})`,
+            val:`LO: ${loTrad} ${loVariant ? ('(' + loVariant + ')') : ''}`,
             type:'header'
           })
           innerArray.push({
@@ -186,7 +186,6 @@
           //needs to be done that way -> otherwise reference will be lost
           //and this.incipitVizHistory will recreate on each call
           this.incipitVizHistory = array
-          console.log(array.length)
         }
       }
     },
@@ -203,10 +202,10 @@
         let refName = loPID.replace('o:cantus.','')
         let splitArr = refName.split('.')
         refName = splitArr[0].charAt(0).toUpperCase() + splitArr[0].slice(1);
-        if(splitArr.length===1)return [refName]
+        if(splitArr.length===1)return {refName}
 
         let variant = splitArr[1].replace('.','|')
-        return {refName:refName,variant:variant}
+        return {refName,variant}
       }
     }
   }
