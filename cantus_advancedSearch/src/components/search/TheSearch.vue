@@ -22,7 +22,7 @@
 
   export default {
     name: "TheSearch",
-    mixins: [incipitDummyDataMixin,fullTextDummyDataMixin],  //TODO remove when no longer needed
+    mixins: [incipitDummyDataMixin],  //TODO remove when no longer needed
     components: {
       appTheSearchBar: TheSearchBar
     },
