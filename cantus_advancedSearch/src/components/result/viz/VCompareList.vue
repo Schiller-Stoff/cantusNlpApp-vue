@@ -12,6 +12,7 @@
               {{ index!==0 ? (result.val) :
               `${result.val}` }}
             </a>
+            <span v-if="result.type==='header'" class="badge">{{item.length}}</span>
           </li>
         </ul>
       </li>
