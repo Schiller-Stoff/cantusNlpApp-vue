@@ -14,7 +14,7 @@
   // and of course search failed/succeeded states.
 
   import {incipitDummyDataMixin} from './../../mixins/incipitDummyData' //TODO remove when not longer needed
-  import {fullTextDummyDataMixin} from '../../mixins/fullTextDummyData'
+  //import {fullTextDummyDataMixin} from '../../mixins/fullTextDummyData'
 
   import TheSearchBar from './TheSearchBar'
 
@@ -127,7 +127,7 @@
         let searchParams = queryObject.searchParams
 
         this.$store.dispatch('fullText_setSearchParamsAction',searchParams)
-        this.$store.dispatch('fullText_setSearchResultAction',this.pageAsString) //testData from mixin
+        //this.$store.dispatch('fullText_setSearchResultAction',this.pageAsString) //testData from mixin
 
         /*this.$http.get('', {
         }).then(response => {
