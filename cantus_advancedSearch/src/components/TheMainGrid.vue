@@ -106,6 +106,8 @@
 
   #second {
     background-color: $blankColor;
+    border-right: 2em solid lightgrey;
+    border-radius: 1em;
     min-height: 20vh;
     padding-left: 0;
     @include lg {
