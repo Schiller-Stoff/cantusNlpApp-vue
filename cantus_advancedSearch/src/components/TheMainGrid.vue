@@ -107,7 +107,7 @@
   #second {
     background-color: $blankColor;
     box-shadow: 10px 10px 5px 0px lightgrey;
-    border-radius: 1em;
+    border-radius: .25em;
     min-height: 20vh;
     padding-left: 0;
     @include lg {
