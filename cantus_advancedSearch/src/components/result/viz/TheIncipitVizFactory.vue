@@ -145,12 +145,24 @@
           let innerArray = []
 
 
+          let loNameObj = this.shortenLOPid(incipitSearch.searchParams.chosenLO.value)
+          let loTrad = loNameObj.refName
+          let loVariant = loNameObj.variant ? loNameObj.variant : ''
+
           innerArray.push({
-            val:`LO: ${this.shortenLOPid(incipitSearch.searchParams.chosenLO.value)} - ${incipitSearch.searchParams.chosenTimeFrame.text}`,
+            val:`LO: ${loTrad} (${loVariant})`,
             type:'header'
           })
           innerArray.push({
-            val:`Hora: ${incipitSearch.searchParams.chosenHora.text} - Genre: ${incipitSearch.searchParams.chosenGenre.text}`,
+            val:`Zeitraum: ${incipitSearch.searchParams.chosenTimeFrame.text}`,
+            type:'subHeader'
+          })
+          innerArray.push({
+            val:`Hora: ${incipitSearch.searchParams.chosenHora.text}`,
+            type:'subHeader'
+          })
+          innerArray.push({
+            val:`Genre: ${incipitSearch.searchParams.chosenGenre.text}`,
             type:'subHeader'
           })
 
@@ -189,8 +201,12 @@
       },
       shortenLOPid(loPID){
         let refName = loPID.replace('o:cantus.','')
-        refName = refName.split('.')[0]
-        return refName.charAt(0).toUpperCase() + refName.slice(1);
+        let splitArr = refName.split('.')
+        refName = splitArr[0].charAt(0).toUpperCase() + splitArr[0].slice(1);
+        if(splitArr.length===1)return [refName]
+
+        let variant = splitArr[1].replace('.','|')
+        return {refName:refName,variant:variant}
       }
     }
   }
