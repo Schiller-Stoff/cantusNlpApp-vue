@@ -162,7 +162,7 @@
             type:'subHeader'
           })
           innerArray.push({
-            val:`Genre: ${incipitSearch.searchParams.chosenGenre.text}`,
+            val:`Genre: ${incipitSearch.searchParams.chosenGenre.value}`,
             type:'subHeader'
           })
 
