@@ -14,6 +14,7 @@
   // and of course search failed/succeeded states.
 
   import {incipitDummyDataMixin} from './../../mixins/incipitDummyData' //TODO remove when not longer needed
+  import {fullTextDummyDataMixin} from '../../mixins/fullTextDummyData'
 
   import TheSearchBar from './TheSearchBar'
 
@@ -21,7 +22,7 @@
 
   export default {
     name: "TheSearch",
-    mixins: [incipitDummyDataMixin],  //TODO remove when no longer needed
+    mixins: [incipitDummyDataMixin,fullTextDummyDataMixin],  //TODO remove when no longer needed
     components: {
       appTheSearchBar: TheSearchBar
     },
@@ -122,8 +123,13 @@
         console.info(queryObject.query)
         console.info(queryObject.searchParams)
 
+        let fullTextQuery = queryObject.query
+        let searchParams = queryObject.searchParams
 
-        this.$http.get('', {
+        this.$store.dispatch('fullText_setSearchParamsAction',searchParams)
+        this.$store.dispatch('fullText_setSearchResultAction',this.pageAsString) //testData from mixin
+
+        /*this.$http.get('', {
         }).then(response => {
           this.incipitSearch.response = response
           let copy = Object.assign({},this.incipitSearch)
@@ -137,7 +143,7 @@
           clearTimeout(incipitSearchTimer)
         }).finally(_=>{
           this.$store.dispatch('incipit_markOngoingSearchAction', false)
-        });
+        });*/
 
 
       }

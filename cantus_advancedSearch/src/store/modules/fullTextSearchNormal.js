@@ -23,7 +23,7 @@ const mutations = {
 }
 
 const actions = {
-  'incipit_setSearchParamsAction'({commit},payload){
+  'fullText_setSearchParamsAction'({commit},payload){
     commit('fullText_setSearchParams',payload)
   },
   'fullText_setSearchResultAction'({commit},payload){
