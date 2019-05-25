@@ -6,7 +6,7 @@ const state = {
     chosenFeasts:'',
     chosenHora:'',
   },
-  incipitSearchResult:undefined,
+  fullTextSearchResult:undefined,
 }
 
 const mutations = {
