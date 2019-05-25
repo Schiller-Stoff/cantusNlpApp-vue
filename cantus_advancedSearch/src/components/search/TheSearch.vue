@@ -3,6 +3,7 @@
     <app-the-search-bar
       @routed_startIncipitSearch="searchIncipit()"
       @routed_incipitParamsUpdated="saveIncipitSearchData($event)"
+      @demandFullTextSearch="doFullTextSearch($event)"
       :searchBarEnlarged="searchBarEnlarged"
     ></app-the-search-bar>
   </div>
@@ -115,6 +116,30 @@
       },
       encodeUri(uri){
         return encodeURI(uri)
+      },
+      doFullTextSearch(queryObject){
+        console.info("FUllTextSearch with parameters: ")
+        console.info(queryObject.query)
+        console.info(queryObject.searchParams)
+
+
+        this.$http.get('', {
+        }).then(response => {
+          this.incipitSearch.response = response
+          let copy = Object.assign({},this.incipitSearch)
+          this.$store.dispatch('incipit_pushOntoSearchHistoryAction',copy)
+
+          clearTimeout(incipitSearchTimer)
+          console.info('Response received:')
+          console.info(response)
+        },err => {
+          this.$store.dispatch('incipit_setSearchFailedAction',true)
+          clearTimeout(incipitSearchTimer)
+        }).finally(_=>{
+          this.$store.dispatch('incipit_markOngoingSearchAction', false)
+        });
+
+
       }
     }
   }

@@ -12,6 +12,7 @@
       :is="searchBarMode"
       @incipitParamsUpdated="routeEvent($event,'incipitParamsUpdated')"
       @startIncipitSearch="routeEvent($event,'startIncipitSearch')"
+      @demandFullTextSearch="$emit('demandFullTextSearch',$event)"
     ></component>
   </div>
 </template>

@@ -133,8 +133,12 @@
     },
     methods:{
       navigateToQuery(){
-        //window.location.href=this.fullTextUrl
+
         if(this.searchText==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an.')
+
+        //this.$emit('demandFullTextSearch',{query: this.fullTextUrl, searchParams:{chosenText:this.searchText, chosenFeasts:this.chosenTimeFrame, chosenHora:this.chosenHora}})
+
+
         return window.open( this.fullTextUrl)
       }
     }
