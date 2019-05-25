@@ -146,7 +146,7 @@
 
 
           innerArray.push({
-            val:`LO: ${incipitSearch.searchParams.chosenLO.text} - ${incipitSearch.searchParams.chosenTimeFrame.text}`,
+            val:`LO: ${this.shortenLOPid(incipitSearch.searchParams.chosenLO.value)} - ${incipitSearch.searchParams.chosenTimeFrame.text}`,
             type:'header'
           })
           innerArray.push({
@@ -187,6 +187,11 @@
         }
         return color;
       },
+      shortenLOPid(loPID){
+        let refName = loPID.replace('o:cantus.','')
+        refName = refName.split('.')[0]
+        return refName.charAt(0).toUpperCase() + refName.slice(1);
+      }
     }
   }
 </script>
