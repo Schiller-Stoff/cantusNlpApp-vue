@@ -51,10 +51,11 @@
 
     <br>
 
-    <button
-      class="btn btn-secondary" @click="initSearch">Suche starten
-    </button>
-
+    <app-v-search-button
+      :buttonEnabled="allowSearch"
+      :text="'Suche Starten'"
+      @click="initSearch"
+    ></app-v-search-button>
 
     <br>
     <br>
@@ -72,6 +73,7 @@
   import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
   import VHoraeSelect from './dropdowns/VHoraeSelect'
   import VGenreSelect from './dropdowns/VGenreSelect'
+  import VSearchButton from './buttons/VSearchButton'
 
   export default {
     name: "TheIncipitSearch",
@@ -80,7 +82,8 @@
       appVLibriiOrdinariiSelect: VLibriiOrdinariiSelect,
       appVTimeFrameSelect: VTimeFrameSelect,
       appVHoraeSelect:VHoraeSelect,
-      appVGenreSelect:VGenreSelect
+      appVGenreSelect:VGenreSelect,
+      appVSearchButton: VSearchButton
     },
     data(){
       return {
@@ -111,6 +114,16 @@
             value:this.objectItem.value
           }
         }
+      },
+      searchButtonColor(){
+        if(this.chosenLO.value==='' || this.chosenGenre.value==='' || this.chosenHora.value==='' || this.objectItem.value===''){
+          return 'btn-warning'
+        } else {
+          return 'btn-success '
+        }
+      },
+      allowSearch(){
+        return !(this.chosenLO.value==='' || this.chosenGenre.value==='' || this.chosenHora.value==='' || this.objectItem.value==='')
       }
     },
     watch: {
@@ -157,6 +170,10 @@
   h4 {
     text-decoration: underline;
     /*color: $tertiaryColor*/
+  }
+
+  button {
+    color:black;
   }
 
 </style>

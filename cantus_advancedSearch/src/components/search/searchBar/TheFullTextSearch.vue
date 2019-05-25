@@ -41,7 +41,11 @@
       <br>
       <!--<p>FullTextUrl:</p>
       <p>{{fullTextUrl}}</p>-->
-      <button class="btn btn-secondary" @click="navigateToQuery">Suche Starten</button>
+      <app-v-search-button
+        :buttonEnabled="allowSearch"
+        :text="'Suche Starten'"
+        @click="navigateToQuery"
+      ></app-v-search-button>
       <br>
       <br>
       <hr>
@@ -58,6 +62,7 @@
   import VHoraeSelect from './dropdowns/VHoraeSelect'
   import VTimeFrameOrFeastSelect from './dropdowns/VTimeFrameOrFeastSelect'
   import VFullTextInput from './dropdowns/VFullTextInput'
+  import VSearchButton from './buttons/VSearchButton'
 
   export default {
     name: "TheFullTextSearch",
@@ -65,7 +70,8 @@
       appVTimeFrameSelect:VTimeFrameSelect,
       appHoraeSelect:VHoraeSelect,
       appTimeFrameOrFeastSelect: VTimeFrameOrFeastSelect,
-      appFullTextInput: VFullTextInput
+      appFullTextInput: VFullTextInput,
+      appVSearchButton:VSearchButton
     },
     data(){
       return {
@@ -120,6 +126,9 @@
           return queryStart + encodeURIComponent(params)
         }
 
+      },
+      allowSearch(){
+        return !(this.searchText==='')
       }
     },
     methods:{
@@ -160,6 +169,10 @@
 
   p {
     text-align: justify;
+  }
+
+  button {
+    color:black;
   }
 
 </style>

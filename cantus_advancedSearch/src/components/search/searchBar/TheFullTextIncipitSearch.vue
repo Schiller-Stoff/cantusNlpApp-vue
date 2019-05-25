@@ -42,9 +42,11 @@
     <br>
     <br>
 
-    <button
-      class="btn btn-secondary" @click="navigateToQuery()">Suche starten
-    </button>
+    <app-v-search-button
+      :buttonEnabled="allowSearch"
+      :text="'Suche Starten'"
+      @click="navigateToQuery"
+    ></app-v-search-button>
 
     <br>
     <br>
@@ -58,6 +60,7 @@
   import VHoraeSelect from './dropdowns/VHoraeSelect'
   import VFullTextInput from './dropdowns/VFullTextInput'
   import VGenreSelect from './dropdowns/VGenreSelect'
+  import VSearchButton from './buttons/VSearchButton'
 
   export default {
     name: "TheFullTextIncipitSearch",
@@ -65,7 +68,8 @@
       appVTimeFrameOrFeastSelect: VTimeFrameOrFeastSelect,
       appVHoraeSelect: VHoraeSelect,
       appFullTextInput: VFullTextInput,
-      appVGenreSelect:VGenreSelect
+      appVGenreSelect:VGenreSelect,
+      appVSearchButton:VSearchButton
     },
     data(){
       return {
@@ -118,6 +122,9 @@
           return queryStart + encodeURIComponent(params)
         }
 
+      },
+      allowSearch(){
+        return !(this.searchText==='' ||this.chosenGenre.value==='')
       }
     },
     methods: {
@@ -157,6 +164,10 @@
 
   h4 {
     text-decoration: underline;
+  }
+
+  button {
+    color:black;
   }
 
 </style>
