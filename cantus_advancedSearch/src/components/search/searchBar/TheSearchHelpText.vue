@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
       <h4>Wilkommen zur erweiterten Suche von Cantus</h4>
-      <p>Die erweiterte Suche von Cantus besteht aus drei unterschiedlichen Suchmodi, die über die Knöpfe darüber aufgerufen werden können</p>
+      <p>Die erweiterte Suche von Cantus besteht aus drei unterschiedlichen Suchmodi, die über die Knöpfe oben aufgerufen werden können.</p>
       <br>
       <ol>
         <li>
