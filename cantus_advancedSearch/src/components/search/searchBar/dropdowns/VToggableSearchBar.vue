@@ -107,6 +107,10 @@
           }
           return true;
         }
+      },
+      clearSelectField:{
+        default:false,
+        type:Boolean
       }
     },
     data(){
@@ -136,6 +140,11 @@
       },
       inputFilledMarker(){
         return this.value === '' ? 'fas fa-hourglass-start red' : 'fas fa-check green'
+      }
+    },
+    watch: {
+      clearSelectField(){
+        return this.value = ''
       }
     }
   }

@@ -12,7 +12,7 @@
       v-if="searchShown"
       :options="autoCompleteOptions"
       v-model="chosenTimeFrame"
-      @input="inputFilled='feasts';vModelEmit($event)"
+      @input="inputFilled='feasts';vModelEmit($event);clearSelectFieldMethod()"
       :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
     ></app-model-select>
 
@@ -22,6 +22,7 @@
       v-model="chosenTimeFrame"
       @input="inputFilled='timeFrame';vModelEmit($event)"
       :style="inputFilled==='timeFrame' ? 'border:.2em solid lightgreen;' : '' "
+      :clearSelectField="clearSelectField"
     >
     </app-time-frame-select>
   </div>
@@ -56,6 +57,7 @@
     data(){
       return {
         inputFilled:'no_value',
+        clearSelectField:false,
         chosenFeast:{text:'',value:''},
         chosenTimeFrame:{text:'',value:''},
         searchShown:this.searchFieldsShown,
@@ -70,6 +72,13 @@
       },
       vModelEmit(value){
         this.$emit('input',value)
+      },
+      clearSelectFieldMethod(){
+        let self = this
+        this.clearSelectField = true;
+        setTimeout(_=>{
+          self.clearSelectField = false
+        },10)
       }
     },
     computed: {
