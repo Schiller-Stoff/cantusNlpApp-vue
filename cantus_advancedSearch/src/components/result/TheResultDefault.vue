@@ -13,12 +13,12 @@
       <div v-if="showFullContent" id="TheResultDefault_contentContainer">
         <div class="ResultDefault_iconHolder">
           <i class="fas fa-arrow-circle-left" id="firstArrow"></i>
-          <p>...in der oberen Leiste kann ein "Suchtyp" gewählt werden. Es steht eine Volltextsuche, eine Volltextsuche basierend auf Incipits und eine
+          <p>...in der oberen Leiste kann ein "Suchmodus" gewählt werden. Es steht eine Volltextsuche, eine Volltextsuche basierend auf Incipits und eine
           erweiterte Incipitsuche zu Verfügung</p>
         </div>
         <div class="ResultDefault_iconHolder">
           <i class="fas fa-arrow-circle-left"></i>
-          <p>Nachdem ein Suchtyp gewählt wurde werden in der Leiste links diverse Auswahllisten eingeblendet mit denen die jeweilige Suche eingeschränkt werden kann.</p>
+          <p>Nachdem ein Suchmodus gewählt wurde werden in der Leiste links diverse Auswahllisten eingeblendet mit denen die jeweilige Suche eingeschränkt werden kann.</p>
           <p>...der zunächst eingeblendete Beschreibungstext für die Suchfunktionalitäten wird über das Fragezeichen aufgerufen</p>
         </div>
         <br>
