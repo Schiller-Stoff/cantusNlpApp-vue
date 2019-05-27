@@ -3,8 +3,13 @@
     <h4>Erweiterte Volltextsuche (incipit)</h4>
     <br>
     <p>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+      Die Erweiterte Volltextsuche auf Basis von Incipits erlaubt eine zusätzliche Einschränkung auf Genres.
+      Dabei muss für den "minimalen Suchvorgang" zumindest ein Buchstabe im Volltextsuchfeld eingetragen und ein Genre
+      gewählt worden sein. (Der Suchknopf wechselt seine Farbe zu Grün sobald eine gültige Sucheingabe erreicht worden ist)
+    </p>
+    <p>
+      Die Einschränkung auf Zeitraum und Horaen sind optional und können jederzeit hinzu- oder abgeschalten werden.
+
     </p>
     <br>
 
