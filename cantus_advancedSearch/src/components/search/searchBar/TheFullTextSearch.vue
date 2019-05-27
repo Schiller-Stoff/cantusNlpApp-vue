@@ -5,8 +5,16 @@
     <h4>Erweiterte Volltextsuche</h4>
       <br>
       <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        Bei der Erweiterten Volltextsuche muss im Gegensatz zur einfachen der Suchbegriff exakt eingegeben werden. In den
+        Auswahllisten kann zudem auf einen vordefinierten Zeitraum oder Horaen (oder auf beides zugleich) eingeschränkt werden.
+        Klicken Sie dazu auf jeweiligen Knöpfe und treffen Sie eine Auswahl. Erneuter Klick hebt die jeweilige Suchbedingung
+        wieder auf.
+      </p>
+      <p>
+      </p>
+      <p>
+        Der Suchknopf am unteren Ende der Spalte erscheint grün sobald das Minimum für einen erfolgreichen Suchvorgang
+        erreicht ist. (Zumindest ein Buchstabe im Suchfeld muss dafür eingetragen worden sein)
       </p>
       <br>
 
