@@ -12,36 +12,20 @@
       class="TheIncipitSearch_input"
       v-model="chosenLO"
     ></app-v-librii-ordinarii-select>
-
     <br>
 
-    <div>
-      <p>Wählen Sie einen <em>Zeitraum</em> oder ein...</p>
-    </div>
-
-    <app-v-time-frame-select
+    <app-v-time-frame-or-feast-select
+      :toggleOptions="{toggable:false}"
       v-model="objectItem"
       class="TheIncipitSearch_input"
-    ></app-v-time-frame-select>
-
-
-    <div>
-      <br>
-      <p>...<em>einzelnes Fest</em>.</p>
-      <app-model-select
-        :options="autoCompleteOptions"
-        v-model="objectItem"
-        class="TheIncipitSearch_input"
-      ></app-model-select>
-      <br>
-    </div>
+    ></app-v-time-frame-or-feast-select>
+    <br>
 
 
     <app-v-horae-select
       v-model="chosenHora"
       class="TheIncipitSearch_input"
     ></app-v-horae-select>
-
     <br>
 
     <app-v-genre-select
@@ -56,8 +40,8 @@
       :text="'Suche Starten'"
       @click="initSearch"
     ></app-v-search-button>
-
     <br>
+
     <br>
     <br>
     <br>
@@ -67,23 +51,23 @@
 </template>
 
 <script>
-  import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../data/autocompleteVals"
   import VLibriiOrdinariiSelect from "./dropdowns/VLibriiOrdinariiSelect"
   import VTimeFrameSelect from './dropdowns/VTimeFrameSelect'
   import VHoraeSelect from './dropdowns/VHoraeSelect'
   import VGenreSelect from './dropdowns/VGenreSelect'
   import VSearchButton from './buttons/VSearchButton'
+  import VTimeFrameOrFeastSelect from './dropdowns/VTimeFrameOrFeastSelect'
 
   export default {
     name: "TheIncipitSearch",
     components: {
-      appModelSelect: ModelSelect,
       appVLibriiOrdinariiSelect: VLibriiOrdinariiSelect,
       appVTimeFrameSelect: VTimeFrameSelect,
       appVHoraeSelect:VHoraeSelect,
       appVGenreSelect:VGenreSelect,
-      appVSearchButton: VSearchButton
+      appVSearchButton: VSearchButton,
+      appVTimeFrameOrFeastSelect:VTimeFrameOrFeastSelect
     },
     data(){
       return {

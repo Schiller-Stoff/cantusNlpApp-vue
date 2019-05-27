@@ -3,10 +3,10 @@
     <span
       class="VTimeFrameOrFeastSelect_buttonSpan"
       @click="toggleSearchFields()"
-      :data-balloon="searchShown ? 'Einschränkung deaktivieren' : 'Einschränkung aktivieren'"
+      :data-balloon="toggleOptions.toggable ? (searchShown ? 'Einschränkung deaktivieren' : 'Einschränkung aktivieren') : undefined"
       data-balloon-pos="left"
     >
-       <i :class="faClass"></i>
+       <i v-if="toggleOptions.toggable" :class="faClass"></i>
       {{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
     <app-model-select
       v-if="searchShown"
@@ -43,6 +43,14 @@
       searchFieldsShown:{
         default:true,
         type:Boolean
+      },
+      toggleOptions: {
+        type: Object,
+        default() {
+          return {
+            toggable: true
+          }
+        }
       }
     },
     data(){
@@ -56,6 +64,7 @@
     },
     methods: {
       toggleSearchFields(){
+        if(!this.toggleOptions.toggable)return
         this.searchShown = !this.searchShown
         this.$emit('searchFieldToggled',this.searchShown)
       },
