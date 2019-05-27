@@ -1,11 +1,18 @@
 <template>
   <div class="container-fluid TheIncipitSearch_mainContainer">
-    <h4>Erweiterte Incipit Suche</h4>
+    <h4>Erweiterte Incipitsuche</h4>
     <br>
     <p>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+      Mit Hilfe der Erweiterten Incipitsuche können Incipits in den Cantus Texten nach den vordefinierten Sucheinschränkungen
+      gesucht werden.
     </p>
+    <p></p>
+    <p>Alle Auswahlfelder sind verpflichtend für die Suche anzugeben.</p>
+    <p>Im Gegensatz zu den anderen Suchmodi wird das Ergebnis direkt in der Spalte auf der rechten Seite visualisiert. Rechts oben
+    kann zwischen verschiedenen Ansichten umgeschalten werden. Es steht eine quantitative Veranschaulichung der gefundenen Incipits einerseits
+    in Form einer Tabelle, andererseits in Form eines Balken- und Liniendiagrammes zur Verfügung. </p>
+
+    <p>Das Ergebnis versteht sich als Visualisierung des Suchverlauf. Weitere Sucheingaben führen zu einem "weiteren Aufbau" der Tabelle bzw. Visualisierungen.</p>
     <br>
 
     <app-v-librii-ordinarii-select
