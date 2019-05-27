@@ -4,7 +4,7 @@
 
     <div class="input-group" v-if="toggleOptions.inputType ==='text'">
       <span class="input-group-addon" id="basic-addon2"><i :class="inputFilledMarker"></i>{{ searchButton.textInActive }}</span>
-      <input v-model="value" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2" @change="vModelEmit(value)">
+      <input v-model="value" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2" @input="vModelEmit(value)">
     </div>
 
 
