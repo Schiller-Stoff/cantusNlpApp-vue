@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-1" @mouseleave="restoreWidth" @mouseover="moveWidth" id="first" ref="first">
+      <div class="col-md-1" @mouseover="moveWidth" id="first" ref="first">
         <app-the-search
           :searchBarEnlarged="searchBarEnlarged"
         ></app-the-search>
       </div>
-      <div class="col-md-11" id="second" ref="second" :style="maximizedStyle" :class="animClass">
+      <div class="col-md-11" id="second" ref="second" :style="maximizedStyle" :class="animClass" @mouseover="restoreWidth">
         <app-the-result></app-the-result>
       </div>
     </div>
