@@ -12,14 +12,16 @@
       v-if="searchShown"
       :options="autoCompleteOptions"
       v-model="chosenTimeFrame"
-      @input="vModelEmit($event)"
+      @input="inputFilled='feasts';vModelEmit($event)"
+      :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
     ></app-model-select>
 
     <app-time-frame-select
       v-if="searchShown"
       :searchToggable="false"
       v-model="chosenTimeFrame"
-      @input="vModelEmit($event)"
+      @input="inputFilled='timeFrame';vModelEmit($event)"
+      :style="inputFilled==='timeFrame' ? 'border:.2em solid lightgreen;' : '' "
     >
     </app-time-frame-select>
   </div>
@@ -45,6 +47,8 @@
     },
     data(){
       return {
+        inputFilled:'no_value',
+        chosenFeast:{text:'',value:''},
         chosenTimeFrame:{text:'',value:''},
         searchShown:this.searchFieldsShown,
         autoCompleteOptions:autocompleteVals
