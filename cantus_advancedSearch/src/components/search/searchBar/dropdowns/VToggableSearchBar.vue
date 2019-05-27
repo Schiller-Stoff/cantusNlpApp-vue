@@ -13,6 +13,8 @@
       v-if="toggleOptions.mode==='top' && toggleOptions.inputType!=='text'"
       class="VToggableSearchBar_topSpan"
       @click="toggleSearchField()"
+      :data-balloon="showTopLinkedSearch ? 'Einschränkung deaktivieren' : 'Einschränkung aktivieren'"
+      data-balloon-pos="left"
     >
 
       <i :class="faClass"></i>

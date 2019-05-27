@@ -3,6 +3,8 @@
     <span
       class="VTimeFrameOrFeastSelect_buttonSpan"
       @click="toggleSearchFields()"
+      :data-balloon="searchShown ? 'Einschränkung deaktivieren' : 'Einschränkung aktivieren'"
+      data-balloon-pos="left"
     >
        <i :class="faClass"></i>
       {{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
