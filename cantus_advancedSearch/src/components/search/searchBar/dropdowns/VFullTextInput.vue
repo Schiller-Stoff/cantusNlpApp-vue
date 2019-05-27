@@ -1,7 +1,7 @@
 <template>
   <app-v-toggable-search-bar
-    :searchButton="{testActive:'Volltext',textInActive:'Volltext'}"
-    :options="[]"
+    :searchButton="{textActive:'Volltext',textInActive:'Volltext'}"
+    :options="[{text:'',value:''}]"
     :toggleOptions="{mode:'normal',inputType:'text'}"
     v-model="value"
     @input="vModelEmit($event)"

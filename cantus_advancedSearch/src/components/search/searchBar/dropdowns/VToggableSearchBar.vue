@@ -95,8 +95,17 @@
             mode:'normal'
           }
         },
-        validator(){
-          let demandedKeys = ['mode','inputType']
+        validator(value){
+          let demandedKeys = ['mode']
+          for (let key of demandedKeys){
+            try {
+              if(value[key]===undefined)throw new Error();
+            } catch (e) {
+              console.error('Key not found in options prop for VToggableSearchBar.vue. Missing key: ' + key);
+              return false;
+            }
+          }
+          return true;
         }
       }
     },
