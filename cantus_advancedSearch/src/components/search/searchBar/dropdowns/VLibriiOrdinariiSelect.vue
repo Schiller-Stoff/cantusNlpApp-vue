@@ -1,11 +1,11 @@
 <template>
   <div>
     <app-v-toggable-search-bar
-      v-model="value"
+      v-model="chosenLiberOrdinarius"
       :searchButton="{textActive:'LO', textInActive:'LO einschränken'}"
       :options="libriOrdinarii"
       :searchToggable="searchToggable"
-      @input="vModelEmit(value)"
+      @input="vModelEmit(chosenLiberOrdinarius)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
     ></app-v-toggable-search-bar>
   </div>
@@ -21,6 +21,11 @@
       appVToggableSearchBar:VToggableSearchBar
     },
     props:{
+      value:{
+        default(){
+          return {text:'', value:''}
+        }
+      },
       searchToggable:{
         type:Boolean,
         default:false
@@ -29,7 +34,8 @@
     data(){
       return {
         libriOrdinarii,
-        value:'default'
+        chosenLiberOrdinarius:this.value
+
       }
     },
     methods:{

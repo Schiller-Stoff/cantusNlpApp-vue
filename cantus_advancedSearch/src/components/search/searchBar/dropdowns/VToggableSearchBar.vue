@@ -21,6 +21,7 @@
       {{ showTopLinkedSearch ? searchButton.textActive : searchButton.textInActive }}
     </span>
 
+
     <div class="input-group" v-if="((searchToggable ? (showSearch||showTopLinkedSearch) : true) && toggleOptions.inputType!=='text' )">
       <span
         class="input-group-addon"
@@ -37,7 +38,7 @@
         class="form-control VToggableSearchBar_select"
         id="inputGroupSelect03"
         @change="vModelEmit(value)"
-        v-if="(searchToggable ? (showSearch||showTopLinkedSearch) : true)">
+        v-if="(!slotPassed) && (searchToggable ? (showSearch||showTopLinkedSearch) : true)">
 
         <option
           v-for="option in options"
@@ -45,6 +46,14 @@
         >{{option.text}}
         </option>
       </select>
+
+      <slot
+        name="optional"
+        :options="options"
+        class="form-control VToggableSearchBar_select"
+        v-model="value"
+        @change="vModelEmit(value)"
+      ></slot>
     </div>
 
   </div>
@@ -111,13 +120,14 @@
       clearSelectField:{
         default:false,
         type:Boolean
-      }
+      },
+      value:{text:'',value:''}
+
     },
     data(){
       return {
         showSearch: this.toggleOptions.mode==='normal' ? !this.searchToggable : false,
-        showTopLinkedSearch: this.toggleOptions.mode==='top' ? !this.searchToggable : false,
-        value:''
+        showTopLinkedSearch: this.toggleOptions.mode==='top' ? !this.searchToggable : false
       }
     },
     methods:{
@@ -139,12 +149,19 @@
         return this.showTopLinkedSearch ? 'far fa-check-circle green' : 'far fa-times-circle red'
       },
       inputFilledMarker(){
-        return this.value === '' ? 'fas fa-hourglass-start red' : 'fas fa-check green'
+        return ((this.value === '')||(!this.value)|| this.value.value ==='') ? 'fas fa-hourglass-start red' : 'fas fa-check green'
+      },
+      slotPassed(){
+        try {
+         return (this.$slots.optional.length > 0)
+        } catch (e) {
+          return false
+        }
       }
     },
     watch: {
       clearSelectField(){
-        return this.value = ''
+        return this.value = {text:'',value:''}
       }
     }
   }
