@@ -8,19 +8,28 @@
     >
        <i v-if="toggleOptions.toggable" :class="faClass"></i>
       {{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
-    <app-model-select
+    <!--<app-model-select
       v-if="searchShown"
       :options="autoCompleteOptions"
       v-model="chosenTimeFrame"
       @input="inputFilled='feasts';vModelEmit($event);clearSelectFieldMethod()"
       :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
-    ></app-model-select>
+    ></app-model-select>-->
+
+    <app-v-time-feast-select
+      v-if="searchShown"
+      v-model="chosenFeast"
+      @input="inputFilled='feasts';vModelEmit($event);clearSelectFieldMethod()"
+      :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
+      :clearSelectField="clearSelectField"
+
+    ></app-v-time-feast-select>
 
     <app-time-frame-select
       v-if="searchShown"
       :searchToggable="false"
       v-model="chosenTimeFrame"
-      @input="inputFilled='timeFrame';vModelEmit($event)"
+      @input="inputFilled='timeFrame';vModelEmit($event);clearSelectFieldMethod()"
       :style="inputFilled==='timeFrame' ? 'border:.2em solid lightgreen;' : '' "
       :clearSelectField="clearSelectField"
     >
@@ -33,12 +42,14 @@
   import { ModelSelect } from 'vue-search-select'
   import {autocompleteVals} from "../../../../data/autocompleteVals"
   import VTimeFrameSelect from './VTimeFrameSelect'
+  import VFeastSelect from './VTimeFeastSelect'
 
   export default {
     name: "VTimeFrameOrFeastSelect",
     components: {
       appModelSelect: ModelSelect,
-      appTimeFrameSelect:VTimeFrameSelect
+      appTimeFrameSelect:VTimeFrameSelect,
+      appVTimeFeastSelect:VFeastSelect
     },
     props:{
       searchFieldsShown:{
