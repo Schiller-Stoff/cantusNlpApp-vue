@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid TheFullTextIncipitSearch_mainContainer">
-    <h4>Erweiterte Volltextsuche (incipit)</h4>
+    <h4>Erweiterte Volltextsuche (Incipit)</h4>
     <br>
     <p>
       Die Erweiterte Volltextsuche auf Basis von Incipits erlaubt eine zusätzliche Einschränkung auf Genres.

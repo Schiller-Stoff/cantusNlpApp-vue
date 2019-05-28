@@ -4,7 +4,7 @@
     <div class="TheSearchControl_inlineBar">
       <div class="TheSearchControl_iconHolder" data-balloon="Zur Startseite" data-balloon-pos="up"><i class="fas fa-home TheSearchControl_icons"></i></div>
       <div class="searchBar_iconHolder"  :class="animatedAppearance" @click="demandSearchMode('appTheFullTextSearch')">
-        <div data-balloon="Erweiterte Volltextsuche (normal)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fas fa-font TheSearchControl_icons"></i></div>
+        <div data-balloon="Erweiterte Volltextsuche (standard)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fas fa-font TheSearchControl_icons"></i></div>
       </div>
       <div class="searchBar_iconHolder"  :class="animatedAppearance" @click="demandSearchMode('appTheFullTextIncipitSearch')">
         <div data-balloon="Erweiterte Volltextsuche (incipit)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fab fa-linkedin-in TheSearchControl_icons"></i></div>

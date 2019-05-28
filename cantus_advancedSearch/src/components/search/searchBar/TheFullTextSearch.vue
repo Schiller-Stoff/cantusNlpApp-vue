@@ -2,7 +2,7 @@
   <div>
 
     <div class="TheFullTextSearch_searchContstraintsContainer">
-    <h4>Erweiterte Volltextsuche</h4>
+    <h4>Erweiterte Volltextsuche (standard)</h4>
       <br>
       <p>
         Bei der Erweiterten Volltextsuche muss im Gegensatz zur einfachen der Suchbegriff exakt eingegeben werden. In den
