@@ -41,7 +41,7 @@ export default {
   },
   data(){
     return {
-      searchBarMode:'appTheSearchHelpText',
+      searchBarMode:'appTheIncipitSearch',
       fadeInAtEvent: 'hidden',  //blending in dynamic components
     }
   },
