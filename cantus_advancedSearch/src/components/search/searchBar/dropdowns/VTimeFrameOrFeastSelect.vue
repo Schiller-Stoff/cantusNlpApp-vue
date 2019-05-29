@@ -82,6 +82,7 @@
     computed: {
       selectedFeast: {
         get() {
+          if(this.inputFilled!=='feasts')return {text:'',value:''}
           return this.value;
         },
         set(v) {
@@ -90,6 +91,7 @@
       },
       selectedTimeFrame: {
         get() {
+          if(this.inputFilled!=='timeFrame')return {text:'',value:''}
           return this.value;
         },
         set(v) {
