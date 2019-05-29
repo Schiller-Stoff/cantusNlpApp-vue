@@ -89,10 +89,12 @@
         let self = this
         if(clearFeast){
           this.clearFeast = true;
+          this.chosenFeast = {text:'',value:''}
           setTimeout(_=>{
             self.clearFeast = false
           },10)
         } else {
+          this.chosenTimeFrame = {text:'',value:''}
           this.clearTimeFrame = true;
           setTimeout(_=>{
             self.clearTimeFrame = false
