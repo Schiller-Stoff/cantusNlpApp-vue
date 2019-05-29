@@ -3,8 +3,7 @@
     :searchButton="{textActive:'Volltext',textInActive:'Volltext'}"
     :options="[{text:'',value:''}]"
     :toggleOptions="{mode:'normal',inputType:'text'}"
-    v-model="value"
-    @input="vModelEmit($event)"
+    v-model="selectedValue"
   ></app-v-toggable-search-bar>
 </template>
 
@@ -13,6 +12,13 @@
 
   export default {
     name: "VFullTextInput",
+    props:{
+      value: {
+        default(){
+          return {text:'',value:''}
+        }
+      }
+    },
     components: {
       appVToggableSearchBar:VToggableSearchBar
     },
@@ -24,6 +30,16 @@
     methods: {
       vModelEmit(val) {
         this.$emit('input', val)
+      }
+    },
+    computed: {
+      selectedValue: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
       }
     }
   }

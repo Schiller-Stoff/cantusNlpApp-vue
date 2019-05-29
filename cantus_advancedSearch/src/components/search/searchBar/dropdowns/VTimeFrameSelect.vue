@@ -4,8 +4,7 @@
       :options="timeFrames"
       :searchToggable="searchToggable"
       :searchButton="{textActive:'Zeitraum',textInActive:'Einschränken auf Zeitraum'}"
-      v-model="value"
-      @input="vModelEmit(value)"
+      v-model="selectedValue"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
       :toggleOptions="{toggable:true,mode:'normal'}"
       :clearSelectField="clearSelectField"
@@ -23,6 +22,9 @@
       appVToggableSearchBar:VToggableSearchBar
     },
     props:{
+      value: {
+        default(){return {text:'',value:''}}
+      },
       searchToggable: {
         default:false
       },
@@ -33,16 +35,22 @@
     },
     data(){
       return {
-        value:'',
         timeFrames
       }
     },
     methods:{
-      vModelEmit(value){
-        this.$emit('input',value)
-      },
       emitSearchFieldShownStatus(value){
         this.$emit('searchFieldToggled', value)
+      }
+    },
+    computed: {
+      selectedValue: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
       }
     }
   }

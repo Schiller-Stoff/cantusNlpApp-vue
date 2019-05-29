@@ -18,8 +18,8 @@
 
     <app-v-time-feast-select
       v-if="searchShown"
-      v-model="chosenFeast"
-      @input="inputFilled='feasts';vModelEmit($event);clearSelectFieldMethod(false)"
+      v-model="selectedFeast"
+      @input="inputFilled='feasts';clearSelectFieldMethod(false)"
       :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
       :clearSelectField="clearFeast"
 
@@ -28,8 +28,8 @@
     <app-time-frame-select
       v-if="searchShown"
       :searchToggable="false"
-      v-model="chosenTimeFrame"
-      @input="inputFilled='timeFrame';vModelEmit($event);clearSelectFieldMethod(true)"
+      v-model="selectedTimeFrame"
+      @input="inputFilled='timeFrame';clearSelectFieldMethod(true)"
       :style="inputFilled==='timeFrame' ? 'border:.2em solid lightgreen;' : '' "
       :clearSelectField="clearTimeFrame"
     >
@@ -52,6 +52,9 @@
       appVTimeFeastSelect:VFeastSelect
     },
     props:{
+      value:{
+        default(){return{text:'',value:''}}
+      },
       searchFieldsShown:{
         default:true,
         type:Boolean
@@ -82,9 +85,6 @@
         this.searchShown = !this.searchShown
         this.$emit('searchFieldToggled',this.searchShown)
       },
-      vModelEmit(value){
-        this.$emit('input',value)
-      },
       clearSelectFieldMethod(clearFeast){
         let self = this
         if(clearFeast){
@@ -105,6 +105,22 @@
       }
     },
     computed: {
+      selectedFeast: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
+      },
+      selectedTimeFrame: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
+      },
       faClass(){
         return this.searchShown ? 'far fa-check-circle green' : 'far fa-times-circle red'
       }

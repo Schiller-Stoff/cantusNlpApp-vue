@@ -3,8 +3,7 @@
     :options="horae"
     :searchToggable="searchToggable"
     :searchButton="{textActive:'Hora',textInActive:'Hora einschränken'}"
-    v-model="value"
-    @input="vModelEmit(value)"
+    v-model="selectedValue"
     @searchFieldToggled="emitSearchFieldShownStatus($event)"
 
     :toggleOptions="toggleOptions"
@@ -23,6 +22,9 @@
       appVToggableSearchBar:VToggableSearchBar
     },
     props:{
+      value:{
+        default(){return {text:'',value:''}}
+      },
       searchToggable:{
         default:false
       },
@@ -36,16 +38,22 @@
     },
     data(){
       return {
-        value:'',
         horae
       }
     },
     methods:{
-      vModelEmit(val){
-        this.$emit('input',val)
-      },
       emitSearchFieldShownStatus(value){
         this.$emit('searchFieldToggled', value)
+      }
+    },
+    computed: {
+      selectedValue: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
       }
     }
   }

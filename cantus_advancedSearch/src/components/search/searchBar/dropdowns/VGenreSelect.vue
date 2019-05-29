@@ -1,12 +1,11 @@
 <template>
   <div>
     <app-v-toggable-search-bar
-      v-model="value"
+      v-model="selectedGenre"
       :options="genres"
       :searchButton="{textActive:'Genre', textInActive:'Genre'}"
       :searchToggable="searchToggable"
       :toggleOptions="toggleOptions"
-      @input="vModelEmit(value)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
 
 
@@ -25,6 +24,9 @@
       appVToggableSearchBar:VToggableSearchBar
     },
     props: {
+      value:{
+        default(){ return {text:'',value:''}}
+      },
       searchToggable:{
         default:false,
         type:Boolean
@@ -40,16 +42,22 @@
     },
     data(){
       return {
-        value:'',
         genres
       }
     },
     methods: {
-      vModelEmit(value){
-        this.$emit('input',value)
-      },
       emitSearchFieldShownStatus(value){
         this.$emit('searchFieldToggled', value)
+      }
+    },
+    computed:{
+      selectedGenre: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
       }
     }
   }

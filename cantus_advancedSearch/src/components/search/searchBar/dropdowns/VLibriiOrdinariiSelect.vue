@@ -1,11 +1,10 @@
 <template>
   <div>
     <app-v-toggable-search-bar
-      v-model="chosenLiberOrdinarius"
+      v-model="selectedValue"
       :searchButton="{textActive:'LO', textInActive:'LO einschränken'}"
       :options="libriOrdinarii"
       :searchToggable="searchToggable"
-      @input="vModelEmit(chosenLiberOrdinarius)"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
     ></app-v-toggable-search-bar>
   </div>
@@ -33,17 +32,22 @@
     },
     data(){
       return {
-        libriOrdinarii,
-        chosenLiberOrdinarius:this.value
-
+        libriOrdinarii
       }
     },
     methods:{
-      vModelEmit(value){
-        this.$emit('input',value)
-      },
       emitSearchFieldShownStatus(value){
         this.$emit('searchFieldToggled', value)
+      }
+    },
+    computed: {
+      selectedValue: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
       }
     }
   }

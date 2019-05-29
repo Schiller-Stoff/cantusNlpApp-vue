@@ -4,7 +4,7 @@
 
     <div class="input-group" v-if="toggleOptions.inputType ==='text'">
       <span class="input-group-addon" id="basic-addon2"><i :class="inputFilledMarker"></i>{{ searchButton.textInActive }}</span>
-      <input v-model="value" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2" @input="vModelEmit(value)">
+      <input v-model="selectedValue" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2">
     </div>
 
 
@@ -34,10 +34,9 @@
         {{(showSearch ||showTopLinkedSearch) ? searchButton.textActive : searchButton.textInActive}}</span>
 
       <select
-        v-model="value"
+        v-model="selectedValue"
         class="form-control VToggableSearchBar_select"
         id="inputGroupSelect03"
-        @change="vModelEmit(value)"
         v-if="(!slotPassed) && (searchToggable ? (showSearch||showTopLinkedSearch) : true)">
 
         <option
@@ -51,8 +50,7 @@
         name="optional"
         :options="options"
         class="form-control VToggableSearchBar_select"
-        v-model="value"
-        @change="vModelEmit(value)"
+        v-model="selectedValue"
       ></slot>
     </div>
 
@@ -139,9 +137,6 @@
 
         this.showSearch = !this.showSearch
         this.$emit('searchFieldToggled',this.showSearch)
-      },
-      vModelEmit(val){
-        this.$emit('input',val)
       }
     },
     computed: {
@@ -156,6 +151,14 @@
          return (this.$slots.optional.length > 0)
         } catch (e) {
           return false
+        }
+      },
+      selectedValue: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
         }
       }
     },

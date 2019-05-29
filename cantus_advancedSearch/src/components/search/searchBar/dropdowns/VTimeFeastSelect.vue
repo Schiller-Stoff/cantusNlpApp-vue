@@ -3,14 +3,13 @@
     :options="[{text:'',value:''}]"
     :searchButton="{textActive:'Fest',textInActive:'Fest einschränken'}"
     :toggleOption="{mode:'normal',inputType:'select'}"
-    v-model="value"
+    v-model="selectedValue"
     :clearSelectField="clearSelectField"
   >
     <app-model-select slot="optional"
       v-if="true"
-      @input="$emit('input',value)"
       :options="autoCompleteOptions"
-      v-model="value"
+      v-model="selectedValue"
     ></app-model-select>
   </app-v-toggable-search-bar>
 </template>
@@ -37,8 +36,17 @@
     },
     data(){
       return {
-        autoCompleteOptions:autocompleteVals,
-        chosenTimeFrame:this.value
+        autoCompleteOptions:autocompleteVals
+      }
+    },
+    computed: {
+      selectedValue: {
+        get() {
+          return this.value;
+        },
+        set(v) {
+          this.$emit('input', v)
+        }
       }
     }
   }
