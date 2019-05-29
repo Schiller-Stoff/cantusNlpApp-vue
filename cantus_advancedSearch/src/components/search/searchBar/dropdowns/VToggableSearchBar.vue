@@ -3,7 +3,7 @@
   <div>
 
     <div class="input-group" v-if="toggleOptions.inputType ==='text'">
-      <span class="input-group-addon" id="basic-addon2"><i :class="inputFilledMarker"></i>{{ searchButton.textInActive }}</span>
+      <span class="input-group-addon" id="basic-addon2"><i v-if="showInputMarker" :class="inputFilledMarker"></i>{{ searchButton.textInActive }}</span>
       <input v-model="selectedValue" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2">
     </div>
 
@@ -30,7 +30,7 @@
         v-if="toggleOptions.mode==='normal'"
 
       >
-        <i :class="inputFilledMarker"></i>
+        <i v-if="showInputMarker" :class="inputFilledMarker"></i>
         {{(showSearch ||showTopLinkedSearch) ? searchButton.textActive : searchButton.textInActive}}</span>
 
       <select
@@ -115,7 +115,11 @@
           return true;
         }
       },
-      value:{text:'',value:''}
+      value:{text:'',value:''},
+      showInputMarker: {
+        type:Boolean,
+        default:true
+      }
 
     },
     data(){

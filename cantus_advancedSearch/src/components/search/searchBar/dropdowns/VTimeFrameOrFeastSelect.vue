@@ -21,6 +21,7 @@
       v-model="selectedFeast"
       @input="inputFilled='feasts'"
       :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
+      :showInputMarker="false"
     ></app-v-time-feast-select>
 
     <app-time-frame-select
@@ -29,6 +30,7 @@
       v-model="selectedTimeFrame"
       @input="inputFilled='timeFrame'"
       :style="inputFilled==='timeFrame' ? 'border:.2em solid lightgreen;' : '' "
+      :showInputMarker="false"
     >
     </app-time-frame-select>
   </div>

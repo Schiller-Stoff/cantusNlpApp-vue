@@ -7,6 +7,7 @@
       v-model="selectedValue"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
       :toggleOptions="{toggable:true,mode:'normal'}"
+      :showInputMarker="showInputMarker"
     ></app-v-toggable-search-bar>
   </div>
 </template>
@@ -26,6 +27,10 @@
       },
       searchToggable: {
         default:false
+      },
+      showInputMarker:{
+        default:true,
+        type:Boolean
       }
     },
     data(){

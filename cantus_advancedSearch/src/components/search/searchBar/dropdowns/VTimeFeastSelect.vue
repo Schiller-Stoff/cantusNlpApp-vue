@@ -4,6 +4,7 @@
     :searchButton="{textActive:'Fest',textInActive:'Fest einschränken'}"
     :toggleOption="{mode:'normal',inputType:'select'}"
     v-model="selectedValue"
+    :showInputMarker="showInputMarker"
   >
     <app-model-select slot="optional"
       v-if="true"
@@ -28,6 +29,10 @@
         default(){
           return {text:'',value:''}
         }
+      },
+      showInputMarker:{
+        type:Boolean,
+        default:true
       }
     },
     data(){
