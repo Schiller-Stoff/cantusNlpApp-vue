@@ -19,19 +19,16 @@
     <app-v-time-feast-select
       v-if="searchShown"
       v-model="selectedFeast"
-      @input="inputFilled='feasts';clearSelectFieldMethod(false)"
+      @input="inputFilled='feasts'"
       :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
-      :clearSelectField="clearFeast"
-
     ></app-v-time-feast-select>
 
     <app-time-frame-select
       v-if="searchShown"
       :searchToggable="false"
       v-model="selectedTimeFrame"
-      @input="inputFilled='timeFrame';clearSelectFieldMethod(true)"
+      @input="inputFilled='timeFrame'"
       :style="inputFilled==='timeFrame' ? 'border:.2em solid lightgreen;' : '' "
-      :clearSelectField="clearTimeFrame"
     >
     </app-time-frame-select>
   </div>
@@ -71,10 +68,6 @@
     data(){
       return {
         inputFilled:'no_value',
-        clearTimeFrame:false,
-        clearFeast:false,
-        chosenFeast:{text:'',value:''},
-        chosenTimeFrame:{text:'',value:''},
         searchShown:this.searchFieldsShown,
         autoCompleteOptions:autocompleteVals
       }
@@ -84,24 +77,6 @@
         if(!this.toggleOptions.toggable)return
         this.searchShown = !this.searchShown
         this.$emit('searchFieldToggled',this.searchShown)
-      },
-      clearSelectFieldMethod(clearFeast){
-        let self = this
-        if(clearFeast){
-          this.clearFeast = true;
-          this.chosenFeast = {text:'',value:''}
-          setTimeout(_=>{
-            self.clearFeast = false
-          },10)
-        } else {
-          this.chosenTimeFrame = {text:'',value:''}
-          this.clearTimeFrame = true;
-          setTimeout(_=>{
-            self.clearTimeFrame = false
-          },10)
-        }
-
-
       }
     },
     computed: {

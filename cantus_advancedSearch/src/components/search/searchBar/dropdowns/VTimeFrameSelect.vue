@@ -7,7 +7,6 @@
       v-model="selectedValue"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
       :toggleOptions="{toggable:true,mode:'normal'}"
-      :clearSelectField="clearSelectField"
     ></app-v-toggable-search-bar>
   </div>
 </template>
@@ -27,10 +26,6 @@
       },
       searchToggable: {
         default:false
-      },
-      clearSelectField: {
-        default:false,
-        type: Boolean
       }
     },
     data(){

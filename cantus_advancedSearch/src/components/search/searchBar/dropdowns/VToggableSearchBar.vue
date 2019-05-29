@@ -115,10 +115,6 @@
           return true;
         }
       },
-      clearSelectField:{
-        default:false,
-        type:Boolean
-      },
       value:{text:'',value:''}
 
     },
@@ -160,11 +156,6 @@
         set(v) {
           this.$emit('input', v)
         }
-      }
-    },
-    watch: {
-      clearSelectField(){
-        return this.value = {text:'',value:''}
       }
     }
   }

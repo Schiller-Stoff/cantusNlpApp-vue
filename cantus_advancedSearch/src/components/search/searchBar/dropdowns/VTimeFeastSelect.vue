@@ -4,7 +4,6 @@
     :searchButton="{textActive:'Fest',textInActive:'Fest einschränken'}"
     :toggleOption="{mode:'normal',inputType:'select'}"
     v-model="selectedValue"
-    :clearSelectField="clearSelectField"
   >
     <app-model-select slot="optional"
       v-if="true"
@@ -29,9 +28,6 @@
         default(){
           return {text:'',value:''}
         }
-      },
-      clearSelectField: {
-        type:Boolean
       }
     },
     data(){
