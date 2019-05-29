@@ -31,7 +31,7 @@
       v-model="chosenTimeFrame"
       @input="inputFilled='timeFrame';vModelEmit($event);clearSelectFieldMethod(true)"
       :style="inputFilled==='timeFrame' ? 'border:.2em solid lightgreen;' : '' "
-      :clearSelectField="clearSelectField"
+      :clearSelectField="clearTimeFrame"
     >
     </app-time-frame-select>
   </div>
