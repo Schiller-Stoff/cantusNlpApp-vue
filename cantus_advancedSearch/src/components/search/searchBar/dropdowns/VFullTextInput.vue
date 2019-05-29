@@ -22,16 +22,6 @@
     components: {
       appVToggableSearchBar:VToggableSearchBar
     },
-    data() {
-      return {
-        value: ''
-      }
-    },
-    methods: {
-      vModelEmit(val) {
-        this.$emit('input', val)
-      }
-    },
     computed: {
       selectedValue: {
         get() {
