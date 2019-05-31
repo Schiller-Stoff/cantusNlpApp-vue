@@ -11,7 +11,7 @@
         <nlp-app-card-grid></nlp-app-card-grid>
       </div>
       <div class="col-lg-1 text-center" id="v-step-10003">
-        <nlp-app-card-view :corpora="corpora"></nlp-app-card-view>
+        <nlp-app-card-view></nlp-app-card-view>
       </div>
       <!--<div class="col col-2"></div>-->
     </div>
@@ -60,7 +60,6 @@
         nlpAppCardBuilderSettings: CardBuilderSettings,
         nlpAppCardView: CardView
       },
-      props: ['corpora'],
       data(){
         return {
           maximizedStyle: undefined,
