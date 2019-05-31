@@ -4,16 +4,9 @@
         <div id="v-step-100" class="form-group mb-2">
           <label for="LO_select" class="sr-only">LO Selection</label>
           <select id="LO_select" class="form-control form-control" v-model="selectedLO">
-            <option v-for="corpus in corpora">{{ corpus.name }}</option>
+            <option v-for="lo in libriOrdinarii" :value="lo.value">{{ lo.text }}</option>
           </select>
         </div>
-        <!--<div class="form-group mb-2">-->
-          <!--<label for="LO_view_select" class="sr-only">Email</label>-->
-          <!--<select id="LO_view_select" class="form-control form-control">-->
-            <!--<option>Was wäre hier sinnvoll`?</option>-->
-          <!--</select>-->
-        <!--</div>-->
-        <!--<button id="v-step-101" type="button" class="btn mb-2" @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')">LO hinzufügen</button>-->
         <progress-button @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')" id="v-step-101" name="duration" class="btn mb-2" :duration="loBtnClickBlockDuration">LO hinzufügen</progress-button>
         <div @click="notify('Maximiert/Minimiert'); maximizeApp()">
           <div id="v-step-102" class="cantusNlp_iconHolder" data-balloon="Maximieren" data-balloon-pos="right"><i class="far fa-window-maximize"></i></div>
@@ -60,10 +53,10 @@
   import {EventBus} from "../main";
   import {vueNotifyMixin} from "../mixins/vueNotifyMixin";
   import ProgressButton from 'vue-progress-button'
+  import {libriOrdinarii} from "../data/libriOrdinarii";
 
   export default {
     name: "CardBuilderSettings",
-    props: ["corpora"],
     mixins: [vueNotifyMixin],
     components: {
       'progress-button': ProgressButton
@@ -71,6 +64,7 @@
     data(){
       return {
         selectedLO:"LO auswählen",
+        libriOrdinarii,
         loBtnClickBlockDuration: 2000,
         steps: [
           {
@@ -106,11 +100,11 @@
     methods: {
       createCard(LO){
         if(loBtnClickBlocker)return;
-        for (let corpus of this.corpora) {
-          if(corpus.name===LO){
+        for (let lo of this.libriOrdinarii) {
+          if(lo.value===LO){
             loBtnClickBlocker = true;
             setTimeout(()=>{loBtnClickBlocker=false},this.loBtnClickBlockDuration)
-            return EventBus.$emit('cardCreate',corpus);
+            return EventBus.$emit('cardCreate',lo);
           }
         }
       },
