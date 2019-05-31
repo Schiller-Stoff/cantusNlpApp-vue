@@ -10,56 +10,56 @@
                       v-if="cardsToCreate.length>0"
     >
 
-      <nlp-app-voyant-card :key="corpus.name" :corpora="corpora" v-for="corpus in cardsToCreate" :linkedCorpus="corpus"></nlp-app-voyant-card>
+      <nlp-app-voyant-card :
+                           key="corpus.name"
+                           :corpora="corpora"
+                           v-for="corpus in cardsToCreate"
+                           :linkedCorpus="corpus">
+
+      </nlp-app-voyant-card>
 
     </transition-group>
-    <!--Experimental LO Reader Modus-->
-    <!--<button @click="showOrigCantus = !showOrigCantus" v-if="cardsToCreate.length===0" class="btn btn-primary">LO Vorschau</button>-->
     <div class="container">
       <div class="row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
-        <!--Experimental LO Reader Modus-->
-        <!--<nlp-app-cantus v-if="showOrigCantus"></nlp-app-cantus>-->
-      <div class="col-lg-6">
-        <h1 id="v-step-10000">Cantus Voyant Vorschau-Werkzeug</h1>
-        <hr id="v-step-10004">
-        <p>
-          Das Cantus Vorschau-Voyant Werkzeug dient dazu eine schnelle Vorschau verschiedener Voyant Ansichten zu ermöglichen.
-          Alle Ansichten stammen direkt von den Voyant-Tools.
-          Hier können erste Eindrücke für den quantitativen Vergleich verschiedener Libri Ordinarii gewonnnen und je nach Bedarf Forschungsdatenmaterial im JSON-Format abgerufen werden.
-          Es handelt sich hierbei um eine verkürzte Vorschau zusätzlich zur eigentlichen Analyse direkt auf der Voyant-Tools Website.
-          Im Felde links neben dem "LO-hinzufügen" Knopf befindet sich ein Auswahlmenü mit dem eine Voyant-Vorschau an Ort und Stelle hinzugefügt werden kann. Einzelne Info-Knöpfe
-          an den drei Seiten des Containers geben weitere Auskünfte über die Verwendung des Vorschauwerkzeuges.
-        </p>
-        <h3>NLP / Korpusanalyse</h3>
-        <hr>
-        <p>Hier finden Sie eine Darstellung der NLP-Analyse über alle Libri Ordinarii hinweg, einerseits als Orginaltext und andererseits in lemmatisierter Form. Lemmatisierung, Tokenisierung etc. wurden mit Hilfe des "Classical
-          Language Toolkits" in Python realisiert.</p>
-        <h3>Der Lemmatisierte Text</h3>
-        <hr>
-        <p>
-          Der Text wurde mit Hilfe der Python Bibliothek "Classical Language Toolkit" tokenisiert, lemmatisiert, wie auch
-          Stopwörter entfernt. Die dabei enstandenen Analysedaten können den einzelnen Voyant-Vorschau-Karten unter dem
-          Menüpunkt "JSON-Daten" entnommen werden. Über das JSON-Format können so entfernte Wörter, der Prozentsatz unbekannter Wörter
-          (für den CLTK-Lemmatisierer) und alle unbekannten Wörter abgefragt werden.
-          Selbiger lemmatisierter Text steht ebenso allen einzelnen Libri Ordinarii zu Verfügung und kann einzeln
-          über die "Lesetext" - Ansicht angesteuert werden.
-        </p>
-        <hr>
-
+        <div class="col-lg-6">
+          <h1 id="v-step-10000">Cantus Voyant Vorschau-Werkzeug</h1>
+          <hr id="v-step-10004">
+          <p>
+            Das Cantus Vorschau-Voyant Werkzeug dient dazu eine schnelle Vorschau verschiedener Voyant Ansichten zu ermöglichen.
+            Alle Ansichten stammen direkt von den Voyant-Tools.
+            Hier können erste Eindrücke für den quantitativen Vergleich verschiedener Libri Ordinarii gewonnnen und je nach Bedarf Forschungsdatenmaterial im JSON-Format abgerufen werden.
+            Es handelt sich hierbei um eine verkürzte Vorschau zusätzlich zur eigentlichen Analyse direkt auf der Voyant-Tools Website.
+            Im Felde links neben dem "LO-hinzufügen" Knopf befindet sich ein Auswahlmenü mit dem eine Voyant-Vorschau an Ort und Stelle hinzugefügt werden kann. Einzelne Info-Knöpfe
+            an den drei Seiten des Containers geben weitere Auskünfte über die Verwendung des Vorschauwerkzeuges.
+          </p>
+          <h3>NLP / Korpusanalyse</h3>
+          <hr>
+          <p>Hier finden Sie eine Darstellung der NLP-Analyse über alle Libri Ordinarii hinweg, einerseits als Orginaltext und andererseits in lemmatisierter Form. Lemmatisierung, Tokenisierung etc. wurden mit Hilfe des "Classical
+            Language Toolkits" in Python realisiert.</p>
+          <h3>Der Lemmatisierte Text</h3>
+          <hr>
+          <p>
+            Der Text wurde mit Hilfe der Python Bibliothek "Classical Language Toolkit" tokenisiert, lemmatisiert, wie auch
+            Stopwörter entfernt. Die dabei enstandenen Analysedaten können den einzelnen Voyant-Vorschau-Karten unter dem
+            Menüpunkt "JSON-Daten" entnommen werden. Über das JSON-Format können so entfernte Wörter, der Prozentsatz unbekannter Wörter
+            (für den CLTK-Lemmatisierer) und alle unbekannten Wörter abgefragt werden.
+            Selbiger lemmatisierter Text steht ebenso allen einzelnen Libri Ordinarii zu Verfügung und kann einzeln
+            über die "Lesetext" - Ansicht angesteuert werden.
+          </p>
+          <hr>
+        </div>
+        <div class="col-lg-6">
+          <h3>Eine Kurze Anleitung</h3>
+          <hr>
+          <ul>
+            <li>Via Click auf das Navigationsmenü links oben kann eine "Voyant Karte" eingefügt werden. </li>
+            <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
+            <li>Zur Rechten: Veränderung der Größe der einzelnen Karten, sowie links zum originalen und lemmatisierten
+              Korpus.</li>
+          </ul>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <h3>Eine Kurze Anleitung</h3>
-        <hr>
-        <ul>
-          <li>Via Click auf das Navigationsmenü links oben kann eine "Voyant Karte" eingefügt werden. </li>
-          <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
-          <li>Zur Rechten: Veränderung der Größe der einzelnen Karten, sowie links zum originalen und lemmatisierten
-            Korpus.</li>
-        </ul>
       </div>
-
-    </div>
-    </div>
     </div>
 </template>
 
