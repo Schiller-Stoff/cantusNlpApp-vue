@@ -26,29 +26,26 @@
         :color="undefined"
         :showTooltip="true"
         :rotate="{from: 0, to: 90, numOfOrientation: 2 }"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : ''"
       ></app-word-cloud>
       <app-bar-chart
         v-if="currentView==='Balkendiagramm'"
         :chartData="barData"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : ''"
       ></app-bar-chart>
       <app-line-chart
         v-if="currentView==='Liniendiagramm'"
         :chartData="barData"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : ''"
       ></app-line-chart>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
       <h5 class=".d-inline">{{ linkedResult.lo.text }}</h5>
-      <a href="#" class="btn btn-light">Lemmatisierter Text/Originaltext</a>
+      <a href="#" class="btn btn-light">Zu den Forschungsdaten</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '100vh')">Größer</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('400px', '600px')">Kleiner</a>
-      <!--<button>Lemma</button>-->
 
-    </div>
-    <div class="card-body" v-else>
-      <h5>Nlp Daten für {{ linkedResult.lo.text }}</h5>
-      <hr>
-      <a class="btn btn-secondary" >Forschungsdaten als JSON</a>
     </div>
   </div>
 
@@ -120,7 +117,7 @@
         resizeCard(width, height = null){
           console.log("resize!")
           this.cardSize = {
-            "min-width": width + " !important",
+            "min-width": width + "  !important",
             "height": (height!==null) ? (height + " !important") : this.cardSize["height"]
           }
           console.log(this.cardSize);
@@ -134,16 +131,6 @@
         });
 
         EventBus.$on("allViewChange",(view)=>{
-          /*view = view.toLowerCase();
-          if(view==="Kreisdiagramm"){
-
-          }
-          if(view==="reader"){
-
-          }
-          if(view==="summary"){
-
-          }*/
           this.currentView = view
         });
 
