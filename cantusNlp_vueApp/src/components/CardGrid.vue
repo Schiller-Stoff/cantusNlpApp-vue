@@ -11,11 +11,9 @@
     >
 
       <nlp-app-voyant-card
-                           :corpora="corpora"
                            v-for="nlpResult in cardsToCreate"
                            :key="nlpResult.deletedTokens.length"
                            :linkedResult="nlpResult">
-
       </nlp-app-voyant-card>
 
     </transition-group>
@@ -75,7 +73,6 @@
       nlpAppVoyantCard: VoyantCard,
       nlpAppCantus: Cantus
     },
-    props: ["corpora"],
     data(){
       return {
         nlpResults,
