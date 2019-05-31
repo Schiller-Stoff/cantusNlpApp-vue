@@ -63,15 +63,13 @@
 
 <script>
   import VoyantCard from "./VoyantCard.vue";
-  import Cantus from "./Cantus";
   import {EventBus} from "./../main";
   import {nlpResults} from "../data/nlpResults";
 
   export default {
     name: "CardGrid",
     components: {
-      nlpAppVoyantCard: VoyantCard,
-      nlpAppCantus: Cantus
+      nlpAppVoyantCard: VoyantCard
     },
     data(){
       return {
