@@ -25,7 +25,7 @@
         :data="Object.assign([], linkedResult.mostFrequentLemmatas)"
         nameKey="name"
         valueKey="value"
-        :color="defaultColors"
+        :color="undefined"
         :showTooltip="true"
         :rotate="{from: 0, to: 90, numOfOrientation: 2 }"
       ></app-word-cloud>
@@ -51,10 +51,6 @@
 <script>
     import {EventBus} from "../main";
     import wordcloud from 'vue-wordcloud'
-    import {defaultWords} from "../data/defaultWordsWordcloud";
-    import {defaultColors} from "../data/defaultWordsWordcloud";
-    import {wordsNotKnown} from "../data/defaultWordsWordcloud";
-    import {nlpResults} from "../data/nlpResults";
 
     export default {
       name: "VoyantCard",
@@ -64,10 +60,6 @@
       props: ['linkedResult'],
       data(){
         return {
-          defaultWords,
-          defaultColors,
-          wordsNotKnown,
-          nlpResultsTry: nlpResults,
           currentView: "Originaltext",
           isShown: true,
           resultDataDisplayed:false,
