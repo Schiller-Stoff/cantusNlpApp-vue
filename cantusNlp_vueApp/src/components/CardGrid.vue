@@ -11,10 +11,10 @@
     >
 
       <nlp-app-voyant-card
-                           :key="corpus.name"
                            :corpora="corpora"
-                           v-for="corpus in cardsToCreate"
-                           :linkedCorpus="corpus">
+                           v-for="nlpResult in cardsToCreate"
+                           :key="nlpResult.deletedTokens.length"
+                           :linkedCorpus="nlpResult">
 
       </nlp-app-voyant-card>
 
@@ -67,6 +67,8 @@
   import VoyantCard from "./VoyantCard.vue";
   import Cantus from "./Cantus";
   import {EventBus} from "./../main";
+  import {nlpResults} from "../data/nlpResults";
+
   export default {
     name: "CardGrid",
     components: {
@@ -76,6 +78,8 @@
     props: ["corpora"],
     data(){
       return {
+        nlpResults,
+        useDummyData:true,
         cardsToCreate: [],
         showOrigCantus: false
       }
@@ -127,11 +131,30 @@
         console.log(cardToRemove)
         let indexPos = this.cardsToCreate.indexOf(cardToRemove);
         this.cardsToCreate.splice(indexPos,1);
-      }
+      },
+
+      getNlpData(){
+
+        let query;
+
+        if(this.useDummyData){
+          return this.cardsToCreate.push(this.nlpResults)
+        }
+
+        this.$http.get(query)
+          .then(response=>{
+            return response.json();
+          },error=>{
+            console.log("Unable to reach " + url)
+          }).then(json =>{
+          this.cardsToCreate.push(json)
+
+        });
+      },
     },
     created(){
       EventBus.$on('cardCreate',(lo_to_create) => {
-        this.cardsToCreate.push(lo_to_create);
+        this.getNlpData()
       });
 
       EventBus.$on('removeCard',(cardToRemove)=>{
