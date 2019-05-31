@@ -4,29 +4,24 @@
       <button class="btn btn-link float-right" @click="removeCard">Close</button>
       <button class="btn btn-link float-right" @click.prevent="resizeCard('400px', '600px')">Klein</button>
       <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <a @click="currentView = 'Wortwolke'" :class="currentView==='Wortwolke' ? 'active' : ''" class="nav-link" href="#">Wortwolke</a>
-        </li>
-        <li class="nav-item">
-          <a @click="currentView = 'Balkendiagramm'" :class="currentView==='Balkendiagramm' ? 'active' : ''" class="nav-link" href="#">Balkendiagramm</a>
-        </li>
-        <li class="nav-item">
-          <a @click="currentView = 'Liniendiagramm'" :class="currentView==='Liniendiagramm' ? 'active' : ''" class="nav-link" href="#">Liniendiagramm</a>
-        </li>
-        <li class="nav-item">
-          <a @click="currentView = 'Kreisdiagramm'" :class="currentView==='Kreisdiagramm' ? 'active' : ''" class="nav-link" href="#">Kreisdiagramm</a>
-        </li>
-        <li class="nav-item">
-          <a @click="currentView = 'Netzdiagramm'" :class="currentView==='Netzdiagramm' ? 'active' : ''" class="nav-link" href="#">Netzdiagramm</a>
-        </li>
-        <li class="nav-item">
-          <a @click="currentView = 'Punktwolke'" :class="currentView==='Punktwolke' ? 'active' : ''" class="nav-link" href="#">Punktwolke</a>
+
+        <li class="input-group nav-item mb-3" style="max-width: 250px;">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-chart-area"></i></label>
+          </div>
+          <select v-model="currentView" class="custom-select" id="inputGroupSelect01" style="background-color: rgba(0, 0, 0, 0.03); border: none">
+            <option selected>Diagramm wählen...</option>
+            <option value="Wortwolke">Wortwolke</option>
+            <option value="Balkendiagramm">Balkendiagramm</option>
+            <option value="Liniendiagramm">Liniendiagramm</option>
+            <option value="Kreisdiagramm">Kreisdiagramm</option>
+            <option value="Netzdiagramm">Netzdiagramm</option>
+            <option value="Punktwolke">Punktwolke</option>
+          </select>
         </li>
       </ul>
     </div>
-    <!--<iframe class="card-img-top" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>-->
     <div class="card-body" v-if="!resultDataDisplayed">
-      <!--<iframe class="card-img" :src=iframeVoyantUrl></iframe>-->
       <app-word-cloud
         v-if="currentView ==='Wortwolke'"
         :data="Object.assign([], linkedResult.mostFrequentLemmatas)"
@@ -62,7 +57,6 @@
         :chartData="bubbleData"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-bubble-chart>
-      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <h5 class=".d-inline">{{ linkedResult.lo.text }}</h5>
       <a href="#" class="btn btn-light">Zu den Forschungsdaten</a>
