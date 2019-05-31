@@ -5,13 +5,13 @@
       <button class="btn btn-link float-right" @click.prevent="resizeCard('400px', '600px')">Klein</button>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link" href="#">WordCloud</a>
+          <a @click="currentView = 'Wortwolke'" :class="currentView==='Wortwolke' ? 'active' : ''" class="nav-link" href="#">Wortwolke</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Analysedaten</a>
+          <a @click="currentView = 'Balkendiagramm'" :class="currentView==='Balkendiagramm' ? 'active' : ''" class="nav-link" href="#">Balkendiagramm</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Ergebnisdaten</a>
+          <a @click="currentView = 'Liniendiagramm'" :class="currentView==='Liniendiagramm' ? 'active' : ''" class="nav-link" href="#">Liniendiagramm</a>
         </li>
       </ul>
     </div>
@@ -19,6 +19,7 @@
     <div class="card-body" v-if="!resultDataDisplayed">
       <!--<iframe class="card-img" :src=iframeVoyantUrl></iframe>-->
       <app-word-cloud
+        v-if="currentView ==='Wortwolke'"
         :data="Object.assign([], linkedResult.mostFrequentLemmatas)"
         nameKey="name"
         valueKey="value"
@@ -26,6 +27,14 @@
         :showTooltip="true"
         :rotate="{from: 0, to: 90, numOfOrientation: 2 }"
       ></app-word-cloud>
+      <app-bar-chart
+        v-if="currentView==='Balkendiagramm'"
+        :chartData="barData"
+      ></app-bar-chart>
+      <app-line-chart
+        v-if="currentView==='Liniendiagramm'"
+        :chartData="barData"
+      ></app-line-chart>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
@@ -48,16 +57,21 @@
 <script>
     import {EventBus} from "../main";
     import wordcloud from 'vue-wordcloud'
+    import BarChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/BarChart'
+    import LineChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/LineChart'
+
 
     export default {
       name: "VoyantCard",
       components:{
-        appWordCloud: wordcloud
+        appWordCloud: wordcloud,
+        appBarChart: BarChart,
+        appLineChart:LineChart
       },
       props: ['linkedResult'],
       data(){
         return {
-          currentView: "Originaltext",
+          currentView: "Wortwolke",
           isShown: true,
           resultDataDisplayed:false,
           cardSize: {
@@ -66,7 +80,40 @@
           }
         }
       },
+      computed:{
+        barData(){
+          let obj = {
+            labels: [],
+            datasets: []
+          }
+
+          let dataObj = {
+            label:'',
+            backgroundColor:[],
+            data: []
+          }
+
+          for (let dp of this.linkedResult.mostFrequentLemmatas){
+            dataObj.label = "Vorkommnisse";
+            let singleLabel = ``
+            obj.labels.push(dp.text)
+            dataObj.backgroundColor.push(this.randomColor())
+            dataObj.data.push(dp.value)
+          }
+          obj.datasets.push(dataObj)
+
+          return obj;
+        }
+      },
       methods: {
+        randomColor() {
+          let letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        },
         removeCard(){
           EventBus.$emit('removeCard', this.linkedResult)
         },
@@ -78,6 +125,8 @@
           }
           console.log(this.cardSize);
         }
+
+
       },
       created(){
         EventBus.$on("deleteAll",()=>{
@@ -85,8 +134,8 @@
         });
 
         EventBus.$on("allViewChange",(view)=>{
-          view = view.toLowerCase();
-          if(view==="cirrus"){
+          /*view = view.toLowerCase();
+          if(view==="Kreisdiagramm"){
 
           }
           if(view==="reader"){
@@ -94,7 +143,8 @@
           }
           if(view==="summary"){
 
-          }
+          }*/
+          this.currentView = view
         });
 
         EventBus.$on("resizeCards", (cssSizeObj)=>{

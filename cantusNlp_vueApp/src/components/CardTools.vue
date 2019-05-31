@@ -5,33 +5,20 @@
     </div>
     <hr>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolke" data-balloon-pos="up" @click="changeAllCardsView('Cirrus');notify('Wortwolkenmodus');markActive($event,'top');"><i class="fas fa-cloud"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-0" data-balloon="Wortwolkenmodus" data-balloon-pos="up" @click="changeAllCardsView('Wortwolke');notify('Wortwolkenmodus');markActive($event,'top');"><i class="fas fa-cloud"></i></div>
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Korpusansicht" data-balloon-pos="up" @click="changeAllCardsView('Reader');notify('Korpusmodus'); markActive($event,'top');"><i class="fas fa-adjust"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Balkendiagrammmodus" data-balloon-pos="up" @click="changeAllCardsView('Balkendiagramm');notify('Balkendiagrammmodus'); markActive($event,'top');"><i class="fas fa-adjust"></i></div>
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Übersicht" data-balloon-pos="up" @click="changeAllCardsView('Summary');notify('Zusammenfassungsmodus'); markActive($event,'top');"><i class="fab fa-creative-commons-share"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Liniendiagrammmodus" data-balloon-pos="up" @click="changeAllCardsView('Liniendiagramm');notify('Liniendiagramm'); markActive($event,'top');"><i class="fab fa-creative-commons-share"></i></div>
     </div>
-    <!--<div class="cantusNlp_iconContainer">-->
-      <!--<div class="cantusNlp_iconHolder" data-balloon="Lemma-Modus" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-stream"></i></div>-->
-    <!--</div>-->
-    <!--<div class="cantusNlp_iconContainer">-->
-      <!--<div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="fas fa-tablet"></i></div>-->
-    <!--</div>-->
-    <!--<div class="cantusNlp_iconContainer">-->
-      <!--<div class="cantusNlp_iconHolder" data-balloon="Weiterer Modus?" data-balloon-pos="up" @click="markActive($event,'top');"><i class="far fa-file-excel"></i></div>-->
-    <!--</div>-->
     <hr>
     <div>
-      <!--<div class="cantusNlp_iconContainer">-->
-        <!--<div @click="notify('Title','hi there!')" id="v-step-3" class="cantusNlp_iconHolder" data-balloon="Übersicht" data-balloon-pos="up"><i class="fab fa-adn"></i></div>-->
-      <!--</div>-->
       <div class="cantusNlp_iconContainer">
         <div class="cantusNlp_iconHolder" id="v-step-3" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
       </div>
-
     </div>
     <v-tour name="myTour" :steps="steps">
       <template slot-scope="tour">
