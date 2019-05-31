@@ -22,7 +22,7 @@
     <div class="card-body" v-if="!resultDataDisplayed">
       <!--<iframe class="card-img" :src=iframeVoyantUrl></iframe>-->
       <app-word-cloud
-        :data="Object.assign([], linkedCorpus.mostFrequentLemmatas)"
+        :data="Object.assign([], linkedResult.mostFrequentLemmatas)"
         nameKey="name"
         valueKey="value"
         :color="defaultColors"
@@ -32,7 +32,7 @@
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
-      <h5 class=".d-inline">{{ linkedCorpus.name }} - {{ currentView }}</h5>
+      <h5 class=".d-inline">{{ linkedResult.lo.text }} - {{ currentView }}</h5>
       <a href="#" class="btn btn-light">Lemmatisierter Text/Originaltext</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '100vh')">Größer</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('400px', '600px')">Kleiner</a>
@@ -40,7 +40,7 @@
 
     </div>
     <div class="card-body" v-else>
-      <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
+      <h5>Nlp Daten für {{ linkedResult.lo.text }}</h5>
       <hr>
       <a class="btn btn-secondary" >Forschungsdaten als JSON</a>
     </div>
@@ -61,7 +61,7 @@
       components:{
         appWordCloud: wordcloud
       },
-      props: ['corpora','linkedCorpus'],
+      props: ['linkedResult'],
       data(){
         return {
           defaultWords,
@@ -79,7 +79,7 @@
       },
       methods: {
         removeCard(){
-          EventBus.$emit('removeCard', this.linkedCorpus)
+          EventBus.$emit('removeCard', this.linkedResult)
         },
         resizeCard(width, height = null){
           console.log("resize!")

@@ -14,7 +14,7 @@
                            :corpora="corpora"
                            v-for="nlpResult in cardsToCreate"
                            :key="nlpResult.deletedTokens.length"
-                           :linkedCorpus="nlpResult">
+                           :linkedResult="nlpResult">
 
       </nlp-app-voyant-card>
 
@@ -133,14 +133,14 @@
         this.cardsToCreate.splice(indexPos,1);
       },
 
-      getNlpData(){
-
-        let query;
+      getNlpData(loInfo){
 
         if(this.useDummyData){
+          this.nlpResults.lo = loInfo
           return this.cardsToCreate.push(this.nlpResults)
         }
 
+        let query;
         this.$http.get(query)
           .then(response=>{
             return response.json();
@@ -153,8 +153,8 @@
       },
     },
     created(){
-      EventBus.$on('cardCreate',(lo_to_create) => {
-        this.getNlpData()
+      EventBus.$on('cardCreate',(loInfo) => {
+        this.getNlpData(loInfo)
       });
 
       EventBus.$on('removeCard',(cardToRemove)=>{
