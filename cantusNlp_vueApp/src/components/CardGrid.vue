@@ -20,14 +20,13 @@
     <div class="container">
       <div class="row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
         <div class="col-lg-6">
-          <h1 id="v-step-10000">Cantus Voyant Vorschau-Werkzeug</h1>
+          <h1 id="v-step-10000">Cantus NLP Werkzeug</h1>
           <hr id="v-step-10004">
           <p>
-            Das Cantus Vorschau-Voyant Werkzeug dient dazu eine schnelle Vorschau verschiedener Voyant Ansichten zu ermöglichen.
-            Alle Ansichten stammen direkt von den Voyant-Tools.
+            Das Cantus NLP Werkzeug dient dazu eine Vorschau auf das mit Natural Language Processing analysierte Datenmaterial zu ermöglichen.
             Hier können erste Eindrücke für den quantitativen Vergleich verschiedener Libri Ordinarii gewonnnen und je nach Bedarf Forschungsdatenmaterial im JSON-Format abgerufen werden.
             Es handelt sich hierbei um eine verkürzte Vorschau zusätzlich zur eigentlichen Analyse direkt auf der Voyant-Tools Website.
-            Im Felde links neben dem "LO-hinzufügen" Knopf befindet sich ein Auswahlmenü mit dem eine Voyant-Vorschau an Ort und Stelle hinzugefügt werden kann. Einzelne Info-Knöpfe
+            Im Felde links neben dem "LO-hinzufügen" Knopf befindet sich ein Auswahlmenü mit dem eine quantitative Visualisierung an Ort und Stelle hinzugefügt werden kann. Einzelne Info-Knöpfe
             an den drei Seiten des Containers geben weitere Auskünfte über die Verwendung des Vorschauwerkzeuges.
           </p>
           <h3>NLP / Korpusanalyse</h3>
@@ -38,7 +37,7 @@
           <hr>
           <p>
             Der Text wurde mit Hilfe der Python Bibliothek "Classical Language Toolkit" tokenisiert, lemmatisiert, wie auch
-            Stopwörter entfernt. Die dabei enstandenen Analysedaten können den einzelnen Voyant-Vorschau-Karten unter dem
+            Stopwörter entfernt. Die dabei enstandenen Analysedaten können den einzelnen Karten unter dem
             Menüpunkt "JSON-Daten" entnommen werden. Über das JSON-Format können so entfernte Wörter, der Prozentsatz unbekannter Wörter
             (für den CLTK-Lemmatisierer) und alle unbekannten Wörter abgefragt werden.
             Selbiger lemmatisierter Text steht ebenso allen einzelnen Libri Ordinarii zu Verfügung und kann einzeln
@@ -50,7 +49,7 @@
           <h3>Eine Kurze Anleitung</h3>
           <hr>
           <ul>
-            <li>Via Click auf das Navigationsmenü links oben kann eine "Voyant Karte" eingefügt werden. </li>
+            <li>Via Click auf das Navigationsmenü links oben kann eine "NLP Karte" eingefügt werden. </li>
             <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
             <li>Zur Rechten: Veränderung der Größe der einzelnen Karten, sowie links zum originalen und lemmatisierten
               Korpus.</li>
