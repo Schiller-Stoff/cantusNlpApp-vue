@@ -19,6 +19,9 @@
         <li class="nav-item">
           <a @click="currentView = 'Netzdiagramm'" :class="currentView==='Netzdiagramm' ? 'active' : ''" class="nav-link" href="#">Netzdiagramm</a>
         </li>
+        <li class="nav-item">
+          <a @click="currentView = 'Punktwolke'" :class="currentView==='Punktwolke' ? 'active' : ''" class="nav-link" href="#">Punktwolke</a>
+        </li>
       </ul>
     </div>
     <!--<iframe class="card-img-top" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>-->
@@ -54,6 +57,11 @@
         :chartData="barData"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-radar-chart>
+      <app-bubble-chart
+        v-if="currentView==='Punktwolke'"
+        :chartData="bubbleData"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
+      ></app-bubble-chart>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <h5 class=".d-inline">{{ linkedResult.lo.text }}</h5>
@@ -73,6 +81,7 @@
     import LineChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/LineChart'
     import PieChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/PieChart'
     import RadarChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/RadarChart'
+    import BubbleChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/BubbleChart'
 
 
     export default {
@@ -82,7 +91,8 @@
         appBarChart: BarChart,
         appLineChart:LineChart,
         appPieChart:PieChart,
-        appRadarChart:RadarChart
+        appRadarChart:RadarChart,
+        appBubbleChart:BubbleChart
       },
       props: ['linkedResult'],
       data(){
@@ -117,6 +127,32 @@
             dataObj.data.push(dp.value)
           }
           obj.datasets.push(dataObj)
+
+          return obj;
+        },
+        bubbleData(){
+          let obj = {
+            labels: [],
+            datasets: []
+          }
+
+
+
+          let xInc = 0
+          for (let dp of this.linkedResult.mostFrequentLemmatas){
+            let dataObj = {
+              label:'',
+              backgroundColor:[],
+              data: []
+            }
+            dataObj.label = dp.name;
+            let singleLabel = ``
+            //obj.labels.push(dp.text)
+            dataObj.backgroundColor.push(this.randomColor())
+            dataObj.data.push({x:xInc, y:dp.value, r:dp.value/100})
+            obj.datasets.push(dataObj)
+          }
+
 
           return obj;
         }
