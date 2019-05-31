@@ -34,17 +34,17 @@
       <app-bar-chart
         v-if="currentView==='Balkendiagramm'"
         :chartData="barData"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : ''"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-bar-chart>
       <app-line-chart
         v-if="currentView==='Liniendiagramm'"
         :chartData="barData"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : ''"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-line-chart>
       <app-pie-chart
         v-if="currentView==='Kreisdiagramm'"
         :chartData="barData"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : ''"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-pie-chart>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
