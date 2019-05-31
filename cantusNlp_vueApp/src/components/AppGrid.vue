@@ -1,7 +1,7 @@
 <template>
   <div id="vue_appGrid" class="container-fluid" :style="maximizedStyle">
     <div class="row">
-      <nlp-app-card-builder-settings :corpora="corpora"></nlp-app-card-builder-settings>
+      <nlp-app-card-builder-settings></nlp-app-card-builder-settings>
     </div>
     <div class="row">
       <div class="col-lg-1 text-center">
