@@ -23,11 +23,10 @@
           <h1 id="v-step-10000">Cantus NLP Werkzeug</h1>
           <hr id="v-step-10004">
           <p>
-            Das Cantus NLP Werkzeug dient dazu eine Vorschau auf das mit Natural Language Processing analysierte Datenmaterial zu ermöglichen.
-            Hier können erste Eindrücke für den quantitativen Vergleich verschiedener Libri Ordinarii gewonnnen und je nach Bedarf Forschungsdatenmaterial im JSON-Format abgerufen werden.
-            Es handelt sich hierbei um eine verkürzte Vorschau zusätzlich zur eigentlichen Analyse direkt auf der Voyant-Tools Website.
+            Mit dem Cantus NLP - Werkzeug können erste Eindrücke für den quantitativen Vergleich verschiedener Libri Ordinarii gewonnnen und je nach Bedarf Forschungsdatenmaterial im JSON-Format abgerufen werden.
+            Es handelt sich hierbei um eine verkürzte Vorschau zusätzlich zur eigentlichen NLP Analyse direkt auf der Voyant-Tools Website.
             Im Felde links neben dem "LO-hinzufügen" Knopf befindet sich ein Auswahlmenü mit dem eine quantitative Visualisierung an Ort und Stelle hinzugefügt werden kann. Einzelne Info-Knöpfe
-            an den drei Seiten des Containers geben weitere Auskünfte über die Verwendung des Vorschauwerkzeuges.
+            an den drei Seiten des Containers geben Auskünfte über die Verwendung des NLP-Werkzeuges.
           </p>
           <h3>NLP / Korpusanalyse</h3>
           <hr>
