@@ -8,13 +8,10 @@
           <a class="nav-link" href="#">WordCloud</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" >Reader</a>
+          <a class="nav-link" href="#">Analysedaten</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Summary</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">JSON-Data</a>
+          <a class="nav-link" href="#">Ergebnisdaten</a>
         </li>
       </ul>
     </div>
