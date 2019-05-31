@@ -74,25 +74,12 @@
           cardSize: {
             "height": "600px",
             "min-width": "400px"
-          },
-          nlpResults: {deletedTokens:"",lemmasNotKnown:"",wordsNotKnown:""}
+          }
         }
       },
       methods: {
         removeCard(){
           EventBus.$emit('removeCard', this.linkedCorpus)
-        },
-        retrieveNlpData(){
-          let url = 'http://glossa.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/NLP_RESULTS/content';
-          this.$http.get(url)
-            .then(response=>{
-            return response.json();
-          },error=>{
-            console.log("Unable to reach " + url)
-          }).then(json =>{
-            this.nlpResults = json;
-
-          });
         },
         resizeCard(width, height = null){
           console.log("resize!")
