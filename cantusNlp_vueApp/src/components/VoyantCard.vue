@@ -16,6 +16,9 @@
         <li class="nav-item">
           <a @click="currentView = 'Kreisdiagramm'" :class="currentView==='Kreisdiagramm' ? 'active' : ''" class="nav-link" href="#">Kreisdiagramm</a>
         </li>
+        <li class="nav-item">
+          <a @click="currentView = 'Netzdiagramm'" :class="currentView==='Netzdiagramm' ? 'active' : ''" class="nav-link" href="#">Netzdiagramm</a>
+        </li>
       </ul>
     </div>
     <!--<iframe class="card-img-top" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>-->
@@ -46,6 +49,11 @@
         :chartData="barData"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-pie-chart>
+      <app-radar-chart
+        v-if="currentView==='Netzdiagramm'"
+        :chartData="barData"
+        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
+      ></app-radar-chart>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <h5 class=".d-inline">{{ linkedResult.lo.text }}</h5>
@@ -64,6 +72,7 @@
     import BarChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/BarChart'
     import LineChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/LineChart'
     import PieChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/PieChart'
+    import RadarChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/RadarChart'
 
 
     export default {
@@ -72,7 +81,8 @@
         appWordCloud: wordcloud,
         appBarChart: BarChart,
         appLineChart:LineChart,
-        appPieChart:PieChart
+        appPieChart:PieChart,
+        appRadarChart:RadarChart
       },
       props: ['linkedResult'],
       data(){
