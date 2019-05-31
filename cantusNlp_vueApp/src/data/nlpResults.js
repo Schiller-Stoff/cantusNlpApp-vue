@@ -128,5 +128,5 @@ export const nlpResults = {
     }, {'name': 'facio', 'value': 393}, {'name': 'possum', 'value': 132}, {'name': 'meus', 'value': 331}, {
       'name': 'morior',
       'value': 121
-    }]
+    }],
 }
