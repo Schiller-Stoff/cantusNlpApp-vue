@@ -1,33 +1,39 @@
 <template>
   <div class="card text-center VoyantCard_container" v-if="isShown" :style="cardSize">
     <div class="card-header">
-      <!--<h5>LO Name</h5>-->
-      <!--<hr>-->
       <button class="btn btn-link float-right" @click="removeCard">Close</button>
       <button class="btn btn-link float-right" @click.prevent="resizeCard('400px', '600px')">Klein</button>
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link" :class="(currentVoyantTool==='Cirrus') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Cirrus');">WordCloud</a>
+          <a class="nav-link" href="#">WordCloud</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" :class="(currentVoyantTool==='Reader') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Reader');">Reader</a>
+          <a class="nav-link" href="#" >Reader</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" :class="(currentVoyantTool==='Summary') ? 'active' : '' " href="#" @click.prevent="changeVoyantTool('Summary')">Summary</a>
+          <a class="nav-link" href="#">Summary</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" :class="(resultDataDisplayed) ? 'active' : '' " :href="linkedCorpus.nlpResults">JSON-Data</a>
+          <a class="nav-link">JSON-Data</a>
         </li>
       </ul>
     </div>
     <!--<iframe class="card-img-top" src='https://voyant-tools.org/tool/Cirrus/?corpus=shakespeare'></iframe>-->
     <div class="card-body" v-if="!resultDataDisplayed">
-      <iframe class="card-img" :src=iframeVoyantUrl></iframe>
+      <!--<iframe class="card-img" :src=iframeVoyantUrl></iframe>-->
+      <app-word-cloud
+        :data="Object.assign([], linkedCorpus.mostFrequentLemmatas)"
+        nameKey="name"
+        valueKey="value"
+        :color="defaultColors"
+        :showTooltip="true"
+        :rotate="{from: 0, to: 90, numOfOrientation: 2 }"
+      ></app-word-cloud>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
       <br>
       <h5 class=".d-inline">{{ linkedCorpus.name }} - {{ currentView }}</h5>
-      <a href="#" class="btn btn-light" @click.prevent="toggleLemmaCorpusView">Lemmatisierter Text/Originaltext</a>
+      <a href="#" class="btn btn-light">Lemmatisierter Text/Originaltext</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '100vh')">Größer</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('400px', '600px')">Kleiner</a>
       <!--<button>Lemma</button>-->
@@ -36,7 +42,7 @@
     <div class="card-body" v-else>
       <h5>Nlp Daten für {{ linkedCorpus.name }}</h5>
       <hr>
-      <a class="btn btn-secondary" :href="linkedCorpus.nlpResults">Forschungsdaten als JSON</a>
+      <a class="btn btn-secondary" >Forschungsdaten als JSON</a>
     </div>
   </div>
 
@@ -44,16 +50,27 @@
 
 <script>
     import {EventBus} from "../main";
+    import wordcloud from 'vue-wordcloud'
+    import {defaultWords} from "../data/defaultWordsWordcloud";
+    import {defaultColors} from "../data/defaultWordsWordcloud";
+    import {wordsNotKnown} from "../data/defaultWordsWordcloud";
+    import {nlpResults} from "../data/nlpResults";
+
     export default {
       name: "VoyantCard",
+      components:{
+        appWordCloud: wordcloud
+      },
       props: ['corpora','linkedCorpus'],
       data(){
         return {
-          iframeVoyantUrl: this.linkedCorpus.voy_corpus,
+          defaultWords,
+          defaultColors,
+          wordsNotKnown,
+          nlpResultsTry: nlpResults,
           currentView: "Originaltext",
           isShown: true,
           resultDataDisplayed:false,
-          currentVoyantTool:"", //reassigned in mounted hook
           cardSize: {
             "height": "600px",
             "min-width": "400px"
@@ -62,37 +79,8 @@
         }
       },
       methods: {
-        toggleLemmaCorpusView(){
-          if(this.currentView === "Originaltext"){
-            this.currentView="Lemmatisierter Text";
-            let replace = "view=" + this.currentVoyantTool;
-            let newUrl = this.linkedCorpus.voy_lemma.replace(/view=.+/, replace).toString();
-            this.iframeVoyantUrl = newUrl;
-            console.log(this.iframeVoyantUrl);
-          } else {
-            this.currentView = "Originaltext";
-            let replace = "view=" + this.currentVoyantTool;
-            let newUrl = this.linkedCorpus.voy_corpus.replace(/view=.+/, replace).toString();
-            this.iframeVoyantUrl = newUrl;
-          }
-        },
         removeCard(){
           EventBus.$emit('removeCard', this.linkedCorpus)
-        },
-        changeVoyantTool(toolToSet){
-          //first make sure that opional data tab is hidden
-          this.resultDataDisplayed = false;
-
-          let curTool = this.detectCurrentVoyantTool();
-          this.iframeVoyantUrl = this.iframeVoyantUrl.replace(curTool,toolToSet);
-          this.currentVoyantTool = toolToSet;
-        },
-        detectCurrentVoyantTool(url=null){
-          url = (url===null) ? this.iframeVoyantUrl : url;
-          let regxString = url.match("view=.+").toString();
-          let onlyToolName= regxString.replace("view=", "")
-          console.log(onlyToolName);
-          return onlyToolName;
         },
         retrieveNlpData(){
           let url = 'http://glossa.uni-graz.at/archive/objects/o:cantus.brixen/datastreams/NLP_RESULTS/content';
@@ -123,13 +111,13 @@
         EventBus.$on("allViewChange",(view)=>{
           view = view.toLowerCase();
           if(view==="cirrus"){
-            this.changeVoyantTool("Cirrus");
+
           }
           if(view==="reader"){
-            this.changeVoyantTool("Reader");
+
           }
           if(view==="summary"){
-            this.changeVoyantTool("Summary");
+
           }
         });
 
@@ -137,9 +125,6 @@
           this.resizeCard(cssSizeObj["min-width"], cssSizeObj["height"]);
         });
 
-      },
-      mounted(){
-        this.currentVoyantTool = this.detectCurrentVoyantTool();
       }
     }
 </script>
