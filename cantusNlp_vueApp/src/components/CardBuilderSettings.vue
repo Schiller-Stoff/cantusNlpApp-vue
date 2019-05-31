@@ -78,7 +78,7 @@
           },
           {
             target: '#v-step-101',  // We're using document.querySelector() under the hood
-            content: `... via click hier zur <strong>Voyant Ansicht</strong> hinzugefügt.`,
+            content: `... via click hier eine <strong>Nlp Karte</strong> hinzugefügt.`,
             offset:document.documentElement.scrollTop-150,
             duration:100,
             params: {
@@ -87,7 +87,7 @@
           },
           {
             target: '#v-step-102',  // We're using document.querySelector() under the hood
-            content: `An dieser Stelle kann das Tool <strong>vergrößert</strong>  werden.`,
+            content: `An dieser Stelle kann das Tool <strong>vergrößert bzw. verkleinert</strong>  werden.`,
             offset:document.documentElement.scrollTop-150,
             duration:100,
             params: {
