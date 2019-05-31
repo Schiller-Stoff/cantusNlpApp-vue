@@ -117,7 +117,7 @@
             },
             {
               target: '#v-step-5',  // We're using document.querySelector() under the hood
-              content: `...und für das <strong>Punktwolke</strong>`,
+              content: `...und für die <strong>Punktwolke</strong>`,
               offset:document.documentElement.scrollTop-150,
               duration:100,
               params: {
