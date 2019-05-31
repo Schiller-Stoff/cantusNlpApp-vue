@@ -48,7 +48,6 @@
       ></app-pie-chart>
       <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
       <br>
-      <br>
       <h5 class=".d-inline">{{ linkedResult.lo.text }}</h5>
       <a href="#" class="btn btn-light">Zu den Forschungsdaten</a>
       <a href="#" class="btn btn-light" @click.prevent="resizeCard('100%', '100vh')">Größer</a>
