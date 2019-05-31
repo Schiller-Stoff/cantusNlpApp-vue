@@ -12,12 +12,12 @@
       <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Balkendiagrammmodus" data-balloon-pos="up" @click="changeAllCardsView('Balkendiagramm');notify('Balkendiagrammmodus'); markActive($event,'top');"><i class="fas fa-adjust"></i></div>
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Liniendiagrammmodus" data-balloon-pos="up" @click="changeAllCardsView('Liniendiagramm');notify('Liniendiagramm'); markActive($event,'top');"><i class="fab fa-creative-commons-share"></i></div>
+      <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Liniendiagrammmodus" data-balloon-pos="up" @click="changeAllCardsView('Liniendiagramm');notify('Liniendiagrammmodus'); markActive($event,'top');"><i class="fab fa-creative-commons-share"></i></div>
     </div>
     <hr>
     <div>
       <div class="cantusNlp_iconContainer">
-        <div class="cantusNlp_iconHolder" id="v-step-3" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom" @click="deleteAllCards(); notify('Ansichten entfernt')"></i></div>
+        <div class="cantusNlp_iconHolder" id="v-step-3" data-balloon="Karten entfernen" data-balloon-pos="up"><i class="fas fa-broom" @click="deleteAllCards(); notify('Karten entfernt')"></i></div>
       </div>
     </div>
     <v-tour name="myTour" :steps="steps">

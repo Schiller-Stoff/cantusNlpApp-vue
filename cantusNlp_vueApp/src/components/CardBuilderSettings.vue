@@ -7,7 +7,7 @@
             <option v-for="lo in libriOrdinarii" :value="lo.value">{{ lo.text }}</option>
           </select>
         </div>
-        <progress-button @click.prevent="createCard(selectedLO);notify('Voyant Ansicht erstellt')" id="v-step-101" name="duration" class="btn mb-2" :duration="loBtnClickBlockDuration">LO hinzufügen</progress-button>
+        <progress-button @click.prevent="createCard(selectedLO);notify('Nlp Karte erstellt')" id="v-step-101" name="duration" class="btn mb-2" :duration="loBtnClickBlockDuration">LO hinzufügen</progress-button>
         <div @click="notify('Maximiert/Minimiert'); maximizeApp()">
           <div id="v-step-102" class="cantusNlp_iconHolder" data-balloon="Maximieren" data-balloon-pos="right"><i class="far fa-window-maximize"></i></div>
         </div>
