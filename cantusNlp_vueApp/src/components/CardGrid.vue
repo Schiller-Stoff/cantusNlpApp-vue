@@ -10,8 +10,8 @@
                       v-if="cardsToCreate.length>0"
     >
 
-      <nlp-app-voyant-card :
-                           key="corpus.name"
+      <nlp-app-voyant-card
+                           :key="corpus.name"
                            :corpora="corpora"
                            v-for="corpus in cardsToCreate"
                            :linkedCorpus="corpus">
