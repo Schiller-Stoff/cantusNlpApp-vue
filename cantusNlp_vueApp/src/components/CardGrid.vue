@@ -12,7 +12,7 @@
 
       <nlp-app-voyant-card
                            v-for="nlpResult in cardsToCreate"
-                           :key="nlpResult.deletedTokens.length"
+                           :key="nlpResult.lo.value"
                            :linkedResult="nlpResult">
       </nlp-app-voyant-card>
 
@@ -130,7 +130,7 @@
 
         if(this.useDummyData){
           this.nlpResults.lo = loInfo
-          return this.cardsToCreate.push(this.nlpResults)
+          return this.cardsToCreate.push(Object.assign({}, this.nlpResults))
         }
 
         let query;
@@ -140,7 +140,7 @@
           },error=>{
             console.log("Unable to reach " + url)
           }).then(json =>{
-          this.cardsToCreate.push(json)
+          this.cardsToCreate.push(Object.assign({}, json))
 
         });
       },
