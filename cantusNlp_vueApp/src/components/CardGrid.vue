@@ -20,8 +20,17 @@
     <div class="container">
       <div class="row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
         <div class="col-lg-6">
-          <h1 id="v-step-10000">Cantus NLP Werkzeug</h1>
+          <h1 id="v-step-10000">Wilkommen zur Korpusanalyse / NLP</h1>
           <hr id="v-step-10004">
+          <p>Hier finden Sie eine Darstellung der NLP-Analyse über alle Libri Ordinarii hinweg, einerseits als Orginaltext und andererseits in lemmatisierter Form. Lemmatisierung, Tokenisierung etc. wurden mit Hilfe des "Classical Language Toolkits" in Python realisiert.
+            </p>
+          <br>
+          <h3>Voyant Tools</h3>
+          <hr>
+          <p>Die Visualisierung und Darstellung der NLP-Daten erfolgt in erster Linie mit Hilfe der Voyant Tools.
+            Diese Ansichten können via Klick entweder direkt auf entsprechenden Link oder auf das jeweilige Icon geöffnet werden.
+          </p>
+          <hr>
           <p>
             Mit dem Cantus NLP - Werkzeug können erste Eindrücke für den quantitativen Vergleich verschiedener Libri Ordinarii gewonnnen und je nach Bedarf Forschungsdatenmaterial im JSON-Format abgerufen werden.
             Es handelt sich hierbei um eine verkürzte Vorschau zusätzlich zur eigentlichen NLP Analyse direkt auf der Voyant-Tools Website.
@@ -166,7 +175,7 @@
     font-family:"Open Sans", Arial, Helvetica, sans-serif;
     line-height: 1.5;
     background-color: $blankColor;
-    h1 {color: $secondaryColor;font-size: 2em}
+    h1 {color: $secondaryColor;font-size: 2em; text-align: center}
     h3 {color: $secondaryColor; font-size: 1.5em}
     hr {color:$secondaryColor;background-color: lightgrey;margin-bottom: 1em; padding: .25em; border-radius: 1em}
     ul {
