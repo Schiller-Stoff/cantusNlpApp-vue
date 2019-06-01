@@ -34,27 +34,27 @@
       ></app-word-cloud>
       <app-bar-chart
         v-if="currentView==='Balkendiagramm'"
-        :chartData="barData"
+        :chartData="Object.assign([], barData)"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-bar-chart>
       <app-line-chart
         v-if="currentView==='Liniendiagramm'"
-        :chartData="barData"
+        :chartData="Object.assign([], barData)"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-line-chart>
       <app-pie-chart
         v-if="currentView==='Kreisdiagramm'"
-        :chartData="barData"
+        :chartData="Object.assign([], barData)"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-pie-chart>
       <app-radar-chart
         v-if="currentView==='Netzdiagramm'"
-        :chartData="barData"
+        :chartData="Object.assign([], barData)"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-radar-chart>
       <app-bubble-chart
         v-if="currentView==='Punktwolke'"
-        :chartData="bubbleData"
+        :chartData="Object.assign([], bubbleData)"
         :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
       ></app-bubble-chart>
       <br>
