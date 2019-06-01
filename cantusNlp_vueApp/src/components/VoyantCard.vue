@@ -1,7 +1,7 @@
 <template>
   <div class="card text-center VoyantCard_container" v-if="isShown" :style="cardSize">
     <div class="card-header">
-      <button class="btn btn-link float-right" @click="removeCard">Schließen</button>
+      <button class="btn btn-link float-right" @click="removeCard">Löschen</button>
       <button class="btn btn-link float-right" @click.prevent="toogleCardMaximized">{{cardMaximized ? 'Minimieren' : 'Maximieren'}}</button>
       <ul class="nav nav-tabs card-header-tabs">
 
@@ -30,32 +30,32 @@
         :color="undefined"
         :showTooltip="true"
         :rotate="{from: 0, to: 90, numOfOrientation: 2 }"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : ''"
+        :style="maximizedSize"
       ></app-word-cloud>
       <app-bar-chart
         v-if="currentView==='Balkendiagramm'"
         :chartData="Object.assign([], barData)"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
+        :style="maximizedSize"
       ></app-bar-chart>
       <app-line-chart
         v-if="currentView==='Liniendiagramm'"
         :chartData="Object.assign([], barData)"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
+        :style="maximizedSize"
       ></app-line-chart>
       <app-pie-chart
         v-if="currentView==='Kreisdiagramm'"
         :chartData="Object.assign([], barData)"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
+        :style="maximizedSize"
       ></app-pie-chart>
       <app-radar-chart
         v-if="currentView==='Netzdiagramm'"
         :chartData="Object.assign([], barData)"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
+        :style="maximizedSize"
       ></app-radar-chart>
       <app-bubble-chart
         v-if="currentView==='Punktwolke'"
         :chartData="Object.assign([], bubbleData)"
-        :style="(cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'"
+        :style="maximizedSize"
       ></app-bubble-chart>
       <br>
       <h5 class=".d-inline">{{ linkedResult.lo.text }}</h5>
@@ -102,6 +102,12 @@
         }
       },
       computed:{
+        maximizedSize(){
+
+          if(this.cardMaximized) return 'height: 70vh'
+
+          return (this.cardSize['min-width'] === '100%  !important') ? 'height: 600px' : 'height: 400px'
+        },
         barData(){
           let obj = {
             labels: [],
