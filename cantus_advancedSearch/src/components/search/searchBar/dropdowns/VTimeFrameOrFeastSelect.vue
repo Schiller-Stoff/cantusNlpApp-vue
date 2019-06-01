@@ -9,14 +9,6 @@
     >
        <i v-if="toggleOptions.toggable" :class="faClass"></i>
       {{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
-    <!--<app-model-select
-      v-if="searchShown"
-      :options="autoCompleteOptions"
-      v-model="chosenTimeFrame"
-      @input="inputFilled='feasts';vModelEmit($event);clearSelectFieldMethod()"
-      :style="inputFilled==='feasts' ? 'border:.2em solid lightgreen;' : '' "
-    ></app-model-select>-->
-
     <app-v-time-feast-select
       v-if="searchShown"
       v-model="selectedFeast"
