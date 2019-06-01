@@ -207,7 +207,7 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   @import "../scss/globalVariables.scss";
 
   .VoyantCard_container {
@@ -228,5 +228,10 @@
       height: 80% !important;
       border: none;
     }
+  }
+
+  // tooltip wordcloud
+  div.tooltip {
+    z-index: 1000000;
   }
 </style>
