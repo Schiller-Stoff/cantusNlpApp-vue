@@ -5,6 +5,7 @@
       @click="toggleSearchFields()"
       :data-balloon="toggleOptions.toggable ? (searchShown ? 'Einschränkung deaktivieren' : 'Einschränkung aktivieren') : undefined"
       data-balloon-pos="left"
+      :style="(!toggleOptions.toggable && (selectedFeast.value==='') && (selectedTimeFrame.value==='')) ? 'border:.15em solid tomato' : ''"
     >
        <i v-if="toggleOptions.toggable" :class="faClass"></i>
       {{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
