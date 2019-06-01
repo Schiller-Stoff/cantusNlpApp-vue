@@ -1,8 +1,8 @@
 <template>
   <div class="card text-center VoyantCard_container" v-if="isShown" :style="cardSize">
     <div class="card-header">
-      <button class="btn btn-link float-right" @click="removeCard">Close</button>
-      <button class="btn btn-link float-right" @click.prevent="resizeCard('400px', '600px')">Klein</button>
+      <button class="btn btn-link float-right" @click="removeCard">Schließen</button>
+      <button class="btn btn-link float-right" @click.prevent="toogleCardMaximized">{{cardMaximized ? 'Minimieren' : 'Maximieren'}}</button>
       <ul class="nav nav-tabs card-header-tabs">
 
         <li class="input-group nav-item mb-3" style="max-width: 250px;">
@@ -91,6 +91,7 @@
       props: ['linkedResult'],
       data(){
         return {
+          cardMaximized:false,
           currentView: "Wortwolke",
           isShown: true,
           resultDataDisplayed:false,
@@ -170,6 +171,15 @@
             "height": (height!==null) ? (height + " !important") : this.cardSize["height"]
           }
           console.log(this.cardSize);
+        },
+        toogleCardMaximized(){
+          this.cardMaximized = !this.cardMaximized
+          if(this.cardMaximized){
+            this.cardSize = {position:'fixed', height:'120vh', width: '100vw', left:0, top:0, overflow:'scroll',zIndex:'2000'}
+          } else {
+            this.cardSize = {"height": "600px", "min-width": "400px"}
+          }
+
         }
 
 
