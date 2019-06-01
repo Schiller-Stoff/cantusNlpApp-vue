@@ -71,11 +71,11 @@
 <script>
     import {EventBus} from "../main";
     import wordcloud from 'vue-wordcloud'
-    import BarChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/BarChart'
-    import LineChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/LineChart'
-    import PieChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/PieChart'
-    import RadarChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/RadarChart'
-    import BubbleChart from '../../../cantus_advancedSearch/src/components/result/compare/charts/BubbleChart'
+    import BarChart from './charts/BarChart'
+    import LineChart from './charts/LineChart'
+    import PieChart from './charts/PieChart'
+    import RadarChart from './charts/RadarChart'
+    import BubbleChart from './charts/BubbleChart'
 
 
     export default {
