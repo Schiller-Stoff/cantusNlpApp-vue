@@ -13,7 +13,9 @@
       <nlp-app-voyant-card
                            v-for="nlpResult in cardsToCreate"
                            :key="nlpResult.lo.value"
-                           :linkedResult="nlpResult">
+                           :linkedResult="nlpResult"
+                           :serverAndProtocol="serverAndProtocol"
+      >
       </nlp-app-voyant-card>
 
     </transition-group>
