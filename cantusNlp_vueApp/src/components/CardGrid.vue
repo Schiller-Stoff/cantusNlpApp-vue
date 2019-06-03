@@ -81,9 +81,10 @@
     data(){
       return {
         nlpResults,
-        useDummyData:true,
+        useDummyData:false,
         cardsToCreate: [],
-        showOrigCantus: false
+        showOrigCantus: false,
+        serverAndProtocol:"http://glossa.uni-graz.at"
       }
     },
     methods: {
@@ -142,14 +143,19 @@
           return this.cardsToCreate.push(Object.assign({}, this.nlpResults))
         }
 
-        let query;
+        let query = `${this.serverAndProtocol}/archive/objects/${loInfo.value}/datastreams/LEMMATA_OCCURENCES/content`;
         this.$http.get(query)
           .then(response=>{
             return response.json();
           },error=>{
-            console.log("Unable to reach " + url)
+            alert("Leider konnte keine Verbindung zu den NLP-Daten hergestellt werden. Bitte versuchen Sie es später erneut.")
+            console.warn("Unable to reach " + url)
           }).then(json =>{
-          this.cardsToCreate.push(Object.assign({}, json))
+            console.log("result received for: ")
+            console.log(loInfo.value)
+            console.log(json)
+            let dataObj = {lo:loInfo, mostFrequentLemmatas:json}
+            this.cardsToCreate.push(Object.assign({}, dataObj))
 
         });
       },
