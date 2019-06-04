@@ -37,31 +37,6 @@
       </div>
     </div>
     <hr>
-    <div>
-      <div
-        id="v-step-1002"
-        class="cantusNlp_iconHolder"
-        data-balloon="Originaler Gesamtkorpus"
-        data-balloon-pos="up">
-        <i
-          @click="notify('Springe zu Gesamtkorpus...'); openInNewTab('FILLME?')"
-          class="fab fa-adn">
-        </i>
-      </div>
-    </div>
-    <div>
-      <div
-        id="v-step-1003"
-        class="cantusNlp_iconHolder"
-        data-balloon="Lemmatisierter Gesamtkorpus"
-        data-balloon-pos="up">
-        <i
-          class="fab fa-vaadin"
-          @click="notify('Springe zu lemmatisierten Gesamtkorpus...'); openInNewTab('FILLME?')"
-        >
-        </i>
-      </div>
-    </div>
     <v-tour name="cardViewTour" :steps="steps">
       <template slot-scope="tour">
         <transition name="fade">
@@ -115,24 +90,6 @@
           {
             target: '#v-step-1001',  // We're using document.querySelector() under the hood
             content: `... und via click hier wieder <strong>verkleinert</strong>.`,
-            offset: document.documentElement.scrollTop - 150,
-            duration: 100,
-            params: {
-              placement: 'left'
-            }
-          },
-          {
-            target: '#v-step-1002',  // We're using document.querySelector() under the hood
-            content: `An dieser Stelle kann zur <strong>Gesamt-Korpus Ansicht in den Voyant Tools gewechselt</strong> werden.`,
-            offset: document.documentElement.scrollTop - 150,
-            duration: 100,
-            params: {
-              placement: 'left'
-            }
-          },
-          {
-            target: '#v-step-1003',  // We're using document.querySelector() under the hood
-            content: `...und hier selbiges für die <strong>Lemmata-Korpus Ansicht</strong>.`,
             offset: document.documentElement.scrollTop - 150,
             duration: 100,
             params: {
