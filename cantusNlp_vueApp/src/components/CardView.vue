@@ -4,7 +4,7 @@
       <div
         class="cantusNlp_iconHolder"
         data-balloon="Intro Ansichtsleiste"
-        data-balloon-pos="up">
+        data-balloon-pos="left">
         <i
           @click="notify('Intro Ansichtsleiste'), startVueTour()"
           class="fas fa-info-circle"
@@ -17,7 +17,7 @@
         id="v-step-1000"
         class="cantusNlp_iconHolder"
         data-balloon="Ansichten vergrößern"
-        data-balloon-pos="up">
+        data-balloon-pos="left">
         <i
           class="fas fa-th-large"
           @click="notify('Ansichten vergrößert');resizeAllCards('100%', '100vh');markActive($event,'top')">
@@ -29,7 +29,7 @@
         id="v-step-1001"
         class="cantusNlp_iconHolder"
         data-balloon="Ansichten verkleinern"
-        data-balloon-pos="up">
+        data-balloon-pos="left">
         <i
           class="fas fa-th"
           @click="notify('Ansichten verkleinert'); resizeAllCards('400px', '600px');markActive($event,'top')">

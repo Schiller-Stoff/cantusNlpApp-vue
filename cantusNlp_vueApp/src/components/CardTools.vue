@@ -9,7 +9,7 @@
       <div
         class="cantusNlp_iconHolder"
         id="v-step-0" data-balloon="Wortwolkenmodus"
-        data-balloon-pos="up"
+        data-balloon-pos="right"
         >
         <i
           class="fas fa-cloud"
@@ -18,35 +18,35 @@
       <!--<i class="fas fa-atlas fa-2x" @click="createLOCard"></i>-->
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Balkendiagrammmodus" data-balloon-pos="up">
+      <div class="cantusNlp_iconHolder" id="v-step-1" data-balloon="Balkendiagrammmodus" data-balloon-pos="right">
         <i
         class="far fa-chart-bar"
         @click="changeAllCardsView('Balkendiagramm');notify('Balkendiagrammmodus'); markActive($event,'top');"
         ></i></div>
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Liniendiagrammmodus" data-balloon-pos="up">
+      <div class="cantusNlp_iconHolder" id="v-step-2" data-balloon="Liniendiagrammmodus" data-balloon-pos="right">
         <i
         class="fas fa-chart-line"
         @click="changeAllCardsView('Liniendiagramm');notify('Liniendiagrammmodus'); markActive($event,'top');"
         ></i></div>
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-3" data-balloon="Kreisdiagrammmodus" data-balloon-pos="up">
+      <div class="cantusNlp_iconHolder" id="v-step-3" data-balloon="Kreisdiagrammmodus" data-balloon-pos="right">
         <i
         class="fas fa-chart-pie"
         @click="changeAllCardsView('Kreisdiagramm');notify('Kreisdiagrammmodus'); markActive($event,'top');"
         ></i></div>
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-4" data-balloon="Netzdiagrammmodus" data-balloon-pos="up">
+      <div class="cantusNlp_iconHolder" id="v-step-4" data-balloon="Netzdiagrammmodus" data-balloon-pos="right">
         <i
         class="fas fa-dharmachakra"
         @click="changeAllCardsView('Netzdiagramm');notify('Netzdiagrammmodus'); markActive($event,'top');"
         ></i></div>
     </div>
     <div class="cantusNlp_iconContainer">
-      <div class="cantusNlp_iconHolder" id="v-step-5" data-balloon="Punktwolkenmodus" data-balloon-pos="up">
+      <div class="cantusNlp_iconHolder" id="v-step-5" data-balloon="Punktwolkenmodus" data-balloon-pos="right">
         <i
         class="fab fa-rocketchat"
         @click="changeAllCardsView('Punktwolke');notify('Punktwolkenmodus'); markActive($event,'top');">
@@ -56,7 +56,7 @@
     <hr>
     <div>
       <div class="cantusNlp_iconContainer">
-        <div class="cantusNlp_iconHolder" id="v-step-6" data-balloon="Karten entfernen" data-balloon-pos="up"><i
+        <div class="cantusNlp_iconHolder" id="v-step-6" data-balloon="Karten entfernen" data-balloon-pos="right"><i
           class="fas fa-broom" @click="deleteAllCards(); notify('Karten entfernt')"></i></div>
       </div>
     </div>

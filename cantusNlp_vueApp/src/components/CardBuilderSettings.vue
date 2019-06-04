@@ -9,10 +9,10 @@
         </div>
         <progress-button @click.prevent="createCard(selectedLO);notify('Nlp Karte erstellt')" id="v-step-101" name="duration" class="btn mb-2" :duration="loBtnClickBlockDuration">LO hinzufügen</progress-button>
         <div @click="notify('Maximiert/Minimiert'); maximizeApp()">
-          <div id="v-step-102" class="cantusNlp_iconHolder" data-balloon="Maximieren" data-balloon-pos="right"><i class="far fa-window-maximize"></i></div>
+          <div id="v-step-102" class="cantusNlp_iconHolder" data-balloon="Maximieren" data-balloon-pos="down"><i class="far fa-window-maximize"></i></div>
         </div>
         <div id="cardBuilder_tourButton" @click="startVueTour();notify('Intro oben gestartet')">
-          <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="right"><i class="fas fa-info-circle"></i></div>
+          <div class="cantusNlp_iconHolder" data-balloon="Info Werkzeuge oben" data-balloon-pos="down"><i class="fas fa-info-circle"></i></div>
         </div>
 
       </form>
