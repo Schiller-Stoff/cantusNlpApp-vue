@@ -168,7 +168,7 @@
 
           for (let result of incipitSearch.response.body) {
             let objToPush = {
-              val:result.incipit,
+              val:this.capitFirstChar(result.incipit),
               href:result.i
             }
             innerArray.push(objToPush)
@@ -206,6 +206,9 @@
 
         let variant = splitArr[1].replace('.','|')
         return {refName,variant}
+      },
+      capitFirstChar(string){
+        return string.charAt(0).toUpperCase() + string.slice(1);
       }
     }
   }
