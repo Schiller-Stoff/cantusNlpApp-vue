@@ -102,20 +102,20 @@
 
         if(this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyTimeFrame}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()};$6|${this.chosenTimeFrame.text};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
 
         }
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()};$6|${this.chosenTimeFrame.text};$7|${this.chosenHora.text};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$5|${this.searchText.toLowerCase()};$7|${this.chosenHora.text};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
 
         }
@@ -123,7 +123,7 @@
 
         if(!this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.standardFullText}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$5|${this.searchText.toLowerCase()}`
+          let params = `$2|${this.chosenGenre.value};$5|${this.searchText.toLowerCase()};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
         }
 
