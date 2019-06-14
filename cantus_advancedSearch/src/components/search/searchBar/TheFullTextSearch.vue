@@ -146,8 +146,13 @@
 
         //this.$emit('demandFullTextSearch',{query: this.fullTextUrl, searchParams:{chosenText:this.searchText, chosenFeasts:this.chosenTimeFrame, chosenHora:this.chosenHora}})
 
+        this.$store.dispatch('incipit_markOngoingSearchAction', true)
+        window.location = this.fullTextUrl
 
-        return window.open( this.fullTextUrl)
+
+
+
+        //return window.open( this.fullTextUrl)
       }
     }
   }

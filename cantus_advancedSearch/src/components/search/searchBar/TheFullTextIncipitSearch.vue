@@ -134,9 +134,11 @@
     },
     methods: {
       navigateToQuery(){
-        //window.location.href=this.fullTextUrl
         if(this.searchText==='' ||this.chosenGenre.value==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an UND wählen Sie ein Genre.')
-        return window.open( this.fullTextIncipitUrl)
+        this.$store.dispatch('incipit_markOngoingSearchAction', true)
+        return window.location = this.fullTextIncipitUrl
+
+        //return window.open( this.fullTextIncipitUrl)
       }
     }
   }
