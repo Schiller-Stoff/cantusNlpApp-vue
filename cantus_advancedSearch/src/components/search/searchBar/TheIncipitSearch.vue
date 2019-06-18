@@ -47,6 +47,9 @@
       :text="'Suche Starten'"
       @click="initSearch"
     ></app-v-search-button>
+
+
+    <button class="btn btn-secondary" @click="clearIncipitResults">Suchergebnisse löschen</button>
     <br>
 
     <br>
@@ -126,6 +129,9 @@
       initSearch(){
         if(this.chosenLO.value==='' || this.chosenGenre.value==='' || this.chosenHora.value==='' || this.objectItem.value==='')return window.alert('Alle Eingabefelder müssen für die Suche gefüllt sein.')
         this.$emit('startIncipitSearch')
+      },
+      clearIncipitResults(){
+        this.$store.dispatch('incipit_clearAllAction')
       }
     }
   }
