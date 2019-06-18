@@ -41,7 +41,7 @@ export default {
   },
   data(){
     return {
-      searchBarMode:'appTheIncipitSearch',
+      searchBarMode:'appTheFullTextIncipitSearch',
       fadeInAtEvent: 'hidden',  //blending in dynamic components
     }
   },
