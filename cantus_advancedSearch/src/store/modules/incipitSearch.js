@@ -43,6 +43,18 @@ const mutations = {
   // 'search_setVizCompareQuery'(state,payload){
   //   state.vizCompareQuery = payload
   // }
+  'incipit_clearAll'(state,payload){
+    state.incipitSearchParams ={
+      chosenLO:'',
+        chosenFeasts:'',
+        chosenHora:'',
+        chosenGenre:''
+    },
+    state.incipitSearchResult = undefined,
+      state.incipitOngoingSearch = false,
+      state.incipitSearchFailed =false,
+      state.incipitSearchHistory =[]
+  }
 }
 
 const actions = {
@@ -64,6 +76,9 @@ const actions = {
   // 'search_setVizCompareQueryAction'({commit},payload){
   //   commit('search_setVizCompareQuery',payload)
   // }
+  'incipit_clearAllAction'({commit},payload){
+    commit('incipit_clearAll', payload)
+  }
 }
 
 const getters = {
