@@ -8,7 +8,7 @@
       :style="(!toggleOptions.toggable && (selectedFeast.value==='') && (selectedTimeFrame.value==='')) ? 'border:.15em solid tomato' : ''"
     >
        <i v-if="toggleOptions.toggable" :class="faClass"></i>
-      {{ searchShown ? 'Zeitraum' : 'Zeitraum einschränken' }}</span>
+      {{ searchShown ? 'Zeitraum oder Fest' : 'Zeitraum einschränken' }}</span>
     <app-v-time-feast-select
       v-if="searchShown"
       v-model="selectedFeast"
