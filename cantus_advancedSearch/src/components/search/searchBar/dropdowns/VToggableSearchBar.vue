@@ -119,6 +119,10 @@
       showInputMarker: {
         type:Boolean,
         default:true
+      },
+
+      storageKey:{
+        type: String
       }
 
     },
@@ -158,8 +162,14 @@
           return this.value;
         },
         set(v) {
+          if(this.storageKey)localStorage.setItem(this.storageKey.toString(), JSON.stringify(v))
           this.$emit('input', v)
         }
+      }
+    },
+    created(){
+      if(this.storageKey){
+        this.selectedValue = JSON.parse(localStorage.getItem(this.storageKey.toString()))
       }
     }
   }
