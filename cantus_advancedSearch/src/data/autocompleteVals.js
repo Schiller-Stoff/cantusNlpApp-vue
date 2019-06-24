@@ -870,6 +870,6 @@ export const autocompleteVals = [
   }, {value: '"16004000"', text: 'Invitatoria'}, {value: '"16011000"', text: 'In Dedic. Altaris'}, {
     value: '"17001000"',
     text: 'Additamenta'
-  }, {value: '"99999999"', text: 'Vigilia Ascensio Dom.'}, {value: '"99999998"', text: 'Viginti Quattuor Senatorum'}
+  }, {value: '"99999999"', text: 'Vigilia Ascensio Dom.'}, {value: '"99999998"', text: 'Viginti Quattuor Senatorum'},{value: '"00000000"', text: 'Commentarius'}
 
 ]
