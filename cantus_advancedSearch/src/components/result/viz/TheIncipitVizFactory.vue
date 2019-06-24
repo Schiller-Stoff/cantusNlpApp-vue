@@ -182,6 +182,8 @@
       incipitChartData: {
         immediate: true,  //needed to fire watcher at first data change
         handler(val){
+          //create new array when array starts to get filled.
+          if(this.incipitSearchHistory.length===1)array=[];
           array.push(val)
           //needs to be done that way -> otherwise reference will be lost
           //and this.incipitVizHistory will recreate on each call
