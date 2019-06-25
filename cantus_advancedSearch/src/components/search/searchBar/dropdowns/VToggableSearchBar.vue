@@ -175,7 +175,9 @@
     },
     created(){
       if(this.storageKey){
-        this.selectedValue = JSON.parse(localStorage.getItem(this.storageKey.toString()))
+        let storageEntry = JSON.parse(localStorage.getItem(this.storageKey.toString()))
+        this.selectedValue = storageEntry
+        this.fullTextInput = storageEntry.value
       }
     }
   }
