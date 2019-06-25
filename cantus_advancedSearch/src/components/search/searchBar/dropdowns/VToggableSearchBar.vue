@@ -174,11 +174,19 @@
       }
     },
     created(){
-      if(this.storageKey){
-        let storageEntry = JSON.parse(localStorage.getItem(this.storageKey.toString()))
-        this.selectedValue = storageEntry
-        if(this.toggleOptions.inputType ==='text')this.fullTextInput = storageEntry.value
+      // first check if a storage key is defined
+      // AND then if a valid value is inside.
+      if(!this.storageKey)return;
+      let storageEntry;
+      try {
+        storageEntry = JSON.parse(localStorage.getItem(this.storageKey.toString()));
+      } catch (e) {
+        return;
       }
+      if(!storageEntry)return;
+
+      this.selectedValue = storageEntry
+      if(this.toggleOptions.inputType ==='text')this.fullTextInput = storageEntry.value
     }
   }
 </script>
