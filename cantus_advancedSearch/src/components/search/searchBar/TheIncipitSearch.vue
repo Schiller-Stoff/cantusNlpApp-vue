@@ -7,7 +7,7 @@
       gesucht werden.
     </p>
     <p></p>
-    <p>Alle Auswahlfelder sind verpflichtend für die Suche anzugeben.</p>
+    <p>Alle Auswahlfelder (Zeitraum ODER Fest) sind verpflichtend für die Suche anzugeben.</p>
     <p>Im Gegensatz zu den anderen Suchmodi wird das Ergebnis direkt in der Spalte auf der rechten Seite visualisiert. Rechts oben
     kann zwischen verschiedenen Ansichten umgeschalten werden. Es steht eine quantitative Veranschaulichung der gefundenen Incipits einerseits
     in Form einer Tabelle, andererseits in Form eines Balken- und Liniendiagrammes zur Verfügung. </p>
