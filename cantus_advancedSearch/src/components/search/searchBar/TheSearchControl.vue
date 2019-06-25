@@ -3,20 +3,20 @@
 
     <div class="TheSearchControl_inlineBar">
       <div class="TheSearchControl_iconHolder" data-balloon="Zur Cantus Startseite" data-balloon-pos="up"><a href="http://gams.uni-graz.at/context:cantus"><i class="fas fa-home TheSearchControl_icons"></i></a></div>
-      <div class="searchBar_iconHolder"  :class="animatedAppearance" @click="demandSearchMode('appTheFullTextSearch')">
-        <div data-balloon="Erweiterte Volltextsuche (Standard)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fas fa-font TheSearchControl_icons"></i></div>
+      <div class="searchBar_iconHolder"  :class="animatedAppearance" @click="demandSearchMode('appTheFullTextSearch'); markActive('firstIcon')">
+        <div data-balloon="Erweiterte Volltextsuche (Standard)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="firstIcon" class="fas fa-font TheSearchControl_icons"></i></div>
       </div>
-      <div class="searchBar_iconHolder"  :class="animatedAppearance" @click="demandSearchMode('appTheFullTextIncipitSearch')">
-        <div data-balloon="Erweiterte Volltextsuche (Incipit)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fab fa-linkedin-in TheSearchControl_icons"></i></div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheFullTextIncipitSearch'); markActive('secondIcon')">
+        <div data-balloon="Erweiterte Volltextsuche (Incipit)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="secondIcon" class="fab fa-linkedin-in TheSearchControl_icons active"></i></div>
       </div>
-      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheIncipitSearch')">
-        <div data-balloon="Erweiterte Incipitsuche" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fas fa-list-ol TheSearchControl_icons"></i></div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheIncipitSearch'); markActive('thirdIcon')">
+        <div data-balloon="Erweiterte Incipitsuche" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="thirdIcon" class="fas fa-list-ol TheSearchControl_icons"></i></div>
       </div>
-      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheSearchHelpText')">
-        <div data-balloon="Hilfe" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="far fa-question-circle TheSearchControl_icons"></i></div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheSearchHelpText'); markActive('fourthIcon')">
+        <div data-balloon="Hilfe" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="fourthIcon" class="far fa-question-circle TheSearchControl_icons"></i></div>
       </div>
-      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="resetSearch">
-        <div data-balloon="Suche zurücksetzen" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fas fa-trash TheSearchControl_icons"></i></div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="resetSearch(); markActive('fifthIcon')">
+        <div data-balloon="Suche zurücksetzen" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="fifthIcon" class="fas fa-trash TheSearchControl_icons"></i></div>
       </div>
     </div>
 
@@ -34,6 +34,11 @@
       showFull: {
         type: Boolean,
         required: true
+      }
+    },
+    data(){
+      return {
+        lastRefVal:'secondIcon'
       }
     },
     computed: {
@@ -54,6 +59,11 @@
       resetSearch(){
         localStorage.clear();
         location.reload()
+      },
+      markActive(refVal){
+        if(this.lastRefVal!=='')this.$refs[this.lastRefVal].classList.remove('active')
+        this.$refs[refVal].classList.add('active')
+        this.lastRefVal = refVal
       }
 
     }
@@ -66,6 +76,10 @@
   .TheSearchControl_mainContainer {
     @include lg {
       padding-top: 6vh;
+    }
+    .active {
+      color: $fourthColor;
+      border-bottom: .15em dotted $fifthColor;
     }
   }
 
@@ -83,7 +97,7 @@
       &:hover {
         cursor: pointer;
         i {
-          color: $fourthColor
+          color: $fourthColor;
         }
       }
     }
