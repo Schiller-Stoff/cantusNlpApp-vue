@@ -177,7 +177,7 @@
       if(this.storageKey){
         let storageEntry = JSON.parse(localStorage.getItem(this.storageKey.toString()))
         this.selectedValue = storageEntry
-        this.fullTextInput = storageEntry.value
+        if(this.toggleOptions.inputType ==='text')this.fullTextInput = storageEntry.value
       }
     }
   }
