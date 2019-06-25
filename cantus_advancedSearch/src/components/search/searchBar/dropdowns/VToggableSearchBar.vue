@@ -4,7 +4,7 @@
 
     <div class="input-group" v-if="toggleOptions.inputType ==='text'">
       <span class="input-group-addon" id="basic-addon2"><i v-if="showInputMarker" :class="inputFilledMarker"></i>{{ searchButton.textInActive }}</span>
-      <input v-model="selectedValue" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2">
+      <input v-model="fullTextInput" type="text" class="form-control" placeholder="Text" aria-describedby="basic-addon2">
     </div>
 
 
@@ -129,7 +129,8 @@
     data(){
       return {
         showSearch: this.toggleOptions.mode==='normal' ? !this.searchToggable : false,
-        showTopLinkedSearch: this.toggleOptions.mode==='top' ? !this.searchToggable : false
+        showTopLinkedSearch: this.toggleOptions.mode==='top' ? !this.searchToggable : false,
+        fullTextInput: ''
       }
     },
     methods:{
@@ -165,6 +166,11 @@
           if(this.storageKey)localStorage.setItem(this.storageKey.toString(), JSON.stringify(v))
           this.$emit('input', v)
         }
+      }
+    },
+    watch: {
+      fullTextInput(){
+        this.selectedValue = {text:this.fullTextInput, value:this.fullTextInput}
       }
     },
     created(){
