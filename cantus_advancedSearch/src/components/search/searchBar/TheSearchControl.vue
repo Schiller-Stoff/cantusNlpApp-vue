@@ -15,6 +15,9 @@
       <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheSearchHelpText')">
         <div data-balloon="Hilfe" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="far fa-question-circle TheSearchControl_icons"></i></div>
       </div>
+      <div class="searchBar_iconHolder" :class="animatedAppearance" @click="resetSearch">
+        <div data-balloon="Suche zurücksetzen" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i class="fas fa-trash TheSearchControl_icons"></i></div>
+      </div>
     </div>
 
     <hr>
@@ -47,7 +50,12 @@
       },
       toggleFullScreen(){
 
+      },
+      resetSearch(){
+        localStorage.clear();
+        location.reload()
       }
+
     }
   }
 </script>
