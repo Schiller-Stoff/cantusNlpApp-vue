@@ -4,6 +4,7 @@
     :options="[{text:'',value:''}]"
     :toggleOptions="{mode:'normal',inputType:'text'}"
     v-model="selectedValue"
+    :storageKey="'fullText'"
   ></app-v-toggable-search-bar>
 </template>
 

@@ -6,6 +6,7 @@
       :options="libriOrdinarii"
       :searchToggable="searchToggable"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
+      :storageKey="'loSelect'"
     ></app-v-toggable-search-bar>
   </div>
 </template>

@@ -7,6 +7,7 @@
     @searchFieldToggled="emitSearchFieldShownStatus($event)"
 
     :toggleOptions="toggleOptions"
+    :storageKey="'horaeSelect'"
 
   ></app-v-toggable-search-bar>
 </template>

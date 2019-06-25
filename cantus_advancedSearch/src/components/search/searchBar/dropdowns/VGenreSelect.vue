@@ -8,6 +8,7 @@
       :toggleOptions="toggleOptions"
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
 
+      :storageKey="'genreSelect'"
 
     ></app-v-toggable-search-bar>
   </div>
