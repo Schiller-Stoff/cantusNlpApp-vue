@@ -85,7 +85,7 @@
       return {
         urlStart:`https://glossa.uni-graz.at/archive/objects/`,
 
-        searchText:'',
+        searchText:{text:'',value:''},
         chosenTimeFrame:{
           text:'',
           value:''
@@ -109,38 +109,38 @@
       fullTextUrl(){
         if(this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyTimeFrame}/methods/sdef:Query/get?params=`
-          let params = `$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()};$6|${this.chosenTimeFrame.text}`
+          let params = `$4|${this.chosenTimeFrame.value};$5|${this.searchText.value.toLowerCase()};$6|${this.chosenTimeFrame.text}`
           return queryStart + encodeURIComponent(params)
         }
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
-          let params = `$3|${this.chosenHora.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()};$6|${this.chosenTimeFrame.text};$7|${this.chosenHora.text}`
+          let params = `$3|${this.chosenHora.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.value.toLowerCase()};$6|${this.chosenTimeFrame.text};$7|${this.chosenHora.text}`
           return queryStart + encodeURIComponent(params)
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
-          let params = `$3|${this.chosenHora.value};$5|${this.searchText.toLowerCase()};$7|${this.chosenHora.text}`
+          let params = `$3|${this.chosenHora.value};$5|${this.searchText.value.toLowerCase()};$7|${this.chosenHora.text}`
           return queryStart + encodeURIComponent(params)
 
         }
 
         if(!this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.standardFullText}/methods/sdef:Query/get?params=`
-          let params = `$5|${this.searchText.toLowerCase()}`
+          let params = `$5|${this.searchText.value.toLowerCase()}`
           return queryStart + encodeURIComponent(params)
         }
 
       },
       allowSearch(){
-        return !(this.searchText==='')
+        return !(this.searchText.value==='')
       }
     },
     methods:{
       navigateToQuery(){
 
-        if(this.searchText==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an.')
+        if(this.searchText.value==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an.')
 
         //this.$emit('demandFullTextSearch',{query: this.fullTextUrl, searchParams:{chosenText:this.searchText, chosenFeasts:this.chosenTimeFrame, chosenHora:this.chosenHora}})
 
