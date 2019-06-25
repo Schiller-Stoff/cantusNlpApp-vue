@@ -80,7 +80,7 @@
       return {
         urlStart:`https://glossa.uni-graz.at/archive/objects/`,
 
-        searchText:'',
+        searchText:{text:'',value:''},
         chosenTimeFrame:{
           text:'',
           value:''
@@ -102,20 +102,20 @@
 
         if(this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyTimeFrame}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()};$6|${this.chosenTimeFrame.text};$8|${this.chosenGenre.text}`
+          let params = `$2|${this.chosenGenre.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.value.toLowerCase()};$6|${this.chosenTimeFrame.text};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
 
         }
 
         if(this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.timeFrameAndHorae}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.toLowerCase()};$6|${this.chosenTimeFrame.text};$7|${this.chosenHora.text};$8|${this.chosenGenre.text}`
+          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$4|${this.chosenTimeFrame.value};$5|${this.searchText.value.toLowerCase()};$6|${this.chosenTimeFrame.text};$7|${this.chosenHora.text};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
         }
 
         if(!this.timeFrameSearchActive && this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.onlyHorae}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$5|${this.searchText.toLowerCase()};$7|${this.chosenHora.text};$8|${this.chosenGenre.text}`
+          let params = `$2|${this.chosenGenre.value};$3|${this.chosenHora.value};$5|${this.searchText.value.toLowerCase()};$7|${this.chosenHora.text};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
 
         }
@@ -123,18 +123,18 @@
 
         if(!this.timeFrameSearchActive && !this.horaeSearchActive){
           let queryStart = `${this.urlStart + this.queryObjects.standardFullText}/methods/sdef:Query/get?params=`
-          let params = `$2|${this.chosenGenre.value};$5|${this.searchText.toLowerCase()};$8|${this.chosenGenre.text}`
+          let params = `$2|${this.chosenGenre.value};$5|${this.searchText.value.toLowerCase()};$8|${this.chosenGenre.text}`
           return queryStart + encodeURIComponent(params)
         }
 
       },
       allowSearch(){
-        return !(this.searchText==='' ||this.chosenGenre.value==='')
+        return !(this.searchText.value==='' ||this.chosenGenre.value==='')
       }
     },
     methods: {
       navigateToQuery(){
-        if(this.searchText==='' ||this.chosenGenre.value==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an UND wählen Sie ein Genre.')
+        if(this.searchText.value==='' ||this.chosenGenre.value==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an UND wählen Sie ein Genre.')
         this.$store.dispatch('incipit_markOngoingSearchAction', true)
         return window.location = this.fullTextIncipitUrl
 
