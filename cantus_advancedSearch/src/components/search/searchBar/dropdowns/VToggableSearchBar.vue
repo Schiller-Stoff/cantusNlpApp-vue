@@ -171,6 +171,12 @@
     watch: {
       fullTextInput(){
         this.selectedValue = {text:this.fullTextInput, value:this.fullTextInput}
+      },
+      value(){
+        //necessary so that slot works with local storage save
+        if(this.storageKey){
+          localStorage.setItem(this.storageKey.toString(), JSON.stringify(this.value))
+        }
       }
     },
     created(){
@@ -184,6 +190,7 @@
         return;
       }
       if(!storageEntry)return;
+      if(storageEntry.value==='')return;
 
       this.selectedValue = storageEntry
       if(this.toggleOptions.inputType ==='text')this.fullTextInput = storageEntry.value

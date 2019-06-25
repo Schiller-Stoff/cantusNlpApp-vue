@@ -8,6 +8,7 @@
       @searchFieldToggled="emitSearchFieldShownStatus($event)"
       :toggleOptions="{toggable:true,mode:'normal'}"
       :showInputMarker="showInputMarker"
+      :storageKey="'timeFrameSelect'"
     ></app-v-toggable-search-bar>
   </div>
 </template>

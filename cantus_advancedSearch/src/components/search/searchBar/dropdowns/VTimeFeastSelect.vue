@@ -5,6 +5,7 @@
     :toggleOption="{mode:'normal',inputType:'select'}"
     v-model="selectedValue"
     :showInputMarker="showInputMarker"
+    :storageKey="'timeFeastSelect'"
   >
     <app-model-select slot="optional"
       v-if="true"
