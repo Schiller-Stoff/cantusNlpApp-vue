@@ -169,7 +169,8 @@
           for (let result of incipitSearch.response.body) {
             let objToPush = {
               val:this.capitFirstChar(result.incipit) + ' (' + result.feastlabel.toUpperCase() + ')',
-              href:result.i
+              href:result.i,
+              'class': result.incipit.substring(0,3)
             }
             innerArray.push(objToPush)
           }

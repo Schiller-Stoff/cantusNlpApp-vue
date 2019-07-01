@@ -6,7 +6,9 @@
           <li
             class="list-group-item"
             v-for="(result,index) in item"
-            :class="assignLiClass(result.type)"
+            :class="assignLiClass(result.type) + ' ' + result.class"
+            @mouseenter="highlightLis($event)"
+            @mouseleave="deHighlight"
           >
             <a :href="result.type==='header' ? '' : result.href" :style="result.type==='header' ? 'text-decoration:none;color:white' : ''">
               {{ index!==0 ? (result.val) :
@@ -70,6 +72,11 @@
         }
       }
     },
+    data(){
+      return {
+        lastLis:[]
+      }
+    },
     methods:{
       assignLiClass(val){
         switch (val) {
@@ -82,7 +89,26 @@
           default:
             return ''
         }
+      },
+      highlightLis(evt){
+        let elem = evt.target
+        let className = evt.target.classList[elem.classList.length-1].toString()
+        let all = document.querySelectorAll('.' + className)
 
+        //saving reference for toggle (for the deHighlight method)
+        this.lastLis = all;
+
+        for (let i = 0; i < all.length; i++) {
+          let cur = all[i]
+          cur.classList.add('highlighted')
+        }
+      },
+      deHighlight(){
+        let all = this.lastLis;
+        for (let i = 0; i < all.length; i++) {
+          let cur = all[i]
+          cur.classList.remove('highlighted')
+        }
       }
     }
   }
@@ -90,6 +116,10 @@
 
 <style scoped lang="scss">
   @import "../../../scss/globalVariables/globalVariables";
+
+  .highlighted {
+    background-color: $primaryColor;
+  }
 
   .VCompareList_outerLi {
     vertical-align: top;
@@ -114,6 +144,7 @@
       padding:0;
 
       li {
+        transition: background-color .25s ;
         border-top-left-radius:0;
         border-top-right-radius: 0;
       }
