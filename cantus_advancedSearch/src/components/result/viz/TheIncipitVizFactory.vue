@@ -166,13 +166,22 @@
             type:'subHeader'
           })
 
+          //for marking related feasts
+          let counter = 0;
+          let lastfeastCode;
+
           for (let result of incipitSearch.response.body) {
+
+            if(lastfeastCode!==result.feastcode)counter=0;
+
             let objToPush = {
               val:this.capitFirstChar(result.incipit) + ' (' + result.feastlabel.toUpperCase() + ')',
               href:result.i,
-              'class': 'f' + result.feastcode + '_' + result.seq
+              'class': 'f' + result.feastcode + '_' + counter
             }
             innerArray.push(objToPush)
+            lastfeastCode = result.feastcode;
+            counter++;
           }
           array.push(innerArray)
         }
