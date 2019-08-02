@@ -170,7 +170,7 @@
             let objToPush = {
               val:this.capitFirstChar(result.incipit) + ' (' + result.feastlabel.toUpperCase() + ')',
               href:result.i,
-              'class': result.incipit.substring(0,3)
+              'class': ('f' + result.feastcode + '_' + result.seq).replace(' ','')
             }
             innerArray.push(objToPush)
           }
