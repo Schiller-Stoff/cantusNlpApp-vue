@@ -7,13 +7,13 @@
             class="list-group-item"
             v-for="(result,index) in item"
             :class="assignLiClass(result.type) + ' ' + result.class"
-            @mouseenter="highlightLis($event)"
-            @mouseleave="deHighlight"
+
           >
             <a :href="result.type==='header' ? '' : result.href" :style="result.type==='header' ? 'text-decoration:none;color:white' : ''">
               {{ index!==0 ? (result.val) :
               `${result.val}` }}
             </a>
+            <span v-if="index > 3" data-balloon="Mark incipit position" aria-label="Incipit position" data-balloon-pos="up"><i class="fas fa-thumbtack" @click="deHighlight(); highlightLis($event)"></i></span>
             <span v-if="result.type==='header'" class="badge">{{item.length-4}}</span>
           </li>
         </ul>
@@ -92,7 +92,7 @@
       },
       highlightLis(evt){
         let elem = evt.target
-        let className = evt.target.classList[elem.classList.length-1].toString()
+        let className = evt.target.parentElement.parentElement.classList[elem.classList.length-1].toString()
         let all = document.querySelectorAll('.' + className)
 
         //saving reference for toggle (for the deHighlight method)
@@ -138,6 +138,9 @@
     }
     a {
       color: $secondaryColor;
+    }
+    i {
+      cursor: pointer;
     }
     & > li {
       border: none;
