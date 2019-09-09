@@ -31,7 +31,7 @@ export const libriOrdinarii = [
   {text:'Erzdiözese Salzburg VO (A-VOR 99)',value:'o:cantus.salzburg.vo'},
 
   {text:'Seckau (CRSA) Seckau 1 (A-Gu 208)',value:'o:cantus.seckau1.se1'},
-  {text:'Seckau (CRSA) Seckau 2',value:'o:cantus.seckau2'},
+  {text:'Seckau (CRSA) Seckau 2 (A-Gu 756)',value:'o:cantus.seckau2'},
   {text:'Seckau (CRSA) Seckau 3 (A-Gu 1566)',value:'o:cantus.seckau3'},
 
   {text:'Vorau-Salzburg (CRSA) (A-VOR 333)',value:'o:cantus.vorau'}
