@@ -141,7 +141,10 @@
       navigateToQuery(){
 
         if(this.searchText.value==='')return window.alert('Bitte geben Sie einen Suchtext im Feld "Volltextsuche" an.')
-
+        if(this.searchText.value.toLowerCase().replace(/ /g,'')==='chucknorris'){
+          window.alert("Seriously? Chuck Norris in a Liber Ordinarius?")
+          return window.location = "https://web.archive.org/web/20161125105323/http://www.chucknorrisfacts.com/"
+        }
         //this.$emit('demandFullTextSearch',{query: this.fullTextUrl, searchParams:{chosenText:this.searchText, chosenFeasts:this.chosenTimeFrame, chosenHora:this.chosenHora}})
 
         this.$store.dispatch('incipit_markOngoingSearchAction', true)
