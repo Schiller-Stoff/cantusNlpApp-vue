@@ -34,7 +34,7 @@
     data(){
       return {
         // settings data
-        urlStart:'https://glossa.uni-graz.at/archive/objects',
+        urlStart:'https://gams.uni-graz.at/archive/objects',
         useDummyData:false,
 
         // used class variables

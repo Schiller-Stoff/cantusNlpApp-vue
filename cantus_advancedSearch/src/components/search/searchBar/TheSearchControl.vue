@@ -2,7 +2,7 @@
   <div class="container-fluid TheSearchControl_mainContainer">
 
     <div class="TheSearchControl_inlineBar">
-      <div class="TheSearchControl_iconHolder" data-balloon="Zur Cantus Startseite" data-balloon-pos="up"><a href="http://gams.uni-graz.at/context:cantus"><i class="fas fa-home TheSearchControl_icons"></i></a></div>
+      <div class="TheSearchControl_iconHolder" data-balloon="Zur Cantus Startseite" data-balloon-pos="up"><a href="/context:cantus"><i class="fas fa-home TheSearchControl_icons"></i></a></div>
       <div class="searchBar_iconHolder"  :class="animatedAppearance" @click="demandSearchMode('appTheFullTextSearch'); markActive('firstIcon')">
         <div data-balloon="Erweiterte Volltextsuche (Standard)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="firstIcon" class="fas fa-font TheSearchControl_icons"></i></div>
       </div>

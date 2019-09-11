@@ -86,7 +86,7 @@
         useDummyData:false,
         cardsToCreate: [],
         showOrigCantus: false,
-        serverAndProtocol:"https://glossa.uni-graz.at"
+        serverAndProtocol:"https://gams.uni-graz.at"
       }
     },
     methods: {
