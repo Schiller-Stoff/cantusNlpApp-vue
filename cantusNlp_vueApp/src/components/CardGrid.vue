@@ -22,41 +22,37 @@
     <div class="container">
       <div class="row" id="cardGrid_defaultContent" v-if="cardsToCreate.length===0">
         <div class="col-lg-6">
-          <h1 id="v-step-10000">Wilkommen zur Korpusanalyse / NLP</h1>
+          <h5 id="v-step-10000">Vergleichende Korpusanalyse / NLP</h5>
           <hr id="v-step-10004">
-          <p>Hier finden Sie eine Darstellung der NLP-Analyse über alle Libri Ordinarii hinweg, einerseits als Orginaltext und andererseits in lemmatisierter Form. Lemmatisierung, Tokenisierung etc. wurden mit Hilfe des "Classical Language Toolkits" in Python realisiert.
-            </p>
           <br>
-          <h3>Voyant Tools</h3>
+          <h6>Datengrundlage</h6>
           <hr>
-          <p>Die Visualisierung und Darstellung der NLP-Daten erfolgt in erster Linie mit Hilfe der Voyant Tools.
-            Diese Ansichten können via Klick entweder direkt auf entsprechenden Link oder auf das jeweilige Icon geöffnet werden.
-          </p>
-          <hr>
-          <p>
-            Mit dem Cantus NLP - Werkzeug können erste Eindrücke für den quantitativen Vergleich verschiedener Libri Ordinarii gewonnnen und je nach Bedarf Forschungsdatenmaterial im JSON-Format abgerufen werden.
-            Es handelt sich hierbei um eine verkürzte Vorschau zusätzlich zur eigentlichen NLP Analyse direkt auf der Voyant-Tools Website.
-            Im Felde links neben dem "LO-hinzufügen" Knopf befindet sich ein Auswahlmenü mit dem eine quantitative Visualisierung an Ort und Stelle hinzugefügt werden kann. Einzelne Info-Knöpfe
-            an den drei Seiten des Containers geben Auskünfte über die Verwendung des NLP-Werkzeuges.
-          </p>
-          <h3>NLP / Korpusanalyse</h3>
-          <hr>
-          <p>Hier finden Sie eine Darstellung der NLP-Analyse über alle Libri Ordinarii hinweg, einerseits als Orginaltext und andererseits in lemmatisierter Form. Lemmatisierung, Tokenisierung etc. wurden mit Hilfe des "Classical
-            Language Toolkits" in Python realisiert.</p>
-          <h3>Der Lemmatisierte Text</h3>
+          <p>Als Datengrundlage dienten die auf der Webseite herunterladbaren TEI-XML Dateien, die für die Analyse in "plain-text" umgewandelt wurden.
+          Dabei wurden Metainformationen des TEI-Headers ignoriert und ausschließlich der Text im TEI-Body verwendet. Weiter wurden editorische
+          Hinzufügungen über eigene XSLT Stylesheets herausgefiltert.</p>
+          <br>
+          <h6>Datenprozessierung</h6>
           <hr>
           <p>
-            Der Text wurde mit Hilfe der Python Bibliothek "Classical Language Toolkit" tokenisiert, lemmatisiert, wie auch
-            Stopwörter entfernt. Die dabei enstandenen Analysedaten können den einzelnen Karten unter dem
-            Menüpunkt "JSON-Daten" entnommen werden. Über das JSON-Format können so entfernte Wörter, der Prozentsatz unbekannter Wörter
-            (für den CLTK-Lemmatisierer) und alle unbekannten Wörter abgefragt werden.
-            Selbiger lemmatisierter Text steht ebenso allen einzelnen Libri Ordinarii zu Verfügung und kann einzeln
-            über die "Lesetext" - Ansicht angesteuert werden.
+          Im nächsten Schritt erfolgte die Weiterverarbeitung der nun vorhandenen reinen Textdaten über String-Operationen in der Programmiersprache Python.
+          Es wurden fehlerhafte bzw. ungünstige Textartefakte entfernt (wie zum Beispiel doppelte Leerzeichen erzeugt durch die Entfernung von editorischen Anmerkungen via XSLT).
+          Erst danach erfolgte der eigentliche NLP-Arbeitsprozess unter Einsatz der Python-Bibliothek "Classical Language Toolkit". Damit wurden die vorbereiteten LO-Texte
+            (als plain-text) tokenisiert und Stoppwörter entfernt. Schließlich wurde für jeden LO eine eigene lemmatisierte Version errechnet, die nun ebenso wie
+            die Originaltexte über die Voyant-Tools analysierbar sind.
           </p>
+          <br>
+          <h6>Lemmaliste</h6>
           <hr>
+          <p>Für die Auflösung der berechneten Lemmata (wie zum Beispiel "dico2") wird die <a href="https://github.com/cltk/latin_pos_lemmata_cltk">Lemmaliste</a> des CLTK benötigt.</p>
+          <br>
+          <h6>Lemmatisierung - Vergleichende Analyse</h6>
+          <hr>
+          <p>
+            Im letzten Schritt wurden die Lemmata gezählt und die häufigsten (all jene die über 100 mal vorkommen) dem Vergleichswerkzeug zur Verfügung gestellt.
+          </p>
         </div>
         <div class="col-lg-6">
-          <h3>Eine Kurze Anleitung</h3>
+          <h6>"Vergleichswerkzeug"</h6>
           <hr>
           <ul>
             <li>Via Click auf das Navigationsmenü links oben kann eine "NLP Karte" eingefügt werden. </li>
