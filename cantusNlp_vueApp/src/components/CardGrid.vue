@@ -52,14 +52,25 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <h6>"Vergleichswerkzeug"</h6>
+          <h5>"Vergleichswerkzeug"</h5>
           <hr>
+          <h6>Kurzanleitung</h6>
           <ul>
             <li>Via Click auf das Navigationsmenü links oben kann eine "NLP Karte" eingefügt werden. </li>
             <li>Auf der linken Seite befinden sich Werkzeuge um Operationen auf alle Karten anwenden zu können.</li>
             <li>Zur Rechten: Veränderung der Größe der einzelnen Karten, sowie links zum originalen und lemmatisierten
               Korpus.</li>
           </ul>
+          <h6>Benutzungshinweis</h6>
+          <hr>
+          <p>Bei diesem NLP Vergleichswerkzeug handelt es sich um eine experimentelle Applikation die - zusätzlich zur eigentlichen Analyse via den Voyant-Tools -
+          eine vergleichende Visualisierung der gewonnenen Lemmatisierungsdaten anbieten soll.
+          </p>
+          <p>Die korrekte Funktionsweise der Applikation ist dabei stark von der zur Verfügung stehenden Leistungsstärke des verwendeten Gerätes und
+          von der Datenmenge des jeweiligen LO abhängig. Schlägt die experimentelle Visualisierung an dieser Stelle fehl kann jedoch immer auf die
+          Voyant Tools zurückgegriffen werden. </p>
+          <hr>
+
         </div>
       </div>
       </div>
