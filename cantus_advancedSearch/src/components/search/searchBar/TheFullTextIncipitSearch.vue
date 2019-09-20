@@ -78,7 +78,7 @@
     },
     data(){
       return {
-        urlStart:`https://glossa.uni-graz.at/archive/objects/`,
+        urlStart:`https://gams.uni-graz.at/archive/objects/`,
 
         searchText:{text:'',value:''},
         chosenTimeFrame:{
