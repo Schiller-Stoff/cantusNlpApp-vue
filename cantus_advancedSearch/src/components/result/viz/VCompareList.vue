@@ -9,7 +9,7 @@
             :class="assignLiClass(result.type) + ' ' + result.class"
 
           >
-            <a :href="result.type==='header' ? '' : result.href" :style="result.type==='header' ? 'text-decoration:none;color:white' : ''">
+            <a target="_blank" :href="result.type==='header' ? '' : result.href" :style="result.type==='header' ? 'text-decoration:none;color:white' : ''">
               {{ index!==0 ? (result.val) :
               `${result.val}` }}
             </a>
