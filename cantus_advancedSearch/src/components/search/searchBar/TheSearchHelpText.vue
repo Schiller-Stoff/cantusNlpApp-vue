@@ -1,14 +1,14 @@
 <template>
     <div class="container-fluid">
-      <h4>Wilkommen zur erweiterten Suche von Cantus</h4>
-      <p>Die erweiterte Suche von Cantus besteht aus drei unterschiedlichen Suchmodi, die über die Knöpfe oben aufgerufen werden können.</p>
+      <h4>Wilkommen zur erweiterten Suche von Cantus Network</h4>
+      <p>Die erweiterte Suche besteht aus drei Modi, die über die Auswahlbuttons aktiviert werden können:</p>
       <br>
       <ol>
         <li>
           <p>Erweiterte Volltextsuche</p>
         </li>
         <li>
-          <p>Erweiterte Volltextsuche auf Basis von Incipits</p>
+          <p>Einfache Incipitsuche</p>
         </li>
         <li>
           <p>Erweiterte Incipitsuche</p>
@@ -16,12 +16,13 @@
       </ol>
       <br>
 
-      <p>Verwenden Sie die Texteingabefelder um einen Suchbegriff in den Texten von Cantus zu suchen und schränken
-      Sie mit Hilfe der Auswahllisten das Suchresultat ein.</p>
+      <p>Verwenden Sie die Eingabefelder, um nach Text zu suchen. Schränken Sie mit Hilfe der Auswahllisten oder -buttons das Suchergebnis ein.</p>
 
-      <p>Die für Cantus erstellten RDF Daten werden dabei über SPARQL abgefragt und das Ergebnis mit Hilfe von Javascript etc. visualisiert.</p>
+      <p>Verwenden Sie * als Platzhalter um Ihre Suchanfrage auf ähnliche Schreibweisen auszudehnen. (z.B. Gregor* für "Gregorius", "Gregorii" etc.) </p>
 
-      <p>Weitere Bedienungshilfe wie zum Beispiel zu den möglichen und notwendigen Sucheinschränkungen erhalten Sie bei den einzelnen Suchmodi.</p>
+      <p>Haben Sie bitte Verständnis, dass die Suchanfragen etwas Zeit in Anspruch nehmen können.</p>
+
+      <p>Weitere Hinweise zur Bedienung erhalten Sie bei den einzelnen Suchmodi.</p>
 
     </div>
 </template>

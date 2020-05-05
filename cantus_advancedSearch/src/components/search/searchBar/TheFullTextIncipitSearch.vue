@@ -1,14 +1,12 @@
 <template>
   <div class="container-fluid TheFullTextIncipitSearch_mainContainer">
-    <h4>Erweiterte Volltextsuche (Incipit)</h4>
+    <h4>Einfache Incipitsuche</h4>
     <br>
     <p>
-      Die Erweiterte Volltextsuche auf Basis von Incipits erlaubt eine zusätzliche Einschränkung auf Genres.
-      Dabei muss für den "minimalen Suchvorgang" zumindest ein Buchstabe im Volltextsuchfeld eingetragen und ein Genre
-      gewählt worden sein. (Der Suchknopf wechselt seine Farbe zu Grün sobald eine gültige Sucheingabe erreicht worden ist)
+      Die Incipitsuche nach Sprech- oder Gesangstexten erlaubt eine Einschränkung auf das gesuchte Genre. Optional kann zudem der Zeitraum und/oder die Hora festgelegt werden. Wählen Sie dazu das Gerne aus und klicken optional auf die jeweiligen Auswahlbuttons. Ein erneutes Anklicken hebt die jeweilige Suchbedingung wieder auf. 
     </p>
     <p>
-      Die Einschränkung auf Zeitraum und Horaen sind optional und können jederzeit hinzu- oder abgeschalten werden.
+      Der Suchbutton am unteren Ende erscheint grün, sobald die Anforderungen für einen Suchvorgang ausreichend sind. Dafür muss zumindest ein Buchstabe im Suchfeld eingetragen und ein Genre ausgewählt worden sein. Die Suchergebnisse werden in einem neuen Browser-Tab in der Editionsansicht angezeigt. Die Suchanfrage bleibt im ursprünglichen Tab erhalten.
 
     </p>
     <br>

@@ -2,19 +2,15 @@
   <div>
 
     <div class="TheFullTextSearch_searchContstraintsContainer">
-    <h4>Erweiterte Volltextsuche (Standard)</h4>
+    <h4>Erweiterte Volltextsuche</h4>
       <br>
       <p>
-        Bei der Erweiterten Volltextsuche muss im Gegensatz zur einfachen der Suchbegriff exakt eingegeben werden. In den
-        Auswahllisten kann zudem auf einen vordefinierten Zeitraum oder Horaen (oder auf beides zugleich) eingeschränkt werden.
-        Klicken Sie dazu auf jeweiligen Knöpfe und treffen Sie eine Auswahl. Erneuter Klick hebt die jeweilige Suchbedingung
-        wieder auf.
+        Bei der erweiterten Volltextsuche, bei der sowohl Incipits als auch Rubriken berücksichtigt werden, muss (im Gegensatz zur einfachen) der Suchbegriff exakt eingegeben werden. In den Auswahllisten kann optional auf einen vordefinierten Zeitraum oder eine bestimmte Hora (oder auf beides zugleich) eingeschränkt werden. Klicken Sie dazu auf die jeweiligen Buttons. Ein erneutes Anklicken hebt die jeweilige Suchbedingung auf. 
       </p>
       <p>
       </p>
       <p>
-        Der Suchknopf am unteren Ende der Spalte erscheint grün sobald das Minimum für einen erfolgreichen Suchvorgang
-        erreicht ist. (Zumindest ein Buchstabe im Suchfeld muss dafür eingetragen worden sein)
+        Der Suchbutton am unteren Ende erscheint grün, sobald die Anforderungen für einen Suchvorgang ausreichend sind. Dafür muss zumindest ein Buchstabe im Suchfeld eingetragen worden sein. Die Suchergebnisse werden in einem neuen Browser-Tab in der Editionsansicht angezeigt. Die Suchanfrage bleibt im ursprünglichen Tab erhalten.
       </p>
       <br>
 

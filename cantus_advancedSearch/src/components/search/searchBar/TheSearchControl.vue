@@ -4,10 +4,10 @@
     <div class="TheSearchControl_inlineBar">
       <div class="TheSearchControl_iconHolder" data-balloon="Zur Cantus Startseite" data-balloon-pos="up"><a href="/context:cantus"><i class="fas fa-home TheSearchControl_icons"></i></a></div>
       <div class="searchBar_iconHolder"  :class="animatedAppearance" @click="demandSearchMode('appTheFullTextSearch'); markActive('firstIcon')">
-        <div data-balloon="Erweiterte Volltextsuche (Standard)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="firstIcon" class="fas fa-font TheSearchControl_icons"></i></div>
+        <div data-balloon="Erweiterte Volltextsuche" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="firstIcon" class="fas fa-font TheSearchControl_icons"></i></div>
       </div>
       <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheFullTextIncipitSearch'); markActive('secondIcon')">
-        <div data-balloon="Erweiterte Volltextsuche (Incipit)" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="secondIcon" class="fab fa-linkedin-in TheSearchControl_icons active"></i></div>
+        <div data-balloon="Einfache Incipitsuche" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="secondIcon" class="fab fa-linkedin-in TheSearchControl_icons active"></i></div>
       </div>
       <div class="searchBar_iconHolder" :class="animatedAppearance" @click="demandSearchMode('appTheIncipitSearch'); markActive('thirdIcon')">
         <div data-balloon="Erweiterte Incipitsuche" data-balloon-pos="up" class="TheSearchControl_iconHolder"><i ref="thirdIcon" class="fas fa-list-ol TheSearchControl_icons"></i></div>

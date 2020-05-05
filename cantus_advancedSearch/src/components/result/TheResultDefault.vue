@@ -1,7 +1,7 @@
 <template>
 
   <div class="container-fluid" id="TheResultDefault_mainContainer">
-    <h2>Cantus Erweiterte Suche</h2>
+    <h2>Erweiterte Suche</h2>
     <hr>
     <br>
     <div v-if="!showFullContent" class="ResultDefault_iconHolder">

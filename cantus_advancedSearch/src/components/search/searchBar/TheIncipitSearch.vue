@@ -3,16 +3,11 @@
     <h4>Erweiterte Incipitsuche</h4>
     <br>
     <p>
-      Mit Hilfe der Erweiterten Incipitsuche können Incipits in den Cantus Texten nach den vordefinierten Sucheinschränkungen
-      gesucht werden.
+      Die Incipitsuche nach Sprech- oder Gesangstexten erlaubt eine Einschränkung auf die vordefinierten Filter. Dabei sind alle Auswahlfelder verpflichtend auszuwählen (Zeitraum oder alternativ das jeweilige Fest).
     </p>
     <p></p>
-    <p>Alle Auswahlfelder (Zeitraum <em>ODER</em> Fest) sind verpflichtend für die Suche anzugeben.</p>
-    <p>Im Gegensatz zu den anderen Suchmodi wird das Ergebnis direkt in der Spalte auf der rechten Seite visualisiert. Rechts oben
-    kann zwischen verschiedenen Ansichten umgeschalten werden. Es steht eine quantitative Veranschaulichung der gefundenen Incipits einerseits
-    in Form einer Tabelle, andererseits in Form eines Balken- und Liniendiagrammes zur Verfügung. </p>
-
-    <p>Das Ergebnis versteht sich als Visualisierung des Suchverlauf. Weitere Sucheingaben führen zu einem "weiteren Aufbau" der Tabelle bzw. Visualisierungen.</p>
+    <p>Im Gegensatz zu den anderen Suchmodi wird das Ergebnis direkt in der Spalte auf der rechten Seite visualisiert. Rechts oben kann zwischen verschiedenen Ansichten gewechselt werden. Eine quantitative Visualisierung der gefundenen Incipits steht in Form einer Tabelle sowie als Balken- und Liniendiagramm zur Verfügung.</p>
+    <p>Weitere Suchanfragen werden als Verlauf dokumentiert und können so synoptisch betrachtet werden.</p>
     <br>
 
     <app-v-librii-ordinarii-select
